@@ -12,16 +12,16 @@ const steps = [
   {
     icon: Sparkles,
     step: "02",
-    title: "AI matchar produkter",
+    title: "Se din klimatpåverkan",
     description:
-      "Produkterna matchas mot 320 000+ livsmedelsprodukter med klimatdata.",
+      "För varje produkt visar vi exakt hur mycket CO₂ du sparar jämfört med andra val.",
   },
   {
     icon: BarChart3,
     step: "03",
     title: "Samla poäng",
     description:
-      "Valde du hållbart? Du får poäng! Ju bättre val, desto mer tjänar du.",
+      "Valde du hållbart? Du får poäng baserat på hur mycket CO₂ du sparat!",
   },
   {
     icon: Gift,

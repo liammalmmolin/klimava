@@ -11,9 +11,9 @@ import {
 const features = [
   {
     icon: Receipt,
-    title: "Kvittoscanning",
+    title: "CO₂-värde per val",
     description:
-      "AI läser ditt kvitto och matchat produkter mot klimatdata. Automatiskt och snabbt.",
+      "Se exakt hur mycket CO₂ du sparar för varje produkt du köper. Riktig data, riktigt värde.",
     color: "from-primary to-secondary",
   },
   {

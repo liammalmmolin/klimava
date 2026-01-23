@@ -22,22 +22,22 @@ export const Header = () => {
 
         <nav className="hidden md:flex items-center gap-8">
           <a
-            href="#how-it-works"
+            href="/#how-it-works"
             className="text-muted-foreground hover:text-foreground transition-colors"
           >
             Så funkar det
           </a>
           <a
-            href="#features"
+            href="/#features"
             className="text-muted-foreground hover:text-foreground transition-colors"
           >
             Funktioner
           </a>
           <a
-            href="#download"
+            href="/grundare"
             className="text-muted-foreground hover:text-foreground transition-colors"
           >
-            Ladda ner
+            Om oss
           </a>
         </nav>
 
