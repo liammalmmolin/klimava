@@ -1,5 +1,5 @@
 import klimavaLogo from "@/assets/klimava-logo.jpeg";
-import { Leaf } from "lucide-react";
+import { Leaf, Mail, Instagram } from "lucide-react";
 
 export const Footer = () => {
   return (
@@ -16,10 +16,29 @@ export const Footer = () => {
               />
               <span className="text-xl font-bold">Klimava</span>
             </div>
-            <p className="text-background/70 max-w-md leading-relaxed">
+            <p className="text-background/70 max-w-md leading-relaxed mb-6">
               Klimava gör hållbara val enkla, roliga och motiverande. Belöning
               istället för pekpinnar – hållbarhet ska kännas vardaglig.
             </p>
+            {/* Contact Info */}
+            <div className="flex flex-col gap-3">
+              <a 
+                href="mailto:klimavauf@gmail.com" 
+                className="flex items-center gap-2 text-background/70 hover:text-background transition-colors"
+              >
+                <Mail className="w-4 h-4" />
+                <span>klimavauf@gmail.com</span>
+              </a>
+              <a 
+                href="https://www.instagram.com/klimava.uf" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-background/70 hover:text-background transition-colors"
+              >
+                <Instagram className="w-4 h-4" />
+                <span>@klimava.uf</span>
+              </a>
+            </div>
           </div>
 
           {/* Links */}
@@ -27,12 +46,12 @@ export const Footer = () => {
             <h4 className="font-semibold mb-4">Appen</h4>
             <ul className="space-y-3 text-background/70">
               <li>
-                <a href="#how-it-works" className="hover:text-background transition-colors">
+                <a href="/#how-it-works" className="hover:text-background transition-colors">
                   Så funkar det
                 </a>
               </li>
               <li>
-                <a href="#features" className="hover:text-background transition-colors">
+                <a href="/#features" className="hover:text-background transition-colors">
                   Funktioner
                 </a>
               </li>
@@ -48,17 +67,12 @@ export const Footer = () => {
             <h4 className="font-semibold mb-4">Företag</h4>
             <ul className="space-y-3 text-background/70">
               <li>
-                <a href="#" className="hover:text-background transition-colors">
+                <a href="/grundare" className="hover:text-background transition-colors">
                   Om oss
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-background transition-colors">
-                  Bli partner
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-background transition-colors">
+                <a href="mailto:klimavauf@gmail.com" className="hover:text-background transition-colors">
                   Kontakt
                 </a>
               </li>
