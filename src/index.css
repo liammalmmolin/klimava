@@ -11,8 +11,8 @@
 
 @layer base {
   :root {
-    /* Core backgrounds */
-    --background: 120 20% 99%;
+    /* Core backgrounds - subtle gradient tint */
+    --background: 150 25% 97%;
     --foreground: 160 10% 15%;
 
     /* Cards and surfaces */
@@ -31,11 +31,11 @@
     --secondary-foreground: 0 0% 100%;
 
     /* Muted surfaces */
-    --muted: 120 15% 96%;
+    --muted: 150 20% 94%;
     --muted-foreground: 160 8% 45%;
 
     /* Accent - Soft green */
-    --accent: 120 30% 94%;
+    --accent: 150 25% 92%;
     --accent-foreground: 160 10% 15%;
 
     /* Destructive */
@@ -43,8 +43,8 @@
     --destructive-foreground: 0 0% 100%;
 
     /* Borders and inputs */
-    --border: 120 10% 90%;
-    --input: 120 10% 90%;
+    --border: 150 15% 88%;
+    --input: 150 15% 88%;
     --ring: 78 72% 55%;
 
     --radius: 1rem;
@@ -53,19 +53,20 @@
     --gradient-start: 78 72% 62%;
     --gradient-end: 168 55% 55%;
     --gradient-primary: linear-gradient(135deg, hsl(78 72% 62%) 0%, hsl(168 55% 55%) 100%);
-    --gradient-hero: linear-gradient(180deg, hsl(120 20% 99%) 0%, hsl(120 25% 97%) 100%);
+    --gradient-hero: linear-gradient(180deg, hsl(150 25% 97%) 0%, hsl(160 20% 94%) 50%, hsl(150 25% 97%) 100%);
+    --gradient-page: linear-gradient(180deg, hsl(150 25% 97%) 0%, hsl(165 22% 95%) 30%, hsl(155 20% 96%) 70%, hsl(150 25% 97%) 100%);
     --shadow-soft: 0 4px 20px -4px hsl(168 30% 30% / 0.1);
     --shadow-card: 0 8px 30px -8px hsl(168 30% 30% / 0.12);
     --shadow-elevated: 0 20px 50px -12px hsl(168 30% 30% / 0.15);
 
     /* Sidebar tokens */
-    --sidebar-background: 0 0% 98%;
+    --sidebar-background: 150 20% 98%;
     --sidebar-foreground: 160 10% 26%;
     --sidebar-primary: 78 72% 55%;
     --sidebar-primary-foreground: 160 10% 10%;
-    --sidebar-accent: 120 20% 96%;
+    --sidebar-accent: 150 25% 95%;
     --sidebar-accent-foreground: 160 10% 15%;
-    --sidebar-border: 120 10% 91%;
+    --sidebar-border: 150 15% 90%;
     --sidebar-ring: 78 72% 55%;
   }
 
