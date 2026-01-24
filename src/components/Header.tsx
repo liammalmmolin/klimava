@@ -33,16 +33,16 @@ export const Header = () => {
             Så funkar det
           </a>
           <a
-            href="/#features"
-            className="text-foreground/80 hover:text-primary font-medium transition-colors"
-          >
-            Funktioner
-          </a>
-          <a
             href="/grundare"
             className="text-foreground/80 hover:text-primary font-medium transition-colors"
           >
             Om oss
+          </a>
+          <a
+            href="/kontakt"
+            className="text-foreground/80 hover:text-primary font-medium transition-colors"
+          >
+            Kontakt
           </a>
         </nav>
 
@@ -85,18 +85,18 @@ export const Header = () => {
                 Så funkar det
               </a>
               <a
-                href="/#features"
-                onClick={() => setIsMenuOpen(false)}
-                className="text-foreground/80 hover:text-primary font-medium transition-colors py-2"
-              >
-                Funktioner
-              </a>
-              <a
                 href="/grundare"
                 onClick={() => setIsMenuOpen(false)}
                 className="text-foreground/80 hover:text-primary font-medium transition-colors py-2"
               >
                 Om oss
+              </a>
+              <a
+                href="/kontakt"
+                onClick={() => setIsMenuOpen(false)}
+                className="text-foreground/80 hover:text-primary font-medium transition-colors py-2"
+              >
+                Kontakt
               </a>
               <Button variant="hero" size="default" className="mt-2">
                 Ladda ner appen
