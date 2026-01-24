@@ -4,7 +4,7 @@ import { Footer } from "@/components/Footer";
 
 const Founders = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen" style={{ background: "var(--gradient-page)" }}>
       <Header />
       <main className="pt-16">
         <FoundersSection />
