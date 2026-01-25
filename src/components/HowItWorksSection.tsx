@@ -5,6 +5,7 @@ import appDashboard from "@/assets/app-dashboard.jpeg";
 import appChallenges from "@/assets/app-challenges.jpeg";
 
 const allFeatures = [
+  // Kärnfunktion först
   {
     icon: Camera,
     title: "Fota ditt kvitto",
@@ -25,15 +26,16 @@ const allFeatures = [
     title: "Lös in belöningar",
     description: "Byt poäng mot rabatter hos våra partners.",
   },
-  {
-    icon: ShoppingBag,
-    title: "Second hand-bonus",
-    description: "Köper du begagnat? Ladda upp kvitton och få extra poäng.",
-  },
+  // Fler sätt att tjäna poäng
   {
     icon: MapPin,
     title: "Återvinningsscanner",
     description: "Besök återvinningsstationer och få poäng via GPS.",
+  },
+  {
+    icon: ShoppingBag,
+    title: "Second hand-bonus",
+    description: "Köper du begagnat? Ladda upp kvitton och få extra poäng.",
   },
   {
     icon: Trophy,
