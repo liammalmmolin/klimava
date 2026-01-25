@@ -5,47 +5,45 @@ import appDashboard from "@/assets/app-dashboard.jpeg";
 import appChallenges from "@/assets/app-challenges.jpeg";
 
 const allFeatures = [
-  // Kärnfunktion först
-  {
-    icon: Camera,
-    title: "Fota ditt kvitto",
-    description: "Ta en bild på kvittot – vår AI läser av det automatiskt.",
-  },
-  {
-    icon: Sparkles,
-    title: "Se din klimatpåverkan",
-    description: "Vi visar exakt hur mycket CO₂ du sparar per produkt.",
-  },
   {
     icon: BarChart3,
     title: "Samla poäng",
-    description: "Ju mer hållbart, desto fler poäng får du!",
+    description: "Gör klimatsmarta val i vardagen och samla poäng genom att handla hållbart, återvinna och delta i utmaningar.",
   },
   {
     icon: Gift,
     title: "Lös in belöningar",
-    description: "Byt poäng mot rabatter hos våra partners.",
+    description: "Byt dina poäng mot rabatter och erbjudanden hos våra samarbetspartners direkt i appen.",
   },
-  // Fler sätt att tjäna poäng
+  {
+    icon: Camera,
+    title: "Fota ditt kvitto",
+    description: "Ta en bild på kvittot och scanna det med vår AI-drivna scanner. Den identifierar produkterna, matchar dem mot vårt system och ger dig poäng för dina hållbara köp.",
+  },
   {
     icon: MapPin,
     title: "Återvinningsscanner",
-    description: "Besök återvinningsstationer och få poäng via GPS.",
+    description: "Besök återvinningsstationer och scanna via GPS direkt i appen för att få poäng när du återvinner.",
   },
   {
     icon: ShoppingBag,
     title: "Second hand-bonus",
-    description: "Köper du begagnat? Ladda upp kvitton och få extra poäng.",
+    description: "Handlar du begagnat? Ladda upp ditt kvitto från second hand-köp och få extra poäng.",
   },
   {
     icon: Trophy,
     title: "Klimatutmaningar",
-    description: "Delta i veckoutmaningar och vinn bonuspoäng.",
+    description: "Delta i veckovisa klimatutmaningar och samla bonuspoäng genom enkla, klimatsmarta handlingar.",
   },
   {
     icon: Users,
     title: "Vänner & topplistor",
-    description: "Tävla med vänner och motivera varandra.",
+    description: "Tävla mot vänner, klättra på topplistor och motivera varandra till mer hållbara val.",
+  },
+  {
+    icon: Sparkles,
+    title: "Se din klimatpåverkan",
+    description: "Följ hur mycket CO₂ du sparar genom dina val och få en tydlig överblick över din positiva klimatpåverkan.",
   },
 ];
 
