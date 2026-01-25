@@ -4,34 +4,27 @@ import appOnboarding from "@/assets/app-onboarding.jpeg";
 import appDashboard from "@/assets/app-dashboard.jpeg";
 import appChallenges from "@/assets/app-challenges.jpeg";
 
-const steps = [
+const allFeatures = [
   {
     icon: Camera,
-    step: "01",
     title: "Fota ditt kvitto",
     description: "Ta en bild på kvittot – vår AI läser av det automatiskt.",
   },
   {
     icon: Sparkles,
-    step: "02",
     title: "Se din klimatpåverkan",
     description: "Vi visar exakt hur mycket CO₂ du sparar per produkt.",
   },
   {
     icon: BarChart3,
-    step: "03",
     title: "Samla poäng",
     description: "Ju mer hållbart, desto fler poäng får du!",
   },
   {
     icon: Gift,
-    step: "04",
     title: "Lös in belöningar",
     description: "Byt poäng mot rabatter hos våra partners.",
   },
-];
-
-const extraFeatures = [
   {
     icon: ShoppingBag,
     title: "Second hand-bonus",
@@ -76,31 +69,28 @@ export const HowItWorksSection = () => {
           </p>
         </motion.div>
 
-        {/* Main: Steps + App Preview */}
+        {/* Main: Features Grid + App Preview */}
         <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
-          {/* Steps */}
+          {/* All Features Grid */}
           <div className="grid sm:grid-cols-2 gap-4">
-            {steps.map((step, index) => (
+            {allFeatures.map((feature, index) => (
               <motion.div
-                key={step.step}
+                key={feature.title}
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="relative group"
+                transition={{ duration: 0.5, delay: index * 0.05 }}
+                className="group"
               >
-                <div className="bg-card rounded-2xl p-6 shadow-soft hover:shadow-card transition-all duration-300 h-full border border-border">
-                  <span className="text-5xl font-bold text-muted/60 absolute top-3 right-4">
-                    {step.step}
-                  </span>
-                  <div className="w-12 h-12 rounded-xl gradient-bg flex items-center justify-center mb-4">
-                    <step.icon className="w-6 h-6 text-primary-foreground" />
+                <div className="bg-card rounded-2xl p-5 shadow-soft hover:shadow-card transition-all duration-300 h-full border border-border">
+                  <div className="w-10 h-10 rounded-xl gradient-bg flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
+                    <feature.icon className="w-5 h-5 text-primary-foreground" />
                   </div>
-                  <h3 className="text-lg font-semibold text-foreground mb-2">
-                    {step.title}
+                  <h3 className="text-base font-semibold text-foreground mb-1">
+                    {feature.title}
                   </h3>
                   <p className="text-sm text-muted-foreground leading-relaxed">
-                    {step.description}
+                    {feature.description}
                   </p>
                 </div>
               </motion.div>
@@ -162,51 +152,13 @@ export const HowItWorksSection = () => {
           </motion.div>
         </div>
 
-        {/* Extra Features */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mb-8"
-        >
-          <h3 className="text-xl md:text-2xl font-bold text-foreground text-center mb-8">
-            Fler sätt att tjäna poäng
-          </h3>
-        </motion.div>
-
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {extraFeatures.map((feature, index) => (
-            <motion.div
-              key={feature.title}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group"
-            >
-              <div className="relative bg-card rounded-2xl p-6 shadow-soft hover:shadow-card transition-all duration-300 h-full border border-border">
-                <div className="w-10 h-10 rounded-xl bg-accent flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                  <feature.icon className="w-5 h-5 text-primary" />
-                </div>
-                <h4 className="text-base font-semibold text-foreground mb-2">
-                  {feature.title}
-                </h4>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  {feature.description}
-                </p>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-
         {/* Stats */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="mt-16 flex flex-wrap items-center justify-center gap-6 md:gap-12"
+          className="flex flex-wrap items-center justify-center gap-6 md:gap-12"
         >
           <div className="text-center">
             <p className="text-3xl md:text-4xl font-bold gradient-text">430+</p>
