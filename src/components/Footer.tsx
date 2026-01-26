@@ -67,17 +67,20 @@ export const Footer = () => {
             <h4 className="font-semibold mb-4">Företag</h4>
             <ul className="space-y-3 text-background/70">
               <li>
-                <a href="/grundare" className="hover:text-background transition-colors">
-                  Om oss
-                </a>
-              </li>
-              <li>
                 <a href="mailto:klimavauf@gmail.com" className="hover:text-background transition-colors">
                   Kontakt
                 </a>
               </li>
             </ul>
           </div>
+        </div>
+
+        {/* Founders */}
+        <div className="border-t border-background/20 pt-8 mb-6">
+          <p className="text-center text-background/50 text-sm mb-2">Grundare</p>
+          <p className="text-center text-background/80 font-medium">
+            Dante Rudinsson · Liam Molin · Christian Nordwall · Linus Emmoth
+          </p>
         </div>
 
         {/* Bottom */}
