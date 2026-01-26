@@ -54,10 +54,24 @@
     --gradient-end: 168 55% 55%;
     --gradient-primary: linear-gradient(135deg, hsl(78 72% 62%) 0%, hsl(168 55% 55%) 100%);
     --gradient-hero: linear-gradient(180deg, hsl(150 25% 97%) 0%, hsl(160 20% 94%) 50%, hsl(150 25% 97%) 100%);
-    --gradient-page: linear-gradient(180deg, hsl(150 25% 97%) 0%, hsl(165 22% 95%) 30%, hsl(155 20% 96%) 70%, hsl(150 25% 97%) 100%);
-    --shadow-soft: 0 4px 20px -4px hsl(168 30% 30% / 0.1);
-    --shadow-card: 0 8px 30px -8px hsl(168 30% 30% / 0.12);
-    --shadow-elevated: 0 20px 50px -12px hsl(168 30% 30% / 0.15);
+    /* Page gradient: Deep forest green fading to teal - matches forest imagery */
+    --gradient-page: linear-gradient(180deg, 
+      hsl(160 30% 12%) 0%, 
+      hsl(158 28% 16%) 15%,
+      hsl(155 25% 20%) 35%,
+      hsl(150 22% 24%) 55%,
+      hsl(145 20% 18%) 75%,
+      hsl(160 25% 12%) 100%
+    );
+    /* Section gradient for content areas */
+    --gradient-section: linear-gradient(180deg, 
+      hsl(160 25% 14%) 0%, 
+      hsl(155 22% 18%) 50%, 
+      hsl(150 20% 16%) 100%
+    );
+    --shadow-soft: 0 4px 20px -4px hsl(168 30% 10% / 0.3);
+    --shadow-card: 0 8px 30px -8px hsl(168 30% 10% / 0.4);
+    --shadow-elevated: 0 20px 50px -12px hsl(168 30% 10% / 0.5);
 
     /* Sidebar tokens */
     --sidebar-background: 150 20% 98%;
