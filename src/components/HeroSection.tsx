@@ -53,8 +53,7 @@ export const HeroSection = () => {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto mb-10 drop-shadow-md"
           >
-            Klimava belönar dig för klimatsmarta beslut i vardagen. Fota kvitton, 
-            samla poäng och lös in mot riktiga belöningar.
+            Klimava gör hållbarhet mätbar, motiverande och belönande. Ett klimatsmart val i taget.
           </motion.p>
 
           {/* CTAs */}
@@ -68,9 +67,11 @@ export const HeroSection = () => {
               Ladda ner appen
               <Smartphone className="w-5 h-5" />
             </Button>
-            <Button variant="heroOutline" size="xl" className="bg-white/10 backdrop-blur-sm border-white/30 text-white hover:bg-white/20">
-              Så funkar Klimava
-              <ArrowRight className="w-5 h-5" />
+            <Button variant="heroOutline" size="xl" className="bg-white/10 backdrop-blur-sm border-white/30 text-white hover:bg-white/20" asChild>
+              <a href="#how-it-works">
+                Så funkar Klimava
+                <ArrowRight className="w-5 h-5" />
+              </a>
             </Button>
           </motion.div>
 
