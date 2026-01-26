@@ -174,7 +174,7 @@ export const HowItWorksSection = () => {
           </motion.div>
         </div>
 
-        {/* Stats */}
+        {/* Founders Quote */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -183,23 +183,11 @@ export const HowItWorksSection = () => {
           className="relative"
         >
           <div className="absolute inset-0 gradient-bg rounded-3xl opacity-10" />
-          <div className="relative bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl p-8 md:p-12">
-            <div className="flex flex-wrap items-center justify-center gap-8 md:gap-16">
-              <div className="text-center group">
-                <p className="text-4xl md:text-5xl font-bold gradient-text group-hover:scale-110 transition-transform duration-300 inline-block">430+</p>
-                <p className="text-sm text-white/60 mt-2 font-medium">Poäng per vecka</p>
-              </div>
-              <div className="h-12 w-px bg-gradient-to-b from-transparent via-white/20 to-transparent hidden md:block" />
-              <div className="text-center group">
-                <p className="text-4xl md:text-5xl font-bold gradient-text group-hover:scale-110 transition-transform duration-300 inline-block">5+</p>
-                <p className="text-sm text-white/60 mt-2 font-medium">Dagliga utmaningar</p>
-              </div>
-              <div className="h-12 w-px bg-gradient-to-b from-transparent via-white/20 to-transparent hidden md:block" />
-              <div className="text-center group">
-                <p className="text-4xl md:text-5xl font-bold gradient-text group-hover:scale-110 transition-transform duration-300 inline-block">∞</p>
-                <p className="text-sm text-white/60 mt-2 font-medium">Hållbara val</p>
-              </div>
-            </div>
+          <div className="relative bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl p-8 md:p-12 text-center">
+            <blockquote className="text-xl md:text-2xl text-white/90 leading-relaxed italic max-w-3xl mx-auto mb-6">
+              "Vi tror på belöning istället för pekpinnar. Klimava ska göra det lätt och roligt att leva hållbart – varje dag, ett val i taget."
+            </blockquote>
+            <p className="text-white/60 font-medium">— Grundarna av Klimava</p>
           </div>
         </motion.div>
       </div>

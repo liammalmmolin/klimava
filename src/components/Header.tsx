@@ -33,12 +33,6 @@ export const Header = () => {
             Så funkar det
           </a>
           <a
-            href="/grundare"
-            className="text-foreground/80 hover:text-primary font-medium transition-colors"
-          >
-            Om oss
-          </a>
-          <a
             href="/kontakt"
             className="text-foreground/80 hover:text-primary font-medium transition-colors"
           >
@@ -83,13 +77,6 @@ export const Header = () => {
                 className="text-foreground/80 hover:text-primary font-medium transition-colors py-2"
               >
                 Så funkar det
-              </a>
-              <a
-                href="/grundare"
-                onClick={() => setIsMenuOpen(false)}
-                className="text-foreground/80 hover:text-primary font-medium transition-colors py-2"
-              >
-                Om oss
               </a>
               <a
                 href="/kontakt"
