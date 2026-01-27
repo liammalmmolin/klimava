@@ -4,7 +4,7 @@ import { Smartphone, Apple, PlayCircle } from "lucide-react";
 
 export const CTASection = () => {
   return (
-    <section id="download" className="py-24 relative overflow-hidden" style={{ background: 'linear-gradient(180deg, hsl(150 20% 16%) 0%, hsl(155 25% 12%) 50%, hsl(160 30% 10%) 100%)' }}>
+    <section id="download" className="py-24 relative overflow-hidden" style={{ background: 'linear-gradient(180deg, hsl(150 20% 16%) 0%, hsl(152 22% 14%) 30%, hsl(155 25% 12%) 60%, hsl(160 30% 10%) 100%)' }}>
       {/* Background */}
       <div className="absolute inset-0 gradient-bg opacity-5" />
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-primary/10 rounded-full blur-3xl" />
