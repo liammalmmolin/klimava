@@ -49,7 +49,7 @@ const allFeatures = [
 
 export const HowItWorksSection = () => {
   return (
-    <section id="how-it-works" className="py-28 relative overflow-hidden" style={{ background: 'var(--gradient-section)' }}>
+    <section id="how-it-works" className="py-28 relative overflow-hidden" style={{ background: 'linear-gradient(180deg, transparent 0%, hsl(155 22% 16%) 10%, hsl(150 20% 16%) 90%, hsl(150 20% 16%) 100%)' }}>
       {/* Subtle background pattern */}
       <div className="absolute inset-0 opacity-[0.08]">
         <div className="absolute inset-0" style={{
