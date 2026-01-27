@@ -5,9 +5,16 @@ import { Mail, Instagram, Music2 } from "lucide-react";
 
 const Contact = () => {
   return (
-    <div className="min-h-screen" style={{ background: "var(--gradient-page)" }}>
+    <div className="min-h-screen relative">
+      {/* Dark gradient background */}
+      <div 
+        className="absolute inset-0" 
+        style={{ 
+          background: "linear-gradient(180deg, hsl(160 30% 12%) 0%, hsl(158 28% 16%) 30%, hsl(155 25% 20%) 60%, hsl(150 25% 97%) 100%)" 
+        }} 
+      />
       <Header />
-      <main className="pt-24 pb-16">
+      <main className="pt-24 pb-16 relative z-10">
         <div className="container mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -15,13 +22,13 @@ const Contact = () => {
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <span className="text-primary font-semibold text-sm uppercase tracking-wider">
+            <span className="gradient-text font-semibold text-sm uppercase tracking-wider">
               Hör av dig
             </span>
-            <h1 className="text-3xl md:text-5xl font-bold text-foreground mt-3">
+            <h1 className="text-3xl md:text-5xl font-bold text-white mt-3">
               Kontakta oss
             </h1>
-            <p className="text-muted-foreground mt-4 max-w-xl mx-auto">
+            <p className="text-white/70 mt-4 max-w-xl mx-auto">
               Har du frågor, feedback eller vill samarbeta? Vi finns här för dig!
             </p>
           </motion.div>
@@ -36,14 +43,14 @@ const Contact = () => {
               {/* Email */}
               <a
                 href="mailto:klimavauf@gmail.com"
-                className="flex items-center gap-4 bg-card rounded-2xl p-6 shadow-soft hover:shadow-card transition-all duration-300 border border-border group"
+                className="flex items-center gap-4 bg-white/10 backdrop-blur-md rounded-2xl p-6 shadow-elevated hover:bg-white/15 transition-all duration-300 border border-white/20 group"
               >
                 <div className="w-12 h-12 rounded-xl gradient-bg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                   <Mail className="w-6 h-6 text-primary-foreground" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-foreground">E-post</h3>
-                  <p className="text-muted-foreground">klimavauf@gmail.com</p>
+                  <h3 className="font-semibold text-white">E-post</h3>
+                  <p className="text-white/70">klimavauf@gmail.com</p>
                 </div>
               </a>
 
@@ -52,25 +59,25 @@ const Contact = () => {
                 href="https://www.instagram.com/klimava.uf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-4 bg-card rounded-2xl p-6 shadow-soft hover:shadow-card transition-all duration-300 border border-border group"
+                className="flex items-center gap-4 bg-white/10 backdrop-blur-md rounded-2xl p-6 shadow-elevated hover:bg-white/15 transition-all duration-300 border border-white/20 group"
               >
                 <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 via-pink-500 to-orange-400 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                   <Instagram className="w-6 h-6 text-white" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-foreground">Instagram</h3>
-                  <p className="text-muted-foreground">@klimava.uf</p>
+                  <h3 className="font-semibold text-white">Instagram</h3>
+                  <p className="text-white/70">@klimava.uf</p>
                 </div>
               </a>
 
               {/* TikTok */}
-              <div className="flex items-center gap-4 bg-card rounded-2xl p-6 shadow-soft border border-border opacity-60">
-                <div className="w-12 h-12 rounded-xl bg-foreground flex items-center justify-center">
-                  <Music2 className="w-6 h-6 text-background" />
+              <div className="flex items-center gap-4 bg-white/5 backdrop-blur-md rounded-2xl p-6 border border-white/10 opacity-60">
+                <div className="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center">
+                  <Music2 className="w-6 h-6 text-white" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-foreground">TikTok</h3>
-                  <p className="text-muted-foreground">Kommer snart!</p>
+                  <h3 className="font-semibold text-white">TikTok</h3>
+                  <p className="text-white/50">Kommer snart!</p>
                 </div>
               </div>
             </motion.div>
