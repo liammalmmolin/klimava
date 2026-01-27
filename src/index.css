@@ -63,11 +63,13 @@
       hsl(145 20% 18%) 75%,
       hsl(160 25% 12%) 100%
     );
-    /* Section gradient for content areas */
+    /* Section gradient for content areas - smoother transition */
     --gradient-section: linear-gradient(180deg, 
-      hsl(160 25% 14%) 0%, 
-      hsl(155 22% 18%) 50%, 
-      hsl(150 20% 16%) 100%
+      transparent 0%, 
+      hsl(155 22% 16%) 15%,
+      hsl(150 20% 18%) 50%, 
+      hsl(145 18% 22%) 85%,
+      hsl(140 15% 26%) 100%
     );
     --shadow-soft: 0 4px 20px -4px hsl(168 30% 10% / 0.3);
     --shadow-card: 0 8px 30px -8px hsl(168 30% 10% / 0.4);
