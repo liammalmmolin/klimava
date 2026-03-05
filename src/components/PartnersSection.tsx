@@ -61,7 +61,7 @@ export const PartnersSection = () => {
               <img
                 src={partner.logo}
                 alt={partner.name}
-                className="h-16 w-16 md:h-20 md:w-20 object-contain rounded-xl grayscale hover:grayscale-0 transition-all duration-300 opacity-70 hover:opacity-100"
+                className="h-16 w-16 md:h-20 md:w-20 object-contain rounded-xl transition-all duration-300 opacity-80 hover:opacity-100 hover:scale-110"
               />
             </div>
           ))}
