@@ -49,11 +49,11 @@ const allFeatures = [
 
 export const HowItWorksSection = () => {
   return (
-    <section id="how-it-works" className="py-28 relative overflow-hidden" style={{ background: 'linear-gradient(180deg, transparent 0%, hsl(155 22% 16%) 10%, hsl(150 20% 16%) 90%, hsl(150 20% 16%) 100%)' }}>
+    <section id="how-it-works" className="py-28 relative overflow-hidden bg-white">
       {/* Subtle background pattern */}
-      <div className="absolute inset-0 opacity-[0.08]">
+      <div className="absolute inset-0 opacity-[0.03]">
         <div className="absolute inset-0" style={{
-          backgroundImage: `radial-gradient(circle at 1px 1px, hsl(78 72% 55% / 0.3) 1px, transparent 0)`,
+          backgroundImage: `radial-gradient(circle at 1px 1px, hsl(160 10% 50% / 0.4) 1px, transparent 0)`,
           backgroundSize: '40px 40px'
         }} />
       </div>
@@ -74,10 +74,10 @@ export const HowItWorksSection = () => {
           >
             Allt i en app
           </motion.span>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mt-3 leading-tight">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mt-3 leading-tight">
             Så funkar <span className="gradient-text">Klimava</span>
           </h2>
-          <p className="text-white/70 mt-6 max-w-2xl mx-auto text-lg leading-relaxed">
+          <p className="text-muted-foreground mt-6 max-w-2xl mx-auto text-lg leading-relaxed">
             Fota kvitton, samla poäng och lös in belöningar. Hållbarhet har aldrig varit enklare.
           </p>
         </motion.div>
@@ -95,17 +95,17 @@ export const HowItWorksSection = () => {
                 transition={{ duration: 0.5, delay: index * 0.06 }}
                 className="group relative"
               >
-                <div className="absolute inset-0 gradient-bg rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl scale-90" />
-                <div className="relative bg-white/5 backdrop-blur-md rounded-2xl p-6 shadow-soft hover:shadow-card transition-all duration-500 h-full border border-white/10 hover:border-primary/30 hover:-translate-y-1 hover:bg-white/10">
+                <div className="absolute inset-0 gradient-bg rounded-2xl opacity-0 group-hover:opacity-10 transition-opacity duration-500 blur-xl scale-90" />
+                <div className="relative bg-muted/50 rounded-2xl p-6 shadow-none hover:shadow-soft transition-all duration-500 h-full border border-border/50 hover:border-primary/30 hover:-translate-y-1">
                   <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 rounded-xl gradient-bg flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 shadow-md">
+                    <div className="w-12 h-12 rounded-xl gradient-bg flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">
                       <feature.icon className="w-6 h-6 text-primary-foreground" />
                     </div>
                     <div className="flex-1 min-w-0">
-                      <h3 className="text-base font-bold text-white mb-1.5 group-hover:text-primary transition-colors duration-300">
+                      <h3 className="text-base font-bold text-foreground mb-1.5 group-hover:text-secondary transition-colors duration-300">
                         {feature.title}
                       </h3>
-                      <p className="text-sm text-white/60 leading-relaxed">
+                      <p className="text-sm text-muted-foreground leading-relaxed">
                         {feature.description}
                       </p>
                     </div>
@@ -182,12 +182,12 @@ export const HowItWorksSection = () => {
           transition={{ duration: 0.6, delay: 0.3 }}
           className="relative"
         >
-          <div className="absolute inset-0 gradient-bg rounded-3xl opacity-10" />
-          <div className="relative bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl p-8 md:p-12 text-center">
-            <blockquote className="text-xl md:text-2xl text-white/90 leading-relaxed italic max-w-3xl mx-auto mb-6">
+          <div className="absolute inset-0 gradient-bg rounded-3xl opacity-5" />
+          <div className="relative bg-muted/60 border border-border/50 rounded-3xl p-8 md:p-12 text-center">
+            <blockquote className="text-xl md:text-2xl text-foreground/80 leading-relaxed italic max-w-3xl mx-auto mb-6">
               "Vi tror på belöning istället för pekpinnar. Klimava ska göra det lätt och roligt att leva hållbart – varje dag, ett val i taget."
             </blockquote>
-            <p className="text-white/60 font-medium">— Grundarna av Klimava</p>
+            <p className="text-muted-foreground font-medium">— Grundarna av Klimava</p>
           </div>
         </motion.div>
       </div>
