@@ -18,12 +18,12 @@ const allFeatures = [
   {
     icon: Camera,
     title: "Fota ditt kvitto",
-    description: "Ta en bild på kvittot och scanna det med vår AI-drivna scanner. Den identifierar produkterna, matchar dem mot vårt system och ger dig poäng för dina hållbara köp.",
+    description: "Ta en bild på kvittot och scanna det med vår AI-drivna scanner. Den identifierar produkterna och ger dig poäng.",
   },
   {
     icon: MapPin,
     title: "Återvinningsscanner",
-    description: "Besök återvinningsstationer och scanna via GPS direkt i appen för att få poäng när du återvinner.",
+    description: "Besök återvinningsstationer och scanna via GPS direkt i appen för att få poäng.",
   },
   {
     icon: ShoppingBag,
@@ -43,22 +43,15 @@ const allFeatures = [
   {
     icon: Sparkles,
     title: "Se din klimatpåverkan",
-    description: "Följ hur mycket CO₂ du sparar genom dina val och få en tydlig överblick över din positiva klimatpåverkan.",
+    description: "Följ hur mycket CO₂ du sparar genom dina val och få en tydlig överblick.",
   },
 ];
 
 export const HowItWorksSection = () => {
   return (
-    <section id="how-it-works" className="py-28 relative overflow-hidden bg-white">
-      {/* Subtle background pattern */}
-      <div className="absolute inset-0 opacity-[0.03]">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `radial-gradient(circle at 1px 1px, hsl(160 10% 50% / 0.4) 1px, transparent 0)`,
-          backgroundSize: '40px 40px'
-        }} />
-      </div>
-      
-      <div className="container mx-auto px-6 relative">
+    <section id="how-it-works" className="py-28 bg-white">
+      <div className="container mx-auto px-6">
+        {/* Section header - Stepler style */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -66,15 +59,7 @@ export const HowItWorksSection = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-20"
         >
-          <motion.span 
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            className="inline-block gradient-bg text-primary-foreground font-semibold text-xs uppercase tracking-widest px-4 py-2 rounded-full mb-6"
-          >
-            Allt i en app
-          </motion.span>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mt-3 leading-tight">
+          <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight">
             Så funkar <span className="gradient-text">Klimava</span>
           </h2>
           <p className="text-muted-foreground mt-6 max-w-2xl mx-auto text-lg leading-relaxed">
@@ -82,113 +67,123 @@ export const HowItWorksSection = () => {
           </p>
         </motion.div>
 
-        {/* Main: Features Grid + App Preview */}
-        <div className="grid lg:grid-cols-2 gap-16 items-center mb-24">
-          {/* All Features Grid */}
-          <div className="grid sm:grid-cols-2 gap-5">
-            {allFeatures.map((feature, index) => (
-              <motion.div
-                key={feature.title}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.06 }}
-                className="group relative"
-              >
-                <div className="absolute inset-0 gradient-bg rounded-2xl opacity-0 group-hover:opacity-10 transition-opacity duration-500 blur-xl scale-90" />
-                <div className="relative bg-muted/50 rounded-2xl p-6 shadow-none hover:shadow-soft transition-all duration-500 h-full border border-border/50 hover:border-primary/30 hover:-translate-y-1">
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 rounded-xl gradient-bg flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">
-                      <feature.icon className="w-6 h-6 text-primary-foreground" />
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <h3 className="text-base font-bold text-foreground mb-1.5 group-hover:text-secondary transition-colors duration-300">
-                        {feature.title}
-                      </h3>
-                      <p className="text-sm text-muted-foreground leading-relaxed">
-                        {feature.description}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-
-          {/* App Preview */}
+        {/* Feature highlight with phone - side by side like Stepler */}
+        <div className="grid lg:grid-cols-2 gap-16 items-center mb-28">
+          {/* Left: Phone mockups */}
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
+            initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
-            className="relative flex items-center justify-center lg:justify-end"
+            className="relative flex items-center justify-center"
           >
-            {/* Decorative elements */}
-            <div className="absolute w-72 h-72 gradient-bg rounded-full blur-3xl opacity-20 -z-10" />
-            <div className="absolute w-48 h-48 bg-secondary/30 rounded-full blur-2xl opacity-30 translate-x-20 -translate-y-10 -z-10" />
+            <div className="absolute w-72 h-72 bg-primary/8 rounded-full blur-3xl -z-10" />
             
-            <motion.div
-              initial={{ opacity: 0, x: -30, rotate: -8 }}
-              whileInView={{ opacity: 1, x: 0, rotate: -8 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: 0.2 }}
-              className="relative hidden sm:block -mr-6 z-0"
-            >
-              <div className="relative w-36 md:w-44 hover:rotate-[-4deg] transition-transform duration-500">
-                <div className="absolute inset-0 gradient-bg rounded-[2rem] blur-2xl opacity-40 scale-95" />
-                <div className="relative bg-foreground rounded-[2rem] p-1.5 shadow-elevated">
+            <div className="relative flex items-end gap-4">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                className="hidden sm:block w-36 md:w-44"
+              >
+                <div className="bg-foreground rounded-[2rem] p-1.5 shadow-elevated">
                   <img src={appOnboarding} alt="Klimava onboarding" className="rounded-[1.75rem] w-full" />
                 </div>
-              </div>
-            </motion.div>
+              </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: 0.1 }}
-              className="relative z-10"
-            >
-              <div className="relative w-52 md:w-64 hover:scale-105 transition-transform duration-500">
-                <div className="absolute inset-0 gradient-bg rounded-[2.5rem] blur-3xl opacity-50 scale-90" />
-                <div className="relative bg-foreground rounded-[2.5rem] p-2 shadow-elevated ring-1 ring-white/10">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="w-48 md:w-56"
+              >
+                <div className="bg-foreground rounded-[2.5rem] p-2 shadow-elevated">
                   <img src={appDashboard} alt="Klimava dashboard" className="rounded-[2rem] w-full" />
                 </div>
-              </div>
-            </motion.div>
+              </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0, x: 30, rotate: 8 }}
-              whileInView={{ opacity: 1, x: 0, rotate: 8 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: 0.2 }}
-              className="relative hidden sm:block -ml-6 z-0"
-            >
-              <div className="relative w-36 md:w-44 hover:rotate-[4deg] transition-transform duration-500">
-                <div className="absolute inset-0 gradient-bg rounded-[2rem] blur-2xl opacity-40 scale-95" />
-                <div className="relative bg-foreground rounded-[2rem] p-1.5 shadow-elevated">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                className="hidden sm:block w-36 md:w-44"
+              >
+                <div className="bg-foreground rounded-[2rem] p-1.5 shadow-elevated">
                   <img src={appChallenges} alt="Klimava utmaningar" className="rounded-[1.75rem] w-full" />
                 </div>
-              </div>
-            </motion.div>
+              </motion.div>
+            </div>
+          </motion.div>
+
+          {/* Right: Key features list */}
+          <motion.div
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+          >
+            <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
+              Gör dina hållbara val till{" "}
+              <span className="gradient-text">belöningar</span>.
+            </h3>
+            <ul className="space-y-4 mt-8">
+              {allFeatures.slice(0, 3).map((feature, i) => (
+                <li key={feature.title} className="flex items-start gap-3">
+                  <span className="text-muted-foreground">•</span>
+                  <span className="text-muted-foreground text-lg">{feature.description}</span>
+                </li>
+              ))}
+            </ul>
+            <a
+              href="#download"
+              className="inline-block mt-8 text-primary font-semibold hover:underline text-lg"
+            >
+              Skaffa Klimava →
+            </a>
           </motion.div>
         </div>
 
-        {/* Founders Quote */}
+        {/* Features grid - clean cards */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-24">
+          {allFeatures.map((feature, index) => (
+            <motion.div
+              key={feature.title}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.05 }}
+              className="group"
+            >
+              <div className="rounded-2xl p-6 h-full border border-border/50 hover:border-primary/20 hover:shadow-soft transition-all duration-300">
+                <div className="w-12 h-12 rounded-xl gradient-bg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <feature.icon className="w-6 h-6 text-primary-foreground" />
+                </div>
+                <h4 className="text-base font-bold text-foreground mb-2">
+                  {feature.title}
+                </h4>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  {feature.description}
+                </p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Founders Quote - clean */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="relative"
+          transition={{ duration: 0.6 }}
+          className="border border-border/50 rounded-3xl p-8 md:p-12 text-center"
         >
-          <div className="absolute inset-0 gradient-bg rounded-3xl opacity-5" />
-          <div className="relative bg-muted/60 border border-border/50 rounded-3xl p-8 md:p-12 text-center">
-            <blockquote className="text-xl md:text-2xl text-foreground/80 leading-relaxed italic max-w-3xl mx-auto mb-6">
-              "Vi tror på belöning istället för pekpinnar. Klimava ska göra det lätt och roligt att leva hållbart – varje dag, ett val i taget."
-            </blockquote>
-            <p className="text-muted-foreground font-medium">— Grundarna av Klimava</p>
-          </div>
+          <blockquote className="text-xl md:text-2xl text-foreground/80 leading-relaxed italic max-w-3xl mx-auto mb-6">
+            "Vi tror på belöning istället för pekpinnar. Klimava ska göra det lätt och roligt att leva hållbart – varje dag, ett val i taget."
+          </blockquote>
+          <p className="text-muted-foreground font-medium">— Grundarna av Klimava</p>
         </motion.div>
       </div>
     </section>

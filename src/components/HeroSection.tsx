@@ -1,73 +1,45 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Leaf, Smartphone, Star } from "lucide-react";
-import heroForestBg from "@/assets/hero-forest-bg.jpeg";
+import { ArrowRight, Smartphone } from "lucide-react";
+import appDashboard from "@/assets/app-dashboard.jpeg";
 
 export const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center pt-16 overflow-hidden">
-      {/* Forest background image */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${heroForestBg})` }}
-      />
-      
-      {/* Dark overlay for text readability */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-white" />
-      
-      {/* Subtle gradient overlay for brand colors */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-secondary/10" />
-
+    <section className="relative min-h-screen flex flex-col items-center justify-center pt-24 pb-12 overflow-hidden bg-white">
       <div className="container mx-auto px-6 relative z-10">
-        <div className="max-w-4xl mx-auto text-center">
-          {/* Badge */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="inline-flex items-center gap-2 bg-white/90 backdrop-blur-sm shadow-elevated border border-white/20 rounded-full px-4 py-2 mb-8"
-          >
-            <Leaf className="w-4 h-4 text-primary" />
-            <span className="text-sm font-medium text-foreground">
-              Nytt i Sverige – hållbarhet som lönar sig
-            </span>
-          </motion.div>
-
-          {/* Main heading */}
+        <div className="max-w-3xl mx-auto text-center">
+          {/* Main heading - Stepler style: large, dark, clean */}
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6 drop-shadow-lg"
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="text-4xl md:text-6xl lg:text-7xl font-bold text-foreground leading-tight mb-6"
           >
-            Gör hållbara val.{" "}
-            <span className="gradient-text drop-shadow-none">Få poäng.</span>
-            <br />
-            Påverka på riktigt.
+            Gör hållbara val och få belöningar
           </motion.h1>
 
-          {/* Subtitle */}
+          {/* Subtitle - gray, relaxed */}
           <motion.p
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto mb-10 drop-shadow-md"
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed"
           >
-            Klimava gör hållbarhet mätbar, motiverande och belönande. Ett klimatsmart val i taget.
+            Klimava gör hållbarhet mätbar, motiverande och belönande. Samla poäng genom klimatsmarta val och lös in dem mot riktiga belöningar.
           </motion.p>
 
-          {/* CTAs */}
+          {/* App Store style buttons */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4"
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16"
           >
-            <Button variant="hero" size="xl" className="shadow-elevated">
+            <Button variant="hero" size="xl">
               Ladda ner appen
               <Smartphone className="w-5 h-5" />
             </Button>
-            <Button variant="heroOutline" size="xl" className="bg-white/10 backdrop-blur-sm border-white/30 text-white hover:bg-white/20" asChild>
+            <Button variant="heroOutline" size="xl" asChild>
               <a href="#how-it-works">
                 Så funkar Klimava
                 <ArrowRight className="w-5 h-5" />
@@ -75,32 +47,22 @@ export const HeroSection = () => {
             </Button>
           </motion.div>
 
-          {/* Social proof */}
+          {/* Phone mockup - centered, large */}
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
-            className="mt-16"
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="relative flex items-center justify-center"
           >
-            <div className="inline-flex flex-col sm:flex-row items-center justify-center gap-6 bg-white/90 backdrop-blur-sm rounded-2xl px-8 py-4 shadow-elevated">
-              <div className="flex items-center gap-2">
-                <div className="flex">
-                  {[...Array(5)].map((_, i) => (
-                    <Star
-                      key={i}
-                      className="w-5 h-5 text-primary fill-primary"
-                    />
-                  ))}
-                </div>
-                <span className="text-sm text-muted-foreground">
-                  4.9 av 5 i betyg
-                </span>
+            <div className="absolute w-80 h-80 bg-primary/10 rounded-full blur-3xl -z-10" />
+            <div className="relative w-64 md:w-72 lg:w-80">
+              <div className="relative bg-foreground rounded-[2.5rem] p-2 shadow-elevated">
+                <img
+                  src={appDashboard}
+                  alt="Klimava app"
+                  className="rounded-[2rem] w-full"
+                />
               </div>
-              <div className="h-4 w-px bg-border hidden sm:block" />
-              <p className="text-sm text-muted-foreground">
-                <span className="font-semibold text-foreground">320 000+</span>{" "}
-                produkter i databasen
-              </p>
             </div>
           </motion.div>
         </div>

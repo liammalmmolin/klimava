@@ -10,7 +10,6 @@ import nAppLogo from "@/assets/partners/n-app.png";
 import rekoshoppenLogo from "@/assets/partners/rekoshoppen.jpeg";
 import storeEndaLogo from "@/assets/partners/store-enda.png";
 
-// SL, Tradera, Plick first so they appear most often
 const partners = [
   { name: "SL", logo: slLogo },
   { name: "Tradera", logo: traderaLogo },
@@ -23,45 +22,37 @@ const partners = [
   { name: "Store Enda", logo: storeEndaLogo },
 ];
 
-// Duplicate for seamless loop
 const marqueePartners = [...partners, ...partners];
 
 export const PartnersSection = () => {
   return (
-    <section className="py-16 overflow-hidden bg-transparent">
-      <div className="container mx-auto px-6 mb-10">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
+    <section className="py-12 overflow-hidden bg-white border-t border-border/30">
+      <div className="container mx-auto px-6 mb-8">
+        <motion.p
+          initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-center"
+          transition={{ duration: 0.4 }}
+          className="text-center text-sm font-medium text-muted-foreground"
         >
-          <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-2">
-            Klimava
-          </p>
-          <h3 className="text-2xl md:text-3xl font-bold text-foreground">
-            Samarbetspartners
-          </h3>
-        </motion.div>
+          Belöningar från fantastiska varumärken.
+        </motion.p>
       </div>
 
-      {/* Marquee */}
       <div className="relative">
-        {/* Fade edges */}
-        <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-background to-transparent z-10" />
-        <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-background to-transparent z-10" />
+        <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-white to-transparent z-10" />
+        <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-white to-transparent z-10" />
 
         <div className="flex animate-marquee w-max">
           {marqueePartners.map((partner, i) => (
             <div
               key={`${partner.name}-${i}`}
-              className="flex items-center justify-center mx-8 shrink-0"
+              className="flex items-center justify-center mx-10 shrink-0"
             >
               <img
                 src={partner.logo}
                 alt={partner.name}
-                className="h-16 w-16 md:h-20 md:w-20 object-contain rounded-xl transition-all duration-300 opacity-80 hover:opacity-100 hover:scale-110"
+                className="h-12 w-12 md:h-14 md:w-14 object-contain rounded-lg opacity-70 hover:opacity-100 transition-opacity duration-300"
               />
             </div>
           ))}
