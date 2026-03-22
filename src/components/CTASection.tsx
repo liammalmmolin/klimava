@@ -1,15 +1,11 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Smartphone, Apple, PlayCircle } from "lucide-react";
+import { Apple, PlayCircle, Smartphone } from "lucide-react";
 
 export const CTASection = () => {
   return (
-    <section id="download" className="py-24 relative overflow-hidden" style={{ background: 'linear-gradient(180deg, white 0%, hsl(150 20% 96%) 50%, hsl(150 15% 94%) 100%)' }}>
-      {/* Background */}
-      <div className="absolute inset-0 gradient-bg opacity-[0.03]" />
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-3xl" />
-
-      <div className="container mx-auto px-6 relative z-10">
+    <section id="download" className="py-28 bg-white">
+      <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -22,7 +18,7 @@ export const CTASection = () => {
             <br />
             <span className="gradient-text">hållbara val?</span>
           </h2>
-          <p className="text-lg text-muted-foreground mb-10 max-w-xl mx-auto">
+          <p className="text-lg text-muted-foreground mb-10 max-w-xl mx-auto leading-relaxed">
             Ladda ner Klimava gratis och börja samla poäng redan idag.
             Varje litet val gör skillnad.
           </p>
@@ -38,7 +34,6 @@ export const CTASection = () => {
             </Button>
           </div>
 
-          {/* Trust indicators */}
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -50,7 +45,7 @@ export const CTASection = () => {
               <Smartphone className="w-4 h-4" />
               <span>Gratis att använda</span>
             </div>
-             <div className="h-4 w-px bg-border" />
+            <div className="h-4 w-px bg-border" />
             <span>Inga dolda kostnader</span>
             <div className="h-4 w-px bg-border" />
             <span>GDPR-säker</span>

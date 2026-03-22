@@ -1,101 +1,59 @@
 import klimavaLogo from "@/assets/klimava-logo.jpeg";
-import { Leaf, Mail, Instagram } from "lucide-react";
+import { Mail, Instagram } from "lucide-react";
 
 export const Footer = () => {
   return (
     <footer className="bg-foreground text-background py-16">
       <div className="container mx-auto px-6">
         <div className="grid md:grid-cols-4 gap-12 mb-12">
-          {/* Brand */}
           <div className="md:col-span-2">
             <div className="flex items-center gap-3 mb-4">
-              <img
-                src={klimavaLogo}
-                alt="Klimava"
-                className="h-10 w-10 rounded-xl"
-              />
+              <img src={klimavaLogo} alt="Klimava" className="h-9 w-9 rounded-xl" />
               <span className="text-xl font-bold">Klimava</span>
             </div>
-            <p className="text-background/70 max-w-md leading-relaxed mb-6">
-              Klimava gör hållbara val enkla, roliga och motiverande. Belöning
-              istället för pekpinnar – hållbarhet ska kännas vardaglig.
+            <p className="text-background/60 max-w-md leading-relaxed mb-6 text-sm">
+              Klimava gör hållbara val enkla, roliga och motiverande. Belöning istället för pekpinnar.
             </p>
-            {/* Contact Info */}
             <div className="flex flex-col gap-3">
-              <a 
-                href="mailto:klimavauf@gmail.com" 
-                className="flex items-center gap-2 text-background/70 hover:text-background transition-colors"
-              >
+              <a href="mailto:klimavauf@gmail.com" className="flex items-center gap-2 text-background/60 hover:text-background transition-colors text-sm">
                 <Mail className="w-4 h-4" />
                 <span>klimavauf@gmail.com</span>
               </a>
-              <a 
-                href="https://www.instagram.com/klimava.uf" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 text-background/70 hover:text-background transition-colors"
-              >
+              <a href="https://www.instagram.com/klimava.uf" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-background/60 hover:text-background transition-colors text-sm">
                 <Instagram className="w-4 h-4" />
                 <span>@klimava.uf</span>
               </a>
             </div>
           </div>
 
-          {/* Links */}
           <div>
-            <h4 className="font-semibold mb-4">Appen</h4>
-            <ul className="space-y-3 text-background/70">
-              <li>
-                <a href="/#how-it-works" className="hover:text-background transition-colors">
-                  Så funkar det
-                </a>
-              </li>
-              <li>
-                <a href="/#features" className="hover:text-background transition-colors">
-                  Funktioner
-                </a>
-              </li>
-              <li>
-                <a href="#download" className="hover:text-background transition-colors">
-                  Ladda ner
-                </a>
-              </li>
+            <h4 className="font-semibold mb-4 text-sm">Appen</h4>
+            <ul className="space-y-3 text-background/60 text-sm">
+              <li><a href="/#how-it-works" className="hover:text-background transition-colors">Så funkar det</a></li>
+              <li><a href="#download" className="hover:text-background transition-colors">Ladda ner</a></li>
             </ul>
           </div>
 
           <div>
-            <h4 className="font-semibold mb-4">Företag</h4>
-            <ul className="space-y-3 text-background/70">
-              <li>
-                <a href="mailto:klimavauf@gmail.com" className="hover:text-background transition-colors">
-                  Kontakt
-                </a>
-              </li>
+            <h4 className="font-semibold mb-4 text-sm">Företag</h4>
+            <ul className="space-y-3 text-background/60 text-sm">
+              <li><a href="mailto:klimavauf@gmail.com" className="hover:text-background transition-colors">Kontakt</a></li>
             </ul>
           </div>
         </div>
 
-        {/* Founders */}
-        <div className="border-t border-background/20 pt-8 mb-6">
-          <p className="text-center text-background/50 text-sm mb-2">Grundare</p>
-          <p className="text-center text-background/80 font-medium">
+        <div className="border-t border-background/10 pt-8 mb-6">
+          <p className="text-center text-background/40 text-xs mb-2">Grundare</p>
+          <p className="text-center text-background/70 font-medium text-sm">
             Dante Rudinsson · Liam Molin · Christian Nordwall · Linus Emmoth
           </p>
         </div>
 
-        {/* Bottom */}
-        <div className="border-t border-background/20 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-2 text-background/60 text-sm">
-            <Leaf className="w-4 h-4" />
-            <span>© 2024 Klimava. Alla rättigheter förbehållna.</span>
-          </div>
-          <div className="flex items-center gap-6 text-sm text-background/60">
-            <a href="#" className="hover:text-background transition-colors">
-              Integritetspolicy
-            </a>
-            <a href="#" className="hover:text-background transition-colors">
-              Användarvillkor
-            </a>
+        <div className="border-t border-background/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+          <span className="text-background/40 text-xs">© 2024 Klimava. Alla rättigheter förbehållna.</span>
+          <div className="flex items-center gap-6 text-xs text-background/40">
+            <a href="#" className="hover:text-background transition-colors">Integritetspolicy</a>
+            <a href="#" className="hover:text-background transition-colors">Användarvillkor</a>
           </div>
         </div>
       </div>

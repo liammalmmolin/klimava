@@ -12,55 +12,38 @@ export const Header = () => {
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="fixed top-0 left-0 right-0 z-50 bg-card/95 backdrop-blur-md border-b border-border shadow-soft"
+      className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-border/50"
     >
       <div className="container mx-auto px-6 h-16 flex items-center justify-between">
         <a href="/" className="flex items-center gap-3">
-          <img
-            src={klimavaLogo}
-            alt="Klimava"
-            className="h-10 w-10 rounded-xl"
-          />
+          <img src={klimavaLogo} alt="Klimava" className="h-9 w-9 rounded-xl" />
           <span className="text-xl font-bold text-foreground">Klimava</span>
         </a>
 
-        {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-8">
-          <a
-            href="/#how-it-works"
-            className="text-foreground/80 hover:text-primary font-medium transition-colors"
-          >
+          <a href="/#how-it-works" className="text-muted-foreground hover:text-foreground font-medium transition-colors text-sm">
             Så funkar det
           </a>
-          <a
-            href="/kontakt"
-            className="text-foreground/80 hover:text-primary font-medium transition-colors"
-          >
+          <a href="/kontakt" className="text-muted-foreground hover:text-foreground font-medium transition-colors text-sm">
             Kontakt
           </a>
         </nav>
 
         <div className="flex items-center gap-4">
-          <Button variant="hero" size="default" className="hidden sm:flex">
+          <Button size="default" className="hidden sm:flex rounded-full bg-foreground text-background hover:bg-foreground/90 font-medium text-sm px-6">
             Ladda ner appen
           </Button>
 
-          {/* Mobile Menu Toggle */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             className="md:hidden p-2 rounded-lg hover:bg-accent transition-colors"
             aria-label="Toggle menu"
           >
-            {isMenuOpen ? (
-              <X className="w-6 h-6 text-foreground" />
-            ) : (
-              <Menu className="w-6 h-6 text-foreground" />
-            )}
+            {isMenuOpen ? <X className="w-6 h-6 text-foreground" /> : <Menu className="w-6 h-6 text-foreground" />}
           </button>
         </div>
       </div>
 
-      {/* Mobile Navigation */}
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
@@ -68,24 +51,16 @@ export const Header = () => {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.2 }}
-            className="md:hidden bg-card border-b border-border overflow-hidden"
+            className="md:hidden bg-white border-b border-border/50 overflow-hidden"
           >
             <nav className="container mx-auto px-6 py-4 flex flex-col gap-4">
-              <a
-                href="/#how-it-works"
-                onClick={() => setIsMenuOpen(false)}
-                className="text-foreground/80 hover:text-primary font-medium transition-colors py-2"
-              >
+              <a href="/#how-it-works" onClick={() => setIsMenuOpen(false)} className="text-muted-foreground hover:text-foreground font-medium transition-colors py-2">
                 Så funkar det
               </a>
-              <a
-                href="/kontakt"
-                onClick={() => setIsMenuOpen(false)}
-                className="text-foreground/80 hover:text-primary font-medium transition-colors py-2"
-              >
+              <a href="/kontakt" onClick={() => setIsMenuOpen(false)} className="text-muted-foreground hover:text-foreground font-medium transition-colors py-2">
                 Kontakt
               </a>
-              <Button variant="hero" size="default" className="mt-2">
+              <Button size="default" className="mt-2 rounded-full bg-foreground text-background hover:bg-foreground/90">
                 Ladda ner appen
               </Button>
             </nav>
