@@ -113,7 +113,7 @@ export const HowItWorksSection = () => {
                 className="hidden sm:block w-36 md:w-44"
               >
                 <div className="bg-foreground rounded-[2rem] p-1.5 shadow-elevated">
-                  <img src={appChallenges} alt="Klimava utmaningar" className="rounded-[1.75rem] w-full" />
+                  <img src={appDashboard} alt="Klimava utmaningar" className="rounded-[1.75rem] w-full" />
                 </div>
               </motion.div>
             </div>
@@ -147,30 +147,87 @@ export const HowItWorksSection = () => {
           </motion.div>
         </div>
 
-        {/* Features grid - clean cards */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-24">
-          {allFeatures.map((feature, index) => (
-            <motion.div
-              key={feature.title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.05 }}
-              className="group"
-            >
-              <div className="rounded-2xl p-6 h-full border border-border/50 hover:border-primary/20 hover:shadow-soft transition-all duration-300">
-                <div className="w-12 h-12 rounded-xl gradient-bg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                  <feature.icon className="w-6 h-6 text-primary-foreground" />
-                </div>
-                <h4 className="text-base font-bold text-foreground mb-2">
-                  {feature.title}
-                </h4>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  {feature.description}
-                </p>
+        {/* Feature section 1: Shop screenshot + features */}
+        <div className="grid lg:grid-cols-2 gap-16 items-center mb-28">
+          <motion.div
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+            className="flex justify-center"
+          >
+            <div className="w-56 md:w-64">
+              <div className="bg-foreground rounded-[2.5rem] p-2 shadow-elevated">
+                <img src={appShop} alt="Klimava poängshop" className="rounded-[2rem] w-full" />
               </div>
-            </motion.div>
-          ))}
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+          >
+            <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-6">
+              Poängshop & <span className="gradient-text">belöningar</span>
+            </h3>
+            <div className="space-y-5">
+              {allFeatures.slice(0, 4).map((feature) => (
+                <div key={feature.title} className="flex items-start gap-4">
+                  <div className="w-10 h-10 rounded-xl gradient-bg flex items-center justify-center shrink-0">
+                    <feature.icon className="w-5 h-5 text-primary-foreground" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-foreground">{feature.title}</h4>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{feature.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+
+        {/* Feature section 2: Challenges screenshot + features (reversed) */}
+        <div className="grid lg:grid-cols-2 gap-16 items-center mb-24">
+          <motion.div
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+            className="lg:order-2 flex justify-center"
+          >
+            <div className="w-56 md:w-64">
+              <div className="bg-foreground rounded-[2.5rem] p-2 shadow-elevated">
+                <img src={appChallengesScreen} alt="Klimava utmaningar" className="rounded-[2rem] w-full" />
+              </div>
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+            className="lg:order-1"
+          >
+            <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-6">
+              Utmaningar & <span className="gradient-text">topplistor</span>
+            </h3>
+            <div className="space-y-5">
+              {allFeatures.slice(4).map((feature) => (
+                <div key={feature.title} className="flex items-start gap-4">
+                  <div className="w-10 h-10 rounded-xl gradient-bg flex items-center justify-center shrink-0">
+                    <feature.icon className="w-5 h-5 text-primary-foreground" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-foreground">{feature.title}</h4>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{feature.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </motion.div>
         </div>
 
         {/* Founders Quote - clean */}
