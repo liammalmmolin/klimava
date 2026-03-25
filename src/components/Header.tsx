@@ -24,6 +24,9 @@ export const Header = () => {
           <a href="/#how-it-works" className="text-muted-foreground hover:text-foreground font-medium transition-colors text-sm">
             Så funkar det
           </a>
+          <a href="/team" className="text-muted-foreground hover:text-foreground font-medium transition-colors text-sm">
+            Team
+          </a>
           <a href="/kontakt" className="text-muted-foreground hover:text-foreground font-medium transition-colors text-sm">
             Kontakt
           </a>
@@ -56,6 +59,9 @@ export const Header = () => {
             <nav className="container mx-auto px-6 py-4 flex flex-col gap-4">
               <a href="/#how-it-works" onClick={() => setIsMenuOpen(false)} className="text-muted-foreground hover:text-foreground font-medium transition-colors py-2">
                 Så funkar det
+              </a>
+              <a href="/team" onClick={() => setIsMenuOpen(false)} className="text-muted-foreground hover:text-foreground font-medium transition-colors py-2">
+                Team
               </a>
               <a href="/kontakt" onClick={() => setIsMenuOpen(false)} className="text-muted-foreground hover:text-foreground font-medium transition-colors py-2">
                 Kontakt
