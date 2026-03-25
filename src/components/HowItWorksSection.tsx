@@ -2,7 +2,8 @@ import { motion } from "framer-motion";
 import { Camera, BarChart3, Gift, Sparkles, ShoppingBag, MapPin, Trophy, Users } from "lucide-react";
 import appOnboarding from "@/assets/app-onboarding.jpeg";
 import appDashboard from "@/assets/app-dashboard.jpeg";
-import appChallenges from "@/assets/app-challenges.jpeg";
+import appShop from "@/assets/app-shop.jpg";
+import appChallengesScreen from "@/assets/app-challenges.png";
 
 const allFeatures = [
   {
