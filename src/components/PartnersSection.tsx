@@ -26,7 +26,7 @@ const marqueePartners = [...partners, ...partners];
 
 export const PartnersSection = () => {
   return (
-    <section className="py-12 overflow-hidden bg-white border-t border-border/30">
+    <section className="py-12 overflow-hidden bg-muted/60 border-y border-border/40">
       <div className="container mx-auto px-6 mb-8">
         <motion.p
           initial={{ opacity: 0, y: 10 }}
