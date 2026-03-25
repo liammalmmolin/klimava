@@ -2,12 +2,14 @@ import { motion } from "framer-motion";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import teamPhoto from "@/assets/team-photo.jpg";
+import dantePhoto from "@/assets/dante.jpg";
+import linusPhoto from "@/assets/linus.jpg";
 
 const founders = [
-  { name: "Dante Rudinsson", role: "Vice Direktör", initials: "DR" },
-  { name: "Liam Molin", role: "Produktutvecklare", initials: "LM" },
-  { name: "Christian Nordwall", role: "Marknadsföringsansvarig", initials: "CN" },
-  { name: "Linus Emmoth", role: "Ekonomiansvarig", initials: "LE" },
+  { name: "Dante Rudinsson", role: "Vice Direktör", initials: "DR", photo: dantePhoto },
+  { name: "Liam Molin", role: "Produktutvecklare", initials: "LM", photo: null },
+  { name: "Christian Nordwall", role: "Marknadsföringsansvarig", initials: "CN", photo: null },
+  { name: "Linus Emmoth", role: "Ekonomiansvarig", initials: "LE", photo: linusPhoto },
 ];
 
 const Team = () => {
