@@ -2,12 +2,14 @@ import { motion } from "framer-motion";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import teamPhoto from "@/assets/team-photo.jpg";
+import dantePhoto from "@/assets/dante.jpg";
+import linusPhoto from "@/assets/linus.jpg";
 
 const founders = [
-  { name: "Dante Rudinsson", role: "Vice Direktör", initials: "DR" },
-  { name: "Liam Molin", role: "Produktutvecklare", initials: "LM" },
-  { name: "Christian Nordwall", role: "Marknadsföringsansvarig", initials: "CN" },
-  { name: "Linus Emmoth", role: "Ekonomiansvarig", initials: "LE" },
+  { name: "Dante Rudinsson", role: "Vice Direktör", initials: "DR", photo: dantePhoto },
+  { name: "Liam Molin", role: "Produktutvecklare", initials: "LM", photo: null },
+  { name: "Christian Nordwall", role: "Marknadsföringsansvarig", initials: "CN", photo: null },
+  { name: "Linus Emmoth", role: "Ekonomiansvarig", initials: "LE", photo: linusPhoto },
 ];
 
 const Team = () => {
@@ -55,10 +57,14 @@ const Team = () => {
                 transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
                 className="text-center"
               >
-                <div className="w-28 h-28 mx-auto mb-4 rounded-full gradient-bg flex items-center justify-center shadow-card">
-                  <span className="text-2xl font-bold text-primary-foreground">
-                    {founder.initials}
-                  </span>
+                <div className="w-28 h-28 mx-auto mb-4 rounded-full overflow-hidden gradient-bg flex items-center justify-center shadow-card">
+                  {founder.photo ? (
+                    <img src={founder.photo} alt={founder.name} className="w-full h-full object-cover" />
+                  ) : (
+                    <span className="text-2xl font-bold text-primary-foreground">
+                      {founder.initials}
+                    </span>
+                  )}
                 </div>
                 <h3 className="text-lg font-semibold text-foreground">{founder.name}</h3>
                 <p className="text-sm text-primary font-medium mt-1">{founder.role}</p>
