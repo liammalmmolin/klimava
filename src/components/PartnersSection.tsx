@@ -26,7 +26,7 @@ const marqueePartners = [...partners, ...partners];
 
 export const PartnersSection = () => {
   return (
-    <section className="py-12 overflow-hidden bg-white border-t border-border/30">
+    <section className="py-12 overflow-hidden bg-muted/60 border-y border-border/40">
       <div className="container mx-auto px-6 mb-8">
         <motion.p
           initial={{ opacity: 0, y: 10 }}
@@ -40,8 +40,8 @@ export const PartnersSection = () => {
       </div>
 
       <div className="relative">
-        <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-white to-transparent z-10" />
-        <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-white to-transparent z-10" />
+        <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-muted/60 to-transparent z-10" />
+        <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-muted/60 to-transparent z-10" />
 
         <div className="flex animate-marquee w-max">
           {marqueePartners.map((partner, i) => (
@@ -52,7 +52,7 @@ export const PartnersSection = () => {
               <img
                 src={partner.logo}
                 alt={partner.name}
-                className="h-12 w-12 md:h-14 md:w-14 object-contain rounded-lg opacity-70 hover:opacity-100 transition-opacity duration-300"
+                className="h-12 w-12 md:h-14 md:w-14 object-contain rounded-lg opacity-90 hover:opacity-100 transition-opacity duration-300"
               />
             </div>
           ))}
