@@ -6,7 +6,7 @@ import dantePhoto from "@/assets/dante.jpg";
 import linusPhoto from "@/assets/linus.jpg";
 
 const founders = [
-  { name: "Dante Rudinsson", role: "Vice Direktör", initials: "DR", photo: dantePhoto },
+  { name: "Dante Rudinsson", role: "Verkställande Direktör", initials: "DR", photo: dantePhoto },
   { name: "Liam Molin", role: "Produktutvecklare", initials: "LM", photo: null },
   { name: "Christian Nordwall", role: "Marknadsföringsansvarig", initials: "CN", photo: null },
   { name: "Linus Emmoth", role: "Ekonomiansvarig", initials: "LE", photo: linusPhoto },
