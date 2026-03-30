@@ -9,7 +9,7 @@ const allFeatures = [
   {
     icon: BarChart3,
     title: "Samla poäng",
-    description: "Gör klimatsmarta val i vardagen och samla poäng genom att handla hållbart, återvinna och delta i utmaningar.",
+    description: "Gör klimatsmarta val i vardagen och samla poäng genom att handla hållbart, återvinna, åka kollektivt, handla secondhand och delta i utmaningar.",
   },
   {
     icon: Gift,
