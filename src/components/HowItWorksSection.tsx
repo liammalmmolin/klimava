@@ -4,6 +4,7 @@ import appOnboarding from "@/assets/app-onboarding.jpeg";
 import appDashboard from "@/assets/app-dashboard.jpeg";
 import appShop from "@/assets/app-shop.jpg";
 import appChallengesScreen from "@/assets/app-challenges.png";
+import appPoangshop2 from "@/assets/app-poangshop2.jpg";
 
 const allFeatures = [
   {
