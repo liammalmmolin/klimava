@@ -4,6 +4,7 @@ import appOnboarding from "@/assets/app-onboarding.jpeg";
 import appDashboard from "@/assets/app-dashboard.jpeg";
 import appShop from "@/assets/app-shop.jpg";
 import appChallengesScreen from "@/assets/app-challenges.png";
+import appPoangshop2 from "@/assets/app-poangshop2.jpg";
 
 const allFeatures = [
   {
@@ -113,7 +114,7 @@ export const HowItWorksSection = () => {
                 className="hidden sm:block w-36 md:w-44"
               >
                 <div className="bg-foreground rounded-[2rem] p-1.5 shadow-elevated">
-                  <img src={appDashboard} alt="Klimava utmaningar" className="rounded-[1.75rem] w-full" />
+                  <img src={appPoangshop2} alt="Klimava poängshop" className="rounded-[1.75rem] w-full" />
                 </div>
               </motion.div>
             </div>
