@@ -64,7 +64,7 @@ export const HowItWorksSection = () => {
             Så funkar <span className="gradient-text">Klimava</span>
           </h2>
           <p className="text-muted-foreground mt-6 max-w-2xl mx-auto text-lg leading-relaxed">
-            Fota kvitton, samla poäng och lös in belöningar. Hållbarhet har aldrig varit enklare.
+            Scanna kvitton, samla poäng och lös in belöningar. Hållbarhet har aldrig varit enklare.
           </p>
         </motion.div>
 
