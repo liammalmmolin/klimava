@@ -42,7 +42,7 @@ export const HeroSection = () => {
             <Button variant="heroOutline" size="xl" asChild>
               <a href="#how-it-works">
                 Så funkar Klimava
-                <ArrowRight className="w-5 h-5" />
+                <ArrowRightMd className="w-5 h-5" />
               </a>
             </Button>
           </motion.div>
