@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Train, ShoppingBag01, Recycle, Leaf } from "react-coolicons";
+import { Bus, ShoppingBag01, DeleteCircle, Leaf } from "react-coolicons";
 
 const examples = [
   { icon: Train, label: "Åka kollektivt" },
