@@ -15,7 +15,7 @@ export const HeroSection = () => {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-4xl md:text-6xl lg:text-7xl font-bold text-foreground leading-tight mb-6"
           >
-            Gör hållbara val och få belöningar
+            Gör hållbara val – få riktiga belöningar
           </motion.h1>
 
           {/* Subtitle - gray, relaxed */}
@@ -25,7 +25,7 @@ export const HeroSection = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed"
           >
-            Klimava gör hållbarhet mätbar, motiverande och belönande. Samla poäng genom klimatsmarta val och lös in dem mot riktiga belöningar.
+            Klimava gör hållbarhet mätbar, motiverande och lönsam. Samla poäng genom klimatsmarta val och byt dem mot belöningar.
           </motion.p>
 
           {/* App Store style buttons */}
