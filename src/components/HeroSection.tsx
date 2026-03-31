@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Smartphone } from "lucide-react";
+import { ArrowRightMd, Phone } from "react-coolicons";
 import appDashboard from "@/assets/app-dashboard.jpeg";
 
 export const HeroSection = () => {
@@ -37,12 +37,12 @@ export const HeroSection = () => {
           >
             <Button variant="hero" size="xl">
               Ladda ner appen
-              <Smartphone className="w-5 h-5" />
+              <Phone className="w-5 h-5" />
             </Button>
             <Button variant="heroOutline" size="xl" asChild>
               <a href="#how-it-works">
                 Så funkar Klimava
-                <ArrowRight className="w-5 h-5" />
+                <ArrowRightMd className="w-5 h-5" />
               </a>
             </Button>
           </motion.div>

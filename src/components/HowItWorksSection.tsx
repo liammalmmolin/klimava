@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Camera, BarChart3, Gift, Sparkles, ShoppingBag, MapPin, Trophy, Users } from "lucide-react";
+import { Camera, ChartBarVertical01, Gift, Star, ShoppingBag01, MapPin, Star as TrophyStar, Users } from "react-coolicons";
 import appOnboarding from "@/assets/app-onboarding.jpeg";
 import appDashboard from "@/assets/app-dashboard.jpeg";
 import appShop from "@/assets/app-shop.jpg";
@@ -8,7 +8,7 @@ import appPoangshop2 from "@/assets/app-poangshop2.jpg";
 
 const allFeatures = [
   {
-    icon: BarChart3,
+    icon: ChartBarVertical01,
     title: "Samla poäng",
     description: "Gör klimatsmarta val i vardagen och samla poäng genom att handla hållbart, återvinna, åka kollektivt, handla secondhand och delta i utmaningar.",
   },
@@ -28,12 +28,12 @@ const allFeatures = [
     description: "Besök återvinningsstationer och scanna via GPS direkt i appen för att få poäng.",
   },
   {
-    icon: ShoppingBag,
+    icon: ShoppingBag01,
     title: "Second hand-bonus",
     description: "Handlar du begagnat? Ladda upp ditt kvitto från second hand-köp och få extra poäng.",
   },
   {
-    icon: Trophy,
+    icon: TrophyStar,
     title: "Klimatutmaningar",
     description: "Delta i veckovisa klimatutmaningar och samla bonuspoäng genom enkla, klimatsmarta handlingar.",
   },
@@ -43,7 +43,7 @@ const allFeatures = [
     description: "Tävla mot vänner, klättra på topplistor och motivera varandra till mer hållbara val.",
   },
   {
-    icon: Sparkles,
+    icon: Star,
     title: "Se din klimatpåverkan",
     description: "Följ hur mycket CO₂ du sparar genom dina val och få en tydlig överblick.",
   },

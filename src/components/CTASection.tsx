@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Apple, PlayCircle, Smartphone } from "lucide-react";
+import { PlayCircle, Phone } from "react-coolicons";
+import { Apple } from "lucide-react";
 
 export const CTASection = () => {
   return (
@@ -42,7 +43,7 @@ export const CTASection = () => {
             className="mt-12 flex flex-wrap items-center justify-center gap-6 text-sm text-muted-foreground"
           >
             <div className="flex items-center gap-2">
-              <Smartphone className="w-4 h-4" />
+              <Phone className="w-4 h-4" />
               <span>Gratis att använda</span>
             </div>
             <div className="h-4 w-px bg-border" />
