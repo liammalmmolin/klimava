@@ -26,22 +26,27 @@ const marqueePartners = [...partners, ...partners];
 
 export const PartnersSection = () => {
   return (
-    <section className="py-12 overflow-hidden bg-muted/60 border-y border-border/40">
-      <div className="container mx-auto px-6 mb-8">
-        <motion.p
-          initial={{ opacity: 0, y: 10 }}
+    <section className="py-20 bg-muted/40">
+      <div className="container mx-auto px-6 mb-10">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.4 }}
-          className="text-center text-sm font-medium text-muted-foreground"
+          transition={{ duration: 0.5 }}
+          className="text-center"
         >
-          Belöningar från fantastiska varumärken.
-        </motion.p>
+          <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4">
+            Belöningar & <span className="gradient-text">partners</span>
+          </h2>
+          <p className="text-lg text-muted-foreground max-w-xl mx-auto">
+            Tjäna belöningar från starka varumärken och partners. Byt dina poäng mot rabatter och erbjudanden direkt i appen.
+          </p>
+        </motion.div>
       </div>
 
       <div className="relative">
-        <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-muted/60 to-transparent z-10" />
-        <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-muted/60 to-transparent z-10" />
+        <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-muted/40 to-transparent z-10" />
+        <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-muted/40 to-transparent z-10" />
 
         <div className="flex animate-marquee w-max">
           {marqueePartners.map((partner, i) => (
