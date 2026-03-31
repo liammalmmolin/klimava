@@ -2,9 +2,9 @@ import { motion } from "framer-motion";
 import { Navigation, ShoppingBag01, ArrowReload02, Leaf } from "react-coolicons";
 
 const examples = [
-  { icon: Bus, label: "Åka kollektivt" },
+  { icon: Navigation, label: "Åka kollektivt" },
   { icon: ShoppingBag01, label: "Handla second hand" },
-  { icon: DeleteCircle, label: "Återvinna" },
+  { icon: ArrowReload02, label: "Återvinna" },
   { icon: Leaf, label: "Köpa hållbara produkter" },
 ];
 
