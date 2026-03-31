@@ -37,7 +37,7 @@ export const HeroSection = () => {
           >
             <Button variant="hero" size="xl">
               Ladda ner appen
-              <Smartphone className="w-5 h-5" />
+              <Phone className="w-5 h-5" />
             </Button>
             <Button variant="heroOutline" size="xl" asChild>
               <a href="#how-it-works">
