@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Smartphone } from "lucide-react";
+import { ArrowRightMd, Phone } from "react-coolicons";
 import appDashboard from "@/assets/app-dashboard.jpeg";
 
 export const HeroSection = () => {
