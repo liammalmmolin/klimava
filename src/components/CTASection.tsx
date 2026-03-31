@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Apple, PlayCircle, Smartphone } from "lucide-react";
+import { PlayCircle, Phone } from "react-coolicons";
+import { Apple } from "lucide-react";
 
 export const CTASection = () => {
   return (

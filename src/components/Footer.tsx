@@ -1,5 +1,6 @@
 import klimavaLogo from "@/assets/klimava-logo.jpeg";
-import { Mail, Instagram } from "lucide-react";
+import { Mail } from "react-coolicons";
+import { Instagram } from "lucide-react";
 
 export const Footer = () => {
   return (

@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Camera, BarChart3, Gift, Sparkles, ShoppingBag, MapPin, Trophy, Users } from "lucide-react";
+import { Camera, ChartBarVertical01, Gift, Star, ShoppingBag01, MapPin, Star as TrophyStar, Users } from "react-coolicons";
 import appOnboarding from "@/assets/app-onboarding.jpeg";
 import appDashboard from "@/assets/app-dashboard.jpeg";
 import appShop from "@/assets/app-shop.jpg";

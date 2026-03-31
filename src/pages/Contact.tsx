@@ -1,7 +1,8 @@
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { motion } from "framer-motion";
-import { Mail, Instagram, Music2 } from "lucide-react";
+import { Mail } from "react-coolicons";
+import { Instagram, Music2 } from "lucide-react";
 
 const Contact = () => {
   return (
