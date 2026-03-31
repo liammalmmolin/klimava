@@ -42,7 +42,7 @@ export const Header = () => {
             className="md:hidden p-2 rounded-lg hover:bg-accent transition-colors"
             aria-label="Toggle menu"
           >
-            {isMenuOpen ? <X className="w-6 h-6 text-foreground" /> : <Menu className="w-6 h-6 text-foreground" />}
+            {isMenuOpen ? <CloseLg className="w-6 h-6 text-foreground" /> : <HamburgerLg className="w-6 h-6 text-foreground" />}
           </button>
         </div>
       </div>
