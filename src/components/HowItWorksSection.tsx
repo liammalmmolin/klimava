@@ -2,8 +2,8 @@ import { motion } from "framer-motion";
 import { Camera, ChartBarVertical01, Gift, Star, ShoppingBag01, MapPin, Star as TrophyStar, Users } from "react-coolicons";
 import appOnboarding from "@/assets/app-onboarding.jpeg";
 import appDashboard from "@/assets/app-dashboard.jpeg";
-import appShop from "@/assets/app-shop.jpg";
 import appChallengesScreen from "@/assets/app-challenges.png";
+import appScanner from "@/assets/app-scanner.jpg";
 import appPoangshop2 from "@/assets/app-poangshop2.jpg";
 
 const allFeatures = [
@@ -174,6 +174,30 @@ export const HowItWorksSection = () => {
           <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-8">
             Huvudfunktion – <span className="gradient-text">Så fungerar det</span>
           </h3>
+          <div className="flex gap-4 justify-center mb-10">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="w-40 sm:w-48"
+            >
+              <div className="bg-foreground rounded-[2rem] p-1.5 shadow-elevated">
+                <img src={appScanner} alt="Klimava scanner" className="rounded-[1.75rem] w-full" />
+              </div>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="w-40 sm:w-48"
+            >
+              <div className="bg-foreground rounded-[2rem] p-1.5 shadow-elevated">
+                <img src={appChallengesScreen} alt="Klimava utmaningar" className="rounded-[1.75rem] w-full" />
+              </div>
+            </motion.div>
+          </div>
           <div className="space-y-6 text-muted-foreground text-base leading-relaxed max-w-3xl">
             <p>Efter att du har handlat i matbutiken öppnar du appen och tar en bild på ditt kvitto.</p>
             <p>Vår OCR-teknik läser av kvittot och identifierar vilka produkter du har köpt. Därefter scannar du streckkoden på de produkter du vill registrera direkt i appen.</p>
