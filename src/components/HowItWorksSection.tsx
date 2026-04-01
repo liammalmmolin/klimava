@@ -163,46 +163,25 @@ export const HowItWorksSection = () => {
           </motion.div>
         </div>
 
-        {/* Feature section 1: Shop screenshot + features */}
-        <div className="grid lg:grid-cols-2 gap-16 items-center mb-28">
-          <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            className="flex justify-center"
-          >
-            <div className="w-56 md:w-64">
-              <div className="bg-foreground rounded-[2.5rem] p-2 shadow-elevated">
-                <img src={appShop} alt="Klimava poängshop" className="rounded-[2rem] w-full" />
-              </div>
-            </div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-          >
-            <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-6">
-              Poängshop & <span className="gradient-text">belöningar</span>
-            </h3>
-            <div className="space-y-5">
-              {allFeatures.slice(0, 4).map((feature) => (
-                <div key={feature.title} className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-xl gradient-bg flex items-center justify-center shrink-0">
-                    <feature.icon className="w-5 h-5 text-primary-foreground" />
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-foreground">{feature.title}</h4>
-                    <p className="text-sm text-muted-foreground leading-relaxed">{feature.description}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </motion.div>
-        </div>
+        {/* Huvudfunktion – Så fungerar det */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+          className="mb-28"
+        >
+          <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-8">
+            Huvudfunktion – <span className="gradient-text">Så fungerar det</span>
+          </h3>
+          <div className="space-y-6 text-muted-foreground text-base leading-relaxed max-w-3xl">
+            <p>Efter att du har handlat i matbutiken öppnar du appen och tar en bild på ditt kvitto.</p>
+            <p>Vår OCR-teknik läser av kvittot och identifierar vilka produkter du har köpt. Därefter scannar du streckkoden på de produkter du vill registrera direkt i appen.</p>
+            <p>Klimava matchar först de scannade produkterna med ditt kvitto för att bekräfta köpet, och jämför dem sedan med vår databas med över 320 000 livsmedelsprodukter.</p>
+            <p>Vi identifierar hållbara val – som ekologiska och miljömärkta produkter – och ger dig poäng för varje produkt som uppfyller våra kriterier.</p>
+            <p>Ju fler klimatsmarta val du gör, desto fler poäng samlar du – som du sedan kan använda till belöningar i appen.</p>
+          </div>
+        </motion.div>
 
         {/* Feature section 2: Challenges screenshot + features (reversed) */}
         <div className="grid lg:grid-cols-2 gap-16 items-center mb-24">

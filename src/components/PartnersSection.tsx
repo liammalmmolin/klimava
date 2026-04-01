@@ -35,7 +35,7 @@ export const PartnersSection = () => {
           transition={{ duration: 0.4 }}
           className="text-center text-sm font-medium text-muted-foreground"
         >
-          Belöningar från fantastiska varumärken.
+          Klimavas fantastiska samarbetspartners.
         </motion.p>
       </div>
 
