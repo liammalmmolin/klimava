@@ -64,9 +64,24 @@ export const HowItWorksSection = () => {
           <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight">
             Så funkar <span className="gradient-text">Klimava</span>
           </h2>
-          <p className="text-muted-foreground mt-6 max-w-2xl mx-auto text-lg leading-relaxed">
-            Scanna, samla poäng och lös in belöningar. Hållbarhet har aldrig varit enklare.
-          </p>
+          <ul className="text-muted-foreground mt-8 max-w-2xl mx-auto text-base leading-relaxed text-left space-y-4">
+            <li className="flex items-start gap-2">
+              <span className="text-primary mt-0.5">•</span>
+              <span>Gör klimatsmarta val i vardagen och samla poäng genom att handla hållbart, återvinna, åka kollektivt, köpa second hand och delta i utmaningar.</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="text-primary mt-0.5">•</span>
+              <span>Använd dina poäng för att få rabatter och exklusiva erbjudanden hos våra samarbetspartners – direkt i appen.</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="text-primary mt-0.5">•</span>
+              <span>Följ din klimatpåverkan i appen – vi samlar din data och visar hur mycket koldioxid du sparar genom dina val.</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="text-primary mt-0.5">•</span>
+              <span>Tävla mot familj och vänner i topplistor – vem samlar flest Klimava-poäng och vem är mest hållbar?</span>
+            </li>
+          </ul>
         </motion.div>
 
         {/* Feature highlight with phone - side by side like Stepler */}
