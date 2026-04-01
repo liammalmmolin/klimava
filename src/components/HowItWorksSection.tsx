@@ -102,7 +102,7 @@ export const HowItWorksSection = () => {
                 className="w-48 md:w-56"
               >
                 <div className="bg-foreground rounded-[2.5rem] p-2 shadow-elevated">
-                  <img src={appDashboard} alt="Klimava dashboard" className="rounded-[2rem] w-full" />
+                  <img src={appOnboarding} alt="Klimava onboarding" className="rounded-[2rem] w-full" />
                 </div>
               </motion.div>
 
