@@ -64,9 +64,24 @@ export const HowItWorksSection = () => {
           <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight">
             Så funkar <span className="gradient-text">Klimava</span>
           </h2>
-          <p className="text-muted-foreground mt-6 max-w-2xl mx-auto text-lg leading-relaxed">
-            Scanna, samla poäng och lös in belöningar. Hållbarhet har aldrig varit enklare.
-          </p>
+          <ul className="text-muted-foreground mt-8 max-w-2xl mx-auto text-base leading-relaxed text-left space-y-4">
+            <li className="flex items-start gap-2">
+              <span className="text-primary mt-0.5">•</span>
+              <span>Gör klimatsmarta val i vardagen och samla poäng genom att handla hållbart, återvinna, åka kollektivt, köpa second hand och delta i utmaningar.</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="text-primary mt-0.5">•</span>
+              <span>Använd dina poäng för att få rabatter och exklusiva erbjudanden hos våra samarbetspartners – direkt i appen.</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="text-primary mt-0.5">•</span>
+              <span>Följ din klimatpåverkan i appen – vi samlar din data och visar hur mycket koldioxid du sparar genom dina val.</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="text-primary mt-0.5">•</span>
+              <span>Tävla mot familj och vänner i topplistor – vem samlar flest Klimava-poäng och vem är mest hållbar?</span>
+            </li>
+          </ul>
         </motion.div>
 
         {/* Feature highlight with phone - side by side like Stepler */}
@@ -90,7 +105,7 @@ export const HowItWorksSection = () => {
                 className="hidden sm:block w-36 md:w-44"
               >
                 <div className="bg-foreground rounded-[2rem] p-1.5 shadow-elevated">
-                  <img src={appOnboarding} alt="Klimava onboarding" className="rounded-[1.75rem] w-full" />
+                  <img src={appDashboard} alt="Klimava dashboard" className="rounded-[1.75rem] w-full" />
                 </div>
               </motion.div>
 
@@ -102,7 +117,7 @@ export const HowItWorksSection = () => {
                 className="w-48 md:w-56"
               >
                 <div className="bg-foreground rounded-[2.5rem] p-2 shadow-elevated">
-                  <img src={appDashboard} alt="Klimava dashboard" className="rounded-[2rem] w-full" />
+                  <img src={appOnboarding} alt="Klimava onboarding" className="rounded-[2rem] w-full" />
                 </div>
               </motion.div>
 
