@@ -52,11 +52,11 @@ export const Header = () => {
 
         <div className="flex items-center gap-4">
           <Button size="default" className="hidden sm:flex rounded-full gradient-bg text-primary-foreground hover:opacity-90 font-medium text-sm px-6">
-            Skaffa appen
+            {t("Skaffa appen", "Get the app")}
           </Button>
 
           <Button size="sm" className="md:hidden rounded-full gradient-bg text-primary-foreground hover:opacity-90 font-medium text-xs px-4">
-            Skaffa appen
+            {t("Skaffa appen", "Get the app")}
           </Button>
 
           <button
