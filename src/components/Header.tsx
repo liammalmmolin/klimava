@@ -37,9 +37,9 @@ export const Header = () => {
             Ladda ner appen
           </Button>
 
-          <Button size="sm" className="md:hidden rounded-full bg-foreground text-background hover:bg-foreground/90 font-medium text-xs px-4">
-            Ladda ner
-          </Button>
+          <a href="#download" className="md:hidden">
+            <img src={appStoreBadge} alt="Hämta i App Store" className="h-8" />
+          </a>
 
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
