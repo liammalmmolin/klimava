@@ -80,16 +80,32 @@ export const Header = () => {
           >
             <nav className="container mx-auto px-6 py-4 flex flex-col gap-4">
               <a href="/#how-it-works" onClick={() => setIsMenuOpen(false)} className="text-muted-foreground hover:text-foreground font-medium transition-colors py-2">
-                Så funkar det
+                {t("Så funkar det", "How it works")}
               </a>
               <a href="/team" onClick={() => setIsMenuOpen(false)} className="text-muted-foreground hover:text-foreground font-medium transition-colors py-2">
                 Team
               </a>
               <a href="/kontakt" onClick={() => setIsMenuOpen(false)} className="text-muted-foreground hover:text-foreground font-medium transition-colors py-2">
-                Kontakt
+                {t("Kontakt", "Contact")}
               </a>
+              <div className="flex items-center gap-2 py-2">
+                <button
+                  onClick={() => setLanguage("sv")}
+                  className={`text-2xl leading-none p-1 rounded transition-opacity ${language === "sv" ? "opacity-100" : "opacity-40 hover:opacity-70"}`}
+                  aria-label="Svenska"
+                >
+                  🇸🇪
+                </button>
+                <button
+                  onClick={() => setLanguage("en")}
+                  className={`text-2xl leading-none p-1 rounded transition-opacity ${language === "en" ? "opacity-100" : "opacity-40 hover:opacity-70"}`}
+                  aria-label="English"
+                >
+                  🇬🇧
+                </button>
+              </div>
               <Button size="default" className="mt-2 rounded-full gradient-bg text-primary-foreground hover:opacity-90 w-full">
-                Skaffa appen
+                {t("Skaffa appen", "Get the app")}
               </Button>
             </nav>
           </motion.div>
