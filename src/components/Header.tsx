@@ -24,14 +24,30 @@ export const Header = () => {
 
         <nav className="hidden md:flex items-center gap-8">
           <a href="/#how-it-works" className="text-muted-foreground hover:text-foreground font-medium transition-colors text-sm">
-            Så funkar det
+            {t("Så funkar det", "How it works")}
           </a>
           <a href="/team" className="text-muted-foreground hover:text-foreground font-medium transition-colors text-sm">
             Team
           </a>
           <a href="/kontakt" className="text-muted-foreground hover:text-foreground font-medium transition-colors text-sm">
-            Kontakt
+            {t("Kontakt", "Contact")}
           </a>
+          <div className="flex items-center gap-1">
+            <button
+              onClick={() => setLanguage("sv")}
+              className={`text-lg leading-none p-1 rounded transition-opacity ${language === "sv" ? "opacity-100" : "opacity-40 hover:opacity-70"}`}
+              aria-label="Svenska"
+            >
+              🇸🇪
+            </button>
+            <button
+              onClick={() => setLanguage("en")}
+              className={`text-lg leading-none p-1 rounded transition-opacity ${language === "en" ? "opacity-100" : "opacity-40 hover:opacity-70"}`}
+              aria-label="English"
+            >
+              🇬🇧
+            </button>
+          </div>
         </nav>
 
         <div className="flex items-center gap-4">
