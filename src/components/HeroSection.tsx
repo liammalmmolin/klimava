@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ArrowRightMd, Phone } from "react-coolicons";
+import { ArrowRightMd } from "react-coolicons";
 import appDashboard from "@/assets/app-dashboard.jpeg";
+import appStoreBadge from "@/assets/app-store-badge.png";
 
 export const HeroSection = () => {
   return (
