@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import klimavaLogo from "@/assets/klimava-logo.jpeg";
+import appStoreBadge from "@/assets/app-store-badge.png";
 import { Button } from "@/components/ui/button";
 import { HamburgerLg, CloseLg } from "react-coolicons";
 
@@ -33,13 +34,13 @@ export const Header = () => {
         </nav>
 
         <div className="flex items-center gap-4">
-          <Button size="default" className="hidden sm:flex rounded-full bg-foreground text-background hover:bg-foreground/90 font-medium text-sm px-6">
-            Ladda ner appen
-          </Button>
+          <a href="#download" className="hidden sm:flex">
+            <img src={appStoreBadge} alt="Hämta i App Store" className="h-10" />
+          </a>
 
-          <Button size="sm" className="md:hidden rounded-full bg-foreground text-background hover:bg-foreground/90 font-medium text-xs px-4">
-            Ladda ner
-          </Button>
+          <a href="#download" className="md:hidden">
+            <img src={appStoreBadge} alt="Hämta i App Store" className="h-8" />
+          </a>
 
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -70,9 +71,9 @@ export const Header = () => {
               <a href="/kontakt" onClick={() => setIsMenuOpen(false)} className="text-muted-foreground hover:text-foreground font-medium transition-colors py-2">
                 Kontakt
               </a>
-              <Button size="default" className="mt-2 rounded-full bg-foreground text-background hover:bg-foreground/90">
-                Ladda ner appen
-              </Button>
+              <a href="#download" className="mt-2 inline-block">
+                <img src={appStoreBadge} alt="Hämta i App Store" className="h-12" />
+              </a>
             </nav>
           </motion.div>
         )}
