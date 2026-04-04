@@ -37,7 +37,7 @@ export const HeroSection = () => {
             className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16"
           >
             <a href="#download">
-              <img src={appStoreBadge} alt="Hämta i App Store" className="h-14" />
+              <img src={appStoreBadge} alt="Hämta i App Store" className="h-16 sm:h-20" />
             </a>
             <Button variant="heroOutline" size="xl" asChild>
               <a href="#how-it-works">

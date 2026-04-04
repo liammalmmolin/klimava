@@ -70,9 +70,9 @@ export const Header = () => {
               <a href="/kontakt" onClick={() => setIsMenuOpen(false)} className="text-muted-foreground hover:text-foreground font-medium transition-colors py-2">
                 Kontakt
               </a>
-              <a href="#download" className="mt-2 inline-block">
-                <img src={appStoreBadge} alt="Hämta i App Store" className="h-12" />
-              </a>
+              <Button size="default" className="mt-2 rounded-full gradient-bg text-primary-foreground hover:opacity-90 w-full">
+                Skaffa appen
+              </Button>
             </nav>
           </motion.div>
         )}
