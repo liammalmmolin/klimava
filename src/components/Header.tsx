@@ -37,6 +37,10 @@ export const Header = () => {
             Ladda ner appen
           </Button>
 
+          <Button size="sm" className="md:hidden rounded-full bg-foreground text-background hover:bg-foreground/90 font-medium text-xs px-4">
+            Ladda ner
+          </Button>
+
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             className="md:hidden p-2 rounded-lg hover:bg-accent transition-colors"
