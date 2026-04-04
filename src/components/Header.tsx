@@ -71,9 +71,9 @@ export const Header = () => {
               <a href="/kontakt" onClick={() => setIsMenuOpen(false)} className="text-muted-foreground hover:text-foreground font-medium transition-colors py-2">
                 Kontakt
               </a>
-              <Button size="default" className="mt-2 rounded-full bg-foreground text-background hover:bg-foreground/90">
-                Ladda ner appen
-              </Button>
+              <a href="#download" className="mt-2 inline-block">
+                <img src={appStoreBadge} alt="Hämta i App Store" className="h-12" />
+              </a>
             </nav>
           </motion.div>
         )}
