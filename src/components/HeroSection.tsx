@@ -36,10 +36,9 @@ export const HeroSection = () => {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16"
           >
-            <Button variant="hero" size="xl">
-              Ladda ner appen
-              <Phone className="w-5 h-5" />
-            </Button>
+            <a href="#download">
+              <img src={appStoreBadge} alt="Hämta i App Store" className="h-14" />
+            </a>
             <Button variant="heroOutline" size="xl" asChild>
               <a href="#how-it-works">
                 Så funkar Klimava

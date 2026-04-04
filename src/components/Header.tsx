@@ -34,9 +34,9 @@ export const Header = () => {
         </nav>
 
         <div className="flex items-center gap-4">
-          <Button size="default" className="hidden sm:flex rounded-full bg-foreground text-background hover:bg-foreground/90 font-medium text-sm px-6">
-            Ladda ner appen
-          </Button>
+          <a href="#download" className="hidden sm:flex">
+            <img src={appStoreBadge} alt="Hämta i App Store" className="h-10" />
+          </a>
 
           <a href="#download" className="md:hidden">
             <img src={appStoreBadge} alt="Hämta i App Store" className="h-8" />
