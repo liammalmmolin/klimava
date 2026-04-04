@@ -6,6 +6,7 @@ import { HamburgerLg, CloseLg } from "react-coolicons";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 export const Header = () => {
+  const { language, setLanguage, t } = useLanguage();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
