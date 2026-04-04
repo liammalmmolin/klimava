@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import klimavaLogo from "@/assets/klimava-logo.jpeg";
 import { Button } from "@/components/ui/button";
 import { HamburgerLg, CloseLg } from "react-coolicons";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
