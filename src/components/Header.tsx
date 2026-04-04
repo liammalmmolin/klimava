@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import klimavaLogo from "@/assets/klimava-logo.jpeg";
-import appStoreBadge from "@/assets/app-store-badge.png";
 import { Button } from "@/components/ui/button";
 import { HamburgerLg, CloseLg } from "react-coolicons";
 
