@@ -33,13 +33,13 @@ export const Header = () => {
         </nav>
 
         <div className="flex items-center gap-4">
-          <a href="#download" className="hidden sm:flex">
-            <img src={appStoreBadge} alt="Hämta i App Store" className="h-10" />
-          </a>
+          <Button size="default" className="hidden sm:flex rounded-full gradient-bg text-primary-foreground hover:opacity-90 font-medium text-sm px-6">
+            Skaffa appen
+          </Button>
 
-          <a href="#download" className="md:hidden">
-            <img src={appStoreBadge} alt="Hämta i App Store" className="h-8" />
-          </a>
+          <Button size="sm" className="md:hidden rounded-full gradient-bg text-primary-foreground hover:opacity-90 font-medium text-xs px-4">
+            Skaffa appen
+          </Button>
 
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
