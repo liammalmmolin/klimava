@@ -3,7 +3,7 @@ import { Camera, ChartBarVertical01, Gift, Star, ShoppingBag01, MapPin, Star as 
 import appOnboarding from "@/assets/app-onboarding.jpeg";
 import appDashboard from "@/assets/app-dashboard.jpeg";
 import appChallengesScreen from "@/assets/app-challenges.png";
-import appScanner from "@/assets/app-scanner.jpg";
+import appScanner from "@/assets/app-scanner2.png";
 import appPoangshop2 from "@/assets/app-poangshop2.jpg";
 
 const allFeatures = [
