@@ -3,11 +3,13 @@ import { Footer } from "@/components/Footer";
 import { motion } from "framer-motion";
 import { Mail } from "react-coolicons";
 import { Instagram, Music2 } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Contact = () => {
+  const { t } = useLanguage();
+
   return (
     <div className="min-h-screen relative">
-      {/* Dark gradient background */}
       <div 
         className="absolute inset-0" 
         style={{ 
@@ -24,13 +26,16 @@ const Contact = () => {
             className="text-center mb-12"
           >
             <span className="gradient-text font-semibold text-sm uppercase tracking-wider">
-              Hör av dig
+              {t("Hör av dig", "Get in touch")}
             </span>
             <h1 className="text-3xl md:text-5xl font-bold text-white mt-3">
-              Kontakta oss
+              {t("Kontakta oss", "Contact us")}
             </h1>
             <p className="text-white/70 mt-4 max-w-xl mx-auto">
-              Har du frågor, feedback eller vill samarbeta? Vi finns här för dig!
+              {t(
+                "Har du frågor, feedback eller vill samarbeta? Vi finns här för dig!",
+                "Have questions, feedback or want to collaborate? We're here for you!"
+              )}
             </p>
           </motion.div>
 
@@ -41,7 +46,6 @@ const Contact = () => {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="space-y-4"
             >
-              {/* Email */}
               <a
                 href="mailto:klimavauf@gmail.com"
                 className="flex items-center gap-4 bg-white/10 backdrop-blur-md rounded-2xl p-6 shadow-elevated hover:bg-white/15 transition-all duration-300 border border-white/20 group"
@@ -50,12 +54,11 @@ const Contact = () => {
                   <Mail className="w-6 h-6 text-primary-foreground" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-white">E-post</h3>
+                  <h3 className="font-semibold text-white">{t("E-post", "Email")}</h3>
                   <p className="text-white/70">klimavauf@gmail.com</p>
                 </div>
               </a>
 
-              {/* Instagram */}
               <a
                 href="https://www.instagram.com/klimava.uf"
                 target="_blank"
@@ -71,14 +74,13 @@ const Contact = () => {
                 </div>
               </a>
 
-              {/* TikTok */}
               <div className="flex items-center gap-4 bg-white/5 backdrop-blur-md rounded-2xl p-6 border border-white/10 opacity-60">
                 <div className="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center">
                   <Music2 className="w-6 h-6 text-white" />
                 </div>
                 <div>
                   <h3 className="font-semibold text-white">TikTok</h3>
-                  <p className="text-white/50">Kommer snart!</p>
+                  <p className="text-white/50">{t("Kommer snart!", "Coming soon!")}</p>
                 </div>
               </div>
             </motion.div>

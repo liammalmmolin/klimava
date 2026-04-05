@@ -3,33 +3,36 @@ import { Button } from "@/components/ui/button";
 import { ArrowRightMd } from "react-coolicons";
 import appDashboard from "@/assets/app-dashboard.jpeg";
 import appStoreBadge from "@/assets/app-store-badge.png";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export const HeroSection = () => {
+  const { t } = useLanguage();
+
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center pt-24 pb-12 overflow-hidden bg-white">
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-3xl mx-auto text-center">
-          {/* Main heading - Stepler style: large, dark, clean */}
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-4xl md:text-6xl lg:text-7xl font-bold text-foreground leading-tight mb-6"
           >
-            Gör hållbara val och få belöningar
+            {t("Gör hållbara val och få belöningar", "Make sustainable choices and earn rewards")}
           </motion.h1>
 
-          {/* Subtitle - gray, relaxed */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed"
           >
-            Klimava gör hållbarhet mätbar, motiverande och belönande. Samla poäng genom klimatsmarta val och lös in dem mot riktiga belöningar.
+            {t(
+              "Klimava gör hållbarhet mätbar, motiverande och belönande. Samla poäng genom klimatsmarta val och lös in dem mot riktiga belöningar.",
+              "Klimava makes sustainability measurable, motivating and rewarding. Earn points through climate-smart choices and redeem them for real rewards."
+            )}
           </motion.p>
 
-          {/* App Store style buttons */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -37,17 +40,16 @@ export const HeroSection = () => {
             className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16"
           >
             <a href="#download">
-              <img src={appStoreBadge} alt="Hämta i App Store" className="h-16 sm:h-20" />
+              <img src={appStoreBadge} alt={t("Hämta i App Store", "Download on App Store")} className="h-20 sm:h-24 md:h-28" />
             </a>
             <Button variant="heroOutline" size="xl" asChild>
               <a href="#how-it-works">
-                Så funkar Klimava
+                {t("Så funkar Klimava", "How Klimava works")}
                 <ArrowRightMd className="w-5 h-5" />
               </a>
             </Button>
           </motion.div>
 
-          {/* Phone mockup - centered, large */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}

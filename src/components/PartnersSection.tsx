@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 import slLogo from "@/assets/partners/sl.jpeg";
 import traderaLogo from "@/assets/partners/tradera.png";
@@ -25,6 +26,8 @@ const partners = [
 const marqueePartners = [...partners, ...partners];
 
 export const PartnersSection = () => {
+  const { t } = useLanguage();
+
   return (
     <section className="py-12 overflow-hidden bg-muted/60 border-y border-border/40">
       <div className="container mx-auto px-6 mb-8">
@@ -35,7 +38,7 @@ export const PartnersSection = () => {
           transition={{ duration: 0.4 }}
           className="text-center text-sm font-medium text-muted-foreground"
         >
-          Klimavas fantastiska samarbetspartners.
+          {t("Klimavas fantastiska samarbetspartners.", "Klimava's amazing partners.")}
         </motion.p>
       </div>
 
