@@ -1,30 +1,17 @@
 import { motion } from "framer-motion";
 import { Linkedin, Twitter } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const founders = [
-  {
-    name: "Dante Rudinsson",
-    role: "Grundare",
-    initials: "DR",
-  },
-  {
-    name: "Liam Molin",
-    role: "Grundare",
-    initials: "LM",
-  },
-  {
-    name: "Christian Nordwall",
-    role: "Grundare",
-    initials: "CN",
-  },
-  {
-    name: "Linus Emmoth",
-    role: "Grundare",
-    initials: "LE",
-  },
+  { name: "Dante Rudinsson", roleSv: "Grundare", roleEn: "Founder", initials: "DR" },
+  { name: "Liam Molin", roleSv: "Grundare", roleEn: "Founder", initials: "LM" },
+  { name: "Christian Nordwall", roleSv: "Grundare", roleEn: "Founder", initials: "CN" },
+  { name: "Linus Emmoth", roleSv: "Grundare", roleEn: "Founder", initials: "LE" },
 ];
 
 export const FoundersSection = () => {
+  const { t } = useLanguage();
+
   return (
     <section id="founders" className="py-24 bg-background">
       <div className="container mx-auto px-6">
@@ -36,14 +23,16 @@ export const FoundersSection = () => {
           className="text-center mb-16"
         >
           <span className="text-primary font-semibold text-sm uppercase tracking-wider">
-            Teamet bakom Klimava
+            {t("Teamet bakom Klimava", "The team behind Klimava")}
           </span>
           <h2 className="text-3xl md:text-5xl font-bold text-foreground mt-3">
-            Möt grundarna
+            {t("Möt grundarna", "Meet the founders")}
           </h2>
           <p className="text-muted-foreground mt-4 max-w-xl mx-auto">
-            Fyra unga entreprenörer med en gemensam vision – att göra hållbara val
-            enkla och motiverande för alla.
+            {t(
+              "Fyra unga entreprenörer med en gemensam vision – att göra hållbara val enkla och motiverande för alla.",
+              "Four young entrepreneurs with a shared vision – to make sustainable choices easy and motivating for everyone."
+            )}
           </p>
         </motion.div>
 
@@ -58,33 +47,20 @@ export const FoundersSection = () => {
               className="group"
             >
               <div className="bg-card rounded-2xl p-6 shadow-soft hover:shadow-card transition-all duration-300 border border-border text-center">
-                {/* Avatar with gradient */}
                 <div className="w-24 h-24 mx-auto mb-4 rounded-full gradient-bg flex items-center justify-center shadow-card group-hover:scale-105 transition-transform duration-300">
                   <span className="text-2xl font-bold text-primary-foreground">
                     {founder.initials}
                   </span>
                 </div>
-
-                {/* Info */}
-                <h3 className="text-lg font-semibold text-foreground">
-                  {founder.name}
-                </h3>
+                <h3 className="text-lg font-semibold text-foreground">{founder.name}</h3>
                 <p className="text-sm text-muted-foreground mt-1">
-                  {founder.role}
+                  {t(founder.roleSv, founder.roleEn)}
                 </p>
-
-                {/* Social links */}
                 <div className="flex items-center justify-center gap-3 mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <a
-                    href="#"
-                    className="w-8 h-8 rounded-full bg-accent flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-primary/20 transition-colors"
-                  >
+                  <a href="#" className="w-8 h-8 rounded-full bg-accent flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-primary/20 transition-colors">
                     <Linkedin className="w-4 h-4" />
                   </a>
-                  <a
-                    href="#"
-                    className="w-8 h-8 rounded-full bg-accent flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-primary/20 transition-colors"
-                  >
+                  <a href="#" className="w-8 h-8 rounded-full bg-accent flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-primary/20 transition-colors">
                     <Twitter className="w-4 h-4" />
                   </a>
                 </div>
@@ -93,7 +69,6 @@ export const FoundersSection = () => {
           ))}
         </div>
 
-        {/* Mission statement */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -103,11 +78,13 @@ export const FoundersSection = () => {
         >
           <div className="bg-muted/50 rounded-2xl p-8 border border-border">
             <p className="text-lg text-foreground leading-relaxed">
-              "Vi tror på belöning istället för pekpinnar. Klimava ska göra det
-              lätt och roligt att leva hållbart – varje dag, ett val i taget."
+              {t(
+                "\"Vi tror på belöning istället för pekpinnar. Klimava ska göra det lätt och roligt att leva hållbart – varje dag, ett val i taget.\"",
+                "\"We believe in rewards instead of finger-wagging. Klimava should make it easy and fun to live sustainably – every day, one choice at a time.\""
+              )}
             </p>
             <p className="text-sm text-muted-foreground mt-4">
-              — Grundarna av Klimava
+              {t("— Grundarna av Klimava", "— The founders of Klimava")}
             </p>
           </div>
         </motion.div>

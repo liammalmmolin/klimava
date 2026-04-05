@@ -2,8 +2,11 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { PlayCircle, Phone } from "react-coolicons";
 import { Apple } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export const CTASection = () => {
+  const { t } = useLanguage();
+
   return (
     <section id="download" className="py-28 bg-white">
       <div className="container mx-auto px-6">
@@ -15,13 +18,15 @@ export const CTASection = () => {
           className="max-w-3xl mx-auto text-center"
         >
           <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6">
-            Redo att börja tjäna på
+            {t("Redo att börja tjäna på", "Ready to start earning from")}
             <br />
-            <span className="gradient-text">hållbara val?</span>
+            <span className="gradient-text">{t("hållbara val?", "sustainable choices?")}</span>
           </h2>
           <p className="text-lg text-muted-foreground mb-10 max-w-xl mx-auto leading-relaxed">
-            Ladda ner Klimava gratis och börja samla poäng redan idag.
-            Varje litet val gör skillnad.
+            {t(
+              "Ladda ner Klimava gratis och börja samla poäng redan idag. Varje litet val gör skillnad.",
+              "Download Klimava for free and start earning points today. Every small choice makes a difference."
+            )}
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -44,12 +49,12 @@ export const CTASection = () => {
           >
             <div className="flex items-center gap-2">
               <Phone className="w-4 h-4" />
-              <span>Gratis att använda</span>
+              <span>{t("Gratis att använda", "Free to use")}</span>
             </div>
             <div className="h-4 w-px bg-border" />
-            <span>Inga dolda kostnader</span>
+            <span>{t("Inga dolda kostnader", "No hidden costs")}</span>
             <div className="h-4 w-px bg-border" />
-            <span>GDPR-säker</span>
+            <span>{t("GDPR-säker", "GDPR compliant")}</span>
           </motion.div>
         </motion.div>
       </div>
