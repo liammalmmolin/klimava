@@ -222,17 +222,6 @@ export const HowItWorksSection = () => {
                 <img src={appScanner} alt="Klimava scanner" className="rounded-[1.75rem] w-full" />
               </div>
             </motion.div>
-            <motion.div
-              initial={{ opacity: 0, x: 40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="w-40 sm:w-48"
-            >
-              <div className="bg-foreground rounded-[2rem] p-1.5 shadow-elevated">
-                <img src={appChallengesScreen} alt={t("Klimava utmaningar", "Klimava challenges")} className="rounded-[1.75rem] w-full" />
-              </div>
-            </motion.div>
           </div>
           <div className="space-y-6 text-muted-foreground text-base leading-relaxed max-w-3xl">
             <p>{t(
