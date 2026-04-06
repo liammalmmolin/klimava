@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
 import { Camera, ChartBarVertical01, Gift, Star, ShoppingBag01, MapPin, Star as TrophyStar, Users } from "react-coolicons";
+import { Link } from "react-router-dom";
 import appOnboarding from "@/assets/app-onboarding.jpeg";
 import appDashboard from "@/assets/app-dashboard.jpeg";
-import appChallengesScreen from "@/assets/app-challenges.png";
 import appScanner from "@/assets/app-scanner2.png";
 import appPoangshop2 from "@/assets/app-poangshop2.jpg";
 import { useLanguage } from "@/contexts/LanguageContext";
