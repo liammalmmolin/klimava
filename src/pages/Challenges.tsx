@@ -3,11 +3,12 @@ import { Footer } from "@/components/Footer";
 import { motion } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import appChallengesScreen from "@/assets/app-challenges.png";
 
 const Challenges = () => {
   const { t } = useLanguage();
+  const navigate = useNavigate();
 
   return (
     <div className="min-h-screen bg-white">
@@ -19,11 +20,9 @@ const Challenges = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <Link to="/#how-it-works">
-              <Button variant="ghost" className="mb-8 text-muted-foreground">
-                ← {t("Tillbaka", "Back")}
-              </Button>
-            </Link>
+            <Button variant="ghost" className="mb-8 text-muted-foreground" onClick={() => navigate(-1)}>
+              ← {t("Tillbaka", "Back")}
+            </Button>
 
             <h1 className="text-3xl md:text-5xl font-bold text-foreground mb-8">
               {t(
