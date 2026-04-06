@@ -8,6 +8,7 @@ import appChallengesScreen from "@/assets/app-challenges.png";
 
 const Challenges = () => {
   const { t } = useLanguage();
+  const navigate = useNavigate();
 
   return (
     <div className="min-h-screen bg-white">
