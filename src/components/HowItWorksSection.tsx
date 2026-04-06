@@ -247,49 +247,61 @@ export const HowItWorksSection = () => {
           </div>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-16 items-center mb-24">
-          <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            className="lg:order-2 flex justify-center"
+        {/* Återvinning section */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+          className="mb-28"
+        >
+          <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-6">
+            {t(
+              <>Återvinning som <span className="gradient-text">belönar dig</span></>,
+              <>Recycling that <span className="gradient-text">rewards you</span></>
+            )}
+          </h3>
+          <p className="text-muted-foreground text-base leading-relaxed max-w-3xl mb-6">
+            {t(
+              "Klimava använder GPS för att känna av när du är nära en återvinningsstation. När du är på plats låses vår scanner upp så att du kan registrera det du återvinner och få poäng direkt.",
+              "Klimava uses GPS to detect when you are near a recycling station. When you arrive, our scanner unlocks so you can register what you recycle and earn points instantly."
+            )}
+          </p>
+          <Link
+            to="/atervinning"
+            className="inline-flex items-center gap-2 gradient-bg text-primary-foreground font-semibold px-6 py-3 rounded-xl shadow-soft hover:shadow-card hover:scale-[1.02] active:scale-[0.98] transition-all"
           >
-            <div className="w-56 md:w-64">
-              <div className="bg-foreground rounded-[2.5rem] p-2 shadow-elevated">
-                <img src={appChallengesScreen} alt={t("Klimava utmaningar", "Klimava challenges")} className="rounded-[2rem] w-full" />
-              </div>
-            </div>
-          </motion.div>
+            {t("Läs mer", "Read more")} →
+          </Link>
+        </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            className="lg:order-1"
+        {/* Utmaningar & topplistor section */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+          className="mb-24"
+        >
+          <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-6">
+            {t(
+              <>Utmaningar & <span className="gradient-text">topplistor</span></>,
+              <>Challenges & <span className="gradient-text">leaderboards</span></>
+            )}
+          </h3>
+          <p className="text-muted-foreground text-base leading-relaxed max-w-3xl mb-6">
+            {t(
+              "Tävla mot vänner och familj i veckovisa klimatutmaningar. Samla bonuspoäng, klättra på topplistor och motivera varandra till mer hållbara val – varje dag.",
+              "Compete against friends and family in weekly climate challenges. Earn bonus points, climb leaderboards and motivate each other to make more sustainable choices – every day."
+            )}
+          </p>
+          <Link
+            to="/utmaningar"
+            className="inline-flex items-center gap-2 gradient-bg text-primary-foreground font-semibold px-6 py-3 rounded-xl shadow-soft hover:shadow-card hover:scale-[1.02] active:scale-[0.98] transition-all"
           >
-            <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-6">
-              {t(
-                <>Utmaningar & <span className="gradient-text">topplistor</span></>,
-                <>Challenges & <span className="gradient-text">leaderboards</span></>
-              )}
-            </h3>
-            <div className="space-y-5">
-              {allFeatures.slice(4).map((feature) => (
-                <div key={feature.title} className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-xl gradient-bg flex items-center justify-center shrink-0">
-                    <feature.icon className="w-5 h-5 text-primary-foreground" />
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-foreground">{feature.title}</h4>
-                    <p className="text-sm text-muted-foreground leading-relaxed">{feature.description}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </motion.div>
-        </div>
+            {t("Läs mer", "Read more")} →
+          </Link>
+        </motion.div>
 
         <motion.div
           initial={{ opacity: 0, y: 30 }}
