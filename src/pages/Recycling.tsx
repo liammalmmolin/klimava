@@ -19,11 +19,9 @@ const Recycling = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <Link to="/#how-it-works">
-              <Button variant="ghost" className="mb-8 text-muted-foreground">
-                ← {t("Tillbaka", "Back")}
-              </Button>
-            </Link>
+            <Button variant="ghost" className="mb-8 text-muted-foreground" onClick={() => navigate(-1)}>
+              ← {t("Tillbaka", "Back")}
+            </Button>
 
             <h1 className="text-3xl md:text-5xl font-bold text-foreground mb-8">
               {t(
