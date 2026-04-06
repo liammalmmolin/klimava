@@ -19,7 +19,11 @@ const Recycling = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <Button variant="ghost" className="mb-8 text-muted-foreground" onClick={() => navigate(-1)}>
+            <Button
+              variant="ghost"
+              className="mb-8 text-muted-foreground"
+              onClick={() => navigate({ pathname: "/", hash: "#recycling-section" })}
+            >
               ← {t("Tillbaka", "Back")}
             </Button>
 

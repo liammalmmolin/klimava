@@ -148,10 +148,10 @@ export const HowItWorksSection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="w-48 md:w-56"
+                className="w-40 sm:w-48"
               >
-                <div className="bg-foreground rounded-[2.5rem] p-2 shadow-elevated">
-                  <img src={appOnboarding} alt="Klimava onboarding" className="rounded-[2rem] w-full" />
+                <div className="bg-foreground rounded-[2rem] p-1.5 shadow-elevated">
+                  <img src={appOnboarding} alt="Klimava onboarding" className="rounded-[1.75rem] w-full" />
                 </div>
               </motion.div>
               <motion.div
@@ -159,7 +159,7 @@ export const HowItWorksSection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.3 }}
-                className="hidden sm:block w-36 md:w-44"
+                className="hidden sm:block w-40 md:w-48"
               >
                 <div className="bg-foreground rounded-[2rem] p-1.5 shadow-elevated">
                   <img src={appPoangshop2} alt={t("Klimava poängshop", "Klimava points shop")} className="rounded-[1.75rem] w-full" />
@@ -249,11 +249,12 @@ export const HowItWorksSection = () => {
 
         {/* Återvinning section */}
         <motion.div
+          id="recycling-section"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="mb-28"
+          className="mb-28 scroll-mt-32"
         >
           <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-6">
             {t(
@@ -277,11 +278,12 @@ export const HowItWorksSection = () => {
 
         {/* Utmaningar & topplistor section */}
         <motion.div
+          id="challenges-section"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="mb-24"
+          className="mb-24 scroll-mt-32"
         >
           <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-6">
             {t(

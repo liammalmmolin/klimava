@@ -20,7 +20,11 @@ const Challenges = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <Button variant="ghost" className="mb-8 text-muted-foreground" onClick={() => navigate(-1)}>
+            <Button
+              variant="ghost"
+              className="mb-8 text-muted-foreground"
+              onClick={() => navigate({ pathname: "/", hash: "#challenges-section" })}
+            >
               ← {t("Tillbaka", "Back")}
             </Button>
 
@@ -32,9 +36,9 @@ const Challenges = () => {
             </h1>
 
             <div className="flex justify-center mb-12">
-              <div className="w-48 md:w-56">
-                <div className="bg-foreground rounded-[2.5rem] p-2 shadow-elevated">
-                  <img src={appChallengesScreen} alt={t("Klimava utmaningar", "Klimava challenges")} className="rounded-[2rem] w-full" />
+              <div className="w-40 sm:w-48">
+                <div className="bg-foreground rounded-[2rem] p-1.5 shadow-elevated">
+                  <img src={appChallengesScreen} alt={t("Klimava utmaningar", "Klimava challenges")} className="rounded-[1.75rem] w-full" />
                 </div>
               </div>
             </div>
