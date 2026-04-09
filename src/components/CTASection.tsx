@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { PlayCircle, Phone } from "react-coolicons";
+import { Phone } from "react-coolicons";
 import { Apple } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
