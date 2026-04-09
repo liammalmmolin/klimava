@@ -39,7 +39,7 @@ export const HeroSection = () => {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16"
           >
-            <a href="#download">
+            <a href="https://apps.apple.com/se/app/klimava/id6760266069" target="_blank" rel="noopener noreferrer">
               <img src={appStoreBadge} alt={t("Hämta i App Store", "Download on App Store")} className="h-20 sm:h-24 md:h-28" />
             </a>
             <Button variant="heroOutline" size="xl" asChild>
