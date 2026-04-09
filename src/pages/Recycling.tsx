@@ -22,7 +22,7 @@ const Recycling = () => {
             <Button
               variant="ghost"
               className="mb-8 text-muted-foreground"
-              onClick={() => navigate({ pathname: "/", hash: "#recycling-section" })}
+              onClick={() => navigate(-1)}
             >
               ← {t("Tillbaka", "Back")}
             </Button>
