@@ -23,7 +23,7 @@ const Challenges = () => {
             <Button
               variant="ghost"
               className="mb-8 text-muted-foreground"
-              onClick={() => navigate({ pathname: "/", hash: "#challenges-section" })}
+              onClick={() => navigate(-1)}
             >
               ← {t("Tillbaka", "Back")}
             </Button>
