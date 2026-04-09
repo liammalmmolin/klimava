@@ -51,12 +51,16 @@ export const Header = () => {
         </nav>
 
         <div className="flex items-center gap-4">
-          <Button size="default" className="hidden sm:flex rounded-full gradient-bg text-primary-foreground hover:opacity-90 font-medium text-sm px-6">
-            {t("Skaffa appen", "Get the app")}
+          <Button size="default" className="hidden sm:flex rounded-full gradient-bg text-primary-foreground hover:opacity-90 font-medium text-sm px-6" asChild>
+            <a href="https://apps.apple.com/se/app/klimava/id6760266069" target="_blank" rel="noopener noreferrer">
+              {t("Skaffa appen", "Get the app")}
+            </a>
           </Button>
 
-          <Button size="sm" className="md:hidden rounded-full gradient-bg text-primary-foreground hover:opacity-90 font-medium text-xs px-4">
-            {t("Skaffa appen", "Get the app")}
+          <Button size="sm" className="md:hidden rounded-full gradient-bg text-primary-foreground hover:opacity-90 font-medium text-xs px-4" asChild>
+            <a href="https://apps.apple.com/se/app/klimava/id6760266069" target="_blank" rel="noopener noreferrer">
+              {t("Skaffa appen", "Get the app")}
+            </a>
           </Button>
 
           <button
@@ -104,8 +108,10 @@ export const Header = () => {
                   🇬🇧
                 </button>
               </div>
-              <Button size="default" className="mt-2 rounded-full gradient-bg text-primary-foreground hover:opacity-90 w-full">
-                {t("Skaffa appen", "Get the app")}
+              <Button size="default" className="mt-2 rounded-full gradient-bg text-primary-foreground hover:opacity-90 w-full" asChild>
+                <a href="https://apps.apple.com/se/app/klimava/id6760266069" target="_blank" rel="noopener noreferrer">
+                  {t("Skaffa appen", "Get the app")}
+                </a>
               </Button>
             </nav>
           </motion.div>
