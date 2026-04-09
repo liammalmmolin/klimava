@@ -1,11 +1,23 @@
 
 
-## Plan: Byt ut den högra bilden i "Så funkar Klimava"-sektionen
+## Plan: Uppdatera kontaktsidans rubrik och byt flagg-emojis till cirkulära SVG-ikoner
 
-Den översta delen av "Så funkar Klimava" visar tre telefon-mockups i rad: vänster (onboarding), mitten (dashboard), höger (dashboard igen).
+### 1. Kontaktsidan – Ändra rubrik
+**Fil:** `src/pages/Contact.tsx`
+- Rad 32: Byt `"Bli partner"` → `"Kontakta oss"` och `"Become a partner"` → `"Contact us"`
 
-### Ändring
-1. **Kopiera** den uppladdade bilden (`IMG_8727-2.jpg`) till `src/assets/app-poangshop2.jpg`
-2. **Importera** den nya bilden i `HowItWorksSection.tsx`
-3. **Byt ut** den högra telefon-mockupen (rad 115-116) som idag visar `appDashboard` mot den nya poängshop-bilden, med korrekt alt-text "Klimava poängshop"
+### 2. Flaggikoner – Byt från emojis till cirkulära SVG-ikoner
+Bilden visar cirkulära flaggikoner (Union Jack och Sveriges flagga) istället för emojis. Ändringen görs i **`src/components/Header.tsx`** på alla fyra ställen (desktop nav + mobil meny).
+
+Skapar en liten komponent eller inline SVG för varje flagga:
+- **Union Jack**: Cirkulär SVG med brittiska flaggans design
+- **Svenska flaggan**: Cirkulär SVG med blå bakgrund och gult kors
+
+Ersätter emoji-tecknen `🇸🇪` och `🇬🇧` med dessa SVG-cirklar (ca 24px desktop, 28px mobil), och behåller befintlig opacity-logik för aktiv/inaktiv.
+
+### Filer som ändras
+| Fil | Ändring |
+|---|---|
+| `src/pages/Contact.tsx` | Rubrik "Bli partner" → "Kontakta oss" |
+| `src/components/Header.tsx` | Alla 4 flagg-emojis → cirkulära SVG-flaggikoner |
 
