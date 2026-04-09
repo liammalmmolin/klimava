@@ -30,13 +30,11 @@ export const CTASection = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button variant="hero" size="xl" className="w-full sm:w-auto">
-              <Apple className="w-5 h-5" />
-              App Store
-            </Button>
-            <Button variant="hero" size="xl" className="w-full sm:w-auto">
-              <PlayCircle className="w-5 h-5" />
-              Google Play
+            <Button variant="hero" size="xl" className="w-full sm:w-auto" asChild>
+              <a href="https://apps.apple.com/se/app/klimava/id6760266069" target="_blank" rel="noopener noreferrer">
+                <Apple className="w-5 h-5" />
+                App Store
+              </a>
             </Button>
           </div>
 

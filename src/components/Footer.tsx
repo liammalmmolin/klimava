@@ -37,7 +37,7 @@ export const Footer = () => {
             <h4 className="font-semibold mb-4 text-sm">{t("Appen", "The App")}</h4>
             <ul className="space-y-3 text-background/60 text-sm">
               <li><a href="/#how-it-works" className="hover:text-background transition-colors">{t("Så funkar det", "How it works")}</a></li>
-              <li><a href="#download" className="hover:text-background transition-colors">{t("Ladda ner", "Download")}</a></li>
+              <li><a href="https://apps.apple.com/se/app/klimava/id6760266069" target="_blank" rel="noopener noreferrer" className="hover:text-background transition-colors">{t("Ladda ner", "Download")}</a></li>
             </ul>
           </div>
 

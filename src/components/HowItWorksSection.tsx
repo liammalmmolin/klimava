@@ -189,7 +189,9 @@ export const HowItWorksSection = () => {
               ))}
             </ul>
             <a
-              href="#download"
+              href="https://apps.apple.com/se/app/klimava/id6760266069"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-block mt-8 text-primary font-semibold hover:underline text-lg"
             >
               {t("Skaffa Klimava →", "Get Klimava →")}
