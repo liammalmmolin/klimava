@@ -198,18 +198,27 @@ export const HowItWorksSection = () => {
           >
             <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
               {t(
-                <>Gör dina hållbara val till{" "}<span className="gradient-text">belöningar</span>.</>,
-                <>Turn your sustainable choices into{" "}<span className="gradient-text">rewards</span>.</>
+                <>Gör klimatsmarta val och få något{" "}<span className="gradient-text">tillbaka</span></>,
+                <>Make climate-smart choices and get something{" "}<span className="gradient-text">back</span></>
               )}
             </h3>
-            <ul className="space-y-4 mt-8">
-              {allFeatures.slice(0, 3).map((feature) => (
-                <li key={feature.title} className="flex items-start gap-3">
-                  <span className="text-muted-foreground">•</span>
-                  <span className="text-muted-foreground text-lg">{feature.description}</span>
-                </li>
-              ))}
-            </ul>
+            <div className="space-y-4 mt-6 text-muted-foreground text-base leading-relaxed">
+              <p>{t(
+                "Med Klimava samlar du poäng genom dina vardagsval och använder dem i vår poängshop.",
+                "With Klimava you earn points through your everyday choices and use them in our points shop."
+              )}</p>
+              <p>{t(
+                "Få tillgång till exklusiva erbjudanden från våra samarbetspartners, som rabatter, fri frakt, gratis månader och produkter.",
+                "Get access to exclusive offers from our partners, like discounts, free shipping, free months and products."
+              )}</p>
+              <p>{t(
+                "Du sparar pengar samtidigt som du gör något bra för klimatet.",
+                "You save money while doing something good for the climate."
+              )}</p>
+            </div>
+
+            <RewardsReadMore />
+
             <a
               href="https://apps.apple.com/se/app/klimava/id6760266069"
               target="_blank"
