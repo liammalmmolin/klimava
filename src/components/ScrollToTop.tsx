@@ -7,13 +7,16 @@ const ScrollToTop = () => {
 
   useEffect(() => {
     // POP = back/forward – let browser restore scroll naturally
-    if (navigationType === "POP") return;
+    if (navigationType === "POP") {
+      return;
+    }
 
     if (hash) {
       const elementId = hash.replace("#", "");
-      requestAnimationFrame(() => {
+      // Small delay to ensure DOM is ready
+      setTimeout(() => {
         document.getElementById(elementId)?.scrollIntoView({ block: "start" });
-      });
+      }, 50);
       return;
     }
 

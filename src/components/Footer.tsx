@@ -57,7 +57,7 @@ export const Footer = () => {
         </div>
 
         <div className="border-t border-background/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
-          <span className="text-background/40 text-xs">{t("© 2024 Klimava. Alla rättigheter förbehållna.", "© 2024 Klimava. All rights reserved.")}</span>
+          <span className="text-background/40 text-xs">{t(`© ${new Date().getFullYear()} Klimava. Alla rättigheter förbehållna.`, `© ${new Date().getFullYear()} Klimava. All rights reserved.`)}</span>
           <div className="flex items-center gap-6 text-xs text-background/40">
             <a href="#" className="hover:text-background transition-colors">{t("Integritetspolicy", "Privacy Policy")}</a>
             <a href="#" className="hover:text-background transition-colors">{t("Användarvillkor", "Terms of Service")}</a>
