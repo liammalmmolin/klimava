@@ -99,7 +99,83 @@ export const HowItWorksSection = () => {
     },
   ];
 
+const RewardsReadMore = () => {
+  const [open, setOpen] = useState(false);
+  const { t, language } = useLanguage();
+
   return (
+    <div className="mt-6">
+      <button
+        onClick={() => setOpen(!open)}
+        className="inline-flex items-center gap-2 text-primary font-semibold hover:underline text-base transition-colors"
+      >
+        {t("Läs mer", "Read more")} {open ? "↑" : "↓"}
+      </button>
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3 }}
+            className="overflow-hidden"
+          >
+            <div className="pt-6 space-y-6">
+              <h4 className="text-xl font-bold text-foreground">
+                {t("Belöningar som gör skillnad", "Rewards that make a difference")}
+              </h4>
+              <div className="space-y-4 text-muted-foreground text-base leading-relaxed">
+                <p>{t(
+                  "Med Klimava blir dina klimatsmarta val värdefulla på riktigt.",
+                  "With Klimava, your climate-smart choices become truly valuable."
+                )}</p>
+                <p>{t(
+                  "Du samlar poäng genom dina val i vardagen och använder dem i vår poängshop, där du får tillgång till exklusiva erbjudanden från våra samarbetspartners.",
+                  "You earn points through your everyday choices and use them in our points shop, where you get access to exclusive offers from our partners."
+                )}</p>
+                <p>{t(
+                  "Här kan du ta del av förmåner som fri frakt, rabatter, gratis månader och utvalda produkter.",
+                  "Here you can enjoy benefits like free shipping, discounts, free months and selected products."
+                )}</p>
+                <p>{t(
+                  "Det handlar inte bara om att göra rätt för klimatet – det handlar om att få något tillbaka. Varje poäng du tjänar blir en möjlighet att spara pengar och ta del av attraktiva erbjudanden.",
+                  "It's not just about doing right for the climate – it's about getting something back. Every point you earn becomes an opportunity to save money and access attractive offers."
+                )}</p>
+                <p>{t(
+                  "Med Klimava blir hållbarhet både smartare och mer lönsamt.",
+                  "With Klimava, sustainability becomes both smarter and more rewarding."
+                )}</p>
+              </div>
+
+              <div className="my-6 flex justify-center">
+                <div className="bg-foreground rounded-[2rem] p-1.5 shadow-elevated w-48">
+                  <img src={appPoangshop3} alt={t("Klimava poängshop", "Klimava points shop")} className="rounded-[1.75rem] w-full" />
+                </div>
+              </div>
+
+              <h4 className="text-lg font-bold text-foreground mt-8">
+                {t("Våra samarbetspartners", "Our partners")}
+              </h4>
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+                {rewardPartners.map((p) => (
+                  <div key={p.name} className="flex items-center gap-3 p-3 rounded-xl border border-border/50 bg-muted/30">
+                    <img src={p.logo} alt={p.name} className="w-10 h-10 rounded-lg object-contain shrink-0" />
+                    <div className="min-w-0">
+                      <p className="text-sm font-semibold text-foreground truncate">{p.name}</p>
+                      <p className="text-xs text-muted-foreground line-clamp-2">{language === "sv" ? p.desc.sv : p.desc.en}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+};
+
+
     <section id="how-it-works" className="py-28 bg-white">
       <div className="container mx-auto px-6">
         <motion.div
