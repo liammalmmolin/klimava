@@ -29,7 +29,7 @@ const Contact = () => {
               {t("Samarbeta med oss", "Partner with us")}
             </span>
             <h1 className="text-3xl md:text-5xl font-bold text-white mt-3">
-              {t("Bli partner", "Become a partner")}
+              {t("Kontakta oss", "Contact us")}
             </h1>
             <p className="text-white/70 mt-4 max-w-xl mx-auto">
               {t(
