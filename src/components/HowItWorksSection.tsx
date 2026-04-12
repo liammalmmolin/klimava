@@ -1,12 +1,34 @@
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Camera, ChartBarVertical01, Gift, Star, ShoppingBag01, MapPin, Star as TrophyStar, Users } from "react-coolicons";
 import appOnboarding from "@/assets/app-onboarding.jpeg";
 import appDashboard from "@/assets/app-dashboard.jpeg";
 import appScanner from "@/assets/app-scanner2.png";
 import appPoangshop2 from "@/assets/app-poangshop2.jpg";
+import appPoangshop3 from "@/assets/app-poangshop3.jpg";
+import slLogo from "@/assets/partners/sl.jpeg";
+import traderaLogo from "@/assets/partners/tradera.png";
+import plickLogo from "@/assets/partners/plick.jpeg";
+import actLogo from "@/assets/partners/act.png";
+import swedishNutraLogo from "@/assets/partners/swedish-nutra.jpeg";
+import greatEarthLogo from "@/assets/partners/great-earth.jpeg";
+import nAppLogo from "@/assets/partners/n-app.png";
+import rekoshoppenLogo from "@/assets/partners/rekoshoppen.jpeg";
+import storeEndaLogo from "@/assets/partners/store-enda.png";
 import { useLanguage } from "@/contexts/LanguageContext";
 
+const rewardPartners = [
+  { name: "SL", logo: slLogo, desc: { sv: "Stockholms kollektivtrafik", en: "Stockholm public transport" } },
+  { name: "Tradera", logo: traderaLogo, desc: { sv: "Sveriges största marknadsplats för second hand", en: "Sweden's largest second-hand marketplace" } },
+  { name: "Plick", logo: plickLogo, desc: { sv: "Köp och sälj begagnat mode", en: "Buy and sell second-hand fashion" } },
+  { name: "ACT", logo: actLogo, desc: { sv: "Hållbara vardagsprodukter", en: "Sustainable everyday products" } },
+  { name: "Swedish Nutra", logo: swedishNutraLogo, desc: { sv: "Naturliga kosttillskott", en: "Natural supplements" } },
+  { name: "Great Earth", logo: greatEarthLogo, desc: { sv: "Hälsokost och vitaminer", en: "Health food and vitamins" } },
+  { name: "N", logo: nAppLogo, desc: { sv: "Hållbar livsstilsapp", en: "Sustainable lifestyle app" } },
+  { name: "Rekoshoppen", logo: rekoshoppenLogo, desc: { sv: "Lokalproducerad mat direkt från bonden", en: "Locally produced food direct from the farmer" } },
+  { name: "Store Enda", logo: storeEndaLogo, desc: { sv: "Hållbart mode och accessoarer", en: "Sustainable fashion and accessories" } },
+];
 export const HowItWorksSection = () => {
   const { t } = useLanguage();
 
@@ -76,6 +98,82 @@ export const HowItWorksSection = () => {
       ),
     },
   ];
+
+const RewardsReadMore = () => {
+  const [open, setOpen] = useState(false);
+  const { t, language } = useLanguage();
+
+  return (
+    <div className="mt-6">
+      <button
+        onClick={() => setOpen(!open)}
+        className="inline-flex items-center gap-2 text-primary font-semibold hover:underline text-base transition-colors"
+      >
+        {t("Läs mer", "Read more")} {open ? "↑" : "↓"}
+      </button>
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3 }}
+            className="overflow-hidden"
+          >
+            <div className="pt-6 space-y-6">
+              <h4 className="text-xl font-bold text-foreground">
+                {t("Belöningar som gör skillnad", "Rewards that make a difference")}
+              </h4>
+              <div className="space-y-4 text-muted-foreground text-base leading-relaxed">
+                <p>{t(
+                  "Med Klimava blir dina klimatsmarta val värdefulla på riktigt.",
+                  "With Klimava, your climate-smart choices become truly valuable."
+                )}</p>
+                <p>{t(
+                  "Du samlar poäng genom dina val i vardagen och använder dem i vår poängshop, där du får tillgång till exklusiva erbjudanden från våra samarbetspartners.",
+                  "You earn points through your everyday choices and use them in our points shop, where you get access to exclusive offers from our partners."
+                )}</p>
+                <p>{t(
+                  "Här kan du ta del av förmåner som fri frakt, rabatter, gratis månader och utvalda produkter.",
+                  "Here you can enjoy benefits like free shipping, discounts, free months and selected products."
+                )}</p>
+                <p>{t(
+                  "Det handlar inte bara om att göra rätt för klimatet – det handlar om att få något tillbaka. Varje poäng du tjänar blir en möjlighet att spara pengar och ta del av attraktiva erbjudanden.",
+                  "It's not just about doing right for the climate – it's about getting something back. Every point you earn becomes an opportunity to save money and access attractive offers."
+                )}</p>
+                <p>{t(
+                  "Med Klimava blir hållbarhet både smartare och mer lönsamt.",
+                  "With Klimava, sustainability becomes both smarter and more rewarding."
+                )}</p>
+              </div>
+
+              <div className="my-6 flex justify-center">
+                <div className="bg-foreground rounded-[2rem] p-1.5 shadow-elevated w-48">
+                  <img src={appPoangshop3} alt={t("Klimava poängshop", "Klimava points shop")} className="rounded-[1.75rem] w-full" />
+                </div>
+              </div>
+
+              <h4 className="text-lg font-bold text-foreground mt-8">
+                {t("Våra samarbetspartners", "Our partners")}
+              </h4>
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+                {rewardPartners.map((p) => (
+                  <div key={p.name} className="flex items-center gap-3 p-3 rounded-xl border border-border/50 bg-muted/30">
+                    <img src={p.logo} alt={p.name} className="w-10 h-10 rounded-lg object-contain shrink-0" />
+                    <div className="min-w-0">
+                      <p className="text-sm font-semibold text-foreground truncate">{p.name}</p>
+                      <p className="text-xs text-muted-foreground line-clamp-2">{language === "sv" ? p.desc.sv : p.desc.en}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+};
 
   return (
     <section id="how-it-works" className="py-28 bg-white">
@@ -176,18 +274,27 @@ export const HowItWorksSection = () => {
           >
             <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
               {t(
-                <>Gör dina hållbara val till{" "}<span className="gradient-text">belöningar</span>.</>,
-                <>Turn your sustainable choices into{" "}<span className="gradient-text">rewards</span>.</>
+                <>Gör klimatsmarta val och få något{" "}<span className="gradient-text">tillbaka</span></>,
+                <>Make climate-smart choices and get something{" "}<span className="gradient-text">back</span></>
               )}
             </h3>
-            <ul className="space-y-4 mt-8">
-              {allFeatures.slice(0, 3).map((feature) => (
-                <li key={feature.title} className="flex items-start gap-3">
-                  <span className="text-muted-foreground">•</span>
-                  <span className="text-muted-foreground text-lg">{feature.description}</span>
-                </li>
-              ))}
-            </ul>
+            <div className="space-y-4 mt-6 text-muted-foreground text-base leading-relaxed">
+              <p>{t(
+                "Med Klimava samlar du poäng genom dina vardagsval och använder dem i vår poängshop.",
+                "With Klimava you earn points through your everyday choices and use them in our points shop."
+              )}</p>
+              <p>{t(
+                "Få tillgång till exklusiva erbjudanden från våra samarbetspartners, som rabatter, fri frakt, gratis månader och produkter.",
+                "Get access to exclusive offers from our partners, like discounts, free shipping, free months and products."
+              )}</p>
+              <p>{t(
+                "Du sparar pengar samtidigt som du gör något bra för klimatet.",
+                "You save money while doing something good for the climate."
+              )}</p>
+            </div>
+
+            <RewardsReadMore />
+
             <a
               href="https://apps.apple.com/se/app/klimava/id6760266069"
               target="_blank"
