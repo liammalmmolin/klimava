@@ -5,6 +5,13 @@ const ScrollToTop = () => {
   const { pathname, hash } = useLocation();
   const navigationType = useNavigationType();
 
+  // Enable manual scroll restoration so the browser doesn't fight us
+  useEffect(() => {
+    if ("scrollRestoration" in window.history) {
+      window.history.scrollRestoration = "manual";
+    }
+  }, []);
+
   useEffect(() => {
     // POP = back/forward – let browser restore scroll naturally
     if (navigationType === "POP") {
