@@ -175,7 +175,7 @@ const RewardsReadMore = () => {
   );
 };
 
-
+  return (
     <section id="how-it-works" className="py-28 bg-white">
       <div className="container mx-auto px-6">
         <motion.div
