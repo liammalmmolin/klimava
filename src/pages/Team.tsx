@@ -12,10 +12,10 @@ const Team = () => {
   const { t } = useLanguage();
 
   const founders = [
-    { name: "Dante Rudinsson", roleSv: "Verkställande Direktör", roleEn: "CEO", initials: "DR", photo: dantePhoto },
-    { name: "Liam Molin", roleSv: "Produktutvecklare", roleEn: "Product Developer", initials: "LM", photo: liamPhoto },
-    { name: "Christian Nordwall", roleSv: "Marknadsföringsansvarig", roleEn: "Marketing Manager", initials: "CN", photo: christianPhoto },
-    { name: "Linus Emmoth", roleSv: "Ekonomiansvarig", roleEn: "Finance Manager", initials: "LE", photo: linusPhoto },
+    { name: "Dante Rudinsson", roleSv: "Verkställande Direktör", roleEn: "CEO", initials: "DR", photo: dantePhoto, objectPos: "center 20%" },
+    { name: "Liam Molin", roleSv: "Produktutvecklare", roleEn: "Product Developer", initials: "LM", photo: liamPhoto, objectPos: "center 20%" },
+    { name: "Christian Nordwall", roleSv: "Marknadsföringsansvarig", roleEn: "Marketing Manager", initials: "CN", photo: christianPhoto, objectPos: "center 20%" },
+    { name: "Linus Emmoth", roleSv: "Ekonomiansvarig", roleEn: "Finance Manager", initials: "LE", photo: linusPhoto, objectPos: "center 15%" },
   ];
 
   return (
@@ -64,7 +64,7 @@ const Team = () => {
               >
                 <div className="w-28 h-28 mx-auto mb-4 rounded-full overflow-hidden gradient-bg flex items-center justify-center shadow-card">
                   {founder.photo ? (
-                    <img src={founder.photo} alt={founder.name} className="w-full h-full object-cover object-[center_20%]" />
+                    <img src={founder.photo} alt={founder.name} className="w-full h-full object-cover" style={{ objectPosition: founder.objectPos }} />
                   ) : (
                     <span className="text-2xl font-bold text-primary-foreground">
                       {founder.initials}
