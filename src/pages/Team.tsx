@@ -3,16 +3,18 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { useLanguage } from "@/contexts/LanguageContext";
 import teamPhoto from "@/assets/team-photo.jpg";
-import dantePhoto from "@/assets/dante.jpg";
-import linusPhoto from "@/assets/linus.jpg";
+import dantePhoto from "@/assets/dante-new.png";
+import linusPhoto from "@/assets/linus-new.png";
+import christianPhoto from "@/assets/christian.png";
+import liamPhoto from "@/assets/liam.png";
 
 const Team = () => {
   const { t } = useLanguage();
 
   const founders = [
     { name: "Dante Rudinsson", roleSv: "Verkställande Direktör", roleEn: "CEO", initials: "DR", photo: dantePhoto },
-    { name: "Liam Molin", roleSv: "Produktutvecklare", roleEn: "Product Developer", initials: "LM", photo: null },
-    { name: "Christian Nordwall", roleSv: "Marknadsföringsansvarig", roleEn: "Marketing Manager", initials: "CN", photo: null },
+    { name: "Liam Molin", roleSv: "Produktutvecklare", roleEn: "Product Developer", initials: "LM", photo: liamPhoto },
+    { name: "Christian Nordwall", roleSv: "Marknadsföringsansvarig", roleEn: "Marketing Manager", initials: "CN", photo: christianPhoto },
     { name: "Linus Emmoth", roleSv: "Ekonomiansvarig", roleEn: "Finance Manager", initials: "LE", photo: linusPhoto },
   ];
 
