@@ -3,8 +3,10 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { useLanguage } from "@/contexts/LanguageContext";
 import teamPhoto from "@/assets/team-photo.jpg";
-import dantePhoto from "@/assets/dante.jpg";
-import linusPhoto from "@/assets/linus.jpg";
+import dantePhoto from "@/assets/dante-new.png";
+import linusPhoto from "@/assets/linus-new.png";
+import christianPhoto from "@/assets/christian.png";
+import liamPhoto from "@/assets/liam.png";
 
 const Team = () => {
   const { t } = useLanguage();
