@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Mail } from "react-coolicons";
 import { Instagram, Music2 } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import contactBg from "@/assets/contact-bg.png";
 
 const Contact = () => {
   const { t } = useLanguage();
