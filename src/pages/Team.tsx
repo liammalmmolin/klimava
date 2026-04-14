@@ -64,7 +64,7 @@ const Team = () => {
               >
                 <div className="w-28 h-28 mx-auto mb-4 rounded-full overflow-hidden gradient-bg flex items-center justify-center shadow-card">
                   {founder.photo ? (
-                    <img src={founder.photo} alt={founder.name} className="w-full h-full object-cover object-top" />
+                    <img src={founder.photo} alt={founder.name} className="w-full h-full object-cover object-[center_20%]" />
                   ) : (
                     <span className="text-2xl font-bold text-primary-foreground">
                       {founder.initials}
