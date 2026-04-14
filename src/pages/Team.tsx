@@ -13,8 +13,8 @@ const Team = () => {
 
   const founders = [
     { name: "Dante Rudinsson", roleSv: "Verkställande Direktör", roleEn: "CEO", initials: "DR", photo: dantePhoto },
-    { name: "Liam Molin", roleSv: "Produktutvecklare", roleEn: "Product Developer", initials: "LM", photo: null },
-    { name: "Christian Nordwall", roleSv: "Marknadsföringsansvarig", roleEn: "Marketing Manager", initials: "CN", photo: null },
+    { name: "Liam Molin", roleSv: "Produktutvecklare", roleEn: "Product Developer", initials: "LM", photo: liamPhoto },
+    { name: "Christian Nordwall", roleSv: "Marknadsföringsansvarig", roleEn: "Marketing Manager", initials: "CN", photo: christianPhoto },
     { name: "Linus Emmoth", roleSv: "Ekonomiansvarig", roleEn: "Finance Manager", initials: "LE", photo: linusPhoto },
   ];
 
