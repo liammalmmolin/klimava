@@ -11,12 +11,10 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen relative">
-      <div 
-        className="absolute inset-0" 
-        style={{ 
-          background: "linear-gradient(180deg, hsl(160 30% 12%) 0%, hsl(158 28% 16%) 30%, hsl(155 25% 20%) 60%, hsl(150 25% 97%) 100%)" 
-        }} 
-      />
+      <div className="absolute inset-0">
+        <img src={contactBg} alt="" className="w-full h-full object-cover" />
+        <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, hsl(160 30% 12% / 0.85) 0%, hsl(158 28% 16% / 0.8) 30%, hsl(155 25% 20% / 0.75) 60%, hsl(150 25% 97%) 100%)" }} />
+      </div>
       <Header />
       <main className="pt-24 pb-16 relative z-10">
         <div className="container mx-auto px-6">
