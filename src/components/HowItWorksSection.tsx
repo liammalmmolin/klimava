@@ -257,7 +257,7 @@ const RewardsReadMore = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.3 }}
-                className="hidden sm:block w-40 md:w-48"
+                className="hidden sm:block w-36 md:w-44"
               >
                 <div className="bg-foreground rounded-[2rem] p-1.5 shadow-elevated">
                   <img src={appPoangshop2} alt={t("Klimava poängshop", "Klimava points shop")} className="rounded-[1.75rem] w-full" />
