@@ -38,7 +38,7 @@ export const NewsBanner = () => {
           animate={{ height: "auto", opacity: 1 }}
           exit={{ height: 0, opacity: 0 }}
           transition={{ duration: 0.35, ease: "easeOut" }}
-          className="fixed top-0 left-0 right-0 z-[60] overflow-hidden"
+          className="relative z-[60] overflow-hidden"
         >
           <div className="gradient-bg text-primary-foreground">
             <div className="container mx-auto px-6 py-2.5 flex items-center gap-3 text-sm">
