@@ -233,33 +233,36 @@ const RewardsReadMore = () => {
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
+                whileHover={{ y: -10, rotate: -2, scale: 1.03 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.1 }}
-                className="hidden sm:block w-36 md:w-44"
+                transition={{ duration: 0.6, delay: 0.1, type: "spring", stiffness: 200, damping: 18 }}
+                className="hidden sm:block w-36 md:w-44 cursor-pointer"
               >
-                <div className="bg-foreground rounded-[2rem] p-1.5 shadow-elevated">
+                <div className="bg-foreground rounded-[2rem] p-1.5 shadow-elevated transition-shadow duration-300 hover:shadow-[0_25px_60px_-15px_hsl(var(--primary)/0.45)]">
                   <img src={appDashboard} alt="Klimava dashboard" className="rounded-[1.75rem] w-full" />
                 </div>
               </motion.div>
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
+                whileHover={{ y: -14, scale: 1.04 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                className="w-40 sm:w-48"
+                transition={{ duration: 0.6, delay: 0.2, type: "spring", stiffness: 200, damping: 18 }}
+                className="w-40 sm:w-48 cursor-pointer"
               >
-                <div className="bg-foreground rounded-[2rem] p-1.5 shadow-elevated">
+                <div className="bg-foreground rounded-[2rem] p-1.5 shadow-elevated transition-shadow duration-300 hover:shadow-[0_30px_70px_-15px_hsl(var(--primary)/0.55)]">
                   <img src={appOnboarding} alt="Klimava onboarding" className="rounded-[1.75rem] w-full" />
                 </div>
               </motion.div>
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
+                whileHover={{ y: -10, rotate: 2, scale: 1.03 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.3 }}
-                className="hidden sm:block w-36 md:w-44"
+                transition={{ duration: 0.6, delay: 0.3, type: "spring", stiffness: 200, damping: 18 }}
+                className="hidden sm:block w-36 md:w-44 cursor-pointer"
               >
-                <div className="bg-foreground rounded-[2rem] p-1.5 shadow-elevated">
+                <div className="bg-foreground rounded-[2rem] p-1.5 shadow-elevated transition-shadow duration-300 hover:shadow-[0_25px_60px_-15px_hsl(var(--primary)/0.45)]">
                   <img src={appPoangshop2} alt={t("Klimava poängshop", "Klimava points shop")} className="rounded-[1.75rem] w-full" />
                 </div>
               </motion.div>
@@ -323,11 +326,12 @@ const RewardsReadMore = () => {
             <motion.div
               initial={{ opacity: 0, x: -40 }}
               whileInView={{ opacity: 1, x: 0 }}
+              whileHover={{ y: -12, scale: 1.04 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="w-40 sm:w-48"
+              transition={{ duration: 0.6, delay: 0.1, type: "spring", stiffness: 200, damping: 18 }}
+              className="w-40 sm:w-48 cursor-pointer"
             >
-              <div className="bg-foreground rounded-[2rem] p-1.5 shadow-elevated">
+              <div className="bg-foreground rounded-[2rem] p-1.5 shadow-elevated transition-shadow duration-300 hover:shadow-[0_30px_70px_-15px_hsl(var(--primary)/0.55)]">
                 <img src={appScanner} alt="Klimava scanner" className="rounded-[1.75rem] w-full" />
               </div>
             </motion.div>
