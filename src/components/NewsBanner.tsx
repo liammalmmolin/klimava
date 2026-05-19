@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "react-router-dom";
 import { CloseLg } from "react-coolicons";
 import { useLanguage } from "@/contexts/LanguageContext";
 
@@ -47,12 +48,12 @@ export const NewsBanner = () => {
                 <span className="font-semibold">{content.title}</span>{" "}
                 <span className="opacity-95">{content.text}</span>
                 {news.link && (
-                  <a
-                    href={news.link}
+                  <Link
+                    to={news.link}
                     className="ml-2 underline underline-offset-2 font-semibold hover:opacity-90 whitespace-nowrap"
                   >
                     {content.cta} →
-                  </a>
+                  </Link>
                 )}
               </p>
               <button
