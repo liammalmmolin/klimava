@@ -326,11 +326,12 @@ const RewardsReadMore = () => {
             <motion.div
               initial={{ opacity: 0, x: -40 }}
               whileInView={{ opacity: 1, x: 0 }}
+              whileHover={{ y: -12, scale: 1.04 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="w-40 sm:w-48"
+              transition={{ duration: 0.6, delay: 0.1, type: "spring", stiffness: 200, damping: 18 }}
+              className="w-40 sm:w-48 cursor-pointer"
             >
-              <div className="bg-foreground rounded-[2rem] p-1.5 shadow-elevated">
+              <div className="bg-foreground rounded-[2rem] p-1.5 shadow-elevated transition-shadow duration-300 hover:shadow-[0_30px_70px_-15px_hsl(var(--primary)/0.55)]">
                 <img src={appScanner} alt="Klimava scanner" className="rounded-[1.75rem] w-full" />
               </div>
             </motion.div>
