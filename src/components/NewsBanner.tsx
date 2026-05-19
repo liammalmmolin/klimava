@@ -22,7 +22,7 @@ const news = {
     text: "SL has chosen to partner with Klimava – soon you'll be able to scan your ticket receipt from the SL app and get rewarded for using public transport.",
     cta: "Read more",
   },
-  link: "#how-it-works" as string | null,
+  link: "/sl-samarbete" as string | null,
 };
 
 export const NewsBanner = () => {
