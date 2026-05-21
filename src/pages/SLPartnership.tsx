@@ -223,7 +223,7 @@ const SLPartnership = () => {
                 { icon: <Leaf className="w-6 h-6" />, value: "+30", label: t("Klimava-poäng / resa", "Klimava points / trip"), accent: "primary" },
                 { icon: <Phone className="w-6 h-6" />, value: "100%", label: t("Digitalt", "Digital"), accent: "sl" },
                 { icon: <Lock className="w-6 h-6" />, value: t("Lokal", "Local"), label: t("Bildanalys på telefonen", "Image analysis on device"), accent: "sl" },
-                { icon: <Lightning className="w-6 h-6" />, value: "0", label: t("Servrar används", "Servers used"), accent: "primary" },
+                { icon: <Zap className="w-6 h-6" />, value: "0", label: t("Servrar används", "Servers used"), accent: "primary" },
               ].map((stat, i) => (
                 <motion.div
                   key={i}
