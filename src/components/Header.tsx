@@ -26,6 +26,12 @@ export const Header = () => {
           <a href="/#how-it-works" className="text-muted-foreground hover:text-foreground font-medium transition-colors text-sm">
             {t("Så funkar det", "How it works")}
           </a>
+          <a href="/sl-samarbete" className="relative text-foreground hover:opacity-80 font-semibold transition-colors text-sm">
+            {t("SL-samarbete", "SL partnership")}
+            <span className="absolute -top-2 -right-3 px-1.5 py-0.5 rounded-full text-[8px] font-bold gradient-bg text-primary-foreground leading-none">
+              {t("NYTT", "NEW")}
+            </span>
+          </a>
           <a href="/team" className="text-muted-foreground hover:text-foreground font-medium transition-colors text-sm">
             Team
           </a>
@@ -103,6 +109,12 @@ export const Header = () => {
             <nav className="container mx-auto px-6 py-4 flex flex-col gap-4">
               <a href="/#how-it-works" onClick={() => setIsMenuOpen(false)} className="text-muted-foreground hover:text-foreground font-medium transition-colors py-2">
                 {t("Så funkar det", "How it works")}
+              </a>
+              <a href="/sl-samarbete" onClick={() => setIsMenuOpen(false)} className="flex items-center gap-2 text-foreground hover:opacity-80 font-semibold transition-colors py-2">
+                {t("SL-samarbete", "SL partnership")}
+                <span className="px-1.5 py-0.5 rounded-full text-[9px] font-bold gradient-bg text-primary-foreground leading-none">
+                  {t("NYTT", "NEW")}
+                </span>
               </a>
               <a href="/team" onClick={() => setIsMenuOpen(false)} className="text-muted-foreground hover:text-foreground font-medium transition-colors py-2">
                 Team
