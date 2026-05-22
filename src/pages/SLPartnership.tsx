@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Apple } from "lucide-react";
 import { ArrowRightMd, Check, Camera, Phone, Leaf, Lock } from "react-coolicons";
 import { Upload, Zap } from "lucide-react";
-import appDashboard from "@/assets/app-dashboard.jpeg";
+import appDashboard from "@/assets/klimava-online-kvitto.jpeg";
 import slIcon from "@/assets/sl-app-icon.png";
 import slTicket from "@/assets/sl-app-ticket.png";
 
