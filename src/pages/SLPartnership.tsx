@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Apple } from "lucide-react";
 import { ArrowRightMd, Check, Camera, Phone, Leaf, Lock } from "react-coolicons";
 import { Upload, Zap } from "lucide-react";
-import appDashboard from "@/assets/app-dashboard.jpeg";
+import appDashboard from "@/assets/klimava-online-kvitto.jpeg";
 import slIcon from "@/assets/sl-app-icon.png";
 import slTicket from "@/assets/sl-app-ticket.png";
 
@@ -275,12 +275,13 @@ const SLPartnership = () => {
 
               <div className="space-y-8 md:space-y-12">
                 {[
-                  { icon: <Phone className="w-5 h-5" />, sv: "Köp biljett i SL-appen", en: "Buy a ticket in the SL app" },
-                  { icon: <Camera className="w-5 h-5" />, sv: "Ta screenshot på QR-koden", en: "Take a screenshot of the QR code" },
-                  { icon: <Phone className="w-5 h-5" />, sv: "Öppna Klimava och välj Onlinekvitto", en: "Open Klimava and choose Online receipt" },
-                  { icon: <Upload className="w-5 h-5" />, sv: "Ladda upp bilden", en: "Upload the image" },
-                  { icon: <Check className="w-5 h-5" />, sv: "Klimava verifierar resan", en: "Klimava verifies the trip" },
-                  { icon: <Leaf className="w-5 h-5" />, sv: "Få +30 poäng", en: "Get +30 points" },
+                  { icon: <Phone className="w-5 h-5" />, sv: "Köp din biljett som vanligt i SL-appen – enkel, 7-, 30-, 90-dagars eller årsbiljett.", en: "Buy your ticket as usual in the SL app — single, 7-, 30-, 90-day or annual." },
+                  { icon: <Phone className="w-5 h-5" />, sv: "Öppna menyn i SL-appen och gå till \"Köphistorik och kvitton\".", en: "Open the menu in the SL app and go to \"Purchase history and receipts\"." },
+                  { icon: <Camera className="w-5 h-5" />, sv: "Ta en screenshot på biljettkvittot som visas i appen.", en: "Take a screenshot of the ticket receipt shown in the app." },
+                  { icon: <Phone className="w-5 h-5" />, sv: "Öppna Klimava och gå till \"Onlinekvitto\".", en: "Open Klimava and go to \"Online receipt\"." },
+                  { icon: <Upload className="w-5 h-5" />, sv: "Välj SL bland våra partnerappar och ladda upp bilden.", en: "Choose SL among our partner apps and upload the image." },
+                  { icon: <Check className="w-5 h-5" />, sv: "Klimava verifierar biljettkvittot direkt på din enhet.", en: "Klimava verifies the receipt directly on your device." },
+                  { icon: <Leaf className="w-5 h-5" />, sv: "Få +30 Klimava-poäng för ditt klimatsmarta resande.", en: "Get +30 Klimava points for your climate-smart travel." },
                 ].map((step, i) => {
                   const left = i % 2 === 0;
                   return (
