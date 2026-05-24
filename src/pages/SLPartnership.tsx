@@ -192,9 +192,7 @@ const SLPartnership = () => {
                   className="absolute -inset-10 rounded-[3rem] blur-3xl opacity-30 -z-10"
                   style={{ background: `linear-gradient(135deg, ${SL_BLUE}, ${SL_NAVY})` }}
                 />
-                <div className="relative mx-auto w-64 md:w-72 rounded-[2.2rem] p-1.5 shadow-elevated" style={{ background: SL_NAVY }}>
-                  <img src={slTicket} alt={t("SL biljett", "SL ticket")} className="rounded-[1.9rem] w-full" />
-                </div>
+                <img src={slTicket} alt={t("SL biljett", "SL ticket")} className="relative mx-auto w-64 md:w-72 w-full" />
               </motion.div>
             </div>
           </div>
