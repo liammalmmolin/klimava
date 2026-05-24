@@ -5,14 +5,16 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
 import { Apple } from "lucide-react";
 import { ArrowRightMd, Check, Camera, Phone, Leaf, Lock } from "react-coolicons";
-import { Upload, Zap } from "lucide-react";
+import { Upload } from "lucide-react";
 import appDashboard from "@/assets/klimava-online-kvitto.jpeg";
 import slIcon from "@/assets/sl-app-icon.png";
 import slTicket from "@/assets/sl-app-ticket.png";
 
-// SL-inspirerade färger (mörkblå + cyan accent) kombinerat med Klimavas gröna
-const SL_NAVY = "#20252c";
-const SL_BLUE = "#0089cf";
+// SL-inspirerad premium mörkblå palett
+const SL_DEEP = "#04132e";       // djup bakgrund
+const SL_NAVY = "#0a1f47";       // sektioner
+const SL_BLUE = "#0089cf";       // accent
+const SL_CYAN = "#5cc8ff";       // glow / highlight
 
 const fadeUp = {
   initial: { opacity: 0, y: 24 },
@@ -25,29 +27,33 @@ const SLPartnership = () => {
   const { t } = useLanguage();
 
   return (
-    <div className="min-h-screen bg-white">
+    <div
+      className="min-h-screen text-white"
+      style={{
+        background: `radial-gradient(1200px 700px at 80% -10%, ${SL_BLUE}40, transparent 60%), radial-gradient(900px 500px at 0% 20%, ${SL_CYAN}20, transparent 65%), linear-gradient(180deg, ${SL_DEEP} 0%, #02091c 50%, ${SL_DEEP} 100%)`,
+      }}
+    >
       <Header />
 
       <main>
         {/* HERO */}
-        <section className="relative overflow-hidden bg-white">
-          {/* Background gradient + subtle grid */}
+        <section className="relative overflow-hidden">
+          {/* Subtle grid */}
           <div
             aria-hidden
-            className="absolute inset-0 -z-10"
-            style={{
-              background: `radial-gradient(1000px 500px at 80% -10%, ${SL_BLUE}22, transparent 60%), radial-gradient(800px 400px at 0% 10%, hsl(var(--primary) / 0.18), transparent 60%), linear-gradient(180deg, #fff 0%, #f6f9fc 100%)`,
-            }}
-          />
-          <div
-            aria-hidden
-            className="absolute inset-0 -z-10 opacity-[0.35]"
+            className="absolute inset-0 -z-10 opacity-[0.18]"
             style={{
               backgroundImage:
-                "linear-gradient(to right, rgba(32,37,44,0.06) 1px, transparent 1px), linear-gradient(to bottom, rgba(32,37,44,0.06) 1px, transparent 1px)",
-              backgroundSize: "44px 44px",
+                "linear-gradient(to right, rgba(255,255,255,0.08) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.08) 1px, transparent 1px)",
+              backgroundSize: "48px 48px",
               maskImage: "radial-gradient(ellipse at top, black 30%, transparent 75%)",
             }}
+          />
+          {/* Glow orbs */}
+          <div
+            aria-hidden
+            className="absolute -top-40 left-1/2 -translate-x-1/2 w-[900px] h-[900px] rounded-full blur-[140px] opacity-40 -z-10"
+            style={{ background: `radial-gradient(circle, ${SL_BLUE}, transparent 60%)` }}
           />
 
           <div className="container mx-auto px-6 pt-28 md:pt-36 pb-20 md:pb-28">
@@ -56,13 +62,10 @@ const SLPartnership = () => {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
-                className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase mb-7"
-                style={{ background: `${SL_BLUE}15`, color: SL_NAVY }}
+                className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase mb-7 border"
+                style={{ background: `${SL_BLUE}22`, color: SL_CYAN, borderColor: `${SL_CYAN}40` }}
               >
-                <span
-                  className="w-1.5 h-1.5 rounded-full"
-                  style={{ background: SL_BLUE }}
-                />
+                <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: SL_CYAN }} />
                 {t("Nytt samarbete", "New partnership")}
               </motion.div>
 
@@ -70,18 +73,16 @@ const SLPartnership = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.05 }}
-                className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6 leading-[0.95]"
-                style={{ color: SL_NAVY }}
+                className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6 leading-[0.95] text-white"
               >
-                KLIMAVA <span style={{ color: SL_BLUE }}>×</span> SL
+                KLIMAVA <span style={{ color: SL_CYAN }}>×</span> SL
               </motion.h1>
 
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.15 }}
-                className="text-xl md:text-2xl font-medium mb-5"
-                style={{ color: SL_NAVY }}
+                className="text-xl md:text-2xl font-medium mb-5 text-white/90"
               >
                 {t("Belöning för klimatsmart resande.", "Rewards for climate-smart travel.")}
               </motion.p>
@@ -90,7 +91,7 @@ const SLPartnership = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed"
+                className="text-base md:text-lg text-white/65 max-w-2xl mx-auto mb-10 leading-relaxed"
               >
                 {t(
                   "Vi är otroligt glada över att tillsammans med SL göra det enklare och mer motiverande att resa hållbart i vardagen.",
@@ -105,8 +106,8 @@ const SLPartnership = () => {
               >
                 <Button
                   size="xl"
-                  className="rounded-full text-white hover:opacity-90 px-8 shadow-lg"
-                  style={{ background: SL_NAVY }}
+                  className="rounded-full px-8 shadow-lg text-white hover:opacity-90"
+                  style={{ background: `linear-gradient(135deg, ${SL_BLUE}, ${SL_CYAN})` }}
                   asChild
                 >
                   <a href="#sa-funkar-det">
@@ -124,8 +125,8 @@ const SLPartnership = () => {
                 className="mt-16 md:mt-20 flex items-end justify-center gap-4 md:gap-10"
               >
                 <div className="relative w-40 md:w-56 -rotate-6 origin-bottom-right">
-                  <div className="absolute -inset-6 rounded-[3rem] blur-2xl opacity-40" style={{ background: SL_BLUE }} />
-                  <div className="relative rounded-[2rem] p-1.5 shadow-elevated" style={{ background: SL_NAVY }}>
+                  <div className="absolute -inset-6 rounded-[3rem] blur-2xl opacity-60" style={{ background: SL_BLUE }} />
+                  <div className="relative rounded-[2rem] p-1.5 shadow-elevated" style={{ background: "#000" }}>
                     <img src={slTicket} alt="SL app" className="rounded-[1.7rem] w-full" />
                   </div>
                   <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full text-[10px] font-bold text-white shadow-md" style={{ background: SL_BLUE }}>
@@ -133,8 +134,8 @@ const SLPartnership = () => {
                   </div>
                 </div>
                 <div className="relative w-48 md:w-64 rotate-3 origin-bottom-left">
-                  <div className="absolute -inset-6 rounded-[3rem] blur-2xl opacity-50 bg-primary" />
-                  <div className="relative bg-foreground rounded-[2rem] p-1.5 shadow-elevated">
+                  <div className="absolute -inset-6 rounded-[3rem] blur-2xl opacity-60 bg-primary" />
+                  <div className="relative bg-black rounded-[2rem] p-1.5 shadow-elevated">
                     <img src={appDashboard} alt="Klimava app" className="rounded-[1.7rem] w-full" />
                   </div>
                   <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full text-[10px] font-bold gradient-bg text-primary-foreground shadow-md">
@@ -147,20 +148,20 @@ const SLPartnership = () => {
         </section>
 
         {/* SECTION 2 – Om SL-appen */}
-        <section className="py-24 md:py-32 bg-white">
+        <section className="py-24 md:py-32 relative">
           <div className="container mx-auto px-6">
             <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-center max-w-6xl mx-auto">
               <motion.div {...fadeUp}>
                 <div className="inline-flex items-center gap-2 mb-5">
                   <img src={slIcon} alt="SL" className="w-10 h-10 rounded-xl shadow-soft" />
-                  <span className="text-xs font-semibold uppercase tracking-wider" style={{ color: SL_BLUE }}>
+                  <span className="text-xs font-semibold uppercase tracking-wider" style={{ color: SL_CYAN }}>
                     SL-appen
                   </span>
                 </div>
-                <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-6" style={{ color: SL_NAVY }}>
+                <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-6 text-white">
                   {t("Så fungerar SL-appen", "How the SL app works")}
                 </h2>
-                <p className="text-lg text-muted-foreground leading-relaxed mb-8">
+                <p className="text-lg text-white/70 leading-relaxed mb-8">
                   {t(
                     "SL-appen är Stockholms officiella app för kollektivtrafik där användare kan planera resor, köpa biljetter och resa helt digitalt.",
                     "The SL app is Stockholm's official app for public transport — plan trips, buy tickets and travel entirely digitally."
@@ -177,11 +178,11 @@ const SLPartnership = () => {
                     <li key={i} className="flex items-center gap-3">
                       <span
                         className="w-6 h-6 rounded-full flex items-center justify-center shrink-0"
-                        style={{ background: `${SL_BLUE}18`, color: SL_BLUE }}
+                        style={{ background: `${SL_CYAN}22`, color: SL_CYAN }}
                       >
                         <Check className="w-3.5 h-3.5" />
                       </span>
-                      <span className="text-base font-medium" style={{ color: SL_NAVY }}>{item}</span>
+                      <span className="text-base font-medium text-white/90">{item}</span>
                     </li>
                   ))}
                 </ul>
@@ -189,38 +190,42 @@ const SLPartnership = () => {
 
               <motion.div {...fadeUp} transition={{ duration: 0.7, delay: 0.1 }} className="relative">
                 <div
-                  className="absolute -inset-10 rounded-[3rem] blur-3xl opacity-30 -z-10"
-                  style={{ background: `linear-gradient(135deg, ${SL_BLUE}, ${SL_NAVY})` }}
+                  className="absolute -inset-10 rounded-[3rem] blur-3xl opacity-50 -z-10"
+                  style={{ background: `linear-gradient(135deg, ${SL_BLUE}, ${SL_CYAN})` }}
                 />
-                <img src={slTicket} alt={t("SL biljett", "SL ticket")} className="relative mx-auto w-64 md:w-72 w-full" />
+                <img src={slTicket} alt={t("SL biljett", "SL ticket")} className="relative mx-auto w-64 md:w-72 w-full drop-shadow-2xl" />
               </motion.div>
             </div>
           </div>
         </section>
 
         {/* SECTION 3 – Övergångsrubrik */}
-        <section className="py-24 md:py-32" style={{ background: "#f6f9fc" }}>
+        <section className="py-24 md:py-32 relative">
+          <div
+            aria-hidden
+            className="absolute inset-0 -z-10 opacity-40"
+            style={{ background: `radial-gradient(600px 300px at 50% 50%, ${SL_BLUE}40, transparent 70%)` }}
+          />
           <div className="container mx-auto px-6 max-w-5xl">
             <motion.div {...fadeUp} className="text-center">
-              <h2 className="text-5xl md:text-7xl font-bold tracking-tight leading-[1.05]" style={{ color: SL_NAVY }}>
+              <h2 className="text-5xl md:text-7xl font-bold tracking-tight leading-[1.05] text-white">
                 {t("Så fungerar det i Klimava-appen.", "How it works in the Klimava app.")}
                 <br />
-                <span className="gradient-text">SL + Klimava</span>
+                <span style={{ background: `linear-gradient(135deg, ${SL_CYAN}, hsl(var(--primary)))`, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
+                  SL + Klimava
+                </span>
               </h2>
             </motion.div>
           </div>
         </section>
 
 
-        {/* SECTION 4 – Så fungerar det (timeline) */}
-        <section id="sa-funkar-det" className="py-24 md:py-32 bg-white">
+        {/* SECTION 4 – Steg för steg (timeline) */}
+        <section id="sa-funkar-det" className="py-24 md:py-32 relative">
           <div className="container mx-auto px-6 max-w-4xl">
-            <motion.div {...fadeUp} className="text-center mb-16">
-              <span className="text-xs font-semibold uppercase tracking-wider" style={{ color: SL_BLUE }}>
-                {t("Steg för steg", "Step by step")}
-              </span>
-              <h2 className="text-4xl md:text-5xl font-bold tracking-tight mt-3 mb-4" style={{ color: SL_NAVY }}>
-                {t("Så fungerar det", "How it works")}
+            <motion.div {...fadeUp} className="text-center mb-20">
+              <h2 className="text-6xl md:text-8xl lg:text-9xl font-bold tracking-tight text-white leading-[0.95]">
+                {t("Steg", "Step")} <span style={{ color: SL_CYAN }}>{t("för", "by")}</span> {t("steg", "step")}
               </h2>
             </motion.div>
 
@@ -229,7 +234,7 @@ const SLPartnership = () => {
               <div
                 aria-hidden
                 className="absolute left-5 md:left-1/2 top-0 bottom-0 w-px md:-translate-x-px"
-                style={{ background: `linear-gradient(180deg, ${SL_BLUE}, hsl(var(--primary)))` }}
+                style={{ background: `linear-gradient(180deg, ${SL_CYAN}, hsl(var(--primary)))` }}
               />
 
               <div className="space-y-8 md:space-y-12">
@@ -255,11 +260,14 @@ const SLPartnership = () => {
                       }`}
                     >
                       <div className="md:w-1/2 md:px-8 pl-14 md:pl-8">
-                        <div className={`bg-white rounded-2xl p-5 md:p-6 shadow-soft border border-border/60 hover:shadow-card transition-shadow ${left ? "md:text-right" : "md:text-left"}`}>
-                          <div className="text-xs font-semibold mb-1.5" style={{ color: SL_BLUE }}>
+                        <div
+                          className={`rounded-2xl p-5 md:p-6 backdrop-blur-md border transition-all hover:scale-[1.02] ${left ? "md:text-right" : "md:text-left"}`}
+                          style={{ background: "rgba(255,255,255,0.04)", borderColor: "rgba(255,255,255,0.08)" }}
+                        >
+                          <div className="text-xs font-semibold mb-1.5" style={{ color: SL_CYAN }}>
                             {t("Steg", "Step")} {i + 1}
                           </div>
-                          <div className="text-lg font-semibold" style={{ color: SL_NAVY }}>
+                          <div className="text-lg font-semibold text-white">
                             {t(step.sv, step.en)}
                           </div>
                         </div>
@@ -268,8 +276,11 @@ const SLPartnership = () => {
                       {/* Dot */}
                       <div className="absolute left-5 md:left-1/2 -translate-x-1/2 top-5 md:top-1/2 md:-translate-y-1/2">
                         <div
-                          className="w-10 h-10 rounded-full flex items-center justify-center text-white shadow-lg ring-4 ring-white"
-                          style={{ background: i < 3 ? SL_NAVY : "hsl(var(--secondary))" }}
+                          className="w-10 h-10 rounded-full flex items-center justify-center text-white shadow-lg"
+                          style={{
+                            background: i < 3 ? `linear-gradient(135deg, ${SL_BLUE}, ${SL_CYAN})` : "hsl(var(--primary))",
+                            boxShadow: `0 0 20px ${i < 3 ? SL_CYAN : "hsl(var(--primary))"}80`,
+                          }}
                         >
                           {step.icon}
                         </div>
@@ -284,14 +295,17 @@ const SLPartnership = () => {
 
             <motion.div
               {...fadeUp}
-              className="mt-14 p-5 md:p-6 rounded-2xl flex items-start gap-4 max-w-2xl mx-auto"
-              style={{ background: `${SL_BLUE}10`, border: `1px solid ${SL_BLUE}30` }}
+              className="mt-14 p-5 md:p-6 rounded-2xl flex items-start gap-4 max-w-2xl mx-auto backdrop-blur-md"
+              style={{ background: `${SL_BLUE}15`, border: `1px solid ${SL_CYAN}30` }}
             >
-              <div className="w-10 h-10 rounded-full flex items-center justify-center shrink-0 text-white" style={{ background: SL_NAVY }}>
+              <div
+                className="w-10 h-10 rounded-full flex items-center justify-center shrink-0 text-white"
+                style={{ background: `linear-gradient(135deg, ${SL_BLUE}, ${SL_CYAN})` }}
+              >
                 <Lock className="w-4 h-4" />
               </div>
-              <p className="text-sm md:text-base leading-relaxed" style={{ color: SL_NAVY }}>
-                <span className="font-semibold">{t("Privat by design. ", "Private by design. ")}</span>
+              <p className="text-sm md:text-base leading-relaxed text-white/85">
+                <span className="font-semibold text-white">{t("Privat by design. ", "Private by design. ")}</span>
                 {t(
                   "All bildanalys sker direkt på användarens telefon. Ingen data skickas till externa servrar.",
                   "All image analysis happens directly on the user's phone. No data is sent to external servers."
@@ -302,11 +316,16 @@ const SLPartnership = () => {
         </section>
 
         {/* SECTION 5 – Varför det spelar roll */}
-        <section className="py-24 md:py-32" style={{ background: SL_NAVY }}>
+        <section className="py-24 md:py-32 relative">
+          <div
+            aria-hidden
+            className="absolute inset-0 -z-10"
+            style={{ background: `linear-gradient(180deg, transparent, ${SL_NAVY}80, transparent)` }}
+          />
           <div className="container mx-auto px-6 max-w-5xl">
             <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
               <motion.div {...fadeUp}>
-                <span className="text-xs font-semibold uppercase tracking-wider" style={{ color: SL_BLUE }}>
+                <span className="text-xs font-semibold uppercase tracking-wider" style={{ color: SL_CYAN }}>
                   {t("Klimatpåverkan", "Climate impact")}
                 </span>
                 <h2 className="text-4xl md:text-5xl font-bold tracking-tight mt-3 mb-6 text-white">
@@ -329,10 +348,18 @@ const SLPartnership = () => {
                 ].map((s, i) => (
                   <div
                     key={i}
-                    className={`rounded-3xl p-6 backdrop-blur-sm border border-white/10 ${s.big ? "col-span-2" : ""}`}
+                    className={`rounded-3xl p-6 backdrop-blur-md border border-white/10 ${s.big ? "col-span-2" : ""}`}
                     style={{ background: "rgba(255,255,255,0.05)" }}
                   >
-                    <div className={`font-bold text-white mb-1.5 ${s.big ? "text-5xl md:text-6xl" : "text-3xl"}`}>
+                    <div
+                      className={`font-bold mb-1.5 ${s.big ? "text-5xl md:text-6xl" : "text-3xl"}`}
+                      style={{
+                        background: `linear-gradient(135deg, #fff, ${SL_CYAN})`,
+                        WebkitBackgroundClip: "text",
+                        WebkitTextFillColor: "transparent",
+                        backgroundClip: "text",
+                      }}
+                    >
                       {s.value}
                     </div>
                     <div className="text-sm text-white/60">{s.label}</div>
@@ -344,22 +371,22 @@ const SLPartnership = () => {
         </section>
 
         {/* CTA */}
-        <section className="py-28 md:py-36 bg-white relative overflow-hidden">
+        <section className="py-28 md:py-36 relative overflow-hidden">
           <div
             aria-hidden
             className="absolute inset-0 -z-10"
             style={{
-              background: `radial-gradient(600px 300px at 50% 0%, ${SL_BLUE}18, transparent 70%), radial-gradient(600px 300px at 50% 100%, hsl(var(--primary) / 0.18), transparent 70%)`,
+              background: `radial-gradient(700px 350px at 50% 50%, ${SL_BLUE}40, transparent 70%)`,
             }}
           />
           <motion.div {...fadeUp} className="container mx-auto px-6 max-w-3xl text-center">
-            <h2 className="text-4xl md:text-6xl font-bold tracking-tight mb-8 leading-tight" style={{ color: SL_NAVY }}>
+            <h2 className="text-4xl md:text-6xl font-bold tracking-tight mb-8 leading-tight text-white">
               {t("Framtidens hållbara resande börjar här.", "The future of sustainable travel starts here.")}
             </h2>
             <Button
               size="xl"
-              className="rounded-full text-white hover:opacity-90 px-10 shadow-lg"
-              style={{ background: SL_NAVY }}
+              className="rounded-full px-10 shadow-lg text-white hover:opacity-90"
+              style={{ background: `linear-gradient(135deg, ${SL_BLUE}, ${SL_CYAN})` }}
               asChild
             >
               <a href="https://apps.apple.com/se/app/klimava/id6760266069" target="_blank" rel="noopener noreferrer">
