@@ -198,58 +198,19 @@ const SLPartnership = () => {
           </div>
         </section>
 
-        {/* SECTION 3 – Klimava + SL stats */}
+        {/* SECTION 3 – Övergångsrubrik */}
         <section className="py-24 md:py-32" style={{ background: "#f6f9fc" }}>
-          <div className="container mx-auto px-6 max-w-6xl">
-            <motion.div {...fadeUp} className="max-w-3xl mx-auto text-center mb-14">
-              <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-5" style={{ color: SL_NAVY }}>
-                {t(
-                  <>Klimava + SL = <span className="gradient-text">Belöning för klimatsmart resande</span></>,
-                  <>Klimava + SL = <span className="gradient-text">Rewards for climate-smart travel</span></>
-                )}
+          <div className="container mx-auto px-6 max-w-5xl">
+            <motion.div {...fadeUp} className="text-center">
+              <h2 className="text-5xl md:text-7xl font-bold tracking-tight leading-[1.05]" style={{ color: SL_NAVY }}>
+                {t("Så fungerar det i Klimava-appen.", "How it works in the Klimava app.")}
+                <br />
+                <span className="gradient-text">SL + Klimava</span>
               </h2>
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                {t(
-                  "Varje resa med tunnelbana, buss, pendeltåg eller båt är ett aktivt klimatval. Nu kan användare dessutom bli belönade för det.",
-                  "Every trip by metro, bus, commuter train or boat is an active climate choice. Now users get rewarded for it too."
-                )}
-              </p>
             </motion.div>
-
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-              {[
-                { icon: <Leaf className="w-6 h-6" />, value: "+30", label: t("Klimava-poäng / resa", "Klimava points / trip"), accent: "primary" },
-                { icon: <Phone className="w-6 h-6" />, value: "100%", label: t("Digitalt", "Digital"), accent: "sl" },
-                { icon: <Lock className="w-6 h-6" />, value: t("Lokal", "Local"), label: t("Bildanalys på telefonen", "Image analysis on device"), accent: "sl" },
-                { icon: <Zap className="w-6 h-6" />, value: "0", label: t("Servrar används", "Servers used"), accent: "primary" },
-              ].map((stat, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: i * 0.08 }}
-                  className="bg-white rounded-3xl p-6 md:p-8 shadow-soft hover:shadow-card transition-shadow"
-                >
-                  <div
-                    className="w-12 h-12 rounded-2xl flex items-center justify-center mb-5"
-                    style={
-                      stat.accent === "sl"
-                        ? { background: `${SL_BLUE}18`, color: SL_BLUE }
-                        : { background: "hsl(var(--primary) / 0.18)", color: "hsl(var(--secondary))" }
-                    }
-                  >
-                    {stat.icon}
-                  </div>
-                  <div className="text-3xl md:text-4xl font-bold mb-1.5" style={{ color: SL_NAVY }}>
-                    {stat.value}
-                  </div>
-                  <div className="text-sm text-muted-foreground leading-snug">{stat.label}</div>
-                </motion.div>
-              ))}
-            </div>
           </div>
         </section>
+
 
         {/* SECTION 4 – Så fungerar det (timeline) */}
         <section id="sa-funkar-det" className="py-24 md:py-32 bg-white">
