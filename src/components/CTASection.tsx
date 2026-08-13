@@ -18,14 +18,14 @@ export const CTASection = () => {
           className="max-w-3xl mx-auto text-center"
         >
           <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6">
-            {t("Redo att börja tjäna på", "Ready to start earning from")}
+            {t("Testa Klimava, det är", "Try Klimava, it's")}
             <br />
-            <span className="gradient-text">{t("hållbara val?", "sustainable choices?")}</span>
+            <span className="gradient-text">{t("gratis", "free")}</span>
           </h2>
           <p className="text-lg text-muted-foreground mb-10 max-w-xl mx-auto leading-relaxed">
             {t(
-              "Ladda ner Klimava gratis och börja samla poäng redan idag. Varje litet val gör skillnad.",
-              "Download Klimava for free and start earning points today. Every small choice makes a difference."
+              "Appen är ny och vi bygger vidare på den varje vecka. Har du tankar eller idéer? Hör av dig – vi läser allt.",
+              "The app is new and we keep improving it every week. Got thoughts or ideas? Get in touch – we read everything."
             )}
           </p>
 
