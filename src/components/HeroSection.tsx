@@ -18,7 +18,7 @@ export const HeroSection = () => {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-4xl md:text-6xl lg:text-7xl font-bold text-foreground leading-tight mb-6"
           >
-            {t("Gör hållbara val och få belöningar", "Make sustainable choices and earn rewards")}
+            {t("Små vardagsval. Riktiga belöningar.", "Small everyday choices. Real rewards.")}
           </motion.h1>
 
           <motion.p
@@ -28,10 +28,11 @@ export const HeroSection = () => {
             className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed"
           >
             {t(
-              "Klimava gör hållbarhet mätbar, motiverande och belönande. Samla poäng genom klimatsmarta val och lös in dem mot riktiga belöningar.",
-              "Klimava makes sustainability measurable, motivating and rewarding. Earn points through climate-smart choices and redeem them for real rewards."
+              "Vi är fyra studenter från Stockholm som byggt Klimava. Du samlar poäng när du återvinner, åker kollektivt eller handlar second hand – och byter dem mot rabatter hos våra partners.",
+              "We're four students from Stockholm who built Klimava. You earn points when you recycle, take public transport or buy second-hand – and swap them for discounts with our partners."
             )}
           </motion.p>
+
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
