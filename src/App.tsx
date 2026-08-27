@@ -11,6 +11,7 @@ import Team from "./pages/Team";
 import Recycling from "./pages/Recycling";
 import Challenges from "./pages/Challenges";
 import SLPartnership from "./pages/SLPartnership";
+import Invite from "./pages/Invite";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -30,6 +31,7 @@ const App = () => (
             <Route path="/atervinning" element={<Recycling />} />
             <Route path="/utmaningar" element={<Challenges />} />
             <Route path="/sl-samarbete" element={<SLPartnership />} />
+            <Route path="/invite" element={<Invite />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
