@@ -5,10 +5,11 @@
       {
         "appID": "9L26GJQPJ6.com.klimava.app",
         "appIDs": ["9L26GJQPJ6.com.klimava.app"],
-        "paths": ["/invite", "/invite/*"],
+        "paths": ["/invite", "/invite/*", "/?code=*"],
         "components": [
           { "/": "/invite" },
-          { "/": "/invite/*" }
+          { "/": "/invite/*" },
+          { "/": "/", "?": { "code": "?*" } }
         ]
       }
     ]
