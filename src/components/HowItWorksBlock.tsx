@@ -1,4 +1,5 @@
-import { motion } from "framer-motion";
+import { useRef, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Play, Camera, Gift, ChartBarVertical01 } from "react-coolicons";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -7,12 +8,87 @@ import { AD_VIDEO_SRC } from "@/data/media";
 import { fadeUp } from "@/lib/motion";
 import { SwedenStrip } from "@/components/SwedenStrip";
 import teamPhoto from "@/assets/team-photo.jpg";
+import coverPhoto from "@/assets/contact-bg.png";
+import logo from "@/assets/klimava-logo.jpeg";
 
 const steps = [
   { icon: Camera, sv: "Fota kvittot", en: "Scan your receipt" },
   { icon: ChartBarVertical01, sv: "Samla poäng", en: "Earn points" },
   { icon: Gift, sv: "Lös in belöningar", en: "Redeem rewards" },
 ];
+
+/** Ad film with a branded cover: brand-toned nature photo, logo and a big gradient play button. */
+const AdVideo = ({ src }: { src: string }) => {
+  const { t } = useLanguage();
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [started, setStarted] = useState(false);
+  const [duration, setDuration] = useState<number>();
+
+  const play = () => {
+    setStarted(true);
+    const video = videoRef.current;
+    if (!video) return;
+    video.currentTime = 0;
+    void video.play();
+  };
+
+  return (
+    <>
+      <video
+        ref={videoRef}
+        src={src}
+        controls={started}
+        playsInline
+        preload="metadata"
+        onLoadedMetadata={(e) => setDuration(e.currentTarget.duration)}
+        className="h-full w-full object-cover"
+      />
+      <AnimatePresence>
+        {!started && (
+          <motion.button
+            type="button"
+            onClick={play}
+            aria-label={t("Spela upp filmen", "Play the film")}
+            initial={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.4 }}
+            className="group absolute inset-0 flex cursor-pointer flex-col items-center justify-center text-left"
+          >
+            {/* Misty forest canopy with a brand tint — doesn't give away what's in the film */}
+            <img src={coverPhoto} alt="" className="absolute inset-0 h-full w-full object-cover object-[50%_65%]" />
+            <div className="absolute inset-0 gradient-bg opacity-50 mix-blend-soft-light" />
+            <div className="absolute inset-0 bg-gradient-to-t from-foreground/85 via-foreground/10 to-transparent" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_40%,hsl(var(--foreground)/0.4)_100%)]" />
+
+            <span className="relative flex items-center justify-center">
+              <span className="absolute h-full w-full animate-ping rounded-full gradient-bg opacity-30 [animation-duration:2.4s]" />
+              <span className="absolute -inset-3 rounded-full border border-background/25 sm:-inset-4 md:-inset-6" />
+              <span className="relative flex h-16 w-16 items-center justify-center rounded-full gradient-bg text-primary-foreground shadow-elevated transition-transform duration-300 group-hover:scale-110 sm:h-24 sm:w-24 md:h-32 md:w-32">
+                <Play className="ml-1 h-7 w-7 sm:h-10 sm:w-10 md:ml-2 md:h-14 md:w-14" />
+              </span>
+            </span>
+
+            <span className="absolute bottom-5 left-5 right-5 hidden items-end sm:flex justify-between gap-4 md:bottom-8 md:left-8 md:right-8">
+              <span className="flex items-center gap-3 md:gap-4">
+                <img src={logo} alt="" className="h-11 w-11 rounded-xl shadow-elevated md:h-14 md:w-14 md:rounded-2xl" />
+                <span>
+                  <span className="block font-mono text-[10px] uppercase tracking-widest text-secondary md:text-xs">
+                    {t("Reklamfilm", "Ad film")}
+                  </span>
+                  <span className="block font-serif text-2xl font-medium leading-tight text-background md:text-4xl">Klimava</span>
+                </span>
+              </span>
+              <span className="rounded-full border border-background/25 bg-foreground/40 px-3 py-1 font-mono text-xs text-background/80 backdrop-blur-sm">
+                {t("Spela upp", "Play")}
+                {duration ? ` · ${Math.floor(duration / 60)}:${String(Math.round(duration % 60)).padStart(2, "0")}` : ""}
+              </span>
+            </span>
+          </motion.button>
+        )}
+      </AnimatePresence>
+    </>
+  );
+};
 
 export const HowItWorksBlock = () => {
   const { t } = useLanguage();
@@ -67,7 +143,7 @@ export const HowItWorksBlock = () => {
             className="gradient-bg relative mx-auto w-full max-w-6xl aspect-video overflow-hidden rounded-3xl shadow-elevated"
           >
             {AD_VIDEO_SRC ? (
-              <video src={AD_VIDEO_SRC} controls className="h-full w-full" />
+              <AdVideo src={AD_VIDEO_SRC} />
             ) : (
               <>
                 <div className="flex h-full w-full items-center justify-center px-6">
