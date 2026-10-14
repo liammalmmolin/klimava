@@ -176,7 +176,7 @@ const Support = () => {
               {/* App CTA — anchored to this card's corner, scrolls away with it */}
               <Button
                 size="default"
-                className="absolute right-6 top-6 z-10 rounded-full gradient-bg text-primary-foreground hover:opacity-90 font-medium text-sm px-6 sm:right-8 sm:top-8"
+                className="absolute right-6 top-6 z-10 hidden rounded-full lg:inline-flex gradient-bg text-primary-foreground hover:opacity-90 font-medium text-sm px-6 sm:right-8 sm:top-8"
                 asChild
               >
                 <a href="https://apps.apple.com/se/app/klimava/id6760266069" target="_blank" rel="noopener noreferrer">

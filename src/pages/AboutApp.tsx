@@ -36,7 +36,7 @@ const AboutApp = () => {
             <span className="font-mono text-xs uppercase tracking-widest text-primary">
               {t("Om appen", "About the app")}
             </span>
-            <h1 className="text-4xl md:text-6xl font-bold text-foreground mt-3">
+            <h1 className="text-[2rem] leading-tight sm:text-4xl md:text-6xl font-bold text-foreground mt-3">
               {t(
                 <>Allt du behöver <span className="gradient-text">veta</span></>,
                 <>Everything you <span className="gradient-text">need to know</span></>

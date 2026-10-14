@@ -20,7 +20,7 @@ export const Header = ({ className }: { className?: string } = {}) => {
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className={cn("fixed inset-x-0 top-4 z-50 flex justify-center px-3 sm:top-6", className)}
+      className={cn("fixed inset-x-0 top-[34px] z-50 flex justify-end px-9 sm:top-[42px] sm:px-11 lg:top-6 lg:justify-center lg:px-3", className)}
     >
       {/* Desktop — links float free in the middle, no logo/CTA */}
       <nav className="hidden items-center gap-6 rounded-full border border-white/10 bg-neutral-900/45 px-6 py-3 shadow-elevated backdrop-blur-md lg:flex">
@@ -54,7 +54,7 @@ export const Header = ({ className }: { className?: string } = {}) => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -8 }}
               transition={{ duration: 0.2 }}
-              className="absolute left-1/2 top-full mt-2 w-60 -translate-x-1/2 overflow-hidden rounded-3xl border border-white/10 bg-neutral-900/80 shadow-elevated backdrop-blur-md"
+              className="absolute right-0 top-full mt-2 w-60 overflow-hidden rounded-3xl border border-white/10 bg-neutral-900/80 shadow-elevated backdrop-blur-md"
             >
               <nav className="flex flex-col gap-1 px-3 py-3">
                 {navLinks.map((link) => (

@@ -43,7 +43,7 @@ const Team = () => {
             />
           </motion.div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 max-w-5xl mx-auto">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-10 md:gap-10 max-w-5xl mx-auto">
             {founders.map((founder, index) => (
               <motion.div
                 key={founder.name}
@@ -52,7 +52,7 @@ const Team = () => {
                 transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
                 className="text-center"
               >
-                <div className="w-28 h-28 mx-auto mb-4 rounded-full overflow-hidden gradient-bg flex items-center justify-center shadow-card">
+                <div className="w-24 h-24 md:w-28 md:h-28 mx-auto mb-4 rounded-full overflow-hidden gradient-bg flex items-center justify-center shadow-card">
                   <img
                     src={founder.photo}
                     alt={founder.name}
@@ -60,7 +60,7 @@ const Team = () => {
                     style={{ objectPosition: founder.objectPosition }}
                   />
                 </div>
-                <h3 className="text-lg font-semibold text-foreground">{founder.name}</h3>
+                <h3 className="text-base md:text-lg font-semibold text-foreground">{founder.name}</h3>
                 <p className="text-xs text-muted-foreground mt-0.5">{t("Grundare", "Founder")}</p>
               </motion.div>
             ))}

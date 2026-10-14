@@ -9,8 +9,8 @@ export const Footer = () => {
   return (
     <footer className="relative overflow-hidden rounded-b-[1.75rem] bg-foreground px-6 py-16 text-background md:rounded-b-[2.25rem] md:px-14 md:py-20">
       <div className="container mx-auto">
-        <div className="grid md:grid-cols-4 gap-12 mb-12">
-          <div className="md:col-span-2">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-10 md:gap-12 mb-12">
+          <div className="col-span-2">
             <div className="flex items-center gap-3 mb-4">
               <img src={klimavaLogo} alt="Klimava" className="h-9 w-9 rounded-xl" />
               <span className="text-xl font-bold">Klimava</span>
