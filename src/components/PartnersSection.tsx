@@ -1,27 +1,7 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
-
-import slLogo from "@/assets/partners/sl.jpeg";
-import traderaLogo from "@/assets/partners/tradera.png";
-import plickLogo from "@/assets/partners/plick.jpeg";
-import actLogo from "@/assets/partners/act.png";
-import swedishNutraLogo from "@/assets/partners/swedish-nutra.jpeg";
-import greatEarthLogo from "@/assets/partners/great-earth.jpeg";
-import nAppLogo from "@/assets/partners/n-app.png";
-import rekoshoppenLogo from "@/assets/partners/rekoshoppen.jpeg";
-import storeEndaLogo from "@/assets/partners/store-enda.png";
-
-const partners = [
-  { name: "SL", logo: slLogo },
-  { name: "Tradera", logo: traderaLogo },
-  { name: "Plick", logo: plickLogo },
-  { name: "ACT", logo: actLogo },
-  { name: "Swedish Nutra", logo: swedishNutraLogo },
-  { name: "Great Earth", logo: greatEarthLogo },
-  { name: "N", logo: nAppLogo },
-  { name: "Rekoshoppen", logo: rekoshoppenLogo },
-  { name: "Store Enda", logo: storeEndaLogo },
-];
+import { partners } from "@/data/partners";
 
 const marqueePartners = [...partners, ...partners];
 
@@ -29,7 +9,7 @@ export const PartnersSection = () => {
   const { t } = useLanguage();
 
   return (
-    <section className="py-12 overflow-hidden bg-muted/60 border-y border-border/40">
+    <section className="py-12 overflow-hidden bg-background border-y border-border/40">
       <div className="container mx-auto px-6 mb-8">
         <motion.p
           initial={{ opacity: 0, y: 10 }}
@@ -38,24 +18,27 @@ export const PartnersSection = () => {
           transition={{ duration: 0.4 }}
           className="text-center text-sm font-medium text-muted-foreground"
         >
-          {t("Klimavas fantastiska samarbetspartners.", "Klimava's amazing partners.")}
+          {t("Klimavas fantastiska samarbetspartners.", "Klimava's amazing partners.")}{" "}
+          <Link to="/partners" className="text-primary font-semibold hover:underline">
+            {t("Se alla →", "See all →")}
+          </Link>
         </motion.p>
       </div>
 
       <div className="relative">
-        <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-muted/60 to-transparent z-10" />
-        <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-muted/60 to-transparent z-10" />
+        <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-background to-transparent z-10" />
+        <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-background to-transparent z-10" />
 
         <div className="flex animate-marquee w-max">
           {marqueePartners.map((partner, i) => (
             <div
               key={`${partner.name}-${i}`}
-              className="flex items-center justify-center mx-10 shrink-0"
+              className="mx-10 h-16 w-16 shrink-0 overflow-hidden rounded-xl border border-border/60 shadow-soft md:h-[4.5rem] md:w-[4.5rem]"
             >
               <img
                 src={partner.logo}
                 alt={partner.name}
-                className="h-12 w-12 md:h-14 md:w-14 object-contain rounded-lg opacity-90 hover:opacity-100 transition-opacity duration-300"
+                className="h-full w-full object-cover opacity-90 transition-opacity duration-300 hover:opacity-100"
               />
             </div>
           ))}

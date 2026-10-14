@@ -15,6 +15,8 @@ export default {
     extend: {
       fontFamily: {
         sans: ['Raleway', 'system-ui', 'sans-serif'],
+        serif: ['Fraunces', 'Georgia', 'serif'],
+        mono: ['"IBM Plex Mono"', 'ui-monospace', 'monospace'],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -59,11 +61,6 @@ export default {
           "accent-foreground": "hsl(var(--sidebar-accent-foreground))",
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
-        },
-        klimava: {
-          lime: "hsl(78 72% 55%)",
-          teal: "hsl(168 55% 55%)",
-          dark: "hsl(160 10% 15%)",
         },
       },
       borderRadius: {

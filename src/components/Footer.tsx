@@ -7,8 +7,8 @@ export const Footer = () => {
   const { t } = useLanguage();
 
   return (
-    <footer className="bg-foreground text-background py-16">
-      <div className="container mx-auto px-6">
+    <footer className="relative overflow-hidden rounded-b-[1.75rem] bg-foreground px-6 py-16 text-background md:rounded-b-[2.25rem] md:px-14 md:py-20">
+      <div className="container mx-auto">
         <div className="grid md:grid-cols-4 gap-12 mb-12">
           <div className="md:col-span-2">
             <div className="flex items-center gap-3 mb-4">
@@ -36,7 +36,9 @@ export const Footer = () => {
           <div>
             <h4 className="font-semibold mb-4 text-sm">{t("Appen", "The App")}</h4>
             <ul className="space-y-3 text-background/60 text-sm">
-              <li><a href="/#how-it-works" className="hover:text-background transition-colors">{t("Så funkar det", "How it works")}</a></li>
+              <li><a href="/om-appen" className="hover:text-background transition-colors">{t("Om appen", "About the app")}</a></li>
+              <li><a href="/support" className="hover:text-background transition-colors">{t("Support", "Support")}</a></li>
+              <li><a href="/partners" className="hover:text-background transition-colors">{t("Partners", "Partners")}</a></li>
               <li><a href="https://apps.apple.com/se/app/klimava/id6760266069" target="_blank" rel="noopener noreferrer" className="hover:text-background transition-colors">{t("Ladda ner", "Download")}</a></li>
             </ul>
           </div>
@@ -44,6 +46,7 @@ export const Footer = () => {
           <div>
             <h4 className="font-semibold mb-4 text-sm">{t("Företag", "Company")}</h4>
             <ul className="space-y-3 text-background/60 text-sm">
+              <li><a href="/team" className="hover:text-background transition-colors">Team</a></li>
               <li><a href="mailto:klimavauf@gmail.com" className="hover:text-background transition-colors">{t("Kontakt", "Contact")}</a></li>
             </ul>
           </div>
@@ -59,8 +62,8 @@ export const Footer = () => {
         <div className="border-t border-background/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
           <span className="text-background/40 text-xs">{t(`© ${new Date().getFullYear()} Klimava. Alla rättigheter förbehållna.`, `© ${new Date().getFullYear()} Klimava. All rights reserved.`)}</span>
           <div className="flex items-center gap-6 text-xs text-background/40">
-            <a href="#" className="hover:text-background transition-colors">{t("Integritetspolicy", "Privacy Policy")}</a>
-            <a href="#" className="hover:text-background transition-colors">{t("Användarvillkor", "Terms of Service")}</a>
+            <a href="/integritetspolicy" className="hover:text-background transition-colors">{t("Integritetspolicy", "Privacy Policy")}</a>
+            <a href="/anvandarvillkor" className="hover:text-background transition-colors">{t("Användarvillkor", "Terms of Service")}</a>
           </div>
         </div>
       </div>

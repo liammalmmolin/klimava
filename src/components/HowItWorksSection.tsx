@@ -1,440 +1,63 @@
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { Camera, ChartBarVertical01, Gift, Star, ShoppingBag01, MapPin, Star as TrophyStar, Users } from "react-coolicons";
-import appOnboarding from "@/assets/app-onboarding.jpeg";
-import appDashboard from "@/assets/app-dashboard.jpeg";
-import appScanner from "@/assets/app-scanner2.png";
-import appPoangshop2 from "@/assets/app-poangshop2.jpg";
-import appPoangshop3 from "@/assets/app-poangshop3.jpg";
-import slLogo from "@/assets/partners/sl.jpeg";
-import traderaLogo from "@/assets/partners/tradera.png";
-import plickLogo from "@/assets/partners/plick.jpeg";
-import actLogo from "@/assets/partners/act.png";
-import swedishNutraLogo from "@/assets/partners/swedish-nutra.jpeg";
-import greatEarthLogo from "@/assets/partners/great-earth.jpeg";
-import nAppLogo from "@/assets/partners/n-app.png";
-import rekoshoppenLogo from "@/assets/partners/rekoshoppen.jpeg";
-import storeEndaLogo from "@/assets/partners/store-enda.png";
+import { MapPin, Star as TrophyStar, ArrowRightMd } from "react-coolicons";
 import { useLanguage } from "@/contexts/LanguageContext";
 
-const rewardPartners = [
-  { name: "SL", logo: slLogo, desc: { sv: "Stockholms kollektivtrafik", en: "Stockholm public transport" } },
-  { name: "Tradera", logo: traderaLogo, desc: { sv: "Sveriges största marknadsplats för second hand", en: "Sweden's largest second-hand marketplace" } },
-  { name: "Plick", logo: plickLogo, desc: { sv: "Köp och sälj begagnat mode", en: "Buy and sell second-hand fashion" } },
-  { name: "ACT", logo: actLogo, desc: { sv: "Hållbara vardagsprodukter", en: "Sustainable everyday products" } },
-  { name: "Swedish Nutra", logo: swedishNutraLogo, desc: { sv: "Naturliga kosttillskott", en: "Natural supplements" } },
-  { name: "Great Earth", logo: greatEarthLogo, desc: { sv: "Hälsokost och vitaminer", en: "Health food and vitamins" } },
-  { name: "N", logo: nAppLogo, desc: { sv: "Hållbar livsstilsapp", en: "Sustainable lifestyle app" } },
-  { name: "Rekoshoppen", logo: rekoshoppenLogo, desc: { sv: "Lokalproducerad mat direkt från bonden", en: "Locally produced food direct from the farmer" } },
-  { name: "Store Enda", logo: storeEndaLogo, desc: { sv: "Hållbart mode och accessoarer", en: "Sustainable fashion and accessories" } },
+const teasers = [
+  {
+    icon: MapPin,
+    to: "/atervinning",
+    title: { sv: "Återvinning som belönar dig", en: "Recycling that rewards you" },
+    desc: {
+      sv: "GPS känner av när du är på en återvinningsstation och låser upp scannern direkt.",
+      en: "GPS detects when you're at a recycling station and unlocks the scanner instantly.",
+    },
+  },
+  {
+    icon: TrophyStar,
+    to: "/utmaningar",
+    title: { sv: "Utmaningar & topplistor", en: "Challenges & leaderboards" },
+    desc: {
+      sv: "Tävla mot vänner i veckovisa klimatutmaningar och samla bonuspoäng.",
+      en: "Compete with friends in weekly climate challenges and earn bonus points.",
+    },
+  },
 ];
+
 export const HowItWorksSection = () => {
   const { t } = useLanguage();
 
-  const allFeatures = [
-    {
-      icon: ChartBarVertical01,
-      title: t("Samla poäng", "Earn points"),
-      description: t(
-        "Gör klimatsmarta val i vardagen och samla poäng genom att handla hållbart, återvinna, åka kollektivt, handla secondhand och delta i utmaningar.",
-        "Make climate-smart choices in everyday life and earn points by shopping sustainably, recycling, using public transport, buying second-hand and joining challenges."
-      ),
-    },
-    {
-      icon: Gift,
-      title: t("Lös in belöningar", "Redeem rewards"),
-      description: t(
-        "Byt dina poäng mot rabatter och erbjudanden hos våra samarbetspartners direkt i appen.",
-        "Exchange your points for discounts and offers from our partners directly in the app."
-      ),
-    },
-    {
-      icon: Camera,
-      title: t("Fota ditt kvitto", "Scan your receipt"),
-      description: t(
-        "Ta en bild på kvittot och scanna det med vår AI-drivna scanner. Den identifierar produkterna och ger dig poäng.",
-        "Take a photo of your receipt and scan it with our AI-powered scanner. It identifies the products and awards you points."
-      ),
-    },
-    {
-      icon: MapPin,
-      title: t("Återvinningsscanner", "Recycling scanner"),
-      description: t(
-        "Besök återvinningsstationer och scanna via GPS direkt i appen för att få poäng.",
-        "Visit recycling stations and scan via GPS directly in the app to earn points."
-      ),
-    },
-    {
-      icon: ShoppingBag01,
-      title: t("Second hand-bonus", "Second-hand bonus"),
-      description: t(
-        "Handlar du begagnat? Ladda upp ditt kvitto från second hand-köp och få extra poäng.",
-        "Shopping second-hand? Upload your receipt and earn extra points."
-      ),
-    },
-    {
-      icon: TrophyStar,
-      title: t("Klimatutmaningar", "Climate challenges"),
-      description: t(
-        "Delta i veckovisa klimatutmaningar och samla bonuspoäng genom enkla, klimatsmarta handlingar.",
-        "Join weekly climate challenges and earn bonus points through simple, climate-smart actions."
-      ),
-    },
-    {
-      icon: Users,
-      title: t("Vänner & topplistor", "Friends & leaderboards"),
-      description: t(
-        "Tävla mot vänner, klättra på topplistor och motivera varandra till mer hållbara val.",
-        "Compete with friends, climb leaderboards and motivate each other to make more sustainable choices."
-      ),
-    },
-    {
-      icon: Star,
-      title: t("Se din klimatpåverkan", "See your climate impact"),
-      description: t(
-        "Följ hur mycket CO₂ du sparar genom dina val och få en tydlig överblick.",
-        "Track how much CO₂ you save through your choices and get a clear overview."
-      ),
-    },
-  ];
-
-const RewardsReadMore = () => {
-  const [open, setOpen] = useState(false);
-  const { t, language } = useLanguage();
-
   return (
-    <div className="mt-6">
-      <button
-        onClick={() => setOpen(!open)}
-        className="inline-flex items-center gap-2 text-primary font-semibold hover:underline text-base transition-colors"
-      >
-        {t("Läs mer", "Read more")} {open ? "↑" : "↓"}
-      </button>
-      <AnimatePresence>
-        {open && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
-            className="overflow-hidden"
-          >
-            <div className="pt-6 space-y-6">
-              <h4 className="text-xl font-bold text-foreground">
-                {t("Belöningar som gör skillnad", "Rewards that make a difference")}
-              </h4>
-              <div className="space-y-4 text-muted-foreground text-base leading-relaxed">
-                <p>{t(
-                  "Med Klimava blir dina klimatsmarta val värdefulla på riktigt.",
-                  "With Klimava, your climate-smart choices become truly valuable."
-                )}</p>
-                <p>{t(
-                  "Du samlar poäng genom dina val i vardagen och använder dem i vår poängshop, där du får tillgång till exklusiva erbjudanden från våra samarbetspartners.",
-                  "You earn points through your everyday choices and use them in our points shop, where you get access to exclusive offers from our partners."
-                )}</p>
-                <p>{t(
-                  "Här kan du ta del av förmåner som fri frakt, rabatter, gratis månader och utvalda produkter.",
-                  "Here you can enjoy benefits like free shipping, discounts, free months and selected products."
-                )}</p>
-                <p>{t(
-                  "Det handlar inte bara om att göra rätt för klimatet – det handlar om att få något tillbaka. Varje poäng du tjänar blir en möjlighet att spara pengar och ta del av attraktiva erbjudanden.",
-                  "It's not just about doing right for the climate – it's about getting something back. Every point you earn becomes an opportunity to save money and access attractive offers."
-                )}</p>
-                <p>{t(
-                  "Med Klimava blir hållbarhet både smartare och mer lönsamt.",
-                  "With Klimava, sustainability becomes both smarter and more rewarding."
-                )}</p>
-              </div>
-
-              <div className="my-6 flex justify-center">
-                <div className="bg-foreground rounded-[2rem] p-1.5 shadow-elevated w-48">
-                  <img src={appPoangshop3} alt={t("Klimava poängshop", "Klimava points shop")} className="rounded-[1.75rem] w-full" />
-                </div>
-              </div>
-
-              <h4 className="text-lg font-bold text-foreground mt-8">
-                {t("Våra samarbetspartners", "Our partners")}
-              </h4>
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-                {rewardPartners.map((p) => (
-                  <div key={p.name} className="flex items-center gap-3 p-3 rounded-xl border border-border/50 bg-muted/30">
-                    <img src={p.logo} alt={p.name} className="w-10 h-10 rounded-lg object-contain shrink-0" />
-                    <div className="min-w-0">
-                      <p className="text-sm font-semibold text-foreground truncate">{p.name}</p>
-                      <p className="text-xs text-muted-foreground line-clamp-2">{language === "sv" ? p.desc.sv : p.desc.en}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
-  );
-};
-
-  return (
-    <section id="how-it-works" className="py-28 bg-white">
+    <section className="bg-background py-24 md:py-32">
       <div className="container mx-auto px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-20"
-        >
-          <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight">
-            {t("Så funkar", "How")} <span className="gradient-text">Klimava</span> {t("", "works")}
-          </h2>
-          <ul className="text-muted-foreground mt-8 max-w-2xl mx-auto text-base leading-relaxed text-left space-y-4">
-            <li className="flex items-start gap-2">
-              <span className="text-primary mt-0.5">•</span>
-              <span>{t(
-                "Gör klimatsmarta val i vardagen och samla poäng genom att handla hållbart, återvinna, åka kollektivt, köpa second hand och delta i utmaningar.",
-                "Make climate-smart choices in everyday life and earn points by shopping sustainably, recycling, using public transport, buying second-hand and joining challenges."
-              )}</span>
-            </li>
-            <li className="flex items-start gap-2">
-              <span className="text-primary mt-0.5">•</span>
-              <span>{t(
-                "Använd dina poäng för att få rabatter och exklusiva erbjudanden hos våra samarbetspartners – direkt i appen.",
-                "Use your points to get discounts and exclusive offers from our partners – directly in the app."
-              )}</span>
-            </li>
-            <li className="flex items-start gap-2">
-              <span className="text-primary mt-0.5">•</span>
-              <span>{t(
-                "Följ din klimatpåverkan i appen – vi samlar din data och visar hur mycket koldioxid du sparar genom dina val.",
-                "Track your climate impact in the app – we collect your data and show how much CO₂ you save through your choices."
-              )}</span>
-            </li>
-            <li className="flex items-start gap-2">
-              <span className="text-primary mt-0.5">•</span>
-              <span>{t(
-                "Tävla mot familj och vänner i topplistor – vem samlar flest Klimava-poäng och vem är mest hållbar?",
-                "Compete against family and friends on leaderboards – who earns the most Klimava points and who is the most sustainable?"
-              )}</span>
-            </li>
-          </ul>
-        </motion.div>
-
-        <div className="grid lg:grid-cols-2 gap-16 items-center mb-28">
-          <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            className="relative flex items-center justify-center"
-          >
-            <div className="absolute w-72 h-72 bg-primary/8 rounded-full blur-3xl -z-10" />
-            <div className="relative flex items-end gap-4">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                whileHover={{ y: -10, rotate: -2, scale: 1.03 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.1, type: "spring", stiffness: 200, damping: 18 }}
-                className="hidden sm:block w-36 md:w-44 cursor-pointer"
-              >
-                <div className="bg-foreground rounded-[2rem] p-1.5 shadow-elevated transition-shadow duration-300 hover:shadow-[0_25px_60px_-15px_hsl(var(--primary)/0.45)]">
-                  <img src={appDashboard} alt="Klimava dashboard" className="rounded-[1.75rem] w-full" />
-                </div>
-              </motion.div>
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                whileHover={{ y: -14, scale: 1.04 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.2, type: "spring", stiffness: 200, damping: 18 }}
-                className="w-40 sm:w-48 cursor-pointer"
-              >
-                <div className="bg-foreground rounded-[2rem] p-1.5 shadow-elevated transition-shadow duration-300 hover:shadow-[0_30px_70px_-15px_hsl(var(--primary)/0.55)]">
-                  <img src={appOnboarding} alt="Klimava onboarding" className="rounded-[1.75rem] w-full" />
-                </div>
-              </motion.div>
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                whileHover={{ y: -10, rotate: 2, scale: 1.03 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.3, type: "spring", stiffness: 200, damping: 18 }}
-                className="hidden sm:block w-36 md:w-44 cursor-pointer"
-              >
-                <div className="bg-foreground rounded-[2rem] p-1.5 shadow-elevated transition-shadow duration-300 hover:shadow-[0_25px_60px_-15px_hsl(var(--primary)/0.45)]">
-                  <img src={appPoangshop2} alt={t("Klimava poängshop", "Klimava points shop")} className="rounded-[1.75rem] w-full" />
-                </div>
-              </motion.div>
-            </div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-          >
-            <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
-              {t(
-                <>Gör klimatsmarta val och få något{" "}<span className="gradient-text">tillbaka</span></>,
-                <>Make climate-smart choices and get something{" "}<span className="gradient-text">back</span></>
-              )}
-            </h3>
-            <div className="space-y-4 mt-6 text-muted-foreground text-base leading-relaxed">
-              <p>{t(
-                "Med Klimava samlar du poäng genom dina vardagsval och använder dem i vår poängshop.",
-                "With Klimava you earn points through your everyday choices and use them in our points shop."
-              )}</p>
-              <p>{t(
-                "Få tillgång till exklusiva erbjudanden från våra samarbetspartners, som rabatter, fri frakt, gratis månader och produkter.",
-                "Get access to exclusive offers from our partners, like discounts, free shipping, free months and products."
-              )}</p>
-              <p>{t(
-                "Du sparar pengar samtidigt som du gör något bra för klimatet.",
-                "You save money while doing something good for the climate."
-              )}</p>
-            </div>
-
-            <RewardsReadMore />
-
-            <a
-              href="https://apps.apple.com/se/app/klimava/id6760266069"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block mt-8 text-primary font-semibold hover:underline text-lg"
-            >
-              {t("Skaffa Klimava →", "Get Klimava →")}
-            </a>
-          </motion.div>
-        </div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
-          className="mb-28"
-        >
-          <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-8">
-            {t(
-              <>Huvudfunktion – <span className="gradient-text">Så fungerar det</span></>,
-              <>Main feature – <span className="gradient-text">How it works</span></>
-            )}
-          </h3>
-          <div className="flex gap-4 justify-center mb-10">
+        <div className="grid gap-6 sm:grid-cols-2">
+          {teasers.map((item, i) => (
             <motion.div
-              initial={{ opacity: 0, x: -40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              whileHover={{ y: -12, scale: 1.04 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1, type: "spring", stiffness: 200, damping: 18 }}
-              className="w-40 sm:w-48 cursor-pointer"
+              key={item.to}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
             >
-              <div className="bg-foreground rounded-[2rem] p-1.5 shadow-elevated transition-shadow duration-300 hover:shadow-[0_30px_70px_-15px_hsl(var(--primary)/0.55)]">
-                <img src={appScanner} alt="Klimava scanner" className="rounded-[1.75rem] w-full" />
-              </div>
+              <Link
+                to={item.to}
+                className="group flex h-full flex-col rounded-3xl border border-border bg-card p-8 shadow-soft transition-all hover:shadow-elevated"
+              >
+                <span className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-accent text-primary">
+                  <item.icon className="h-6 w-6" />
+                </span>
+                <h3 className="mb-2 font-serif text-xl font-medium text-foreground">
+                  {t(item.title.sv, item.title.en)}
+                </h3>
+                <p className="mb-6 flex-1 text-muted-foreground leading-relaxed">{t(item.desc.sv, item.desc.en)}</p>
+                <span className="inline-flex items-center gap-1.5 font-semibold text-primary group-hover:underline">
+                  {t("Läs mer", "Read more")}
+                  <ArrowRightMd className="h-4 w-4" />
+                </span>
+              </Link>
             </motion.div>
-          </div>
-          <div className="space-y-6 text-muted-foreground text-base leading-relaxed max-w-3xl">
-            <p>{t(
-              "Efter att du har handlat i matbutiken öppnar du appen och tar en bild på ditt kvitto.",
-              "After shopping at the grocery store, you open the app and take a photo of your receipt."
-            )}</p>
-            <p>{t(
-              "Vår OCR-teknik läser av kvittot och identifierar vilka produkter du har köpt. Därefter scannar du streckkoden på de produkter du vill registrera direkt i appen.",
-              "Our OCR technology reads the receipt and identifies which products you bought. Then you scan the barcode of the products you want to register directly in the app."
-            )}</p>
-            <p>{t(
-              "Klimava matchar först de scannade produkterna med ditt kvitto för att bekräfta köpet, och jämför dem sedan med vår databas med över 320 000 livsmedelsprodukter.",
-              "Klimava first matches the scanned products with your receipt to confirm the purchase, then compares them with our database of over 320,000 food products."
-            )}</p>
-            <p>{t(
-              "Vi identifierar hållbara val – som ekologiska och miljömärkta produkter – och ger dig poäng för varje produkt som uppfyller våra kriterier.",
-              "We identify sustainable choices – such as organic and eco-labelled products – and award you points for every product that meets our criteria."
-            )}</p>
-            <p>{t(
-              "Ju fler klimatsmarta val du gör, desto fler poäng samlar du – som du sedan kan använda till belöningar i appen.",
-              "The more climate-smart choices you make, the more points you earn – which you can then use for rewards in the app."
-            )}</p>
-          </div>
-        </motion.div>
-
-        {/* Återvinning section */}
-        <motion.div
-          id="recycling-section"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
-          className="mb-28 scroll-mt-32"
-        >
-          <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-6">
-            {t(
-              <>Återvinning som <span className="gradient-text">belönar dig</span></>,
-              <>Recycling that <span className="gradient-text">rewards you</span></>
-            )}
-          </h3>
-          <p className="text-muted-foreground text-base leading-relaxed max-w-3xl mb-6">
-            {t(
-              "Klimava använder GPS för att känna av när du är nära en återvinningsstation. När du är på plats låses vår scanner upp så att du kan registrera det du återvinner och få poäng direkt.",
-              "Klimava uses GPS to detect when you are near a recycling station. When you arrive, our scanner unlocks so you can register what you recycle and earn points instantly."
-            )}
-          </p>
-          <Link
-            to="/atervinning"
-            className="inline-flex items-center gap-2 gradient-bg text-primary-foreground font-semibold px-6 py-3 rounded-xl shadow-soft hover:shadow-card hover:scale-[1.02] active:scale-[0.98] transition-all"
-          >
-            {t("Läs mer", "Read more")} →
-          </Link>
-        </motion.div>
-
-        {/* Utmaningar & topplistor section */}
-        <motion.div
-          id="challenges-section"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
-          className="mb-24 scroll-mt-32"
-        >
-          <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-6">
-            {t(
-              <>Utmaningar & <span className="gradient-text">topplistor</span></>,
-              <>Challenges & <span className="gradient-text">leaderboards</span></>
-            )}
-          </h3>
-          <p className="text-muted-foreground text-base leading-relaxed max-w-3xl mb-6">
-            {t(
-              "Tävla mot vänner och familj i veckovisa klimatutmaningar. Samla bonuspoäng, klättra på topplistor och motivera varandra till mer hållbara val – varje dag.",
-              "Compete against friends and family in weekly climate challenges. Earn bonus points, climb leaderboards and motivate each other to make more sustainable choices – every day."
-            )}
-          </p>
-          <Link
-            to="/utmaningar"
-            className="inline-flex items-center gap-2 gradient-bg text-primary-foreground font-semibold px-6 py-3 rounded-xl shadow-soft hover:shadow-card hover:scale-[1.02] active:scale-[0.98] transition-all"
-          >
-            {t("Läs mer", "Read more")} →
-          </Link>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="border border-border/50 rounded-3xl p-8 md:p-12 text-center"
-        >
-          <blockquote className="text-xl md:text-2xl text-foreground/80 leading-relaxed italic max-w-3xl mx-auto mb-6">
-            {t(
-              "\"Vi tror på belöning istället för pekpinnar. Klimava ska göra det lätt och roligt att leva hållbart – varje dag, ett val i taget.\"",
-              "\"We believe in rewards instead of finger-wagging. Klimava should make it easy and fun to live sustainably – every day, one choice at a time.\""
-            )}
-          </blockquote>
-          <p className="text-muted-foreground font-medium">
-            {t("— Grundarna av Klimava", "— The founders of Klimava")}
-          </p>
-        </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );

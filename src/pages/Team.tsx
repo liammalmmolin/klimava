@@ -2,21 +2,11 @@ import { motion } from "framer-motion";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { founders } from "@/data/founders";
 import teamPhoto from "@/assets/team-photo.jpg";
-import dantePhoto from "@/assets/dante-new.png";
-import linusPhoto from "@/assets/linus-new.png";
-import christianPhoto from "@/assets/christian.png";
-import liamPhoto from "@/assets/liam.png";
 
 const Team = () => {
   const { t } = useLanguage();
-
-  const founders = [
-    { name: "Dante Rudinsson", roleSv: "Verkställande Direktör", roleEn: "CEO", initials: "DR", photo: dantePhoto, objectPos: "center 20%" },
-    { name: "Liam Molin", roleSv: "Produktutvecklare", roleEn: "Product Developer", initials: "LM", photo: liamPhoto, objectPos: "center 20%" },
-    { name: "Christian Nordwall", roleSv: "Marknadsföringsansvarig", roleEn: "Marketing Manager", initials: "CN", photo: christianPhoto, objectPos: "center 20%" },
-    { name: "Linus Emmoth", roleSv: "Ekonomiansvarig", roleEn: "Finance Manager", initials: "LE", photo: linusPhoto, objectPos: "center 15%" },
-  ];
 
   return (
     <div className="min-h-screen bg-background">
@@ -63,39 +53,19 @@ const Team = () => {
                 className="text-center"
               >
                 <div className="w-28 h-28 mx-auto mb-4 rounded-full overflow-hidden gradient-bg flex items-center justify-center shadow-card">
-                  {founder.photo ? (
-                    <img src={founder.photo} alt={founder.name} className="w-full h-full object-cover" style={{ objectPosition: founder.objectPos }} />
-                  ) : (
-                    <span className="text-2xl font-bold text-primary-foreground">
-                      {founder.initials}
-                    </span>
-                  )}
+                  <img
+                    src={founder.photo}
+                    alt={founder.name}
+                    className="w-full h-full object-cover"
+                    style={{ objectPosition: founder.objectPosition }}
+                  />
                 </div>
                 <h3 className="text-lg font-semibold text-foreground">{founder.name}</h3>
-                <p className="text-sm text-primary font-medium mt-1">{t(founder.roleSv, founder.roleEn)}</p>
                 <p className="text-xs text-muted-foreground mt-0.5">{t("Grundare", "Founder")}</p>
               </motion.div>
             ))}
           </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.7 }}
-            className="mt-20 max-w-3xl mx-auto text-center"
-          >
-            <div className="border border-border/50 rounded-3xl p-8 md:p-12">
-              <blockquote className="text-xl md:text-2xl text-foreground/80 leading-relaxed italic">
-                {t(
-                  "\"Vi tror på belöning istället för pekpinnar. Klimava ska göra det lätt och roligt att leva hållbart – varje dag, ett val i taget.\"",
-                  "\"We believe in rewards instead of finger-wagging. Klimava should make it easy and fun to live sustainably – every day, one choice at a time.\""
-                )}
-              </blockquote>
-              <p className="text-muted-foreground font-medium mt-6">
-                {t("— Grundarna av Klimava", "— The founders of Klimava")}
-              </p>
-            </div>
-          </motion.div>
         </div>
       </main>
       <Footer />

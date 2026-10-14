@@ -6,22 +6,16 @@ import { Button } from "@/components/ui/button";
 import { Apple } from "lucide-react";
 import { ArrowRightMd, Check, Camera, Phone, Leaf, Lock } from "react-coolicons";
 import { Upload } from "lucide-react";
+import { fadeUp } from "@/lib/motion";
 import appDashboard from "@/assets/klimava-online-kvitto.jpeg";
 import slIcon from "@/assets/sl-app-icon.png";
 import slTicket from "@/assets/sl-app-ticket.png";
 
-// SL-inspirerad premium mörkblå palett
+// SL-inspirerad premium mörkblå palett — eget co-branding-tema, orört av Petrol & Lime
 const SL_DEEP = "#04132e";       // djup bakgrund
 const SL_NAVY = "#0a1f47";       // sektioner
 const SL_BLUE = "#0089cf";       // accent
 const SL_CYAN = "#5cc8ff";       // glow / highlight
-
-const fadeUp = {
-  initial: { opacity: 0, y: 24 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true, margin: "-80px" },
-  transition: { duration: 0.6 },
-} as const;
 
 const SLPartnership = () => {
   const { t } = useLanguage();

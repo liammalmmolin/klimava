@@ -10,7 +10,7 @@ const Recycling = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-background">
       <Header />
       <main className="pt-32 pb-20">
         <div className="container mx-auto px-6 max-w-3xl">
