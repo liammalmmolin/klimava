@@ -174,7 +174,7 @@ export const HowItWorksBlock = () => {
               </span>
               <h3 className="mb-4 font-serif text-3xl font-medium leading-tight text-background md:text-4xl">
                 {t(
-                  <>Från <RefinedCapital letter="U" /><RefinedCapital letter="F" />-<RefinedCapital letter="f" />öretag</>,
+                  <>Från <RefinedCapital letter="U" /><RefinedCapital letter="F" />-företag</>,
                   "From a Young Enterprise project"
                 )}
                 <br />
