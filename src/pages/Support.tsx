@@ -97,6 +97,20 @@ const feedbackCategories = [
   },
 ];
 
+// Local kerning fix: in "förslag" the f's overhang sits too close to the ö's
+// dots in Source Serif 4, so the f gets a hair of extra right spacing.
+const renderTitle = (title: string) => {
+  const idx = title.indexOf("förslag");
+  if (idx === -1) return title;
+  return (
+    <>
+      {title.slice(0, idx)}
+      <span className="mr-[0.06em]">f</span>
+      {title.slice(idx + 1)}
+    </>
+  );
+};
+
 const FeedbackCard = ({ category }: { category: (typeof feedbackCategories)[number] }) => {
   const { t } = useLanguage();
   const [value, setValue] = useState("");
@@ -118,7 +132,7 @@ const FeedbackCard = ({ category }: { category: (typeof feedbackCategories)[numb
       transition={{ duration: 0.5 }}
       className="rounded-3xl border border-border bg-card p-6 shadow-soft md:p-8"
     >
-      <h3 className="mb-2 font-heading text-lg font-medium text-foreground">{t(category.title.sv, category.title.en)}</h3>
+      <h3 className="mb-2 font-heading text-lg font-medium text-foreground">{renderTitle(t(category.title.sv, category.title.en))}</h3>
       <p className="mb-5 text-sm leading-relaxed text-muted-foreground">{t(category.desc.sv, category.desc.en)}</p>
       <div className="flex items-center gap-2">
         <input
