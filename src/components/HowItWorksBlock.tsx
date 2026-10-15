@@ -37,7 +37,6 @@ const AdVideo = ({ src }: { src: string }) => {
     <>
       <video
         ref={videoRef}
-        src={started ? src : undefined}
         controls={started}
         playsInline
         preload="none"
