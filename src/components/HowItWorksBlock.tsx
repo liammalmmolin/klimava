@@ -91,7 +91,7 @@ const AdVideo = ({ src }: { src: string }) => {
 };
 
 export const HowItWorksBlock = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   return (
     <>
