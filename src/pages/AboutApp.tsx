@@ -85,7 +85,7 @@ const AboutApp = () => {
                 <div className="w-10 h-10 rounded-lg bg-accent flex items-center justify-center mb-4">
                   <f.icon className="w-5 h-5 text-primary" />
                 </div>
-                <h3 className="font-serif font-medium text-foreground mb-2">{t(f.title.sv, f.title.en)}</h3>
+                <h3 className="font-heading font-medium text-foreground mb-2">{t(f.title.sv, f.title.en)}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">{t(f.desc.sv, f.desc.en)}</p>
               </motion.div>
             ))}

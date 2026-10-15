@@ -118,7 +118,7 @@ const FeedbackCard = ({ category }: { category: (typeof feedbackCategories)[numb
       transition={{ duration: 0.5 }}
       className="rounded-3xl border border-border bg-card p-6 shadow-soft md:p-8"
     >
-      <h3 className="mb-2 font-serif text-lg font-medium text-foreground">{t(category.title.sv, category.title.en)}</h3>
+      <h3 className="mb-2 font-heading text-lg font-medium text-foreground">{t(category.title.sv, category.title.en)}</h3>
       <p className="mb-5 text-sm leading-relaxed text-muted-foreground">{t(category.desc.sv, category.desc.en)}</p>
       <div className="flex items-center gap-2">
         <input
@@ -241,7 +241,7 @@ const Support = () => {
                 <span className="gradient-text text-sm font-semibold uppercase tracking-wider">
                   {t("Support", "Support")}
                 </span>
-                <h2 className="mt-3 font-serif text-3xl font-bold text-foreground md:text-4xl">
+                <h2 className="mt-3 font-heading text-3xl font-bold text-foreground md:text-4xl">
                   {t("Vanliga frågor", "Frequently asked questions")}
                 </h2>
               </motion.div>
@@ -256,7 +256,7 @@ const Support = () => {
                     transition={{ duration: 0.5, delay: (i % 2) * 0.08 }}
                     className="rounded-3xl border border-border bg-card p-8 shadow-soft"
                   >
-                    <h3 className="mb-2 font-serif text-lg font-medium text-foreground">{t(item.q.sv, item.q.en)}</h3>
+                    <h3 className="mb-2 font-heading text-lg font-medium text-foreground">{t(item.q.sv, item.q.en)}</h3>
                     <p className="leading-relaxed text-muted-foreground">{t(item.a.sv, item.a.en)}</p>
                   </motion.div>
                 ))}
@@ -277,7 +277,7 @@ const Support = () => {
                 transition={{ duration: 0.5 }}
                 className="mb-12 text-center"
               >
-                <h2 className="font-serif text-3xl font-bold text-background md:text-4xl">
+                <h2 className="font-heading text-3xl font-bold text-background md:text-4xl">
                   {t("Hjälp oss att bli bättre", "Help us get better")}
                 </h2>
                 <p className="mx-auto mt-3 max-w-xl text-background/60">
@@ -304,7 +304,7 @@ const Support = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5 }}
               >
-                <h2 className="font-serif text-3xl font-bold text-foreground md:text-4xl">
+                <h2 className="font-heading text-3xl font-bold text-foreground md:text-4xl">
                   {t("Hittade du inte svaret du sökte?", "Didn't find the answer you were looking for?")}
                 </h2>
                 <p className="mx-auto mt-3 max-w-md text-muted-foreground">
