@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Play, Camera, Gift, ChartBarVertical01 } from "react-coolicons";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { RefinedCapital } from "@/components/UngForetagande";
 import { stats } from "@/data/stats";
 import { AD_VIDEO_SRC } from "@/data/media";
 import { fadeUp } from "@/lib/motion";
@@ -172,7 +173,10 @@ export const HowItWorksBlock = () => {
                 {t("Om oss", "About us")}
               </span>
               <h3 className="mb-4 font-serif text-3xl font-medium leading-tight text-background md:text-4xl">
-                {t("Från UF-företag", "From a Young Enterprise project")}
+                {t(
+                  <>Från <RefinedCapital letter="U" /><RefinedCapital letter="F" />-företag</>,
+                  "From a Young Enterprise project"
+                )}
                 <br />
                 <span className="gradient-text">{t("till aktiebolag.", "to a limited company.")}</span>
               </h3>
