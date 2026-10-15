@@ -46,7 +46,7 @@ export const HowItWorksSection = () => {
                 <span className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-accent text-primary">
                   <item.icon className="h-6 w-6" />
                 </span>
-                <h3 className="mb-2 font-serif text-xl font-medium text-foreground">
+                <h3 className="mb-2 font-heading text-xl font-medium text-foreground">
                   {t(item.title.sv, item.title.en)}
                 </h3>
                 <p className="mb-6 flex-1 text-muted-foreground leading-relaxed">{t(item.desc.sv, item.desc.en)}</p>

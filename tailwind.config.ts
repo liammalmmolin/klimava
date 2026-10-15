@@ -15,7 +15,8 @@ export default {
     extend: {
       fontFamily: {
         sans: ['Raleway', 'system-ui', 'sans-serif'],
-        serif: ['Fraunces Klimava f', 'Fraunces', 'Georgia', 'serif'],
+        serif: ['Fraunces', 'Georgia', 'serif'],
+        heading: ['"Source Serif 4"', 'Georgia', 'serif'],
         mono: ['"IBM Plex Mono"', 'ui-monospace', 'monospace'],
       },
       colors: {

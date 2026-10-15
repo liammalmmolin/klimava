@@ -3,7 +3,6 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Play, Camera, Gift, ChartBarVertical01 } from "react-coolicons";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { RefinedCapital } from "@/components/UngForetagande";
 import { stats } from "@/data/stats";
 import { AD_VIDEO_SRC } from "@/data/media";
 import { fadeUp } from "@/lib/motion";
@@ -106,7 +105,7 @@ export const HowItWorksBlock = () => {
           </motion.span>
           <motion.h2
             {...fadeUp}
-            className="max-w-2xl font-serif text-4xl font-medium leading-[1.1] text-background md:text-6xl"
+            className="max-w-2xl font-heading text-4xl font-medium leading-[1.1] text-background md:text-6xl"
           >
             {t("Gör klimatsmarta val.", "Make climate-smart choices.")}
             <br />
@@ -131,7 +130,7 @@ export const HowItWorksBlock = () => {
           </motion.p>
           <motion.h3
             {...fadeUp}
-            className="mx-auto mb-12 max-w-2xl text-center font-serif text-3xl font-medium text-background md:text-5xl"
+            className="mx-auto mb-12 max-w-2xl text-center font-heading text-3xl font-medium text-background md:text-5xl"
           >
             {t("30 sekunder är allt som krävs.", "30 seconds is all it takes.")}
           </motion.h3>
@@ -172,9 +171,9 @@ export const HowItWorksBlock = () => {
               <span className="mb-3 inline-block font-mono text-xs uppercase tracking-widest text-primary">
                 {t("Om oss", "About us")}
               </span>
-              <h3 className="mb-4 font-serif text-3xl font-medium leading-tight text-background md:text-4xl">
+              <h3 className="mb-4 font-heading text-3xl font-medium leading-tight text-background md:text-4xl">
                 {t(
-                  <>Från <RefinedCapital letter="U" /><RefinedCapital letter="F" />-företag</>,
+                  <>Från UF-företag</>,
                   "From a Young Enterprise project"
                 )}
                 <br />
