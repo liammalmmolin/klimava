@@ -250,7 +250,7 @@ export const HowItWorksBlock = () => {
               style={{ fontVariantLigatures: "none" }}
             >
               {language === "sv" ? (
-                <>Ska<span>f</span><span className="ml-[0.04em]">f</span>a Klimava →</>
+                <>Ska<span>f</span><span className="ml-[0.02em]">f</span>a Klimava →</>
               ) : (
                 t("", "Get Klimava →")
               )}
