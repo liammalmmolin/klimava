@@ -171,7 +171,7 @@ export const HowItWorksBlock = () => {
               <span className="mb-3 inline-block font-mono text-xs uppercase tracking-widest text-primary">
                 {t("Om oss", "About us")}
               </span>
-              <h3 className="mb-4 font-serif text-3xl font-medium leading-tight text-background md:text-4xl">
+              <h3 className="mb-4 !font-sans text-3xl font-bold leading-tight tracking-tight text-background md:text-4xl">
                 {t("Från tävla i Ungföretagande", "From competing in Young Enterprise")}
                 <br />
                 <span className="gradient-text">{t("till aktiebolag.", "to a limited company.")}</span>
