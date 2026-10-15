@@ -71,7 +71,7 @@ const AdVideo = ({ src }: { src: string }) => {
 
             <span className="absolute bottom-5 left-5 right-5 hidden items-end sm:flex justify-between gap-4 md:bottom-8 md:left-8 md:right-8">
               <span className="flex items-center gap-3 md:gap-4">
-                <img src={logo} alt="" className="h-11 w-11 rounded-xl shadow-elevated md:h-14 md:w-14 md:rounded-2xl" />
+                <img width={56} height={56} loading="lazy" decoding="async" src={logo} alt="" className="h-11 w-11 rounded-xl shadow-elevated md:h-14 md:w-14 md:rounded-2xl" />
                 <span>
                   <span className="block font-mono text-[10px] uppercase tracking-widest text-secondary md:text-xs">
                     {t("Reklamfilm", "Ad film")}

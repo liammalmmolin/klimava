@@ -69,6 +69,7 @@ export const SwedenStrip = () => {
                 }`}
               >
                 <img
+                  width={1600} height={i === 1 ? 1986 : 1067}
                   src={tile.photo}
                   srcSet={tile.srcSet}
                   sizes="(min-width: 768px) 34vw, 100vw"

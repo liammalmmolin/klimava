@@ -60,7 +60,7 @@ export const HeroSection = ({ scale }: HeroSectionProps) => {
 
         {/* Logo — anchored to this card's corner, scrolls away with it */}
         <Link to="/" className="absolute left-6 top-6 z-10 flex items-center gap-2.5 sm:left-8 sm:top-8">
-          <img src={klimavaLogo} alt="Klimava" className="h-9 w-9 rounded-xl ring-1 ring-white/25" />
+          <img width={36} height={36} src={klimavaLogo} alt="Klimava" className="h-9 w-9 rounded-xl ring-1 ring-white/25" />
           <span className="text-lg font-bold text-white">Klimava</span>
         </Link>
 
@@ -129,7 +129,7 @@ export const HeroSection = ({ scale }: HeroSectionProps) => {
               className="flex flex-wrap items-center gap-4"
             >
               <a href="https://apps.apple.com/se/app/klimava/id6760266069" target="_blank" rel="noopener noreferrer">
-                <img src={appStoreBadge} alt={t("Hämta i App Store", "Download on App Store")} className="h-12 w-[150px] object-cover sm:h-14 sm:w-[168px]" />
+                <img width={168} height={56} src={appStoreBadge} alt={t("Hämta i App Store", "Download on App Store")} className="h-12 w-[150px] object-cover sm:h-14 sm:w-[168px]" />
               </a>
               <Button variant="glass" size="lg" className="border-white/30 bg-white/10 text-white hover:bg-white/20" asChild>
                 <a href="#reklamfilm">

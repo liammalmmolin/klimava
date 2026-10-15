@@ -183,7 +183,7 @@ const Support = () => {
 
               {/* Logo — anchored to this card's corner, scrolls away with it */}
               <Link to="/" className="absolute left-6 top-6 z-10 flex items-center gap-2.5 sm:left-8 sm:top-8">
-                <img src={klimavaLogo} alt="Klimava" className="h-9 w-9 rounded-xl ring-1 ring-white/25" />
+                <img width={36} height={36} src={klimavaLogo} alt="Klimava" className="h-9 w-9 rounded-xl ring-1 ring-white/25" />
                 <span className="text-lg font-bold text-white">Klimava</span>
               </Link>
 
