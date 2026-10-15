@@ -134,7 +134,7 @@ export const HowItWorksBlock = () => {
           </motion.p>
           <motion.h3
             {...fadeUp}
-            className="mx-auto mb-12 max-w-2xl text-center font-heading text-3xl font-medium text-background md:text-5xl"
+            className="mx-auto mb-12 min-h-[2.4em] sm:min-h-0 max-w-2xl text-center font-heading text-3xl font-medium text-background md:text-5xl"
           >
             {t("30 sekunder är allt som krävs.", "30 seconds is all it takes.")}
           </motion.h3>

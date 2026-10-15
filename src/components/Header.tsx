@@ -42,7 +42,7 @@ export const Header = ({ className }: { className?: string } = {}) => {
       <div className="relative lg:hidden">
         <Button variant="ghost"
           onClick={() => setIsMenuOpen((open) => !open)}
-          className="flex items-center gap-2 rounded-full border border-white/10 bg-neutral-900/45 px-4 py-2.5 text-sm font-medium text-white shadow-elevated backdrop-blur-md"
+          className="flex items-center gap-2 rounded-full border border-white/10 bg-neutral-900/45 px-4 py-2.5 text-sm font-medium text-white shadow-elevated backdrop-blur-md hover:bg-neutral-900/45 hover:text-white h-auto px-4 py-2.5"
           aria-label="Toggle menu"
           aria-expanded={isMenuOpen}
         >
