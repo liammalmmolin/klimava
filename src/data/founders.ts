@@ -1,7 +1,7 @@
-import dantePhoto from "@/assets/dante-new.png";
-import liamPhoto from "@/assets/liam.png";
-import christianPhoto from "@/assets/christian.png";
-import linusPhoto from "@/assets/linus-new.png";
+import dantePhoto from "@/assets/dante-new.png?format=webp&quality=92";
+import liamPhoto from "@/assets/liam.png?format=webp&quality=92";
+import christianPhoto from "@/assets/christian.png?format=webp&quality=92";
+import linusPhoto from "@/assets/linus-new.png?format=webp&quality=92";
 
 export interface Founder {
   name: string;

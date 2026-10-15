@@ -12,10 +12,16 @@ import { useScroll, useTransform } from "framer-motion";
  * hero visibly gives ground at the same rate the next card advances over it.
  */
 export const useHeroShrink = () => {
-  const [viewportHeight, setViewportHeight] = useState(0);
+  const [viewportHeight, setViewportHeight] = useState(() => document.documentElement.clientHeight);
   useEffect(() => {
-    const updateHeight = () => setViewportHeight(window.innerHeight);
-    updateHeight();
+    let width = window.innerWidth;
+    const updateHeight = () => {
+      // Safari's toolbar changes height while scrolling; do not remap the
+      // animation mid-swipe. Orientation/actual width changes still update it.
+      if (window.innerWidth === width) return;
+      width = window.innerWidth;
+      setViewportHeight(document.documentElement.clientHeight);
+    };
     window.addEventListener("resize", updateHeight);
     return () => window.removeEventListener("resize", updateHeight);
   }, []);

@@ -1,4 +1,5 @@
-import { motion } from "framer-motion";
+import { motion, useInView, useReducedMotion } from "framer-motion";
+import { useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Phone, Check, Lock } from "react-coolicons";
 import { Apple } from "lucide-react";
@@ -21,15 +22,19 @@ const glitterDots = [
 
 export const CTASection = () => {
   const { t } = useLanguage();
+  const sectionRef = useRef<HTMLElement>(null);
+  const visible = useInView(sectionRef, { margin: "150px" });
+  const reducedMotion = useReducedMotion();
+  const moving = visible && !reducedMotion;
 
   return (
-    <section id="download" className="relative overflow-hidden bg-foreground py-28">
+    <section ref={sectionRef} id="download" className="relative overflow-hidden bg-foreground py-28">
       <div className="container mx-auto px-6">
         <div className="max-w-3xl mx-auto text-center">
           {/* Icon floats vertically only; glow and sparkles live in a sibling layer. */}
           <div className="relative mx-auto mb-8 flex h-52 w-52 items-center justify-center md:h-64 md:w-64">
             <motion.div
-              animate={{ y: [0, -14, 0] }}
+              animate={{ y: moving ? [0, -14, 0] : 0 }}
               transition={{ duration: 3.4, repeat: Infinity, ease: "easeInOut" }}
               className="pointer-events-none absolute inset-0"
               aria-hidden
@@ -50,7 +55,7 @@ export const CTASection = () => {
                 key={i}
                 className="absolute rounded-full bg-primary-foreground"
                 style={{ top: d.top, left: d.left, width: d.size, height: d.size }}
-                animate={{ opacity: [0.1, 1, 0.1], scale: [0.5, 1.3, 0.5] }}
+                animate={{ opacity: moving ? [0.1, 1, 0.1] : 0.5, scale: moving ? [0.5, 1.3, 0.5] : 1 }}
                 transition={{ duration: d.duration, repeat: Infinity, delay: d.delay, ease: "easeInOut" }}
                 aria-hidden
               />
@@ -58,11 +63,11 @@ export const CTASection = () => {
             </motion.div>
 
             <motion.div
-              animate={{ y: [0, -14, 0] }}
+              animate={{ y: moving ? [0, -14, 0] : 0 }}
               transition={{ duration: 3.4, repeat: Infinity, ease: "easeInOut" }}
               className="relative h-28 w-28 overflow-hidden rounded-[1.75rem] shadow-elevated md:h-40 md:w-40"
             >
-              <img src={klimavaIcon} alt="Klimava" className="h-full w-full object-cover" />
+              <img src={klimavaIcon} width={160} height={160} loading="lazy" decoding="async" alt="Klimava" className="h-full w-full object-cover" />
             </motion.div>
           </div>
 

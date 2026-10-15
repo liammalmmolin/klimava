@@ -11,7 +11,7 @@ import { Send } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { toast } from "@/components/ui/sonner";
 import { useHeroShrink } from "@/hooks/use-hero-shrink";
-import supportHero from "@/assets/support-hero.jpg";
+import supportHero from "@/assets/support-hero.jpg?format=webp&quality=92";
 import klimavaLogo from "@/assets/klimava-logo.jpeg";
 
 const faqs = [
@@ -170,7 +170,7 @@ const Support = () => {
               style={{ scale: heroScale }}
               className="relative h-[38rem] max-h-[75vh] min-h-[460px] origin-top overflow-hidden rounded-[1.75rem] md:rounded-[2.25rem]"
             >
-              <img src={supportHero} alt="" className="absolute inset-0 h-full w-full object-cover" />
+              <img width={2400} height={3600} fetchPriority="high" src={supportHero} alt="" className="absolute inset-0 h-full w-full object-cover" />
               <div
                 className="absolute inset-0"
                 style={{
@@ -182,10 +182,10 @@ const Support = () => {
               <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-black/45 to-transparent" />
 
               {/* Logo — anchored to this card's corner, scrolls away with it */}
-              <a href="/" className="absolute left-6 top-6 z-10 flex items-center gap-2.5 sm:left-8 sm:top-8">
-                <img src={klimavaLogo} alt="Klimava" className="h-9 w-9 rounded-xl ring-1 ring-white/25" />
+              <Link to="/" className="absolute left-6 top-6 z-10 flex items-center gap-2.5 sm:left-8 sm:top-8">
+                <img width={36} height={36} src={klimavaLogo} alt="Klimava" className="h-9 w-9 rounded-xl ring-1 ring-white/25" />
                 <span className="text-lg font-bold text-white">Klimava</span>
-              </a>
+              </Link>
 
               {/* App CTA — anchored to this card's corner, scrolls away with it */}
               <Button

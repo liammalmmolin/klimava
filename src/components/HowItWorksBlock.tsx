@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, useInView, useReducedMotion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Play, Camera, Gift, ChartBarVertical01 } from "react-coolicons";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -7,8 +7,8 @@ import { stats } from "@/data/stats";
 import { AD_VIDEO_SRC } from "@/data/media";
 import { fadeUp } from "@/lib/motion";
 import { SwedenStrip } from "@/components/SwedenStrip";
-import teamPhoto from "@/assets/team-photo.jpg";
-import coverPhoto from "@/assets/contact-bg.png";
+import teamPhoto from "@/assets/team-photo.jpg?format=webp&quality=92";
+import coverPhoto from "@/assets/contact-bg.png?format=webp&quality=92";
 import logo from "@/assets/klimava-logo.jpeg";
 
 const steps = [
@@ -29,17 +29,17 @@ const AdVideo = ({ src }: { src: string }) => {
     const video = videoRef.current;
     if (!video) return;
     video.currentTime = 0;
-    void video.play();
+    video.src = src;
+    void video.play().catch(() => setStarted(false));
   };
 
   return (
     <>
       <video
         ref={videoRef}
-        src={src}
         controls={started}
         playsInline
-        preload="metadata"
+        preload="none"
         onLoadedMetadata={(e) => setDuration(e.currentTarget.duration)}
         className="h-full w-full object-cover"
       />
@@ -55,7 +55,7 @@ const AdVideo = ({ src }: { src: string }) => {
             className="group absolute inset-0 flex cursor-pointer flex-col items-center justify-center text-left"
           >
             {/* Misty forest canopy with a brand tint — doesn't give away what's in the film */}
-            <img src={coverPhoto} alt="" className="absolute inset-0 h-full w-full object-cover object-[50%_65%]" />
+            <img width={956} height={944} loading="lazy" decoding="async" src={coverPhoto} alt="" className="absolute inset-0 h-full w-full object-cover object-[50%_65%]" />
             <div className="absolute inset-0 gradient-bg opacity-50 mix-blend-soft-light" />
             <div className="absolute inset-0 bg-gradient-to-t from-foreground/85 via-foreground/10 to-transparent" />
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_40%,hsl(var(--foreground)/0.4)_100%)]" />
@@ -70,7 +70,7 @@ const AdVideo = ({ src }: { src: string }) => {
 
             <span className="absolute bottom-5 left-5 right-5 hidden items-end sm:flex justify-between gap-4 md:bottom-8 md:left-8 md:right-8">
               <span className="flex items-center gap-3 md:gap-4">
-                <img src={logo} alt="" className="h-11 w-11 rounded-xl shadow-elevated md:h-14 md:w-14 md:rounded-2xl" />
+                <img width={56} height={56} loading="lazy" decoding="async" src={logo} alt="" className="h-11 w-11 rounded-xl shadow-elevated md:h-14 md:w-14 md:rounded-2xl" />
                 <span>
                   <span className="block font-mono text-[10px] uppercase tracking-widest text-secondary md:text-xs">
                     {t("Reklamfilm", "Ad film")}
@@ -92,6 +92,9 @@ const AdVideo = ({ src }: { src: string }) => {
 
 export const HowItWorksBlock = () => {
   const { t, language } = useLanguage();
+  const teamRef = useRef<HTMLDivElement>(null);
+  const teamVisible = useInView(teamRef, { margin: "150px" });
+  const reducedMotion = useReducedMotion();
 
   return (
     <>
@@ -130,7 +133,7 @@ export const HowItWorksBlock = () => {
           </motion.p>
           <motion.h3
             {...fadeUp}
-            className="mx-auto mb-12 max-w-2xl text-center font-heading text-3xl font-medium text-background md:text-5xl"
+            className="mx-auto mb-12 min-h-[2.4em] sm:min-h-0 max-w-2xl text-center font-heading text-3xl font-medium text-background md:text-5xl"
           >
             {t("30 sekunder är allt som krävs.", "30 seconds is all it takes.")}
           </motion.h3>
@@ -193,11 +196,13 @@ export const HowItWorksBlock = () => {
               transition={{ duration: 0.7 }}
             >
               <motion.div
-                animate={{ y: [0, -12, 0] }}
+                ref={teamRef}
+                animate={{ y: teamVisible && !reducedMotion ? [0, -12, 0] : 0 }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
                 className="overflow-hidden rounded-[1.75rem] shadow-elevated"
               >
                 <img
+                  width={1560} height={1170} loading="lazy" decoding="async"
                   src={teamPhoto}
                   alt={t("Klimava-teamet", "The Klimava team")}
                   className="h-auto w-full object-cover"

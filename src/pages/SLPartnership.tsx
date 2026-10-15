@@ -7,9 +7,9 @@ import { Apple } from "lucide-react";
 import { ArrowRightMd, Check, Camera, Phone, Leaf, Lock } from "react-coolicons";
 import { Upload } from "lucide-react";
 import { fadeUp } from "@/lib/motion";
-import appDashboard from "@/assets/klimava-online-kvitto.jpeg";
+import appDashboard from "@/assets/klimava-online-kvitto.jpeg?format=webp&quality=92";
 import slIcon from "@/assets/sl-app-icon.png";
-import slTicket from "@/assets/sl-app-ticket.png";
+import slTicket from "@/assets/sl-app-ticket.png?format=webp&quality=92";
 
 // SL-inspirerad premium mörkblå palett — eget co-branding-tema, orört av Petrol & Lime
 const SL_DEEP = "#04132e";       // djup bakgrund
@@ -121,7 +121,7 @@ const SLPartnership = () => {
                 <div className="relative w-40 md:w-56 -rotate-6 origin-bottom-right">
                   <div className="absolute -inset-6 rounded-[3rem] blur-2xl opacity-60" style={{ background: SL_BLUE }} />
                   <div className="relative rounded-[2rem] p-1.5 shadow-elevated" style={{ background: "#000" }}>
-                    <img src={slTicket} alt="SL app" className="rounded-[1.7rem] w-full" />
+                    <img width={459} height={998} decoding="async" src={slTicket} alt="SL app" className="rounded-[1.7rem] w-full" />
                   </div>
                   <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full text-[10px] font-bold text-white shadow-md" style={{ background: SL_BLUE }}>
                     SL
@@ -130,7 +130,7 @@ const SLPartnership = () => {
                 <div className="relative w-48 md:w-64 rotate-3 origin-bottom-left">
                   <div className="absolute -inset-6 rounded-[3rem] blur-2xl opacity-60 bg-primary" />
                   <div className="relative bg-black rounded-[2rem] p-1.5 shadow-elevated">
-                    <img src={appDashboard} alt="Klimava app" className="rounded-[1.7rem] w-full" />
+                    <img width={828} height={1686} decoding="async" src={appDashboard} alt="Klimava app" className="rounded-[1.7rem] w-full" />
                   </div>
                   <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full text-[10px] font-bold gradient-bg text-primary-foreground shadow-md">
                     KLIMAVA
@@ -147,7 +147,7 @@ const SLPartnership = () => {
             <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-center max-w-6xl mx-auto">
               <motion.div {...fadeUp}>
                 <div className="inline-flex items-center gap-2 mb-5">
-                  <img src={slIcon} alt="SL" className="w-10 h-10 rounded-xl shadow-soft" />
+                  <img width={40} height={40} loading="lazy" decoding="async" src={slIcon} alt="SL" className="w-10 h-10 rounded-xl shadow-soft" />
                   <span className="text-xs font-semibold uppercase tracking-wider" style={{ color: SL_CYAN }}>
                     SL-appen
                   </span>
@@ -187,7 +187,7 @@ const SLPartnership = () => {
                   className="absolute -inset-10 rounded-[3rem] blur-3xl opacity-50 -z-10"
                   style={{ background: `linear-gradient(135deg, ${SL_BLUE}, ${SL_CYAN})` }}
                 />
-                <img src={slTicket} alt={t("SL biljett", "SL ticket")} className="relative mx-auto w-64 md:w-72 w-full drop-shadow-2xl" />
+                <img width={459} height={998} decoding="async" src={slTicket} loading="lazy" alt={t("SL biljett", "SL ticket")} className="relative mx-auto w-64 md:w-72 w-full drop-shadow-2xl" />
               </motion.div>
             </div>
           </div>
