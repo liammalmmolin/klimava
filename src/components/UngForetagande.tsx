@@ -6,7 +6,8 @@ const outlines = {U: 'M1193.17 594 1191 1208Q1188.5 1248 1170.25 1270.0Q1152 129
 
 /** Simplified lowercase f: same stem, baseline serif and crossbar as Fraunces 500,
  * but the ornate ball-terminal hook is replaced by a plain curved hook with a flat cut. */
-outlines.f = 'M486 149Q486 122 497.5 106.5Q509 91 534 88L636 77Q658 75 668 64Q678 53 678 38Q678 0 629 0H149Q127 0 114.5 10Q102 20 102 36Q102 52 112 62Q122 72 143 77L189 87Q216 94 228 108.5Q240 123 240 148V765Q240 786 230.5 799Q221 812 193 821L140 837Q108 849 96.5 860Q85 871 85 885Q85 900 96.5 909Q108 918 131 918H241V1050Q241 1260 335 1358Q429 1456 560 1456V1330Q490 1330 469 1240Q469 1150 469 1050V918H674Q696 918 708 909.5Q720 901 720 885Q720 861 696.5 845.5Q673 830 621 830H486Z';
+const allOutlines = outlines as Record<"U" | "F" | "f", string>;
+allOutlines.f = 'M486 149Q486 122 497.5 106.5Q509 91 534 88L636 77Q658 75 668 64Q678 53 678 38Q678 0 629 0H149Q127 0 114.5 10Q102 20 102 36Q102 52 112 62Q122 72 143 77L189 87Q216 94 228 108.5Q240 123 240 148V765Q240 786 230.5 799Q221 812 193 821L140 837Q108 849 96.5 860Q85 871 85 885Q85 900 96.5 909Q108 918 131 918H241V1050Q241 1260 335 1358Q429 1456 560 1456V1330Q490 1330 469 1240Q469 1150 469 1050V918H674Q696 918 708 909.5Q720 901 720 885Q720 861 696.5 845.5Q673 830 621 830H486Z';
 
 const glyphWidths = { U: 1499, F: 1213, f: 761 } as const;
 
@@ -19,7 +20,7 @@ export const RefinedCapital = ({ letter }: { letter: "U" | "F" | "f" }) => (
       viewBox={`0 0 ${glyphWidths[letter]} 2466`}
       className={`pointer-events-none absolute bottom-[-0.255em] left-0 h-[1.233em] overflow-visible fill-current ${letter === "U" ? "w-[0.7495em]" : letter === "F" ? "w-[0.6065em]" : "w-[0.3805em]"}`}
     >
-      <path d={outlines[letter]} transform="translate(0 1956) scale(1 -1)" />
+      <path d={allOutlines[letter]} transform="translate(0 1956) scale(1 -1)" />
     </svg>
     </span>
     <span className="opacity-0">{letter}</span>
