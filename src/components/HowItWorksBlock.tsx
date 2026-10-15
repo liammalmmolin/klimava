@@ -91,7 +91,7 @@ const AdVideo = ({ src }: { src: string }) => {
 };
 
 export const HowItWorksBlock = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   return (
     <>
@@ -247,8 +247,13 @@ export const HowItWorksBlock = () => {
               target="_blank"
               rel="noopener noreferrer"
               className="text-lg font-semibold text-primary hover:underline"
+              style={{ fontVariantLigatures: "none" }}
             >
-              {t("Skaffa Klimava →", "Get Klimava →")}
+              {language === "sv" ? (
+                <>Ska<span>f</span><span className="ml-[0.04em]">f</span>a Klimava →</>
+              ) : (
+                t("", "Get Klimava →")
+              )}
             </a>
             <Link to="/om-appen" className="font-medium text-background/60 hover:text-background hover:underline">
               {t("Se alla funktioner i detalj →", "See all features in detail →")}
