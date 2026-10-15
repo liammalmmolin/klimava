@@ -29,8 +29,8 @@ const Recycling = () => {
 
             <h1 className="text-3xl md:text-5xl font-bold text-foreground mb-8">
               {t(
-                <>Smart återvinning med <span className="gradient-text">Klimava</span></>,
-                <>Smart recycling with <span className="gradient-text">Klimava</span></>
+                <>Smart återvinning med <span className="gradient-text">Klimava.</span></>,
+                <>Smart recycling with <span className="gradient-text">Klimava.</span></>
               )}
             </h1>
 

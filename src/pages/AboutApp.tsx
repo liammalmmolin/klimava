@@ -38,8 +38,8 @@ const AboutApp = () => {
             </span>
             <h1 className="text-[2rem] leading-tight sm:text-4xl md:text-6xl font-bold text-foreground mt-3">
               {t(
-                <>Allt du behöver <span className="gradient-text">veta</span></>,
-                <>Everything you <span className="gradient-text">need to know</span></>
+                <>Allt du behöver <span className="gradient-text">veta.</span></>,
+                <>Everything you <span className="gradient-text">need to know.</span></>
               )}
             </h1>
             <p className="text-muted-foreground mt-4 text-lg leading-relaxed">
@@ -67,8 +67,8 @@ const AboutApp = () => {
           <motion.div {...fadeUp} className="mb-6">
             <h2 className="text-2xl md:text-3xl font-bold text-foreground max-w-md">
               {t(
-                <>Nio sätt att <span className="gradient-text">samla poäng</span></>,
-                <>Nine ways to <span className="gradient-text">earn points</span></>
+                <>Nio sätt att <span className="gradient-text">samla poäng.</span></>,
+                <>Nine ways to <span className="gradient-text">earn points.</span></>
               )}
             </h2>
           </motion.div>
@@ -96,8 +96,8 @@ const AboutApp = () => {
             <div>
               <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-5">
                 {t(
-                  <>Så läser vi av <span className="gradient-text">kvittot</span></>,
-                  <>How we read your <span className="gradient-text">receipt</span></>
+                  <>Så läser vi av <span className="gradient-text">kvittot.</span></>,
+                  <>How we read your <span className="gradient-text">receipt.</span></>
                 )}
               </h2>
               <div className="space-y-4 text-muted-foreground leading-relaxed">

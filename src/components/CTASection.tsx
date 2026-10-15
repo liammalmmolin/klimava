@@ -66,7 +66,7 @@ export const CTASection = () => {
           <h2 className="text-3xl md:text-5xl font-bold text-background mb-6">
             {t("Testa Klimava, det är", "Try Klimava, it's")}
             <br />
-            <span className="gradient-text">{t("gratis", "free")}</span>
+            <span className="gradient-text">{t("gratis.", "free.")}</span>
           </h2>
           <p className="text-lg text-background/60 mb-10 max-w-xl mx-auto leading-relaxed">
             {t(

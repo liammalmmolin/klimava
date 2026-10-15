@@ -39,7 +39,7 @@ const Invite = () => {
               {t("Du är inbjuden", "You're invited")}
             </span>
             <h1 className="text-3xl md:text-5xl font-bold text-foreground mt-3 mb-4">
-              {t("Gå med i Klimava", "Join Klimava")}
+              {t("Gå med i Klimava.", "Join Klimava.")}
             </h1>
             <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
               {code

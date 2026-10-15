@@ -20,7 +20,7 @@ const Team = () => {
             className="text-center mb-12"
           >
             <h1 className="text-4xl md:text-6xl font-bold text-foreground">
-              {t("Möt", "Meet the")} <span className="gradient-text">{t("teamet", "team")}</span>
+              {t("Möt", "Meet the")} <span className="gradient-text">{t("teamet.", "team.")}</span>
             </h1>
             <p className="text-muted-foreground mt-4 max-w-2xl mx-auto text-lg">
               {t(

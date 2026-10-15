@@ -292,7 +292,7 @@ const Support = () => {
                 className="mb-12 text-center"
               >
                 <h2 className="font-heading text-3xl font-bold text-background md:text-4xl">
-                  {t("Hjälp oss att bli bättre", "Help us get better")}
+                  {t("Hjälp oss att bli bättre.", "Help us get better.")}
                 </h2>
                 <p className="mx-auto mt-3 max-w-xl text-background/60">
                   {t(
