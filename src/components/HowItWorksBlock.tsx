@@ -75,7 +75,7 @@ const AdVideo = ({ src }: { src: string }) => {
                   <span className="block font-mono text-[10px] uppercase tracking-widest text-secondary md:text-xs">
                     {t("Reklamfilm", "Ad film")}
                   </span>
-                  <span className="block font-serif text-2xl font-medium leading-tight text-background md:text-4xl">Klimava</span>
+                  <span className="block text-2xl font-medium leading-tight text-background md:text-4xl">Klimava</span>
                 </span>
               </span>
               <span className="rounded-full border border-background/25 bg-foreground/40 px-3 py-1 font-mono text-xs text-background/80 backdrop-blur-sm">
@@ -105,7 +105,7 @@ export const HowItWorksBlock = () => {
           </motion.span>
           <motion.h2
             {...fadeUp}
-            className="max-w-2xl font-serif text-4xl font-medium leading-[1.1] text-background md:text-6xl"
+            className="max-w-2xl text-4xl font-medium leading-[1.1] text-background md:text-6xl"
           >
             {t("Gör klimatsmarta val.", "Make climate-smart choices.")}
             <br />
@@ -130,7 +130,7 @@ export const HowItWorksBlock = () => {
           </motion.p>
           <motion.h3
             {...fadeUp}
-            className="mx-auto mb-12 max-w-2xl text-center font-serif text-3xl font-medium text-background md:text-5xl"
+            className="mx-auto mb-12 max-w-2xl text-center text-3xl font-medium text-background md:text-5xl"
           >
             {t("30 sekunder är allt som krävs.", "30 seconds is all it takes.")}
           </motion.h3>
@@ -147,7 +147,7 @@ export const HowItWorksBlock = () => {
             ) : (
               <>
                 <div className="flex h-full w-full items-center justify-center px-6">
-                  <span className="font-serif text-6xl font-bold text-primary-foreground sm:text-7xl md:text-8xl">
+                  <span className="text-6xl font-bold text-primary-foreground sm:text-7xl md:text-8xl">
                     Klimava
                   </span>
                 </div>
@@ -171,7 +171,7 @@ export const HowItWorksBlock = () => {
               <span className="mb-3 inline-block font-mono text-xs uppercase tracking-widest text-primary">
                 {t("Om oss", "About us")}
               </span>
-              <h3 className="mb-4 font-serif text-3xl font-medium leading-tight text-background md:text-4xl">
+              <h3 className="mb-4 !font-sans text-3xl font-bold leading-tight tracking-tight text-background md:text-4xl">
                 {t("Från tävla i Ungföretagande", "From competing in Young Enterprise")}
                 <br />
                 <span className="gradient-text">{t("till aktiebolag.", "to a limited company.")}</span>
@@ -215,7 +215,7 @@ export const HowItWorksBlock = () => {
                 </span>
                 <div>
                   <s.icon className="mb-2 h-5 w-5 text-primary" />
-                  <p className="font-serif text-lg font-medium text-background">{t(s.sv, s.en)}</p>
+                  <p className="text-lg font-medium text-background">{t(s.sv, s.en)}</p>
                 </div>
               </div>
             ))}
@@ -232,7 +232,7 @@ export const HowItWorksBlock = () => {
                 transition={{ duration: 0.5, delay: i * 0.08 }}
                 className="text-center"
               >
-                <div className="font-serif text-4xl font-semibold text-background md:text-5xl">{s.value}</div>
+                <div className="text-4xl font-semibold text-background md:text-5xl">{s.value}</div>
                 <div className="mt-1.5 text-xs text-background/60 md:text-sm">{t(s.label.sv, s.label.en)}</div>
               </motion.div>
             ))}

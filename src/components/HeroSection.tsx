@@ -80,7 +80,7 @@ export const HeroSection = ({ scale }: HeroSectionProps) => {
               animate={{ opacity: 1, scale: 1, rotate: s.rotate }}
               transition={{ duration: 0.5, delay: 0.5 + i * 0.12, type: "spring", stiffness: 220, damping: 16 }}
               whileHover={{ rotate: 0, scale: 1.06 }}
-              className="font-serif text-3xl italic font-bold leading-none lg:text-4xl"
+              className="text-3xl italic font-bold leading-none lg:text-4xl"
               style={{
                 color: s.color,
                 textShadow: stickerHalo(s.halo),

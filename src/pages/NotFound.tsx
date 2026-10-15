@@ -17,7 +17,7 @@ const NotFound = () => {
       <Header />
       <main className="flex flex-1 items-center justify-center py-24">
         <div className="text-center">
-          <h1 className="mb-4 font-serif text-5xl font-bold text-foreground">404</h1>
+          <h1 className="mb-4 text-5xl font-bold text-foreground">404</h1>
           <p className="mb-6 text-lg text-muted-foreground">
             {t("Hoppsan! Sidan kunde inte hittas.", "Oops! Page not found.")}
           </p>
