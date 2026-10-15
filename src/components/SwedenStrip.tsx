@@ -1,16 +1,22 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
-import consumptionPhoto from "@/assets/sweden-consumption.jpg";
-import subwayPhoto from "@/assets/sweden-subway.jpg";
-import recyclingPhoto from "@/assets/sweden-recycling.jpg";
+import consumption800 from "@/assets/sweden-consumption-800.webp";
+import consumption1600 from "@/assets/sweden-consumption-1600.webp";
+import subway800 from "@/assets/sweden-subway-800.webp";
+import subway1600 from "@/assets/sweden-subway-1600.webp";
+import recycling800 from "@/assets/sweden-recycling-800.webp";
+import recycling1600 from "@/assets/sweden-recycling-1600.webp";
+
+const srcSet = (small: string, large: string) => `${small} 800w, ${large} 1600w`;
 
 export const SwedenStrip = () => {
   const { t } = useLanguage();
 
   const tiles = [
     {
-      photo: consumptionPhoto,
+      photo: consumption1600,
+      srcSet: srcSet(consumption800, consumption1600),
       objectPosition: "center",
       eyebrow: t("Klimatpåverkan", "Climate impact"),
       title: t("Vardagsval som räknas", "Everyday choices that count"),
@@ -18,7 +24,8 @@ export const SwedenStrip = () => {
       featured: false,
     },
     {
-      photo: subwayPhoto,
+      photo: subway1600,
+      srcSet: srcSet(subway800, subway1600),
       objectPosition: "center",
       eyebrow: t("SL · Störst samarbetspartner", "SL · Largest partner"),
       title: t("Belöning för kollektivresor", "Rewards for public transport"),
@@ -26,7 +33,8 @@ export const SwedenStrip = () => {
       featured: true,
     },
     {
-      photo: recyclingPhoto,
+      photo: recycling1600,
+      srcSet: srcSet(recycling800, recycling1600),
       objectPosition: "left center",
       eyebrow: t("Återvinning", "Recycling"),
       title: t("Poäng vid varje station", "Points at every station"),
@@ -62,6 +70,10 @@ export const SwedenStrip = () => {
               >
                 <img
                   src={tile.photo}
+                  srcSet={tile.srcSet}
+                  sizes="(min-width: 768px) 34vw, 100vw"
+                  loading="lazy"
+                  decoding="async"
                   alt={tile.title}
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   style={{ objectPosition: tile.objectPosition }}
