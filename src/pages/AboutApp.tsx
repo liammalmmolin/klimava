@@ -85,7 +85,7 @@ const AboutApp = () => {
                 <div className="w-10 h-10 rounded-lg bg-accent flex items-center justify-center mb-4">
                   <f.icon className="w-5 h-5 text-primary" />
                 </div>
-                <h3 className="font-serif font-medium text-foreground mb-2">{t(f.title.sv, f.title.en)}</h3>
+                <h3 className="font-medium text-foreground mb-2">{t(f.title.sv, f.title.en)}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">{t(f.desc.sv, f.desc.en)}</p>
               </motion.div>
             ))}
@@ -152,7 +152,7 @@ const AboutApp = () => {
               {specs.map((s) => (
                 <div key={s.label} className="bg-card p-5">
                   <dt className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">{s.label}</dt>
-                  <dd className="font-serif text-lg text-foreground mt-1">{s.value}</dd>
+                  <dd className="text-lg text-foreground mt-1">{s.value}</dd>
                 </div>
               ))}
             </dl>
