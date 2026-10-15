@@ -10,7 +10,6 @@ import { SwedenStrip } from "@/components/SwedenStrip";
 import teamPhoto from "@/assets/team-photo.jpg";
 import coverPhoto from "@/assets/contact-bg.png";
 import logo from "@/assets/klimava-logo.jpeg";
-import { UngForetagande } from "@/components/UngForetagande";
 
 const steps = [
   { icon: Camera, sv: "Fota kvittot", en: "Scan your receipt" },
@@ -173,8 +172,7 @@ export const HowItWorksBlock = () => {
                 {t("Om oss", "About us")}
               </span>
               <h3 className="mb-4 font-serif text-3xl font-medium leading-tight text-background md:text-4xl">
-                {t("Från tävla i ", "From competing in Young Enterprise")}
-                {t("sv", "en") === "sv" && <UngForetagande />}
+                {t("Från UF-företag", "From a Young Enterprise project")}
                 <br />
                 <span className="gradient-text">{t("till aktiebolag.", "to a limited company.")}</span>
               </h3>
