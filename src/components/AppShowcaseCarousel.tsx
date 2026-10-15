@@ -3,11 +3,11 @@ import useEmblaCarousel from "embla-carousel-react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
-import appOnboarding from "@/assets/app-onboarding.jpeg";
-import appScanner from "@/assets/app-scanner2.png";
-import appDashboard from "@/assets/app-dashboard.jpeg";
-import appPoangshop from "@/assets/app-poangshop2.jpg";
-import appChallenges from "@/assets/app-challenges.png";
+import appOnboarding from "@/assets/app-onboarding.jpeg?format=webp&quality=92";
+import appScanner from "@/assets/app-scanner2.png?format=webp&quality=92";
+import appDashboard from "@/assets/app-dashboard.jpeg?format=webp&quality=92";
+import appPoangshop from "@/assets/app-poangshop2.jpg?format=webp&quality=92";
+import appChallenges from "@/assets/app-challenges.png?format=webp&quality=92";
 
 const slides = [
   { img: appOnboarding, width: 720, height: 1560, sv: "Kom igång på sekunder", en: "Get started in seconds" },

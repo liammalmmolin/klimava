@@ -51,7 +51,7 @@ const Partners = () => {
                 to="/sl-samarbete"
                 className="group flex flex-col sm:flex-row items-center gap-6 rounded-3xl border-2 border-primary/40 bg-card p-8 shadow-card transition-all hover:shadow-elevated hover:border-primary"
               >
-                <img src={sl.logo} alt="SL" className="w-20 h-20 rounded-2xl object-cover shrink-0" />
+                <img width={80} height={80} decoding="async" src={sl.logo} alt="SL" className="w-20 h-20 rounded-2xl object-cover shrink-0" />
                 <div className="flex-1 text-center sm:text-left">
                   <span className="font-mono text-[10px] uppercase tracking-widest text-primary">
                     {t("Störst samarbetspartner", "Largest partner")}
@@ -79,6 +79,7 @@ const Partners = () => {
               >
                 <img
                   src={p.logo}
+                  width={56} height={56} loading="lazy" decoding="async"
                   alt={p.name}
                   className="w-14 h-14 rounded-xl object-cover shrink-0"
                 />

@@ -3,31 +3,35 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { lazy, Suspense } from "react";
+import { MotionConfig } from "framer-motion";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import ScrollToTop from "./components/ScrollToTop";
 import Index from "./pages/Index";
-import Contact from "./pages/Contact";
-import Team from "./pages/Team";
-import AboutApp from "./pages/AboutApp";
-import Partners from "./pages/Partners";
-import Privacy from "./pages/Privacy";
-import Terms from "./pages/Terms";
-import Recycling from "./pages/Recycling";
-import Challenges from "./pages/Challenges";
-import SLPartnership from "./pages/SLPartnership";
-import Support from "./pages/Support";
-import Invite from "./pages/Invite";
-import NotFound from "./pages/NotFound";
+const Contact = lazy(() => import("./pages/Contact"));
+const Team = lazy(() => import("./pages/Team"));
+const AboutApp = lazy(() => import("./pages/AboutApp"));
+const Partners = lazy(() => import("./pages/Partners"));
+const Privacy = lazy(() => import("./pages/Privacy"));
+const Terms = lazy(() => import("./pages/Terms"));
+const Recycling = lazy(() => import("./pages/Recycling"));
+const Challenges = lazy(() => import("./pages/Challenges"));
+const SLPartnership = lazy(() => import("./pages/SLPartnership"));
+const Support = lazy(() => import("./pages/Support"));
+const Invite = lazy(() => import("./pages/Invite"));
+const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <LanguageProvider>
+      <MotionConfig reducedMotion="user">
       <TooltipProvider>
         <Toaster />
         <Sonner />
-        <BrowserRouter>
+        <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
+          <Suspense fallback={<div className="min-h-screen bg-background" aria-busy="true" />}>
           <ScrollToTop />
           <Routes>
             <Route path="/" element={<Index />} />
@@ -45,8 +49,10 @@ const App = () => (
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
+          </Suspense>
         </BrowserRouter>
       </TooltipProvider>
+      </MotionConfig>
     </LanguageProvider>
   </QueryClientProvider>
 );

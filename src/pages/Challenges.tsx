@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
-import appChallengesScreen from "@/assets/app-challenges.png";
+import appChallengesScreen from "@/assets/app-challenges.png?format=webp&quality=92";
 
 const Challenges = () => {
   const { t } = useLanguage();
@@ -38,7 +38,7 @@ const Challenges = () => {
             <div className="flex justify-center mb-12">
               <div className="w-40 sm:w-48">
                 <div className="bg-foreground rounded-[2rem] p-1.5 shadow-elevated">
-                  <img src={appChallengesScreen} alt={t("Klimava utmaningar", "Klimava challenges")} className="rounded-[1.75rem] w-full" />
+                  <img width={885} height={1920} decoding="async" src={appChallengesScreen} alt={t("Klimava utmaningar", "Klimava challenges")} className="rounded-[1.75rem] w-full" />
                 </div>
               </div>
             </div>

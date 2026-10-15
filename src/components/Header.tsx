@@ -4,6 +4,8 @@ import { LanguageSwitch } from "@/components/LanguageSwitch";
 import { HamburgerLg, CloseLg } from "react-coolicons";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { cn } from "@/lib/utils";
+import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
 
 const navLinks = [
   { href: "/#how-it-works", sv: "Så funkar det", en: "How it works" },
@@ -25,27 +27,28 @@ export const Header = ({ className }: { className?: string } = {}) => {
       {/* Desktop — links float free in the middle, no logo/CTA */}
       <nav className="hidden items-center gap-6 rounded-full border border-white/10 bg-neutral-900/45 px-6 py-3 shadow-elevated backdrop-blur-md lg:flex">
         {navLinks.map((link) => (
-          <a
+          <Link
             key={link.href}
-            href={link.href}
+            to={link.href}
             className="text-sm font-medium text-white/80 transition-colors hover:text-white"
           >
             {t(link.sv, link.en)}
-          </a>
+          </Link>
         ))}
         <LanguageSwitch />
       </nav>
 
       {/* Mobile/tablet — compact toggle, same floating pill treatment */}
       <div className="relative lg:hidden">
-        <button
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
+        <Button variant="ghost"
+          onClick={() => setIsMenuOpen((open) => !open)}
           className="flex items-center gap-2 rounded-full border border-white/10 bg-neutral-900/45 px-4 py-2.5 text-sm font-medium text-white shadow-elevated backdrop-blur-md"
           aria-label="Toggle menu"
+          aria-expanded={isMenuOpen}
         >
           {isMenuOpen ? <CloseLg className="w-5 h-5" /> : <HamburgerLg className="w-5 h-5" />}
           {t("Meny", "Menu")}
-        </button>
+        </Button>
 
         <AnimatePresence>
           {isMenuOpen && (
@@ -58,14 +61,14 @@ export const Header = ({ className }: { className?: string } = {}) => {
             >
               <nav className="flex flex-col gap-1 px-3 py-3">
                 {navLinks.map((link) => (
-                  <a
+                  <Link
                     key={link.href}
-                    href={link.href}
+                    to={link.href}
                     onClick={() => setIsMenuOpen(false)}
                     className="rounded-xl px-3 py-2.5 text-sm font-medium text-white/80 transition-colors hover:bg-white/10 hover:text-white"
                   >
                     {t(link.sv, link.en)}
-                  </a>
+                  </Link>
                 ))}
                 <div className="px-3 py-2">
                   <LanguageSwitch size="lg" />

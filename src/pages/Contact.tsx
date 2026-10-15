@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { Mail } from "react-coolicons";
 import { Instagram, Music2 } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
-import contactBg from "@/assets/contact-bg.png";
+import contactBg from "@/assets/contact-bg.png?format=webp&quality=92";
 
 const Contact = () => {
   const { t } = useLanguage();
@@ -12,7 +12,7 @@ const Contact = () => {
   return (
     <div className="min-h-screen relative">
       <div className="absolute inset-0">
-        <img src={contactBg} alt="" className="w-full h-full object-cover" />
+        <img width={956} height={944} fetchPriority="high" src={contactBg} alt="" className="w-full h-full object-cover" />
         <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, hsl(160 30% 12% / 0.85) 0%, hsl(158 28% 16% / 0.8) 30%, hsl(155 25% 20% / 0.75) 60%, hsl(150 25% 97%) 100%)" }} />
       </div>
       <Header />

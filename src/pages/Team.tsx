@@ -3,7 +3,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { founders } from "@/data/founders";
-import teamPhoto from "@/assets/team-photo.jpg";
+import teamPhoto from "@/assets/team-photo.jpg?format=webp&quality=92";
 
 const Team = () => {
   const { t } = useLanguage();
@@ -38,6 +38,7 @@ const Team = () => {
           >
             <img
               src={teamPhoto}
+              width={1560} height={1170} fetchPriority="high"
               alt={t("Klimava-teamet på UF Awards 2026", "The Klimava team at UF Awards 2026")}
               className="w-full h-auto object-cover"
             />
@@ -55,6 +56,7 @@ const Team = () => {
                 <div className="w-24 h-24 md:w-28 md:h-28 mx-auto mb-4 rounded-full overflow-hidden gradient-bg flex items-center justify-center shadow-card">
                   <img
                     src={founder.photo}
+                    width={112} height={112} loading="lazy" decoding="async"
                     alt={founder.name}
                     className="w-full h-full object-cover"
                     style={{ objectPosition: founder.objectPosition }}

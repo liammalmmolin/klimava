@@ -1,12 +1,14 @@
 import { motion, type MotionValue } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Star, Play } from "react-coolicons";
-import appStoreBadge from "@/assets/app-store-badge.png";
-import forestPhoto from "@/assets/sweden-forest.jpg";
+import appStoreBadge from "@/assets/app-store-badge.png?format=webp&quality=92";
+import forestPhoto from "@/assets/sweden-forest.jpg?format=webp&quality=88";
+import forestSources from "@/assets/sweden-forest.jpg?w=800;1600;2400&format=webp&quality=88&as=srcset";
 import klimavaLogo from "@/assets/klimava-logo.jpeg";
+import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
 
-const stickers = [
+const stickerData = [
   { sv: "Skanna & tjäna!", en: "Scan & earn!", rotate: -4, halo: "#ffffff", color: "hsl(var(--foreground))" },
   { sv: "Byt mot rabatter!", en: "Swap for discounts!", rotate: 3, halo: "hsl(var(--foreground))", color: "#ffffff" },
   { sv: "100% gratis!", en: "100% free!", rotate: -2, halo: "hsl(var(--secondary))", color: "hsl(var(--foreground))" },
@@ -30,6 +32,8 @@ const stickerHalo = (color: string) => {
   return layers.join(", ");
 };
 
+const stickers = stickerData.map((s) => ({ ...s, shadow: stickerHalo(s.halo) }));
+
 interface HeroSectionProps {
   /** Scroll-linked scale (1 → smaller) so the card shrinks as the next section peels over it. */
   scale?: MotionValue<number>;
@@ -43,7 +47,7 @@ export const HeroSection = ({ scale }: HeroSectionProps) => {
       <motion.div
         style={{ scale }}
         className="relative h-[calc(100vh-1.5rem)] min-h-[640px] origin-top overflow-hidden rounded-[1.75rem] md:h-[calc(100vh-2rem)] md:rounded-[2.25rem]">
-        <img src={forestPhoto} alt="" className="absolute inset-0 h-full w-full object-cover" />
+        <img src={forestPhoto} srcSet={forestSources} sizes="100vw" width={2400} height={1800} fetchPriority="high" alt="" className="absolute inset-0 h-full w-full object-cover" />
         <div
           className="absolute inset-0"
           style={{
@@ -55,10 +59,10 @@ export const HeroSection = ({ scale }: HeroSectionProps) => {
         <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-black/45 to-transparent" />
 
         {/* Logo — anchored to this card's corner, scrolls away with it */}
-        <a href="/" className="absolute left-6 top-6 z-10 flex items-center gap-2.5 sm:left-8 sm:top-8">
+        <Link to="/" className="absolute left-6 top-6 z-10 flex items-center gap-2.5 sm:left-8 sm:top-8">
           <img src={klimavaLogo} alt="Klimava" className="h-9 w-9 rounded-xl ring-1 ring-white/25" />
           <span className="text-lg font-bold text-white">Klimava</span>
-        </a>
+        </Link>
 
         {/* App CTA — anchored to this card's corner, scrolls away with it */}
         <Button
@@ -83,7 +87,7 @@ export const HeroSection = ({ scale }: HeroSectionProps) => {
               className="font-serif text-3xl italic font-bold leading-none lg:text-4xl"
               style={{
                 color: s.color,
-                textShadow: stickerHalo(s.halo),
+                textShadow: s.shadow,
                 filter: "drop-shadow(0 4px 6px hsl(0 0% 0% / 0.35))",
               }}
             >

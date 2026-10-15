@@ -37,6 +37,7 @@ export const PartnersSection = () => {
             >
               <img
                 src={partner.logo}
+                width={72} height={72} loading="lazy" decoding="async"
                 alt={partner.name}
                 className="h-full w-full object-cover opacity-90 transition-opacity duration-300 hover:opacity-100"
               />
