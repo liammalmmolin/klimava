@@ -31,24 +31,18 @@ export const CTASection = () => {
     <section ref={sectionRef} id="download" className="relative overflow-hidden bg-foreground py-28">
       <div className="container mx-auto px-6">
         <div className="max-w-3xl mx-auto text-center">
-          {/* Icon floats vertically only; glow and sparkles live in a sibling layer. */}
+          {/* Static, filter-free glow avoids Safari's rectangular blur-compositing edges. */}
           <div className="relative mx-auto mb-8 flex h-52 w-52 items-center justify-center md:h-64 md:w-64">
+            <div
+              className="download-glow pointer-events-none absolute -inset-12 rounded-full"
+              aria-hidden
+            />
             <motion.div
               animate={{ y: moving ? [0, -14, 0] : 0 }}
               transition={{ duration: 3.4, repeat: Infinity, ease: "easeInOut" }}
               className="pointer-events-none absolute inset-0"
               aria-hidden
             >
-            {/* Glow */}
-            <div
-              className="absolute inset-0 scale-110 rounded-full opacity-90 blur-2xl"
-              style={{
-                background:
-                  "radial-gradient(circle, hsl(var(--secondary)/0.75), hsl(var(--primary)/0.55) 55%, transparent 75%)",
-              }}
-              aria-hidden
-            />
-
             {/* Glitter dots */}
             {glitterDots.map((d, i) => (
               <motion.span
@@ -62,13 +56,11 @@ export const CTASection = () => {
             ))}
             </motion.div>
 
-            <motion.div
-              animate={{ y: moving ? [0, -14, 0] : 0 }}
-              transition={{ duration: 3.4, repeat: Infinity, ease: "easeInOut" }}
+            <div
               className="relative h-28 w-28 overflow-hidden rounded-[1.75rem] shadow-elevated md:h-40 md:w-40"
             >
               <img src={klimavaIcon} width={160} height={160} loading="lazy" decoding="async" alt="Klimava" className="h-full w-full object-cover" />
-            </motion.div>
+            </div>
           </div>
 
           <h2 className="text-3xl md:text-5xl font-bold text-background mb-6">
