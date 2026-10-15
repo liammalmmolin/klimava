@@ -71,7 +71,7 @@ export const SwedenStrip = () => {
                   <span className="font-mono text-[10px] uppercase tracking-widest text-primary-foreground/70">
                     {tile.eyebrow}
                   </span>
-                  <h3 className="text-lg font-medium text-white mt-1 leading-snug">
+                  <h3 className="text-lg font-serif font-medium text-white mt-1 leading-snug">
                     {tile.title}
                   </h3>
                 </div>
