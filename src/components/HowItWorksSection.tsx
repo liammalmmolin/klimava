@@ -7,7 +7,7 @@ const teasers = [
   {
     icon: MapPin,
     to: "/atervinning",
-    title: { sv: "Återvinning som belönar dig", en: "Recycling that rewards you" },
+    title: { sv: "Återvinning som belönar dig.", en: "Recycling that rewards you." },
     desc: {
       sv: "GPS känner av när du är på en återvinningsstation och låser upp scannern direkt.",
       en: "GPS detects when you're at a recycling station and unlocks the scanner instantly.",

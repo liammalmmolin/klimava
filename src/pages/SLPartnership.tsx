@@ -153,7 +153,7 @@ const SLPartnership = () => {
                   </span>
                 </div>
                 <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-6 text-white">
-                  {t("Så fungerar SL-appen", "How the SL app works")}
+                  {t("Så fungerar SL-appen.", "How the SL app works.")}
                 </h2>
                 <p className="text-lg text-white/70 leading-relaxed mb-8">
                   {t(
@@ -323,7 +323,7 @@ const SLPartnership = () => {
                   {t("Klimatpåverkan", "Climate impact")}
                 </span>
                 <h2 className="text-4xl md:text-5xl font-bold tracking-tight mt-3 mb-6 text-white">
-                  {t("Varför kollektivtrafik spelar roll", "Why public transport matters")}
+                  {t("Varför kollektivtrafik spelar roll.", "Why public transport matters.")}
                 </h2>
                 <p className="text-base md:text-lg text-white/75 leading-relaxed">
                   {t(

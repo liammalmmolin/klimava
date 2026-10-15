@@ -102,7 +102,7 @@ export const SwedenStrip = () => {
                     {tile.eyebrow}
                   </span>
                   <h3 className="text-lg font-heading font-medium text-white mt-1 leading-snug">
-                    {tile.title}
+                    {tile.title}.
                   </h3>
                 </div>
               </motion.div>
