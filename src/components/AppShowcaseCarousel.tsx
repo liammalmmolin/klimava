@@ -69,9 +69,10 @@ export const AppShowcaseCarousel = () => {
 
   return (
     <div className="mb-24 md:mb-28">
-      {/* Give the shadows room to fade below the captions without moving the
-          slide track or controls. Embla still owns the unchanged slide geometry. */}
-      <div className="overflow-hidden pb-20 -mb-20" ref={emblaRef}>
+      {/* Reserve shadow bleed on both edges, including while the inner visuals
+          scale during a drag. Negative margins preserve the track and controls'
+          positions; Embla still exclusively owns horizontal movement. */}
+      <div className="overflow-hidden pt-20 -mt-20 pb-20 -mb-20" ref={emblaRef}>
         <div className="flex touch-pan-y">
           {slides.map((s, i) => (
               <div
