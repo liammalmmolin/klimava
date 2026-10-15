@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,500&family=Raleway:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@500;600&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -125,15 +125,8 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-serif font-medium tracking-tight;
+    @apply font-sans font-semibold tracking-tight;
     text-wrap: balance;
-  }
-
-  /* Fraunces' display optical size draws a large ornamental "f"; the text
-     optical size keeps the same family with a simpler, standard f. */
-  h1, h2, h3, h4, h5, h6, .font-serif {
-    font-optical-sizing: none;
-    font-variation-settings: "opsz" 18;
   }
 }
 

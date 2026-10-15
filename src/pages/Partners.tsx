@@ -56,7 +56,7 @@ const Partners = () => {
                   <span className="font-mono text-[10px] uppercase tracking-widest text-primary">
                     {t("Störst samarbetspartner", "Largest partner")}
                   </span>
-                  <h2 className="text-2xl font-serif font-medium text-foreground mt-1">SL</h2>
+                  <h2 className="text-2xl font-medium text-foreground mt-1">SL</h2>
                   <p className="text-muted-foreground mt-1">{language === "sv" ? sl.desc.sv : sl.desc.en}</p>
                 </div>
                 <span className="inline-flex items-center gap-1.5 text-primary font-semibold shrink-0 group-hover:underline">
@@ -83,7 +83,7 @@ const Partners = () => {
                   className="w-14 h-14 rounded-xl object-cover shrink-0"
                 />
                 <div className="min-w-0">
-                  <h3 className="font-serif font-medium text-foreground truncate">{p.name}</h3>
+                  <h3 className="font-medium text-foreground truncate">{p.name}</h3>
                   <p className="text-sm text-muted-foreground mt-0.5">
                     {language === "sv" ? p.desc.sv : p.desc.en}
                   </p>
@@ -99,7 +99,7 @@ const Partners = () => {
             transition={{ duration: 0.6 }}
             className="max-w-2xl mx-auto text-center border border-border rounded-2xl p-8"
           >
-            <h2 className="text-xl font-serif font-medium text-foreground mb-2">
+            <h2 className="text-xl font-medium text-foreground mb-2">
               {t("Vill ditt företag bli partner?", "Want your business to become a partner?")}
             </h2>
             <p className="text-muted-foreground text-sm mb-5">
