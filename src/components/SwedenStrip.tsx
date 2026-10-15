@@ -1,41 +1,54 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
-import consumption800 from "@/assets/sweden-consumption-800.webp";
-import consumption1600 from "@/assets/sweden-consumption-1600.webp";
-import subway800 from "@/assets/sweden-subway-800.webp";
-import subway1600 from "@/assets/sweden-subway-1600.webp";
-import recycling800 from "@/assets/sweden-recycling-800.webp";
-import recycling1600 from "@/assets/sweden-recycling-1600.webp";
-
-const srcSet = (small: string, large: string) => `${small} 800w, ${large} 1600w`;
+import consumption480 from "@/assets/sweden-upload-consumption-480.webp.asset.json";
+import consumption960 from "@/assets/sweden-upload-consumption-960.webp.asset.json";
+import consumption1920 from "@/assets/sweden-upload-consumption-1920.webp.asset.json";
+import subway480 from "@/assets/sweden-upload-subway-480.webp.asset.json";
+import subway960 from "@/assets/sweden-upload-subway-960.webp.asset.json";
+import subway1480 from "@/assets/sweden-upload-subway-1480.webp.asset.json";
+import recycling480 from "@/assets/sweden-upload-recycling-480.webp.asset.json";
+import recycling643 from "@/assets/sweden-upload-recycling-643.webp.asset.json";
+import recyclingDesktop from "@/assets/sweden-upload-recycling-desktop.webp.asset.json";
 
 export const SwedenStrip = () => {
   const { t } = useLanguage();
 
   const tiles = [
     {
-      photo: consumption1600,
-      srcSet: srcSet(consumption800, consumption1600),
-      objectPosition: "center",
+      photo: consumption1920.url,
+      srcSet: `${consumption480.url} 480w, ${consumption960.url} 960w, ${consumption1920.url} 1920w`,
+      sizes: "(min-width: 768px) 64vw, calc(100vw - 48px)",
+      width: 1920,
+      height: 1280,
+      objectPosition: "52% 65%",
+      desktopPhoto: undefined,
       eyebrow: t("Klimatpåverkan", "Climate impact"),
       title: t("Vardagsval som räknas", "Everyday choices that count"),
       to: null as string | null,
       featured: false,
     },
     {
-      photo: subway1600,
-      srcSet: srcSet(subway800, subway1600),
-      objectPosition: "center",
+      photo: subway1480.url,
+      srcSet: `${subway480.url} 480w, ${subway960.url} 960w, ${subway1480.url} 1480w`,
+      sizes: "(min-width: 768px) 64vw, calc(100vw - 48px)",
+      width: 1480,
+      height: 980,
+      objectPosition: "43% 55%",
+      desktopPhoto: undefined,
       eyebrow: t("SL · Störst samarbetspartner", "SL · Largest partner"),
       title: t("Belöning för kollektivresor", "Rewards for public transport"),
       to: null,
       featured: true,
     },
     {
-      photo: recycling1600,
-      srcSet: srcSet(recycling800, recycling1600),
-      objectPosition: "left center",
+      photo: recycling643.url,
+      srcSet: `${recycling480.url} 480w, ${recycling643.url} 643w`,
+      sizes: "(min-width: 768px) 34vw, calc(100vw - 48px)",
+      width: 643,
+      height: 360,
+      objectPosition: "center",
+      desktopPhoto: recyclingDesktop.url,
       eyebrow: t("Återvinning", "Recycling"),
       title: t("Poäng vid varje station", "Points at every station"),
       to: "/atervinning",
@@ -68,17 +81,22 @@ export const SwedenStrip = () => {
                   tile.featured ? "ring-2 ring-primary shadow-elevated" : ""
                 }`}
               >
-                <img
-                  width={1600} height={i === 1 ? 1986 : 1067}
+                <picture>
+                  {tile.desktopPhoto && (
+                    <source media="(min-width: 768px)" srcSet={tile.desktopPhoto} />
+                  )}
+                  <img
+                  width={tile.width} height={tile.height}
                   src={tile.photo}
                   srcSet={tile.srcSet}
-                  sizes="(min-width: 768px) 34vw, 100vw"
+                  sizes={tile.sizes}
                   loading="lazy"
                   decoding="async"
                   alt={tile.title}
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  className={`absolute inset-0 w-full h-full object-cover transition-transform duration-700 ${tile.desktopPhoto ? "" : "group-hover:scale-105"}`}
                   style={{ objectPosition: tile.objectPosition }}
                 />
+                </picture>
                 <div className="absolute inset-0 bg-gradient-to-t from-secondary/90 via-secondary/10 to-transparent" />
                 <div className="absolute left-5 right-5 bottom-5">
                   <span className="font-mono text-[10px] uppercase tracking-widest text-primary-foreground/70">
