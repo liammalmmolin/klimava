@@ -42,7 +42,7 @@ export const LegalLayout = ({ eyebrow, title, updated, children }: LegalLayoutPr
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="max-w-2xl mx-auto space-y-10 text-muted-foreground leading-relaxed [&_h2]:[&_h2]:font-medium [&_h2]:text-foreground [&_h2]:text-xl [&_h2]:mb-3 [&_p]:mb-3 [&_ul]:list-disc [&_ul]:pl-5 [&_ul]:space-y-1.5 [&_a]:text-primary [&_a]:font-medium [&_a]:hover:underline"
+            className="max-w-2xl mx-auto space-y-10 text-muted-foreground leading-relaxed [&_h2]:font-serif [&_h2]:font-medium [&_h2]:text-foreground [&_h2]:text-xl [&_h2]:mb-3 [&_p]:mb-3 [&_ul]:list-disc [&_ul]:pl-5 [&_ul]:space-y-1.5 [&_a]:text-primary [&_a]:font-medium [&_a]:hover:underline"
           >
             {children}
           </motion.div>
