@@ -7,8 +7,7 @@ import consumption1920 from "@/assets/sweden-upload-consumption-1920.webp.asset.
 import subway480 from "@/assets/sweden-upload-subway-480.webp.asset.json";
 import subway960 from "@/assets/sweden-upload-subway-960.webp.asset.json";
 import subway1480 from "@/assets/sweden-upload-subway-1480.webp.asset.json";
-import recycling480 from "@/assets/sweden-upload-recycling-480.webp.asset.json";
-import recycling643 from "@/assets/sweden-upload-recycling-643.webp.asset.json";
+import recyclingMobile from "@/assets/sweden-upload-recycling-mobile.webp.asset.json";
 import recyclingDesktop from "@/assets/sweden-upload-recycling-desktop.webp.asset.json";
 
 export const SwedenStrip = () => {
@@ -42,11 +41,11 @@ export const SwedenStrip = () => {
       featured: true,
     },
     {
-      photo: recycling643.url,
-      srcSet: `${recycling480.url} 480w, ${recycling643.url} 643w`,
+      photo: recyclingMobile.url,
+      srcSet: `${recyclingMobile.url} 643w`,
       sizes: "(min-width: 768px) 34vw, calc(100vw - 48px)",
       width: 643,
-      height: 360,
+      height: 402,
       objectPosition: "center",
       desktopPhoto: recyclingDesktop.url,
       eyebrow: t("Återvinning", "Recycling"),
