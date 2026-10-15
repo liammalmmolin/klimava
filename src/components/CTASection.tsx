@@ -26,7 +26,7 @@ export const CTASection = () => {
     <section id="download" className="relative overflow-hidden bg-foreground py-28">
       <div className="container mx-auto px-6">
         <div className="max-w-3xl mx-auto text-center">
-          {/* Static icon; only the sibling decoration layer moves. */}
+          {/* Icon floats vertically only; glow and sparkles live in a sibling layer. */}
           <div className="relative mx-auto mb-8 flex h-52 w-52 items-center justify-center md:h-64 md:w-64">
             <motion.div
               animate={{ y: [0, -14, 0] }}
@@ -57,11 +57,13 @@ export const CTASection = () => {
             ))}
             </motion.div>
 
-            <div
+            <motion.div
+              animate={{ y: [0, -14, 0] }}
+              transition={{ duration: 3.4, repeat: Infinity, ease: "easeInOut" }}
               className="relative h-28 w-28 overflow-hidden rounded-[1.75rem] shadow-elevated md:h-40 md:w-40"
             >
               <img src={klimavaIcon} alt="Klimava" className="h-full w-full object-cover" />
-            </div>
+            </motion.div>
           </div>
 
           <h2 className="text-3xl md:text-5xl font-bold text-background mb-6">
