@@ -25,19 +25,15 @@ export const CTASection = () => {
   return (
     <section id="download" className="relative overflow-hidden bg-foreground py-28">
       <div className="container mx-auto px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="max-w-3xl mx-auto text-center"
-        >
-          {/* Floating app icon, glinting like glass as it turns */}
-          <motion.div
-            animate={{ y: [0, -14, 0] }}
-            transition={{ duration: 3.4, repeat: Infinity, ease: "easeInOut" }}
-            className="relative mx-auto mb-8 flex h-52 w-52 items-center justify-center md:h-64 md:w-64"
-          >
+        <div className="max-w-3xl mx-auto text-center">
+          {/* Static icon; only the sibling decoration layer moves. */}
+          <div className="relative mx-auto mb-8 flex h-52 w-52 items-center justify-center md:h-64 md:w-64">
+            <motion.div
+              animate={{ y: [0, -14, 0] }}
+              transition={{ duration: 3.4, repeat: Infinity, ease: "easeInOut" }}
+              className="pointer-events-none absolute inset-0"
+              aria-hidden
+            >
             {/* Glow */}
             <div
               className="absolute inset-0 scale-110 rounded-full opacity-90 blur-2xl"
@@ -52,23 +48,21 @@ export const CTASection = () => {
             {glitterDots.map((d, i) => (
               <motion.span
                 key={i}
-                className="absolute rounded-full bg-white"
+                className="absolute rounded-full bg-primary-foreground"
                 style={{ top: d.top, left: d.left, width: d.size, height: d.size }}
                 animate={{ opacity: [0.1, 1, 0.1], scale: [0.5, 1.3, 0.5] }}
                 transition={{ duration: d.duration, repeat: Infinity, delay: d.delay, ease: "easeInOut" }}
                 aria-hidden
               />
             ))}
+            </motion.div>
 
-            <motion.div
-              animate={{ rotateY: [0, 45, 0, -45, 0] }}
-              transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", times: [0, 0.28, 0.5, 0.78, 1] }}
-              style={{ perspective: "800px", transformStyle: "preserve-3d" }}
+            <div
               className="relative h-28 w-28 overflow-hidden rounded-[1.75rem] shadow-elevated md:h-40 md:w-40"
             >
               <img src={klimavaIcon} alt="Klimava" className="h-full w-full object-cover" />
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
 
           <h2 className="text-3xl md:text-5xl font-bold text-background mb-6">
             {t("Testa Klimava, det är", "Try Klimava, it's")}
@@ -111,7 +105,7 @@ export const CTASection = () => {
               {t("GDPR-säker", "GDPR compliant")}
             </span>
           </motion.div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
