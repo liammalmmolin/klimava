@@ -26,7 +26,7 @@ export const SwedenStrip = () => {
       desktopPhoto: undefined,
       eyebrow: t("Klimatpåverkan", "Climate impact"),
       title: t("Vardagsval som räknas", "Everyday choices that count"),
-      to: null as string | null,
+      to: "/klimatpaverkan",
       featured: false,
     },
     {
@@ -39,7 +39,7 @@ export const SwedenStrip = () => {
       desktopPhoto: undefined,
       eyebrow: t("SL · Störst samarbetspartner", "SL · Largest partner"),
       title: t("Belöning för kollektivresor", "Rewards for public transport"),
-      to: null,
+      to: "/kollektivtrafik",
       featured: true,
     },
     {
@@ -111,7 +111,12 @@ export const SwedenStrip = () => {
             );
 
             return tile.to ? (
-              <Link key={tile.title} to={tile.to} className="block">
+              <Link
+                key={tile.title}
+                to={tile.to}
+                aria-label={t(`Läs mer: ${tile.eyebrow} – ${tile.title}`, `Read more: ${tile.eyebrow} – ${tile.title}`) as string}
+                className="block rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+              >
                 {content}
               </Link>
             ) : (
