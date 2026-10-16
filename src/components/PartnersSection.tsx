@@ -17,7 +17,7 @@ export const PartnersSection = () => {
     <section ref={sectionRef} className="py-12 overflow-hidden bg-background border-y border-border/40">
       <div className="container mx-auto px-6 mb-8">
         <motion.p
-          initial={{ opacity: 0, y: 10 }}
+          initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={revealViewport}
           transition={{ duration: 0.4 }}

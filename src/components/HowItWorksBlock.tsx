@@ -140,10 +140,10 @@ export const HowItWorksBlock = () => {
             {t("30 sekunder är allt som krävs.", "30 seconds is all it takes.")}
           </motion.h3>
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={revealViewport}
-            transition={{ duration: 0.7 }}
+            transition={{ duration: 0.4 }}
             id="reklamfilm"
             className="gradient-bg relative mx-auto w-full max-w-6xl aspect-video overflow-hidden rounded-3xl shadow-elevated"
           >
@@ -192,10 +192,10 @@ export const HowItWorksBlock = () => {
               </p>
             </motion.div>
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={revealViewport}
-              transition={{ duration: 0.7 }}
+              transition={{ duration: 0.4 }}
             >
               <div
                 ref={teamRef}
@@ -234,10 +234,10 @@ export const HowItWorksBlock = () => {
             {stats.map((s, i) => (
               <motion.div
                 key={s.value + s.label.sv}
-                initial={{ opacity: 0, y: 16 }}
+                initial={{ opacity: 0, y: 12 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={revealViewport}
-                transition={{ duration: 0.5}}
+                transition={{ duration: 0.4}}
                 className="text-center"
               >
                 <div className={`font-serif font-semibold text-background ${s.valueEn ? "text-2xl md:text-3xl" : "text-4xl md:text-5xl"}`}>{t(s.value, s.valueEn ?? s.value)}</div>

@@ -19,9 +19,9 @@ const Contact = () => {
       <main className="pt-24 pb-16 relative z-10">
         <div className="container mx-auto px-6">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.4 }}
             className="text-center mb-14"
           >
             <span className="gradient-text font-semibold text-sm uppercase tracking-wider">
@@ -42,9 +42,9 @@ const Contact = () => {
             {/* Partner / företag – primär */}
             <motion.a
               href="mailto:klimavauf@gmail.com"
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
+              transition={{ duration: 0.4, delay: 0.1 }}
               className="block bg-white/10 backdrop-blur-md rounded-2xl p-8 shadow-elevated hover:bg-white/15 transition-all duration-300 border border-white/20 group"
             >
               <div className="flex items-center gap-4 mb-3">
@@ -69,9 +69,9 @@ const Contact = () => {
             {/* Support – sekundär */}
             <motion.a
               href="mailto:support@klimava.com"
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
+              transition={{ duration: 0.4, delay: 0.2 }}
               className="block bg-white/10 backdrop-blur-md rounded-2xl p-8 shadow-elevated hover:bg-white/15 transition-all duration-300 border border-white/20 group"
             >
               <div className="flex items-center gap-4 mb-3">
@@ -95,9 +95,9 @@ const Contact = () => {
 
             {/* Sociala medier – kompakt rad */}
             <motion.div
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
+              transition={{ duration: 0.4, delay: 0.3 }}
               className="flex gap-3 pt-2"
             >
               <a

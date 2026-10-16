@@ -127,10 +127,10 @@ const FeedbackCard = ({ category }: { category: (typeof feedbackCategories)[numb
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 12 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={revealViewport}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 0.4 }}
       className="rounded-3xl border border-border bg-card p-6 shadow-soft md:p-8"
     >
       <h3 className="mb-2 font-heading text-lg font-medium text-foreground">{renderTitle(t(category.title.sv, category.title.en))}</h3>
@@ -201,17 +201,17 @@ const Support = () => {
 
               <div className="absolute inset-x-0 bottom-0 p-8 text-center sm:p-12 md:p-16">
                 <motion.h1
-                  initial={{ opacity: 0, y: 30 }}
+                  initial={{ opacity: 0, y: 16 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6 }}
+                  transition={{ duration: 0.4 }}
                   className="mb-4 text-4xl font-bold leading-[1.05] text-white sm:text-5xl md:text-6xl"
                 >
                   {t("Hur kan vi hjälpa dig?", "How can we help you?")}
                 </motion.h1>
                 <motion.p
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 12 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.1 }}
+                  transition={{ duration: 0.4, delay: 0.1 }}
                   className="mx-auto mb-8 max-w-xl text-base leading-relaxed text-white/80 md:text-lg"
                 >
                   {t(
@@ -220,9 +220,9 @@ const Support = () => {
                   )}
                 </motion.p>
                 <motion.div
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 12 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.2 }}
+                  transition={{ duration: 0.4, delay: 0.2 }}
                   className="flex flex-wrap items-center justify-center gap-4"
                 >
                   <Button size="lg" className="rounded-full gradient-bg text-primary-foreground hover:opacity-90" asChild>
@@ -247,10 +247,10 @@ const Support = () => {
           <section id="faq" className="bg-muted py-20 md:py-28">
             <div className="container mx-auto max-w-5xl px-6">
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 12 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={revealViewport}
-                transition={{ duration: 0.5 }}
+                transition={{ duration: 0.4 }}
                 className="mb-12 text-center"
               >
                 <span className="gradient-text text-sm font-semibold uppercase tracking-wider">
@@ -265,10 +265,10 @@ const Support = () => {
                 {faqs.map((item, i) => (
                   <motion.div
                     key={item.q.sv}
-                    initial={{ opacity: 0, y: 20 }}
+                    initial={{ opacity: 0, y: 12 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={revealViewport}
-                    transition={{ duration: 0.5}}
+                    transition={{ duration: 0.4}}
                     className="rounded-3xl border border-border bg-card p-8 shadow-soft"
                   >
                     <h3 className="mb-2 font-heading text-lg font-medium text-foreground">{t(item.q.sv, item.q.en)}</h3>
@@ -286,10 +286,10 @@ const Support = () => {
           <section className="bg-foreground py-20 md:py-28">
             <div className="container mx-auto max-w-5xl px-6">
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 12 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={revealViewport}
-                transition={{ duration: 0.5 }}
+                transition={{ duration: 0.4 }}
                 className="mb-12 text-center"
               >
                 <h2 className="font-heading text-3xl font-bold text-background md:text-4xl">
@@ -314,10 +314,10 @@ const Support = () => {
           <section id="kontakt" className="bg-accent py-20 md:py-28">
             <div className="container mx-auto max-w-2xl px-6 text-center">
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 12 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={revealViewport}
-                transition={{ duration: 0.5 }}
+                transition={{ duration: 0.4 }}
               >
                 <h2 className="font-heading text-3xl font-bold text-foreground md:text-4xl">
                   {t("Hittade du inte svaret du sökte?", "Didn't find the answer you were looking for?")}

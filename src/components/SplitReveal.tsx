@@ -18,9 +18,9 @@ export const SplitReveal = ({ text, className = "", wordClassName = "" }: SplitR
       {words.map((word, i) => (
         <motion.span
           key={`${word}-${i}`}
-          initial={{ opacity: 0, y: 14 }}
+          initial={{ opacity: 0, y: 12 }}
           animate={visible ? { opacity: 1, y: 0 } : undefined}
-          transition={{ duration: 0.5, delay: Math.min(i * 0.025, 0.15) }}
+          transition={{ duration: 0.4, delay: Math.min(i * 0.025, 0.15) }}
           className={`inline-block ${wordClassName}`}
         >
           {word}&nbsp;
