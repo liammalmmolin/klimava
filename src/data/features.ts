@@ -9,7 +9,7 @@ import {
   Star as TrophyStar,
   Users,
 } from "react-coolicons";
-import { Bus } from "lucide-react";
+import { BusIcon } from "@/components/icons/BusIcon";
 
 export interface Feature {
   icon: ComponentType<SVGProps<SVGSVGElement>>;
@@ -51,7 +51,7 @@ export const features: Feature[] = [
     },
   },
   {
-    icon: Bus,
+    icon: BusIcon,
     title: { sv: "Kollektivtrafik med SL", en: "Public transport with SL" },
     desc: {
       sv: "Ladda upp kvittot på din SL-biljett och få poäng för varje hållbar resa du gör med tunnelbana, buss eller pendeltåg.",
