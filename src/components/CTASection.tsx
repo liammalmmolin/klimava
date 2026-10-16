@@ -55,8 +55,10 @@ export const CTASection = () => {
             ))}
             </div>
 
+            {/* Icon floats gently via CSS keyframes (compositor thread), paused off-screen and disabled for reduced motion. */}
             <div
-              className="relative h-28 w-28 overflow-hidden rounded-[1.75rem] shadow-elevated md:h-40 md:w-40"
+              className={`animate-float-y relative h-28 w-28 overflow-hidden rounded-[1.75rem] shadow-elevated md:h-40 md:w-40 ${visible ? "" : "motion-paused"}`}
+              style={{ "--float-distance": "-8px", "--float-duration": "5s" } as CSSProperties}
             >
               <img src={klimavaIcon} width={160} height={160} loading="lazy" decoding="async" alt="Klimava" className="h-full w-full object-cover" />
             </div>
