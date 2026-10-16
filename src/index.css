@@ -158,6 +158,18 @@
   .download-glow {
     background-image: var(--download-glow);
   }
+  /* Static fine grain dithers the faint gradient so 8-bit banding rings don't
+     show; masked to the same radial falloff so it has no edges. Rasterized once. */
+  .download-glow::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    opacity: 0.05;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    -webkit-mask-image: radial-gradient(circle closest-side, #000 0%, rgba(0,0,0,.5) 55%, transparent 95%);
+    mask-image: radial-gradient(circle closest-side, #000 0%, rgba(0,0,0,.5) 55%, transparent 95%);
+  }
 
   .gradient-border {
     position: relative;
