@@ -20,3 +20,8 @@ Verification limits: physical iPhone testing unavailable; sandbox Chromium lacks
 - [x] Restore the three uploaded photos without changing their appearance using absolute media-host URLs for every src/srcSet/source.
 - [x] Verify first visits and reloads on mobile (402px, 3x density) and desktop (1280px) in Chromium/WebKit with real remote image requests; all three photos decode, screenshots match, no JS errors, four URL regression tests pass.
 Publication limit: corrected code verified locally against live image files; klimava.se needs its next GitHub Pages deployment before the live page can be rechecked. No physical iPhone tested.
+
+# Early content preparation
+- [ ] Start all scroll reveals ahead of the viewport and remove unnecessary reveal delays, preserving effects and geometry.
+- [ ] Prepare responsive images earlier in both scroll directions without per-scroll React updates.
+- [ ] Verify rapid scrolling down/up with cold and warm caches on mobile/desktop; name tested browser engines.
