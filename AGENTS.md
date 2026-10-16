@@ -11,3 +11,4 @@
 - All scroll reveals share revealViewport's positive two-way head start and avoid cumulative grid delays; this prepares content before fast scrolling exposes it, without changing animation geometry. The pinned hero remains composited and hidden once fully covered.
 - A global ImageWarmer fetches and decodes `loading="lazy"` images two viewport heights ahead in both directions, with pixel margins recalculated on resize; IntersectionObserver percentage margins use width and under-prepare portrait phones.
 - Prefer filter-free gradients over `filter: blur` glows and drop `backdrop-filter` where the backdrop is a solid color; both are costly while scrolling in Safari.
+- Import line icons from src/components/icons (never react-coolicons directly); icons whose source uses overlapping sub-paths are redrawn there as closed shapes with one 2px round stroke so edges stay clean at small sizes.
