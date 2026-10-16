@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { assetUrl } from "@/lib/asset-url";
 import consumption480 from "@/assets/sweden-upload-consumption-480.webp.asset.json";
 import consumption960 from "@/assets/sweden-upload-consumption-960.webp.asset.json";
 import consumption1920 from "@/assets/sweden-upload-consumption-1920.webp.asset.json";
@@ -15,8 +16,8 @@ export const SwedenStrip = () => {
 
   const tiles = [
     {
-      photo: consumption1920.url,
-      srcSet: `${consumption480.url} 480w, ${consumption960.url} 960w, ${consumption1920.url} 1920w`,
+      photo: assetUrl(consumption1920),
+      srcSet: `${assetUrl(consumption480)} 480w, ${assetUrl(consumption960)} 960w, ${assetUrl(consumption1920)} 1920w`,
       sizes: "(min-width: 768px) 64vw, calc(100vw - 48px)",
       width: 1920,
       height: 1280,
@@ -28,8 +29,8 @@ export const SwedenStrip = () => {
       featured: false,
     },
     {
-      photo: subway1480.url,
-      srcSet: `${subway480.url} 480w, ${subway960.url} 960w, ${subway1480.url} 1480w`,
+      photo: assetUrl(subway1480),
+      srcSet: `${assetUrl(subway480)} 480w, ${assetUrl(subway960)} 960w, ${assetUrl(subway1480)} 1480w`,
       sizes: "(min-width: 768px) 64vw, calc(100vw - 48px)",
       width: 1480,
       height: 980,
@@ -41,13 +42,13 @@ export const SwedenStrip = () => {
       featured: true,
     },
     {
-      photo: recyclingMobile.url,
-      srcSet: `${recyclingMobile.url} 643w`,
+      photo: assetUrl(recyclingMobile),
+      srcSet: `${assetUrl(recyclingMobile)} 643w`,
       sizes: "(min-width: 768px) 34vw, calc(100vw - 48px)",
       width: 643,
       height: 402,
       objectPosition: "center",
-      desktopPhoto: recyclingDesktop.url,
+      desktopPhoto: assetUrl(recyclingDesktop),
       eyebrow: t("Återvinning", "Recycling"),
       title: t("Poäng vid varje station", "Points at every station"),
       to: "/atervinning",
