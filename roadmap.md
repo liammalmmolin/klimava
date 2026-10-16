@@ -1,7 +1,8 @@
 # Remaining contrast, metadata and mobile review
-- [x] Use the approved light turquoise/lime heading gradient for the forest hero.
-- [ ] Give the six requested pages unique descriptions, preserving titles and one description tag.
-- [ ] Verify mobile/desktop contrast, direct loads/reloads/navigation, cold/warm rapid scrolling and carousel gestures in Chromium/WebKit.
+- [x] Use a photo-specific light turquoise/lime heading gradient for the forest hero, without changing other headings.
+- [x] Give the six requested pages unique descriptions, preserving titles and one description tag; use Helmet for titles too to avoid the observed title-reset race.
+- [x] Verify mobile/desktop contrast, direct loads/reloads/navigation, first/return rapid scrolling and carousel gestures in Chromium/WebKit. Seven existing tests pass, images load, no runtime errors, mobile CLS 0. Chromium remains smooth; WebKit has reproducible frame pauses (including on cached returns). Removing header blur experimentally did not eliminate them, so no approved visual effects were removed without a proven cause.
+- [ ] Physical iPhone/Safari profiling and confirmation of remaining WebKit pauses — requires a real device, unavailable here. Browser descriptions update after JavaScript; static non-JavaScript crawlers still see the homepage fallback.
 
 # Performance review
 
