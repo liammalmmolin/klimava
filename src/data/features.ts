@@ -52,8 +52,8 @@ export const features: Feature[] = [
     icon: BusIcon,
     title: { sv: "Kollektivtrafik med SL", en: "Public transport with SL" },
     desc: {
-      sv: "Ladda upp kvittot på din SL-biljett och få poäng för varje hållbar resa du gör med tunnelbana, buss eller pendeltåg.",
-      en: "Upload the receipt for your SL ticket and earn points for every sustainable trip you take by metro, bus or commuter train.",
+      sv: "Registrera din SL-biljett i Klimava och få poäng enligt biljettens poängvillkor. Poängen kan du använda till belöningar i appen.",
+      en: "Register your SL ticket in Klimava and earn points according to the ticket's points terms. You can use the points for rewards in the app.",
     },
   },
   {
