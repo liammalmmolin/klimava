@@ -123,6 +123,12 @@
     @apply border-border;
   }
 
+  /* Crisp icon edges at every size and zoom level: smooth geometry
+     instead of pixel-snapped crispEdges, which made small icons jagged. */
+  svg {
+    shape-rendering: geometricPrecision;
+  }
+
   body {
     @apply bg-background text-foreground font-sans antialiased;
     font-family: 'Raleway', sans-serif;
