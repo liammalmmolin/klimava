@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import { AnimatePresence, motion, useInView, useReducedMotion } from "framer-motion";
+import { AnimatePresence, motion, useInView } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Play, Camera, Gift, ChartBarVertical01 } from "react-coolicons";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -23,6 +23,8 @@ const AdVideo = ({ src }: { src: string }) => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [started, setStarted] = useState(false);
   const [duration, setDuration] = useState<number>();
+  const coverRef = useRef<HTMLButtonElement>(null);
+  const coverVisible = useInView(coverRef, { margin: "150px" });
 
   const play = () => {
     setStarted(true);
@@ -46,6 +48,7 @@ const AdVideo = ({ src }: { src: string }) => {
       <AnimatePresence>
         {!started && (
           <motion.button
+            ref={coverRef}
             type="button"
             onClick={play}
             aria-label={t("Spela upp filmen", "Play the film")}
@@ -61,7 +64,7 @@ const AdVideo = ({ src }: { src: string }) => {
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_40%,hsl(var(--foreground)/0.4)_100%)]" />
 
             <span className="relative flex items-center justify-center">
-              <span className="absolute h-full w-full animate-ping rounded-full gradient-bg opacity-30 [animation-duration:2.4s]" />
+              <span className={`absolute h-full w-full animate-ping rounded-full gradient-bg opacity-30 [animation-duration:2.4s] ${coverVisible ? "" : "motion-paused"}`} />
               <span className="absolute -inset-3 rounded-full border border-background/25 sm:-inset-4 md:-inset-6" />
               <span className="relative flex h-16 w-16 items-center justify-center rounded-full gradient-bg text-primary-foreground shadow-elevated transition-transform duration-300 group-hover:scale-110 sm:h-24 sm:w-24 md:h-32 md:w-32">
                 <Play className="ml-1 h-7 w-7 sm:h-10 sm:w-10 md:ml-2 md:h-14 md:w-14" />
@@ -94,7 +97,6 @@ export const HowItWorksBlock = () => {
   const { t, language } = useLanguage();
   const teamRef = useRef<HTMLDivElement>(null);
   const teamVisible = useInView(teamRef, { margin: "150px" });
-  const reducedMotion = useReducedMotion();
 
   return (
     <>
@@ -140,7 +142,7 @@ export const HowItWorksBlock = () => {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-60px" }}
+            viewport={{ once: true, margin: "0px" }}
             transition={{ duration: 0.7 }}
             id="reklamfilm"
             className="gradient-bg relative mx-auto w-full max-w-6xl aspect-video overflow-hidden rounded-3xl shadow-elevated"
@@ -192,14 +194,12 @@ export const HowItWorksBlock = () => {
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
+              viewport={{ once: true, margin: "0px" }}
               transition={{ duration: 0.7 }}
             >
-              <motion.div
+              <div
                 ref={teamRef}
-                animate={{ y: teamVisible && !reducedMotion ? [0, -12, 0] : 0 }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                className="overflow-hidden rounded-[1.75rem] shadow-elevated"
+                className={`animate-float-y overflow-hidden rounded-[1.75rem] shadow-elevated ${teamVisible ? "" : "motion-paused"}`}
               >
                 <img
                   width={1560} height={1170} loading="lazy" decoding="async"
@@ -207,7 +207,7 @@ export const HowItWorksBlock = () => {
                   alt={t("Klimava-teamet", "The Klimava team")}
                   className="h-auto w-full object-cover"
                 />
-              </motion.div>
+              </div>
             </motion.div>
           </div>
 
@@ -236,7 +236,7 @@ export const HowItWorksBlock = () => {
                 key={s.value + s.label.sv}
                 initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-40px" }}
+                viewport={{ once: true, margin: "0px" }}
                 transition={{ duration: 0.5, delay: i * 0.08 }}
                 className="text-center"
               >

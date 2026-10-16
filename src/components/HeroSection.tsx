@@ -1,4 +1,5 @@
-import { motion, type MotionValue } from "framer-motion";
+import { motion, useMotionValueEvent, useScroll, type MotionValue } from "framer-motion";
+import { useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Star, Play } from "react-coolicons";
 import appStoreBadge from "@/assets/app-store-badge.png?format=webp&quality=92";
@@ -41,12 +42,44 @@ interface HeroSectionProps {
 
 export const HeroSection = ({ scale }: HeroSectionProps) => {
   const { t } = useLanguage();
+  const sectionRef = useRef<HTMLElement>(null);
+  const cardRef = useRef<HTMLDivElement>(null);
+  const coveredAt = useRef(Infinity);
+  const { scrollY } = useScroll();
+
+  // The pinned hero stays behind the whole page. Once the next card has fully
+  // covered it, stop painting/compositing it; it reappears before any part of
+  // it can be seen again. Direct style write — no React re-render on scroll.
+  useEffect(() => {
+    const measure = () => {
+      const pinned = sectionRef.current?.parentElement;
+      coveredAt.current = pinned ? pinned.offsetHeight + 120 : Infinity;
+    };
+    measure();
+    let width = window.innerWidth;
+    const onResize = () => {
+      if (window.innerWidth === width) return;
+      width = window.innerWidth;
+      measure();
+    };
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
+  const syncVisibility = (y: number) => {
+    const card = cardRef.current;
+    if (!card) return;
+    const next = y > coveredAt.current ? "hidden" : "visible";
+    if (card.style.visibility !== next) card.style.visibility = next;
+  };
+  useMotionValueEvent(scrollY, "change", syncVisibility);
+  useEffect(() => syncVisibility(scrollY.get()), [scrollY]);
 
   return (
-    <section className="bg-background px-3 pb-3 pt-3 md:px-4 md:pb-4 md:pt-4">
+    <section ref={sectionRef} className="bg-background px-3 pb-3 pt-3 md:px-4 md:pb-4 md:pt-4">
       <motion.div
+        ref={cardRef}
         style={{ scale }}
-        className="relative h-[calc(100vh-1.5rem)] min-h-[640px] origin-top overflow-hidden rounded-[1.75rem] md:h-[calc(100vh-2rem)] md:rounded-[2.25rem]">
+        className="relative h-[calc(100vh-1.5rem)] min-h-[640px] origin-top overflow-hidden rounded-[1.75rem] will-change-transform md:h-[calc(100vh-2rem)] md:rounded-[2.25rem]">
         <img src={forestPhoto} srcSet={forestSources} sizes="100vw" width={2400} height={1800} fetchPriority="high" alt="" className="absolute inset-0 h-full w-full object-cover" />
         <div
           className="absolute inset-0"

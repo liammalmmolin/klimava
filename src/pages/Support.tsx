@@ -128,7 +128,7 @@ const FeedbackCard = ({ category }: { category: (typeof feedbackCategories)[numb
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-40px" }}
+      viewport={{ once: true, margin: "0px" }}
       transition={{ duration: 0.5 }}
       className="rounded-3xl border border-border bg-card p-6 shadow-soft md:p-8"
     >
@@ -266,7 +266,7 @@ const Support = () => {
                     key={item.q.sv}
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: "-40px" }}
+                    viewport={{ once: true, margin: "0px" }}
                     transition={{ duration: 0.5, delay: (i % 2) * 0.08 }}
                     className="rounded-3xl border border-border bg-card p-8 shadow-soft"
                   >
