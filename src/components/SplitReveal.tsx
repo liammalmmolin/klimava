@@ -14,7 +14,7 @@ export const SplitReveal = ({ text, className = "", wordClassName = "" }: SplitR
   const ref = useRef<HTMLSpanElement>(null);
   const visible = useInView(ref, revealViewport);
   return (
-    <span ref={ref} className={className}>
+    <span ref={ref} className={`inline-block ${className}`}>
       {words.map((word, i) => (
         <motion.span
           key={`${word}-${i}`}
