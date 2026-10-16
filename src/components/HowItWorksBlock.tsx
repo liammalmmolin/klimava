@@ -70,7 +70,7 @@ const AdVideo = ({ src }: { src: string }) => {
               <span className="absolute inset-0 rounded-full gradient-play ring-1 ring-inset ring-primary-foreground" />
               <span className="pointer-events-none absolute inset-0 rounded-full play-depth" />
               {/* Filled triangle with softly rounded corners; centroid sits slightly right of centre for optical balance. */}
-              <svg viewBox="0 0 24 24" aria-hidden="true" className="relative h-[38%] w-[38%] text-primary-foreground">
+              <svg viewBox="0 0 24 24" aria-hidden="true" className="relative h-[41%] w-[41%] text-primary-foreground">
                 <path d="M9 6.2 L18.6 12 L9 17.8 Z" fill="currentColor" stroke="currentColor" strokeWidth="2.4" strokeLinejoin="round" />
               </svg>
             </span>
