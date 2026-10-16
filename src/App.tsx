@@ -7,6 +7,7 @@ import { lazy, Suspense } from "react";
 import { MotionConfig } from "framer-motion";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import ScrollToTop from "./components/ScrollToTop";
+import PageTitle from "./components/PageTitle";
 import ImageWarmer from "./components/ImageWarmer";
 import Index from "./pages/Index";
 const Contact = lazy(() => import("./pages/Contact"));
@@ -34,6 +35,7 @@ const App = () => (
         <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
           <Suspense fallback={<div className="min-h-screen bg-background" aria-busy="true" />}>
           <ScrollToTop />
+          <PageTitle />
           <ImageWarmer />
           <Routes>
             <Route path="/" element={<Index />} />
