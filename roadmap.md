@@ -22,6 +22,6 @@ Verification limits: physical iPhone testing unavailable; sandbox Chromium lacks
 Publication limit: corrected code verified locally against live image files; klimava.se needs its next GitHub Pages deployment before the live page can be rechecked. No physical iPhone tested.
 
 # Early content preparation
-- [ ] Start all scroll reveals ahead of the viewport and remove unnecessary reveal delays, preserving effects and geometry.
-- [ ] Prepare responsive images earlier in both scroll directions without per-scroll React updates.
-- [ ] Verify rapid scrolling down/up with cold and warm caches on mobile/desktop; name tested browser engines.
+- [x] Start all scroll reveals 2400px ahead in both directions and remove unnecessary grid/badge delays; cap word stagger at 150ms, preserving effects and geometry.
+- [x] Prepare responsive images two viewport heights earlier in both scroll directions without per-scroll React updates.
+- [x] Test rapid scrolling down/up across 12 routes with fresh contexts and cached reloads, mobile 402x725 and desktop 1280x900, Chromium and WebKit. No runtime errors; seven regression tests pass. Screenshots confirm unchanged tile design. Remaining low-opacity detections on about-app include intentionally faded carousel sides; no guarantee for arbitrary instant jumps or unbounded network delays. No physical iPhone tested.
