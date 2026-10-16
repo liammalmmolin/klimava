@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Apple } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { features } from "@/data/features";
-import { fadeUp } from "@/lib/motion";
+import { fadeUp, revealViewport } from "@/lib/motion";
 import { AppShowcaseCarousel } from "@/components/AppShowcaseCarousel";
 
 const AboutApp = () => {
@@ -78,8 +78,8 @@ const AboutApp = () => {
                 key={f.title.sv}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "0px" }}
-                transition={{ duration: 0.5, delay: (i % 4) * 0.06 }}
+                viewport={revealViewport}
+                transition={{ duration: 0.5}}
                 className="bg-card p-6"
               >
                 <div className="w-10 h-10 rounded-lg bg-accent flex items-center justify-center mb-4">

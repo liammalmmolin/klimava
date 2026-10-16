@@ -1,3 +1,4 @@
+import { revealViewport } from "@/lib/motion";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
@@ -128,7 +129,7 @@ const FeedbackCard = ({ category }: { category: (typeof feedbackCategories)[numb
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "0px" }}
+      viewport={revealViewport}
       transition={{ duration: 0.5 }}
       className="rounded-3xl border border-border bg-card p-6 shadow-soft md:p-8"
     >
@@ -248,7 +249,7 @@ const Support = () => {
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                viewport={revealViewport}
                 transition={{ duration: 0.5 }}
                 className="mb-12 text-center"
               >
@@ -266,8 +267,8 @@ const Support = () => {
                     key={item.q.sv}
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: "0px" }}
-                    transition={{ duration: 0.5, delay: (i % 2) * 0.08 }}
+                    viewport={revealViewport}
+                    transition={{ duration: 0.5}}
                     className="rounded-3xl border border-border bg-card p-8 shadow-soft"
                   >
                     <h3 className="mb-2 font-heading text-lg font-medium text-foreground">{t(item.q.sv, item.q.en)}</h3>
@@ -287,7 +288,7 @@ const Support = () => {
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                viewport={revealViewport}
                 transition={{ duration: 0.5 }}
                 className="mb-12 text-center"
               >
@@ -315,7 +316,7 @@ const Support = () => {
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                viewport={revealViewport}
                 transition={{ duration: 0.5 }}
               >
                 <h2 className="font-heading text-3xl font-bold text-foreground md:text-4xl">

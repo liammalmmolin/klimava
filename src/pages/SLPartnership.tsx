@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Apple } from "lucide-react";
 import { ArrowRightMd, Check, Camera, Phone, Leaf, Lock } from "react-coolicons";
 import { Upload } from "lucide-react";
-import { fadeUp } from "@/lib/motion";
+import { fadeUp, revealViewport } from "@/lib/motion";
 import appDashboard from "@/assets/klimava-online-kvitto.jpeg?format=webp&quality=92";
 import slIcon from "@/assets/sl-app-icon.png";
 import slTicket from "@/assets/sl-app-ticket.png?format=webp&quality=92";
@@ -182,7 +182,7 @@ const SLPartnership = () => {
                 </ul>
               </motion.div>
 
-              <motion.div {...fadeUp} transition={{ duration: 0.7, delay: 0.1 }} className="relative">
+              <motion.div {...fadeUp} transition={{ duration: 0.7 }} className="relative">
                 <div
                   className="absolute -inset-10 rounded-[3rem] blur-3xl opacity-50 -z-10"
                   style={{ background: `linear-gradient(135deg, ${SL_BLUE}, ${SL_CYAN})` }}
@@ -247,8 +247,8 @@ const SLPartnership = () => {
                       key={i}
                       initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true, margin: "0px" }}
-                      transition={{ duration: 0.5, delay: i * 0.05 }}
+                      viewport={revealViewport}
+                      transition={{ duration: 0.5}}
                       className={`relative flex md:items-center gap-5 md:gap-0 ${
                         left ? "md:flex-row" : "md:flex-row-reverse"
                       }`}
@@ -333,7 +333,7 @@ const SLPartnership = () => {
                 </p>
               </motion.div>
 
-              <motion.div {...fadeUp} transition={{ duration: 0.7, delay: 0.1 }} className="grid grid-cols-2 gap-4">
+              <motion.div {...fadeUp} transition={{ duration: 0.7 }} className="grid grid-cols-2 gap-4">
                 {[
                   { value: "-95%", label: t("CO₂ vs bil per personkm", "CO₂ vs car per person-km"), big: true },
                   { value: "≈2.4 kg", label: t("CO₂ sparas per bilresa", "CO₂ saved per car trip") },

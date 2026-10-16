@@ -1,10 +1,13 @@
 import type { Variants, Transition } from "framer-motion";
 
-/** Shared scroll-reveal: fade up into view, once. Spread as {...fadeUp}. */
+/** Finish reveals before content arrives on screen; never replay on return. */
+export const revealViewport = { once: true, margin: "2400px 0px", amount: "some" } as const;
+
+/** Shared scroll-reveal: fade up ahead of view, once. Spread as {...fadeUp}. */
 export const fadeUp = {
   initial: { opacity: 0, y: 30 },
   whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true, margin: "0px" },
+  viewport: revealViewport,
   transition: { duration: 0.6 },
 } as const;
 
@@ -12,7 +15,7 @@ export const fadeUp = {
 export const fadeUpSm = {
   initial: { opacity: 0, y: 20 },
   whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true, margin: "0px" },
+  viewport: revealViewport,
   transition: { duration: 0.5 },
 } as const;
 

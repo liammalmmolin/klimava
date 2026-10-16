@@ -1,3 +1,4 @@
+import { revealViewport } from "@/lib/motion";
 import { motion, useInView } from "framer-motion";
 import { useRef, type CSSProperties } from "react";
 import { Button } from "@/components/ui/button";
@@ -85,8 +86,8 @@ export const CTASection = () => {
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.3 }}
+            viewport={revealViewport}
+            transition={{ duration: 0.6}}
             className="mt-12 flex flex-wrap items-center justify-center gap-3"
           >
             <span className="inline-flex items-center gap-1.5 rounded-full border border-background/15 bg-background/10 px-3.5 py-1.5 text-xs font-medium text-background">
