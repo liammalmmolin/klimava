@@ -216,7 +216,7 @@ export const HowItWorksBlock = () => {
           {/* 3 steps */}
           <motion.div
             {...fadeUp}
-            className="mt-20 grid gap-8 border-t border-background/10 pt-14 sm:grid-cols-3 md:mt-28"
+            className="mt-20 grid gap-8 border-t border-background/10 pt-14 sm:grid-cols-2 lg:grid-cols-4 md:mt-28"
           >
             {steps.map((s, i) => (
               <div key={s.sv} className="flex items-start gap-4">
