@@ -16,6 +16,9 @@ export default {
       fontFamily: {
         sans: ['Raleway', 'system-ui', 'sans-serif'],
         serif: ['Fraunces', 'Georgia', 'serif'],
+        /* Closing quote only: a true-italic serif with plain, unornamented
+           letterforms, so the quote never depends on per-glyph workarounds. */
+        quote: ['Newsreader', 'Georgia', 'serif'],
         heading: ['"Source Serif 4"', 'Georgia', 'serif'],
         mono: ['"IBM Plex Mono"', 'ui-monospace', 'monospace'],
       },

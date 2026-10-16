@@ -10,7 +10,7 @@ export const ClosingQuote = () => {
 
   return (
     <section className="bg-background px-6 py-24 text-center md:py-32">
-      <blockquote className="mx-auto max-w-2xl font-serif text-2xl font-medium italic leading-tight text-foreground md:text-4xl">
+      <blockquote className="mx-auto max-w-2xl font-quote text-2xl font-medium italic leading-tight text-foreground md:text-4xl">
         <SplitReveal
           text={t(
             "Vi tror på belöning istället för pekpinnar. Klimava ska göra det lätt och roligt att leva hållbart – varje dag, ett val i taget.",
