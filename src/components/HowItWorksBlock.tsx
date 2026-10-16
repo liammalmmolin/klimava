@@ -28,8 +28,6 @@ const AdVideo = ({ src }: { src: string }) => {
   // Cover stays until the first frame actually plays, so there's no blank flash.
   const [playing, setPlaying] = useState(false);
   const [duration, setDuration] = useState<number>();
-  const coverRef = useRef<HTMLButtonElement>(null);
-  const coverVisible = useInView(coverRef, { margin: "150px" });
 
   const play = () => {
     setStarted(true);
@@ -55,7 +53,6 @@ const AdVideo = ({ src }: { src: string }) => {
       <AnimatePresence>
         {!playing && (
           <motion.button
-            ref={coverRef}
             type="button"
             onClick={started ? undefined : play}
             aria-label={t("Spela upp filmen", "Play the film")}
