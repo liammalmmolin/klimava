@@ -7,6 +7,8 @@ const TITLES: Record<string, string> = {
   "/support": "Support och vanliga frågor – Klimava",
   "/partners": "Våra partners – Klimava",
   "/team": "Möt teamet – Klimava",
+  "/klimatpaverkan": "Delta i klimatutmaningar, gör hållbara vardagsval och följ din klimatpåverkan med Klimava. Samla poäng och lös in belöningar.",
+  "/kollektivtrafik": "Registrera din SL-biljett i Klimava och få poäng enligt biljettens poängvillkor. Använd poängen till belöningar i appen.",
   "/kontakt": "Kontakta oss – Klimava",
   "/integritetspolicy": "Integritetspolicy – Klimava",
   "/anvandarvillkor": "Användarvillkor – Klimava",
@@ -25,6 +27,8 @@ const DESCRIPTIONS: Record<string, string> = {
   "/kontakt": "Kontakta Klimava. Välj användarsupport för frågor om appen eller företagskontakt för partnerskap och samarbeten.",
   "/support": "Få hjälp med Klimava och hitta svar om kvittoskanning, poäng, belöningar och ditt konto. Kontakta användarsupport vid behov.",
   "/team": "Möt teamet bakom Klimava: Linus, Dante, Christian och Liam. Lär känna grundarna och deras roller i företaget.",
+  "/klimatpaverkan": "Delta i klimatutmaningar, gör hållbara vardagsval och följ din klimatpåverkan med Klimava. Samla poäng och lös in belöningar.",
+  "/kollektivtrafik": "Registrera din SL-biljett i Klimava och få poäng enligt biljettens poängvillkor. Använd poängen till belöningar i appen.",
 };
 
 const PageTitle = () => {
