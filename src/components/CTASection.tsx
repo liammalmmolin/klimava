@@ -36,7 +36,7 @@ export const CTASection = () => {
           {/* Static, filter-free glow avoids Safari's rectangular blur-compositing edges. */}
           <div className="relative mx-auto mb-8 flex h-52 w-52 items-center justify-center md:h-64 md:w-64">
             <div
-              className="download-glow pointer-events-none absolute -inset-12 rounded-full"
+              className="download-glow pointer-events-none absolute -inset-20 rounded-full"
               aria-hidden
             />
             {/* Icon + particles share one float layer: same speed, amplitude and timing.
