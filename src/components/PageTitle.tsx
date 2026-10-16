@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 
@@ -29,12 +28,9 @@ const DESCRIPTIONS: Record<string, string> = {
 const PageTitle = () => {
   const { pathname } = useLocation();
 
-  useEffect(() => {
-    document.title = TITLES[pathname] ?? "Sidan hittades inte – Klimava";
-  }, [pathname]);
-
   return (
     <Helmet>
+      <title>{TITLES[pathname] ?? "Sidan hittades inte – Klimava"}</title>
       <meta name="description" content={DESCRIPTIONS[pathname] ?? DESCRIPTIONS["/"]} />
     </Helmet>
   );
