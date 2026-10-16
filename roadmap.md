@@ -14,3 +14,8 @@ Verification limits: physical iPhone testing unavailable; sandbox Chromium lacks
 - [x] Drop invisible backdrop blurs; replace SL hero blob filter with equivalent gradient.
 - [x] Measure before/after mobile + desktop (Chromium + WebKit).
 - [ ] Header pill backdrop blur — needs user approval (visible change).
+
+# Published tile images
+- [ ] Diagnose unavailable image URLs on the public website.
+- [ ] Restore the three uploaded photos without changing their appearance.
+- [ ] Verify first visits and reloads on mobile and desktop; report publication limits.
