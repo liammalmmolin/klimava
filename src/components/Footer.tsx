@@ -48,7 +48,7 @@ export const Footer = () => {
             <h4 className="font-semibold mb-4 text-sm">{t("Företag", "Company")}</h4>
             <ul className="space-y-3 text-background/75 text-sm">
               <li><Link to="/team" className="hover:text-background transition-colors">Team</Link></li>
-              <li><a href="mailto:klimavauf@gmail.com" className="hover:text-background transition-colors">{t("Kontakt", "Contact")}</a></li>
+              <li><Link to="/kontakt" className="hover:text-background transition-colors">{t("Kontakt", "Contact")}</Link></li>
             </ul>
           </div>
         </div>
