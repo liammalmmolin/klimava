@@ -9,7 +9,7 @@ import {
   Star as TrophyStar,
   Users,
 } from "react-coolicons";
-import { Bus } from "lucide-react";
+import { BusIcon } from "@/components/icons/BusIcon";
 
 export interface Feature {
   icon: ComponentType<SVGProps<SVGSVGElement>>;
