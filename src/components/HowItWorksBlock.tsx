@@ -66,10 +66,13 @@ const AdVideo = ({ src }: { src: string }) => {
 
             {/* Single translucent button: the gradient sits on its own layer so the
                 play glyph stays fully opaque while the cover shows through. */}
-            <span className="relative flex h-14 w-14 items-center justify-center rounded-full shadow-play transition-transform duration-200 ease-out group-hover:scale-105 group-active:scale-95 sm:h-20 sm:w-20 md:h-24 md:w-24">
-              <span className="absolute inset-0 rounded-full gradient-play border border-primary-foreground" />
+            <span className="relative flex h-16 w-16 items-center justify-center rounded-full shadow-play transition-transform duration-150 ease-out group-hover:scale-[1.03] group-active:scale-95 group-active:duration-75 sm:h-20 sm:w-20 md:h-24 md:w-24">
+              <span className="absolute inset-0 rounded-full gradient-play ring-1 ring-inset ring-primary-foreground" />
               <span className="pointer-events-none absolute inset-0 rounded-full play-depth" />
-              <Play className="relative ml-[0.08em] h-6 w-6 text-primary-foreground sm:h-8 sm:w-8 md:h-10 md:w-10" />
+              {/* Filled triangle with softly rounded corners; centroid sits slightly right of centre for optical balance. */}
+              <svg viewBox="0 0 24 24" aria-hidden="true" className="relative h-[38%] w-[38%] text-primary-foreground">
+                <path d="M9 6.2 L18.6 12 L9 17.8 Z" fill="currentColor" stroke="currentColor" strokeWidth="2.4" strokeLinejoin="round" />
+              </svg>
             </span>
 
             <span className="absolute bottom-5 left-5 right-5 hidden items-end sm:flex justify-between gap-4 md:bottom-8 md:left-8 md:right-8">
