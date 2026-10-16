@@ -29,4 +29,4 @@ Publication limit: corrected code verified locally against live image files; kli
 # Feature wording
 - [x] Replace the app-page heading without changing feature cards.
 - [x] Remove the unverified earning-activity count; website descriptions are not current app confirmation, so use the requested number-free message.
-- [ ] Verify both changed sections on mobile and desktop.
+- [x] Verify both changed sections in Chromium at 402px and 1280px; headings and number-free message fit, feature cards retained, seven existing regression tests pass and build OK.
