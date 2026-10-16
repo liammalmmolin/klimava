@@ -114,7 +114,7 @@ export const HowItWorksBlock = () => {
           >
             {t("Gör klimatsmarta val.", "Make climate-smart choices.")}
             <br />
-            <span className="gradient-text">{t("Få något tillbaka.", "Get something back.")}</span>
+            <span className="gradient-text-on-dark">{t("Få något tillbaka.", "Get something back.")}</span>
           </motion.h2>
           <motion.p
             {...fadeUp}
@@ -182,7 +182,7 @@ export const HowItWorksBlock = () => {
                   "From a Young Enterprise project"
                 )}
                 <br />
-                <span className="gradient-text">{t("till aktiebolag.", "to a limited company.")}</span>
+                <span className="gradient-text-on-dark">{t("till aktiebolag.", "to a limited company.")}</span>
               </h3>
               <p className="text-base leading-relaxed text-background/60">
                 {t(
