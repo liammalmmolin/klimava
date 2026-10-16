@@ -14,7 +14,7 @@ import logo from "@/assets/klimava-logo.jpeg";
 
 const steps = [
   { icon: Camera, sv: "Fota kvittot", en: "Photograph the receipt" },
-  { icon: ScanBarcode, sv: "Skanna produkterna", en: "Scan the products" },
+  { icon: BarcodeIcon, sv: "Skanna produkterna", en: "Scan the products" },
   { icon: ChartBarVertical01, sv: "Samla poäng", en: "Earn points" },
   { icon: Gift, sv: "Lös in belöningar", en: "Redeem rewards" },
 ];
