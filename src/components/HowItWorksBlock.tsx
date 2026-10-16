@@ -240,7 +240,7 @@ export const HowItWorksBlock = () => {
                 transition={{ duration: 0.5}}
                 className="text-center"
               >
-                <div className="font-serif text-4xl font-semibold text-background md:text-5xl">{s.value}</div>
+                <div className={`font-serif font-semibold text-background ${s.valueEn ? "text-2xl md:text-3xl" : "text-4xl md:text-5xl"}`}>{t(s.value, s.valueEn ?? s.value)}</div>
                 <div className="mt-1.5 text-xs text-background/60 md:text-sm">{t(s.label.sv, s.label.en)}</div>
               </motion.div>
             ))}
