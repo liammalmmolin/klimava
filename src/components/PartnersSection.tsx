@@ -38,7 +38,7 @@ export const PartnersSection = () => {
           {marqueePartners.map((partner, i) => (
             <div
               key={`${partner.name}-${i}`}
-              className="mx-10 h-16 w-16 shrink-0 overflow-hidden rounded-xl border border-border/60 shadow-soft md:h-[4.5rem] md:w-[4.5rem]"
+              className="mx-10 h-16 w-16 shrink-0 overflow-hidden rounded-xl border border-border/60 md:h-[4.5rem] md:w-[4.5rem]"
             >
               <img
                 src={partner.logo}
