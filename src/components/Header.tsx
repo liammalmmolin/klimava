@@ -21,7 +21,7 @@ export const Header = ({ className }: { className?: string } = {}) => {
     <motion.header
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 0.4 }}
       className={cn("fixed inset-x-0 top-[34px] z-50 flex justify-end px-9 sm:top-[42px] sm:px-11 lg:top-6 lg:justify-center lg:px-3", className)}
     >
       {/* Desktop — links float free in the middle, no logo/CTA */}

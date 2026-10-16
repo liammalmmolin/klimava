@@ -54,9 +54,9 @@ const SLPartnership = () => {
           <div className="container mx-auto px-6 pt-28 md:pt-36 pb-20 md:pb-28">
             <div className="max-w-3xl mx-auto text-center">
               <motion.div
-                initial={{ opacity: 0, y: 10 }}
+                initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
+                transition={{ duration: 0.4 }}
                 className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase mb-7 border"
                 style={{ background: `${SL_BLUE}22`, color: SL_CYAN, borderColor: `${SL_CYAN}40` }}
               >
@@ -65,27 +65,27 @@ const SLPartnership = () => {
               </motion.div>
 
               <motion.h1
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.05 }}
+                transition={{ duration: 0.4, delay: 0.05 }}
                 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6 leading-[0.95] text-white"
               >
                 KLIMAVA <span style={{ color: SL_CYAN }}>×</span> SL
               </motion.h1>
 
               <motion.p
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.15 }}
+                transition={{ duration: 0.4, delay: 0.15 }}
                 className="text-xl md:text-2xl font-medium mb-5 text-white/90"
               >
                 {t("Belöning för klimatsmart resande.", "Rewards for climate-smart travel.")}
               </motion.p>
 
               <motion.p
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
+                transition={{ duration: 0.4, delay: 0.2 }}
                 className="text-base md:text-lg text-white/65 max-w-2xl mx-auto mb-10 leading-relaxed"
               >
                 {t(
@@ -95,9 +95,9 @@ const SLPartnership = () => {
               </motion.p>
 
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.25 }}
+                transition={{ duration: 0.4, delay: 0.25 }}
               >
                 <Button
                   size="xl"
@@ -114,9 +114,9 @@ const SLPartnership = () => {
 
               {/* App mockups */}
               <motion.div
-                initial={{ opacity: 0, y: 40 }}
+                initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.35 }}
+                transition={{ duration: 0.4, delay: 0.25 }}
                 className="mt-16 md:mt-20 flex items-end justify-center gap-4 md:gap-10"
               >
                 <div className="relative w-40 md:w-56 -rotate-6 origin-bottom-right">
@@ -183,7 +183,7 @@ const SLPartnership = () => {
                 </ul>
               </motion.div>
 
-              <motion.div {...fadeUp} transition={{ duration: 0.7 }} className="relative">
+              <motion.div {...fadeUp} transition={{ duration: 0.4 }} className="relative">
                 <div
                   className="absolute -inset-10 rounded-[3rem] blur-3xl opacity-50 -z-10"
                   style={{ background: `linear-gradient(135deg, ${SL_BLUE}, ${SL_CYAN})` }}
@@ -246,10 +246,10 @@ const SLPartnership = () => {
                   return (
                     <motion.div
                       key={i}
-                      initial={{ opacity: 0, y: 20 }}
+                      initial={{ opacity: 0, y: 12 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={revealViewport}
-                      transition={{ duration: 0.5}}
+                      transition={{ duration: 0.4}}
                       className={`relative flex md:items-center gap-5 md:gap-0 ${
                         left ? "md:flex-row" : "md:flex-row-reverse"
                       }`}
@@ -334,7 +334,7 @@ const SLPartnership = () => {
                 </p>
               </motion.div>
 
-              <motion.div {...fadeUp} transition={{ duration: 0.7 }} className="grid grid-cols-2 gap-4">
+              <motion.div {...fadeUp} transition={{ duration: 0.4 }} className="grid grid-cols-2 gap-4">
                 {[
                   { value: "-95%", label: t("CO₂ vs bil per personkm", "CO₂ vs car per person-km"), big: true },
                   { value: "≈2.4 kg", label: t("CO₂ sparas per bilresa", "CO₂ saved per car trip") },

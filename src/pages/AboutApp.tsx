@@ -28,9 +28,9 @@ const AboutApp = () => {
         <div className="container mx-auto px-6">
           {/* Hero */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.4 }}
             className="text-center max-w-2xl mx-auto mb-16"
           >
             <span className="font-mono text-xs uppercase tracking-widest text-primary">
@@ -76,10 +76,10 @@ const AboutApp = () => {
             {features.map((f, i) => (
               <motion.div
                 key={f.title.sv}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 12 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={revealViewport}
-                transition={{ duration: 0.5}}
+                transition={{ duration: 0.4}}
                 className="bg-card p-6"
               >
                 <div className="w-10 h-10 rounded-lg bg-accent flex items-center justify-center mb-4">

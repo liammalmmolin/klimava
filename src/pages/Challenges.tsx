@@ -16,9 +16,9 @@ const Challenges = () => {
       <main className="pt-32 pb-20">
         <div className="container mx-auto px-6 max-w-3xl">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.4 }}
           >
             <Button
               variant="ghost"

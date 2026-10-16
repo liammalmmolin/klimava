@@ -35,10 +35,10 @@ export const HowItWorksSection = () => {
           {teasers.map((item, i) => (
             <motion.div
               key={item.to}
-              initial={{ opacity: 0, y: 24 }}
+              initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={revealViewport}
-              transition={{ duration: 0.5}}
+              transition={{ duration: 0.4}}
             >
               <Link
                 to={item.to}

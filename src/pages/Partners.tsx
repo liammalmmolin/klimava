@@ -18,9 +18,9 @@ const Partners = () => {
       <main className="pt-24 pb-20">
         <div className="container mx-auto px-6">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.4 }}
             className="text-center max-w-2xl mx-auto mb-16"
           >
             <span className="font-mono text-xs uppercase tracking-widest text-primary">
@@ -42,10 +42,10 @@ const Partners = () => {
 
           {sl && (
             <motion.div
-              initial={{ opacity: 0, y: 24 }}
+              initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={revealViewport}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.4 }}
               className="max-w-5xl mx-auto mb-12"
             >
               <Link
@@ -72,10 +72,10 @@ const Partners = () => {
             {otherPartners.map((p, i) => (
               <motion.div
                 key={p.name}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 12 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={revealViewport}
-                transition={{ duration: 0.5}}
+                transition={{ duration: 0.4}}
                 className="flex items-center gap-4 p-5 rounded-2xl border border-border bg-card"
               >
                 <img
@@ -95,10 +95,10 @@ const Partners = () => {
           </div>
 
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={revealViewport}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.4 }}
             className="max-w-2xl mx-auto text-center border border-border rounded-2xl p-8"
           >
             <h2 className="text-xl font-heading font-medium text-foreground mb-2">

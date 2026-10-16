@@ -61,7 +61,7 @@ export const SwedenStrip = () => {
     <section className="bg-muted py-20 md:py-28">
       <div className="container mx-auto px-6">
         <motion.p
-          initial={{ opacity: 0, y: 10 }}
+          initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={revealViewport}
           transition={{ duration: 0.4 }}
@@ -74,10 +74,10 @@ export const SwedenStrip = () => {
           {tiles.map((tile, i) => {
             const content = (
               <motion.div
-                initial={{ opacity: 0, y: 24 }}
+                initial={{ opacity: 0, y: 12 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={revealViewport}
-                transition={{ duration: 0.5}}
+                transition={{ duration: 0.4}}
                 className={`group relative aspect-[16/10] overflow-hidden md:aspect-[4/5] rounded-xl bg-secondary ${
                   tile.featured ? "ring-2 ring-primary shadow-elevated" : ""
                 }`}

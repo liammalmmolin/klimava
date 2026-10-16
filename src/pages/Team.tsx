@@ -14,9 +14,9 @@ const Team = () => {
       <main className="pt-24 pb-20">
         <div className="container mx-auto px-6">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.4 }}
             className="text-center mb-12"
           >
             <h1 className="text-4xl md:text-6xl font-bold text-foreground">
@@ -31,9 +31,9 @@ const Team = () => {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.2 }}
+            transition={{ duration: 0.4, delay: 0.2 }}
             className="max-w-4xl mx-auto mb-20 rounded-3xl overflow-hidden shadow-elevated"
           >
             <img
@@ -48,9 +48,9 @@ const Team = () => {
             {founders.map((founder, index) => (
               <motion.div
                 key={founder.name}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
+                transition={{ duration: 0.4, delay: Math.min(index * 0.06, 0.24) }}
                 className="text-center"
               >
                 <div className="w-24 h-24 md:w-28 md:h-28 mx-auto mb-4 rounded-full overflow-hidden gradient-bg flex items-center justify-center shadow-card">
