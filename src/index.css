@@ -64,12 +64,8 @@
        intermediate stop so the two hues blend gradually instead of clashing.
        Fully opaque — the cover must never show through the button. */
     --gradient-play: linear-gradient(135deg, hsl(188 46% 31%) 0%, hsl(170 43% 37%) 48%, hsl(91 40% 45%) 100%);
-    /* Play button depth: small soft drop shadow plus a crisp inner top edge
-       light and a gentle inner glow from above — gradients only, no filters. */
-    --shadow-play:
-      0 8px 20px -8px hsl(192 30% 10% / 0.45),
-      inset 0 1px 0 hsl(0 0% 100% / 0.3),
-      inset 0 10px 16px -8px hsl(0 0% 100% / 0.25);
+    /* Play button depth: small, soft drop shadow. */
+    --shadow-play: 0 8px 20px -8px hsl(192 30% 10% / 0.45);
     --gradient-hero: linear-gradient(180deg, hsl(140 20% 97%) 0%, hsl(140 24% 93%) 50%, hsl(140 20% 97%) 100%);
     --shadow-soft: 0 4px 20px -4px hsl(192 30% 10% / 0.25);
     --shadow-card: 0 8px 30px -8px hsl(192 30% 10% / 0.35);
