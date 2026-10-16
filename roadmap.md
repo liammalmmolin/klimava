@@ -1,3 +1,8 @@
+# Remaining contrast, metadata and mobile review
+- [x] Use the approved light turquoise/lime heading gradient for the forest hero.
+- [ ] Give the six requested pages unique descriptions, preserving titles and one description tag.
+- [ ] Verify mobile/desktop contrast, direct loads/reloads/navigation, cold/warm rapid scrolling and carousel gestures in Chromium/WebKit.
+
 # Performance review
 
 - [x] Measure first loads and interactions across every route.
