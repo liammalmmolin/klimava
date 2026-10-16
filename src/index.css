@@ -63,7 +63,7 @@
     /* Play button: same petrol→lime scale, desaturated and dimmed, with an
        intermediate stop so the two hues blend gradually instead of clashing.
        Fully opaque — the cover must never show through the button. */
-    --gradient-play: linear-gradient(135deg, hsl(186 40% 32%) 0%, hsl(172 37% 36%) 40%, hsl(150 34% 39%) 70%, hsl(100 36% 43%) 100%);
+    --gradient-play: linear-gradient(160deg, hsl(178 34% 42%) 0%, hsl(168 34% 37%) 45%, hsl(150 32% 33%) 80%, hsl(128 30% 31%) 100%);
     /* Play button depth: small, soft drop shadow. */
     --shadow-play: 0 6px 16px -6px hsl(192 30% 10% / 0.4), 0 1px 3px hsl(192 30% 10% / 0.18);
     --gradient-hero: linear-gradient(180deg, hsl(140 20% 97%) 0%, hsl(140 24% 93%) 50%, hsl(140 20% 97%) 100%);
