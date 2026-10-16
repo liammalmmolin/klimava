@@ -114,7 +114,7 @@ export const HowItWorksBlock = () => {
           >
             {t("Gör klimatsmarta val.", "Make climate-smart choices.")}
             <br />
-            <span className="gradient-text">{t("Få något tillbaka.", "Get something back.")}</span>
+            <span className="gradient-text-on-dark">{t("Få något tillbaka.", "Get something back.")}</span>
           </motion.h2>
           <motion.p
             {...fadeUp}
@@ -129,7 +129,7 @@ export const HowItWorksBlock = () => {
           {/* Inline video */}
           <motion.p
             {...fadeUp}
-            className="mb-3 mt-20 text-center font-mono text-xs uppercase tracking-widest text-primary md:mt-28"
+            className="mb-3 mt-20 text-center font-mono text-xs uppercase tracking-widest text-secondary md:mt-28"
           >
             {t("Se Klimava i verkligheten", "See Klimava in action")}
           </motion.p>
@@ -173,7 +173,7 @@ export const HowItWorksBlock = () => {
           {/* About us teaser */}
           <div className="mt-20 grid items-center gap-10 border-t border-background/10 pt-14 md:mt-28 md:grid-cols-2 md:gap-16">
             <motion.div {...fadeUp}>
-              <span className="mb-3 inline-block font-mono text-xs uppercase tracking-widest text-primary">
+              <span className="mb-3 inline-block font-mono text-xs uppercase tracking-widest text-secondary">
                 {t("Om oss", "About us")}
               </span>
               <h3 className="mb-4 font-heading text-3xl font-medium leading-tight text-background md:text-4xl">
@@ -182,7 +182,7 @@ export const HowItWorksBlock = () => {
                   "From a Young Enterprise project"
                 )}
                 <br />
-                <span className="gradient-text">{t("till aktiebolag.", "to a limited company.")}</span>
+                <span className="gradient-text-on-dark">{t("till aktiebolag.", "to a limited company.")}</span>
               </h3>
               <p className="text-base leading-relaxed text-background/60">
                 {t(
@@ -222,7 +222,7 @@ export const HowItWorksBlock = () => {
                   {i + 1}
                 </span>
                 <div>
-                  <s.icon className="mb-2 h-5 w-5 text-primary" />
+                  <s.icon className="mb-2 h-5 w-5 text-secondary" />
                   <p className="font-serif text-lg font-medium text-background">{t(s.sv, s.en)}</p>
                 </div>
               </div>
@@ -251,7 +251,7 @@ export const HowItWorksBlock = () => {
               href="https://apps.apple.com/se/app/klimava/id6760266069"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-lg font-semibold text-primary hover:underline"
+              className="text-lg font-semibold text-secondary hover:underline"
               style={{ fontVariantLigatures: "none" }}
             >
               {language === "sv" ? (
