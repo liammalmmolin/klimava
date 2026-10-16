@@ -19,6 +19,7 @@ const Privacy = lazy(() => import("./pages/Privacy"));
 const Terms = lazy(() => import("./pages/Terms"));
 const Recycling = lazy(() => import("./pages/Recycling"));
 const Challenges = lazy(() => import("./pages/Challenges"));
+const TileDetail = lazy(() => import("./pages/TileDetail"));
 const SLPartnership = lazy(() => import("./pages/SLPartnership"));
 const Support = lazy(() => import("./pages/Support"));
 const Invite = lazy(() => import("./pages/Invite"));
@@ -48,6 +49,8 @@ const App = () => (
             <Route path="/kontakt" element={<Contact />} />
             <Route path="/team" element={<Team />} />
             <Route path="/atervinning" element={<Recycling />} />
+            <Route path="/klimatpaverkan" element={<TileDetail kind="climate" />} />
+            <Route path="/kollektivtrafik" element={<TileDetail kind="transit" />} />
             <Route path="/utmaningar" element={<Challenges />} />
             <Route path="/sl-samarbete" element={<SLPartnership />} />
             <Route path="/support" element={<Support />} />

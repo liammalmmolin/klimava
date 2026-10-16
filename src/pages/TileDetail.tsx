@@ -17,7 +17,7 @@ const CONTENT = {
 } as const;
 
 const TileDetail = ({ kind }: { kind: keyof typeof CONTENT }) => {
-  const { language, t } = useLanguage() as ReturnType<typeof useLanguage> & { language: "sv" | "en" };
+  const { language, t } = useLanguage();
   const navigate = useNavigate();
   const c = CONTENT[kind][language === "en" ? "en" : "sv"];
 
