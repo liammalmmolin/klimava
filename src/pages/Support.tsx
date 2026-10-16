@@ -7,7 +7,7 @@ import { Footer } from "@/components/Footer";
 import { ClosingQuote } from "@/components/ClosingQuote";
 import { StackSection } from "@/components/StackSection";
 import { Button } from "@/components/ui/button";
-import { Mail } from "react-coolicons";
+import { Mail } from "@/components/icons";
 import { Send } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { toast } from "@/components/ui/sonner";

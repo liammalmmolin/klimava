@@ -1,7 +1,7 @@
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { motion } from "framer-motion";
-import { Mail } from "react-coolicons";
+import { Mail } from "@/components/icons";
 import { Instagram, Music2 } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import contactBg from "@/assets/contact-bg.png?format=webp&quality=92";

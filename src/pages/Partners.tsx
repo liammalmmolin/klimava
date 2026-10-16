@@ -3,7 +3,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { ArrowRightMd } from "react-coolicons";
+import { ArrowRightMd } from "@/components/icons";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { partners } from "@/data/partners";
 

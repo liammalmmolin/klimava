@@ -5,7 +5,7 @@ import {
   MapPin,
   Star as TrophyStar,
   Users,
-} from "react-coolicons";
+} from "@/components/icons";
 import { CameraIcon as Camera, ChartBarIcon as ChartBarVertical01, GiftIcon as Gift } from "@/components/icons/StepIcons";
 import { BusIcon } from "@/components/icons/BusIcon";
 

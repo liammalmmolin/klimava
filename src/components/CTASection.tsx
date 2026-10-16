@@ -2,7 +2,7 @@ import { revealViewport } from "@/lib/motion";
 import { motion, useInView } from "framer-motion";
 import { useRef, type CSSProperties } from "react";
 import { Button } from "@/components/ui/button";
-import { Phone, Check, Lock } from "react-coolicons";
+import { Phone, Check, Lock } from "@/components/icons";
 import { Apple } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import klimavaIcon from "@/assets/klimava-logo.jpeg";

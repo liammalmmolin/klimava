@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { LanguageSwitch } from "@/components/LanguageSwitch";
-import { HamburgerLg, CloseLg } from "react-coolicons";
+import { HamburgerLg, CloseLg } from "@/components/icons";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { cn } from "@/lib/utils";
 import { Link } from "react-router-dom";

@@ -1,7 +1,7 @@
 import { revealViewport } from "@/lib/motion";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { MapPin, Star as TrophyStar, ArrowRightMd } from "react-coolicons";
+import { MapPin, Star as TrophyStar, ArrowRightMd } from "@/components/icons";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const teasers = [
