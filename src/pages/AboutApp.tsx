@@ -78,7 +78,7 @@ const AboutApp = () => {
                 key={f.title.sv}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "0px" }}
+                viewport={{ once: true, margin: "1200px 0px" }}
                 transition={{ duration: 0.5, delay: (i % 4) * 0.06 }}
                 className="bg-card p-6"
               >

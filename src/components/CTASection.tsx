@@ -85,7 +85,7 @@ export const CTASection = () => {
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, margin: "1200px 0px" }}
             transition={{ duration: 0.6, delay: 0.3 }}
             className="mt-12 flex flex-wrap items-center justify-center gap-3"
           >

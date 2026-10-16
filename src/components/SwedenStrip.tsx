@@ -62,7 +62,7 @@ export const SwedenStrip = () => {
         <motion.p
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "1200px 0px" }}
           transition={{ duration: 0.4 }}
           className="font-mono text-xs uppercase tracking-widest text-primary/80 mb-8"
         >
@@ -75,7 +75,7 @@ export const SwedenStrip = () => {
               <motion.div
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "0px" }}
+                viewport={{ once: true, margin: "1200px 0px" }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
                 className={`group relative aspect-[16/10] overflow-hidden md:aspect-[4/5] rounded-xl bg-secondary ${
                   tile.featured ? "ring-2 ring-primary shadow-elevated" : ""

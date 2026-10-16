@@ -142,7 +142,7 @@ export const HowItWorksBlock = () => {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "0px" }}
+            viewport={{ once: true, margin: "1200px 0px" }}
             transition={{ duration: 0.7 }}
             id="reklamfilm"
             className="gradient-bg relative mx-auto w-full max-w-6xl aspect-video overflow-hidden rounded-3xl shadow-elevated"
@@ -194,7 +194,7 @@ export const HowItWorksBlock = () => {
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "0px" }}
+              viewport={{ once: true, margin: "1200px 0px" }}
               transition={{ duration: 0.7 }}
             >
               <div
@@ -236,7 +236,7 @@ export const HowItWorksBlock = () => {
                 key={s.value + s.label.sv}
                 initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "0px" }}
+                viewport={{ once: true, margin: "1200px 0px" }}
                 transition={{ duration: 0.5, delay: i * 0.08 }}
                 className="text-center"
               >

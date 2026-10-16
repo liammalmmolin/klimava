@@ -128,7 +128,7 @@ const FeedbackCard = ({ category }: { category: (typeof feedbackCategories)[numb
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "0px" }}
+      viewport={{ once: true, margin: "1200px 0px" }}
       transition={{ duration: 0.5 }}
       className="rounded-3xl border border-border bg-card p-6 shadow-soft md:p-8"
     >
@@ -248,7 +248,7 @@ const Support = () => {
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                viewport={{ once: true, margin: "1200px 0px" }}
                 transition={{ duration: 0.5 }}
                 className="mb-12 text-center"
               >
@@ -266,7 +266,7 @@ const Support = () => {
                     key={item.q.sv}
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: "0px" }}
+                    viewport={{ once: true, margin: "1200px 0px" }}
                     transition={{ duration: 0.5, delay: (i % 2) * 0.08 }}
                     className="rounded-3xl border border-border bg-card p-8 shadow-soft"
                   >
@@ -287,7 +287,7 @@ const Support = () => {
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                viewport={{ once: true, margin: "1200px 0px" }}
                 transition={{ duration: 0.5 }}
                 className="mb-12 text-center"
               >
@@ -315,7 +315,7 @@ const Support = () => {
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                viewport={{ once: true, margin: "1200px 0px" }}
                 transition={{ duration: 0.5 }}
               >
                 <h2 className="font-heading text-3xl font-bold text-foreground md:text-4xl">

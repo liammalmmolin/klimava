@@ -18,7 +18,7 @@ export const PartnersSection = () => {
         <motion.p
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "1200px 0px" }}
           transition={{ duration: 0.4 }}
           className="text-center text-sm font-medium text-muted-foreground"
         >

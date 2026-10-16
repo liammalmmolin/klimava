@@ -43,7 +43,7 @@ const Partners = () => {
             <motion.div
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "0px" }}
+              viewport={{ once: true, margin: "1200px 0px" }}
               transition={{ duration: 0.6 }}
               className="max-w-5xl mx-auto mb-12"
             >
@@ -73,7 +73,7 @@ const Partners = () => {
                 key={p.name}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "0px" }}
+                viewport={{ once: true, margin: "1200px 0px" }}
                 transition={{ duration: 0.5, delay: (i % 3) * 0.08 }}
                 className="flex items-center gap-4 p-5 rounded-2xl border border-border bg-card"
               >
@@ -96,7 +96,7 @@ const Partners = () => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, margin: "1200px 0px" }}
             transition={{ duration: 0.6 }}
             className="max-w-2xl mx-auto text-center border border-border rounded-2xl p-8"
           >
