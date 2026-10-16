@@ -66,9 +66,10 @@ const AdVideo = ({ src }: { src: string }) => {
 
             {/* Single translucent button: the gradient sits on its own layer so the
                 play glyph stays fully opaque while the cover shows through. */}
-            <span className="relative flex h-14 w-14 items-center justify-center rounded-full shadow-elevated transition-transform duration-300 group-hover:scale-105 sm:h-20 sm:w-20 md:h-24 md:w-24">
+            <span className="relative flex h-14 w-14 items-center justify-center rounded-full shadow-play transition-transform duration-200 ease-out group-hover:scale-105 group-active:scale-95 sm:h-20 sm:w-20 md:h-24 md:w-24">
               <span className="absolute inset-0 rounded-full gradient-play border border-primary-foreground" />
-              <Play className="relative ml-0.5 h-6 w-6 text-primary-foreground sm:ml-1 sm:h-8 sm:w-8 md:h-10 md:w-10" />
+              <span className="pointer-events-none absolute inset-0 rounded-full play-depth" />
+              <Play className="relative ml-[0.08em] h-6 w-6 text-primary-foreground sm:h-8 sm:w-8 md:h-10 md:w-10" />
             </span>
 
             <span className="absolute bottom-5 left-5 right-5 hidden items-end sm:flex justify-between gap-4 md:bottom-8 md:left-8 md:right-8">
