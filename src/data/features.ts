@@ -51,7 +51,7 @@ export const features: Feature[] = [
     },
   },
   {
-    icon: Bus,
+    icon: BusIcon,
     title: { sv: "Kollektivtrafik med SL", en: "Public transport with SL" },
     desc: {
       sv: "Ladda upp kvittot på din SL-biljett och få poäng för varje hållbar resa du gör med tunnelbana, buss eller pendeltåg.",
