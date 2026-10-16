@@ -2,7 +2,7 @@ import { useRef, useState } from "react";
 import { AnimatePresence, motion, useInView } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Play, Camera, Gift, ChartBarVertical01 } from "react-coolicons";
-import { ScanBarcode } from "lucide-react";
+import { BarcodeIcon } from "@/components/icons/BarcodeIcon";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { stats } from "@/data/stats";
 import { AD_VIDEO_SRC } from "@/data/media";
