@@ -1,8 +1,8 @@
 import { useRef, useState } from "react";
 import { AnimatePresence, motion, useInView } from "framer-motion";
 import { Link } from "react-router-dom";
-import { Play, Camera, Gift, ChartBarVertical01 } from "react-coolicons";
-import { BarcodeIcon } from "@/components/icons/BarcodeIcon";
+import { Play } from "react-coolicons";
+import { CameraIcon as Camera, GiftIcon as Gift, ChartBarIcon as ChartBarVertical01, ScanIcon as BarcodeIcon } from "@/components/icons/StepIcons";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { stats } from "@/data/stats";
 import { AD_VIDEO_SRC } from "@/data/media";

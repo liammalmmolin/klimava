@@ -1,14 +1,12 @@
 import type { ComponentType, SVGProps } from "react";
 import {
-  Camera,
-  ChartBarVertical01,
-  Gift,
   Star,
   ShoppingBag01,
   MapPin,
   Star as TrophyStar,
   Users,
 } from "react-coolicons";
+import { CameraIcon as Camera, ChartBarIcon as ChartBarVertical01, GiftIcon as Gift } from "@/components/icons/StepIcons";
 import { BusIcon } from "@/components/icons/BusIcon";
 
 export interface Feature {
