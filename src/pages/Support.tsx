@@ -215,7 +215,7 @@ const Support = () => {
                   className="mx-auto mb-8 max-w-xl text-base leading-relaxed text-white/80 md:text-lg"
                 >
                   {t(
-                    "Sök bland våra vanligaste frågor eller hör av dig direkt — vi svarar snabbt.",
+                    "Läs våra vanligaste frågor eller hör av dig direkt — vi svarar snabbt.",
                     "Browse our most common questions or reach out directly — we reply fast."
                   )}
                 </motion.p>
