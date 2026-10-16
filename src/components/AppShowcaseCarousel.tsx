@@ -79,9 +79,9 @@ export const AppShowcaseCarousel = () => {
                 key={i}
                 className="min-w-0 shrink-0 grow-0 basis-[62%] px-3 sm:basis-[38%] md:basis-[26%]"
               >
-                <div ref={(node) => { visualRefs.current[i] = node; }} className="origin-center will-change-transform">
+                <div ref={(node) => { visualRefs.current[i] = node; }} className="origin-center">
                 <div className="rounded-[1.75rem] bg-card p-1.5 shadow-elevated">
-                  <img src={s.img} alt={t(s.sv, s.en)} width={s.width} height={s.height} draggable={false} className="block w-full rounded-[1.4rem] select-none" />
+                  <img src={s.img} alt={t(s.sv, s.en)} width={s.width} height={s.height} loading="lazy" decoding="async" draggable={false} className="block w-full rounded-[1.4rem] select-none" />
                 </div>
                 <p className="mt-3 text-center text-sm font-medium text-foreground/80">{t(s.sv, s.en)}</p>
                 </div>
