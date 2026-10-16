@@ -5,7 +5,7 @@ import { Play, Camera, Gift, ChartBarVertical01 } from "react-coolicons";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { stats } from "@/data/stats";
 import { AD_VIDEO_SRC } from "@/data/media";
-import { fadeUp } from "@/lib/motion";
+import { fadeUp, revealViewport } from "@/lib/motion";
 import { SwedenStrip } from "@/components/SwedenStrip";
 import teamPhoto from "@/assets/team-photo.jpg?format=webp&quality=92";
 import coverPhoto from "@/assets/contact-bg.png?format=webp&quality=92";
@@ -142,7 +142,7 @@ export const HowItWorksBlock = () => {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "1200px 0px" }}
+            viewport={revealViewport}
             transition={{ duration: 0.7 }}
             id="reklamfilm"
             className="gradient-bg relative mx-auto w-full max-w-6xl aspect-video overflow-hidden rounded-3xl shadow-elevated"
@@ -194,7 +194,7 @@ export const HowItWorksBlock = () => {
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "1200px 0px" }}
+              viewport={revealViewport}
               transition={{ duration: 0.7 }}
             >
               <div
@@ -236,8 +236,8 @@ export const HowItWorksBlock = () => {
                 key={s.value + s.label.sv}
                 initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "1200px 0px" }}
-                transition={{ duration: 0.5, delay: i * 0.08 }}
+                viewport={revealViewport}
+                transition={{ duration: 0.5}}
                 className="text-center"
               >
                 <div className="font-serif text-4xl font-semibold text-background md:text-5xl">{s.value}</div>
