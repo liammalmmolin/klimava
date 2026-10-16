@@ -16,7 +16,6 @@ export const BarcodeIcon = (props: SVGProps<SVGSVGElement>) => (
     {...props}
   >
     {/* Corner brackets */}
-    <path d="M4 3h2.5v2H6v.5H4V3z" opacity="0" />
     <path d="M3 2h4v2H5v2H3V2zm18 0h-4v2h2v2h2V2zM3 22h4v-2H5v-2H3v4zm18 0h-4v-2h2v-2h2v4z" />
     {/* Bars */}
     <rect x="6" y="7" width="1.8" height="10" rx="0.9" />
