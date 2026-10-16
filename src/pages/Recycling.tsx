@@ -36,24 +36,8 @@ const Recycling = () => {
 
             <div className="space-y-6 text-muted-foreground text-lg leading-relaxed">
               <p>{t(
-                "Klimava gör återvinning enklare, smartare och mer motiverande genom att kombinera GPS teknik med ett belöningssystem.",
-                "Klimava makes recycling easier, smarter and more motivating by combining GPS technology with a reward system."
-              )}</p>
-              <p>{t(
-                "När du använder appen känner den automatiskt av när du befinner dig nära en av våra utmarkerade återvinningsstationer. Så fort du kommer inom cirka 100 meter aktiveras en inbyggd scanner i appen.",
-                "When you use the app, it automatically detects when you are near one of our marked recycling stations. As soon as you come within about 100 meters, a built-in scanner is activated in the app."
-              )}</p>
-              <p>{t(
-                "På plats kan du enkelt scanna de produkter du vill återvinna. Klimava registrerar att du befinner dig på rätt plats och kopplar dina handlingar till ett faktiskt återvinningstillfälle.",
-                "On site, you can easily scan the products you want to recycle. Klimava registers that you are in the right place and links your actions to an actual recycling event."
-              )}</p>
-              <p>{t(
-                "Varje gång du återvinner korrekt och på rätt plats belönas du med poäng. Det gör att återvinning inte bara blir en vana utan något som känns direkt givande.",
-                "Every time you recycle correctly and in the right place, you are rewarded with points. This makes recycling not just a habit but something that feels immediately rewarding."
-              )}</p>
-              <p>{t(
-                "Genom att kombinera teknik, platsdata och beteendeförändring vill vi göra det enklare för fler att ta ansvar i vardagen. Med Klimava blir varje återvunnen produkt ett steg mot en mer hållbar livsstil och samtidigt en chans att tjäna belöningar.",
-                "By combining technology, location data and behavioral change, we want to make it easier for more people to take responsibility in everyday life. With Klimava, every recycled product becomes a step towards a more sustainable lifestyle and at the same time a chance to earn rewards."
+                "Klimava hittar automatiskt återvinningsstationer nära dig. När du är inom cirka 100 meter aktiveras appens scanner. Scanna dina produkter på plats, så registreras återvinningen och du får poäng att använda till belöningar.",
+                "Klimava automatically finds recycling stations near you. When you come within about 100 meters, the app's scanner is activated. Scan your products on site, your recycling is registered and you earn points to use for rewards."
               )}</p>
             </div>
           </motion.div>
