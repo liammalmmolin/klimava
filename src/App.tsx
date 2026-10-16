@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { lazy, Suspense } from "react";
 import { MotionConfig } from "framer-motion";
+import { HelmetProvider } from "react-helmet-async";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import ScrollToTop from "./components/ScrollToTop";
 import PageTitle from "./components/PageTitle";
@@ -26,6 +27,7 @@ const NotFound = lazy(() => import("./pages/NotFound"));
 const queryClient = new QueryClient();
 
 const App = () => (
+  <HelmetProvider>
   <QueryClientProvider client={queryClient}>
     <LanguageProvider>
       <MotionConfig reducedMotion="user">
@@ -59,6 +61,7 @@ const App = () => (
       </MotionConfig>
     </LanguageProvider>
   </QueryClientProvider>
+  </HelmetProvider>
 );
 
 export default App;
