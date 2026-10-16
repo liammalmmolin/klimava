@@ -28,8 +28,6 @@ const AdVideo = ({ src }: { src: string }) => {
   // Cover stays until the first frame actually plays, so there's no blank flash.
   const [playing, setPlaying] = useState(false);
   const [duration, setDuration] = useState<number>();
-  const coverRef = useRef<HTMLButtonElement>(null);
-  const coverVisible = useInView(coverRef, { margin: "150px" });
 
   const play = () => {
     setStarted(true);
@@ -55,7 +53,6 @@ const AdVideo = ({ src }: { src: string }) => {
       <AnimatePresence>
         {!playing && (
           <motion.button
-            ref={coverRef}
             type="button"
             onClick={started ? undefined : play}
             aria-label={t("Spela upp filmen", "Play the film")}
@@ -68,12 +65,11 @@ const AdVideo = ({ src }: { src: string }) => {
             <img width={1920} height={1080} loading="lazy" decoding="async" src={posterSrc} srcSet={posterSet} sizes="(min-width: 1152px) 1152px, 100vw" alt="" className="absolute inset-0 h-full w-full object-cover" />
             <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 via-transparent to-transparent" />
 
-            <span className="relative flex items-center justify-center">
-              <span className={`absolute h-full w-full animate-ping rounded-full gradient-bg opacity-30 [animation-duration:2.4s] ${coverVisible ? "" : "motion-paused"}`} />
-              <span className="absolute -inset-3 rounded-full border border-background/25 sm:-inset-4 md:-inset-6" />
-              <span className="relative flex h-16 w-16 items-center justify-center rounded-full gradient-bg text-primary-foreground shadow-elevated transition-transform duration-300 group-hover:scale-110 sm:h-24 sm:w-24 md:h-32 md:w-32">
-                <Play className="ml-1 h-7 w-7 sm:h-10 sm:w-10 md:ml-2 md:h-14 md:w-14" />
-              </span>
+            {/* Single translucent button: the gradient sits on its own layer so the
+                play glyph stays fully opaque while the cover shows through. */}
+            <span className="relative flex h-14 w-14 items-center justify-center rounded-full border border-background/25 shadow-elevated transition-transform duration-300 group-hover:scale-105 sm:h-20 sm:w-20 md:h-24 md:w-24">
+              <span className="absolute inset-0 rounded-full gradient-bg opacity-55" />
+              <Play className="relative ml-0.5 h-6 w-6 text-primary-foreground sm:ml-1 sm:h-8 sm:w-8 md:h-10 md:w-10" />
             </span>
 
             <span className="absolute bottom-5 left-5 right-5 hidden items-end sm:flex justify-between gap-4 md:bottom-8 md:left-8 md:right-8">
