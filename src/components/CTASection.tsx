@@ -37,31 +37,29 @@ export const CTASection = () => {
               className="download-glow pointer-events-none absolute -inset-12 rounded-full"
               aria-hidden
             />
-            {/* Particles: CSS loops on the compositor, paused off-screen. */}
+            {/* Icon + particles share one float layer: same speed, amplitude and timing.
+                CSS loops on the compositor, paused off-screen, disabled for reduced motion. */}
             <div
-              className={`animate-float-y pointer-events-none absolute inset-0 ${visible ? "" : "motion-paused"}`}
+              className={`animate-float-y absolute inset-0 flex items-center justify-center ${visible ? "" : "motion-paused"}`}
               style={{ "--float-distance": "-14px", "--float-duration": "3.4s" } as CSSProperties}
-              aria-hidden
             >
-            {glitterDots.map((d, i) => (
-              <span
-                key={i}
-                className="animate-glitter absolute rounded-full bg-primary-foreground"
-                style={{
-                  top: d.top, left: d.left, width: d.size, height: d.size,
-                  "--glitter-duration": `${d.duration}s`, "--glitter-delay": `${d.delay}s`,
-                } as CSSProperties}
-                aria-hidden
-              />
-            ))}
-            </div>
-
-            {/* Icon floats gently via CSS keyframes (compositor thread), paused off-screen and disabled for reduced motion. */}
-            <div
-              className={`animate-float-y relative h-28 w-28 overflow-hidden rounded-[1.75rem] shadow-elevated md:h-40 md:w-40 ${visible ? "" : "motion-paused"}`}
-              style={{ "--float-distance": "-8px", "--float-duration": "5s" } as CSSProperties}
-            >
-              <img src={klimavaIcon} width={160} height={160} loading="lazy" decoding="async" alt="Klimava" className="h-full w-full object-cover" />
+              <div className="pointer-events-none absolute inset-0" aria-hidden>
+                {glitterDots.map((d, i) => (
+                  <span
+                    key={i}
+                    className="animate-glitter absolute rounded-full bg-primary-foreground"
+                    style={{
+                      top: d.top, left: d.left, width: d.size, height: d.size,
+                      "--glitter-duration": `${d.duration}s`, "--glitter-delay": `${d.delay}s`,
+                      "--drift-x": d.dx, "--drift-y": d.dy,
+                    } as CSSProperties}
+                    aria-hidden
+                  />
+                ))}
+              </div>
+              <div className="relative h-28 w-28 overflow-hidden rounded-[1.75rem] shadow-elevated md:h-40 md:w-40">
+                <img src={klimavaIcon} width={160} height={160} loading="lazy" decoding="async" alt="Klimava" className="h-full w-full object-cover" />
+              </div>
             </div>
           </div>
 
