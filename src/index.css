@@ -60,6 +60,10 @@
     --gradient-text: linear-gradient(135deg, hsl(188 70% 30%) 0%, hsl(91 55% 38%) 100%);
     --gradient-text-on-dark: linear-gradient(135deg, hsl(188 70% 50%) 0%, hsl(91 60% 56%) 100%);
     --gradient-text-on-photo: linear-gradient(135deg, hsl(188 72% 88%) 0%, hsl(91 66% 86%) 100%);
+    /* Play button: same petrol→lime scale, desaturated and dimmed, with an
+       intermediate stop so the two hues blend gradually instead of clashing.
+       Fully opaque — the cover must never show through the button. */
+    --gradient-play: linear-gradient(135deg, hsl(188 46% 31%) 0%, hsl(170 43% 37%) 48%, hsl(91 40% 45%) 100%);
     --gradient-hero: linear-gradient(180deg, hsl(140 20% 97%) 0%, hsl(140 24% 93%) 50%, hsl(140 20% 97%) 100%);
     --shadow-soft: 0 4px 20px -4px hsl(192 30% 10% / 0.25);
     --shadow-card: 0 8px 30px -8px hsl(192 30% 10% / 0.35);
@@ -159,6 +163,10 @@
 
   .gradient-bg {
     background-image: var(--gradient-primary);
+  }
+
+  .gradient-play {
+    background-image: var(--gradient-play);
   }
 
   .download-glow {
