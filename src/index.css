@@ -211,8 +211,8 @@
   }
 
   @keyframes glitter {
-    0%, 100% { opacity: 0.1; transform: scale(0.5); }
-    50% { opacity: 1; transform: scale(1.3); }
+    0%, 100% { opacity: 0.1; transform: translate(0, 0) scale(0.5); }
+    50% { opacity: 1; transform: translate(var(--drift-x, 0), var(--drift-y, 0)) scale(1.3); }
   }
   .animate-glitter {
     opacity: 0.1;

@@ -7,18 +7,19 @@ import { Apple } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import klimavaIcon from "@/assets/klimava-logo.jpeg";
 
-// Fixed scatter of sparkle dots around the icon — computed once, not randomized per render.
+// Organic scatter of sparkle dots around the icon — irregular distances, no perfect circle.
+// Each dot has a small individual drift (dx/dy) on top of the shared float.
 const glitterDots = [
-  { top: "6%", left: "18%", size: 4, duration: 2.2, delay: 0 },
-  { top: "12%", left: "82%", size: 3, duration: 1.8, delay: 0.4 },
-  { top: "28%", left: "4%", size: 3, duration: 2.6, delay: 0.9 },
-  { top: "22%", left: "94%", size: 4, duration: 2, delay: 0.2 },
-  { top: "50%", left: "0%", size: 2, duration: 1.6, delay: 1.2 },
-  { top: "48%", left: "98%", size: 3, duration: 2.4, delay: 0.6 },
-  { top: "74%", left: "8%", size: 3, duration: 2, delay: 1.5 },
-  { top: "78%", left: "90%", size: 2, duration: 1.9, delay: 0.3 },
-  { top: "92%", left: "30%", size: 4, duration: 2.3, delay: 1 },
-  { top: "90%", left: "68%", size: 3, duration: 1.7, delay: 0.7 },
+  { top: "9%", left: "22%", size: 4, duration: 2.2, delay: 0, dx: "3px", dy: "-4px" },
+  { top: "4%", left: "61%", size: 3, duration: 1.8, delay: 0.4, dx: "-3px", dy: "3px" },
+  { top: "16%", left: "88%", size: 3, duration: 2.6, delay: 0.9, dx: "2px", dy: "4px" },
+  { top: "31%", left: "3%", size: 3, duration: 2, delay: 0.2, dx: "-4px", dy: "-2px" },
+  { top: "44%", left: "93%", size: 4, duration: 2.4, delay: 1.2, dx: "3px", dy: "2px" },
+  { top: "57%", left: "1%", size: 2, duration: 1.6, delay: 0.6, dx: "2px", dy: "-3px" },
+  { top: "71%", left: "11%", size: 3, duration: 2, delay: 1.5, dx: "-2px", dy: "4px" },
+  { top: "83%", left: "86%", size: 2, duration: 1.9, delay: 0.3, dx: "4px", dy: "-2px" },
+  { top: "93%", left: "38%", size: 4, duration: 2.3, delay: 1, dx: "-3px", dy: "-3px" },
+  { top: "88%", left: "64%", size: 3, duration: 1.7, delay: 0.7, dx: "2px", dy: "3px" },
 ];
 
 export const CTASection = () => {
@@ -36,31 +37,29 @@ export const CTASection = () => {
               className="download-glow pointer-events-none absolute -inset-12 rounded-full"
               aria-hidden
             />
-            {/* Particles: CSS loops on the compositor, paused off-screen. */}
+            {/* Icon + particles share one float layer: same speed, amplitude and timing.
+                CSS loops on the compositor, paused off-screen, disabled for reduced motion. */}
             <div
-              className={`animate-float-y pointer-events-none absolute inset-0 ${visible ? "" : "motion-paused"}`}
+              className={`animate-float-y absolute inset-0 flex items-center justify-center ${visible ? "" : "motion-paused"}`}
               style={{ "--float-distance": "-14px", "--float-duration": "3.4s" } as CSSProperties}
-              aria-hidden
             >
-            {glitterDots.map((d, i) => (
-              <span
-                key={i}
-                className="animate-glitter absolute rounded-full bg-primary-foreground"
-                style={{
-                  top: d.top, left: d.left, width: d.size, height: d.size,
-                  "--glitter-duration": `${d.duration}s`, "--glitter-delay": `${d.delay}s`,
-                } as CSSProperties}
-                aria-hidden
-              />
-            ))}
-            </div>
-
-            {/* Icon floats gently via CSS keyframes (compositor thread), paused off-screen and disabled for reduced motion. */}
-            <div
-              className={`animate-float-y relative h-28 w-28 overflow-hidden rounded-[1.75rem] shadow-elevated md:h-40 md:w-40 ${visible ? "" : "motion-paused"}`}
-              style={{ "--float-distance": "-8px", "--float-duration": "5s" } as CSSProperties}
-            >
-              <img src={klimavaIcon} width={160} height={160} loading="lazy" decoding="async" alt="Klimava" className="h-full w-full object-cover" />
+              <div className="pointer-events-none absolute inset-0" aria-hidden>
+                {glitterDots.map((d, i) => (
+                  <span
+                    key={i}
+                    className="animate-glitter absolute rounded-full bg-primary-foreground"
+                    style={{
+                      top: d.top, left: d.left, width: d.size, height: d.size,
+                      "--glitter-duration": `${d.duration}s`, "--glitter-delay": `${d.delay}s`,
+                      "--drift-x": d.dx, "--drift-y": d.dy,
+                    } as CSSProperties}
+                    aria-hidden
+                  />
+                ))}
+              </div>
+              <div className="relative h-28 w-28 overflow-hidden rounded-[1.75rem] shadow-elevated md:h-40 md:w-40">
+                <img src={klimavaIcon} width={160} height={160} loading="lazy" decoding="async" alt="Klimava" className="h-full w-full object-cover" />
+              </div>
             </div>
           </div>
 
