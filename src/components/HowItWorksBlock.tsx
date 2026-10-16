@@ -9,7 +9,8 @@ import { AD_VIDEO_SRC } from "@/data/media";
 import { fadeUp, revealViewport } from "@/lib/motion";
 import { SwedenStrip } from "@/components/SwedenStrip";
 import teamPhoto from "@/assets/team-photo.jpg?format=webp&quality=92";
-import coverPhoto from "@/assets/contact-bg.png?format=webp&quality=92";
+import posterSet from "@/assets/ad-poster.jpg?w=960;1440;1920&format=webp&quality=88&as=srcset";
+import posterSrc from "@/assets/ad-poster.jpg?w=1440&format=webp&quality=88";
 import logo from "@/assets/klimava-logo.jpeg";
 
 const steps = [
@@ -24,6 +25,8 @@ const AdVideo = ({ src }: { src: string }) => {
   const { t } = useLanguage();
   const videoRef = useRef<HTMLVideoElement>(null);
   const [started, setStarted] = useState(false);
+  // Cover stays until the first frame actually plays, so there's no blank flash.
+  const [playing, setPlaying] = useState(false);
   const [duration, setDuration] = useState<number>();
   const coverRef = useRef<HTMLButtonElement>(null);
   const coverVisible = useInView(coverRef, { margin: "150px" });
@@ -34,7 +37,7 @@ const AdVideo = ({ src }: { src: string }) => {
     if (!video) return;
     video.currentTime = 0;
     video.src = src;
-    void video.play().catch(() => setStarted(false));
+    void video.play().catch(() => { setStarted(false); setPlaying(false); });
   };
 
   return (
@@ -44,26 +47,26 @@ const AdVideo = ({ src }: { src: string }) => {
         controls={started}
         playsInline
         preload="none"
+        poster={posterSrc}
+        onPlaying={() => setPlaying(true)}
         onLoadedMetadata={(e) => setDuration(e.currentTarget.duration)}
         className="h-full w-full object-cover"
       />
       <AnimatePresence>
-        {!started && (
+        {!playing && (
           <motion.button
             ref={coverRef}
             type="button"
-            onClick={play}
+            onClick={started ? undefined : play}
             aria-label={t("Spela upp filmen", "Play the film")}
             initial={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.4 }}
             className="group absolute inset-0 flex cursor-pointer flex-col items-center justify-center text-left"
           >
-            {/* Misty forest canopy with a brand tint — doesn't give away what's in the film */}
-            <img width={956} height={944} loading="lazy" decoding="async" src={coverPhoto} alt="" className="absolute inset-0 h-full w-full object-cover object-[50%_65%]" />
-            <div className="absolute inset-0 gradient-bg opacity-50 mix-blend-soft-light" />
-            <div className="absolute inset-0 bg-gradient-to-t from-foreground/85 via-foreground/10 to-transparent" />
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_40%,hsl(var(--foreground)/0.4)_100%)]" />
+            {/* Still from the film's opening (0.5 s, past the black lead-in) */}
+            <img width={1920} height={1080} loading="lazy" decoding="async" src={posterSrc} srcSet={posterSet} sizes="(min-width: 1152px) 1152px, 100vw" alt="" className="absolute inset-0 h-full w-full object-cover" />
+            <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 via-transparent to-transparent" />
 
             <span className="relative flex items-center justify-center">
               <span className={`absolute h-full w-full animate-ping rounded-full gradient-bg opacity-30 [animation-duration:2.4s] ${coverVisible ? "" : "motion-paused"}`} />
