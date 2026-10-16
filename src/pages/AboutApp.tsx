@@ -67,8 +67,8 @@ const AboutApp = () => {
           <motion.div {...fadeUp} className="mb-6">
             <h2 className="text-2xl md:text-3xl font-bold text-foreground max-w-md">
               {t(
-                <>Nio sätt att <span className="gradient-text">samla poäng.</span></>,
-                <>Nine ways to <span className="gradient-text">earn points.</span></>
+                <>Det här kan du göra <span className="gradient-text">i Klimava.</span></>,
+                <>What you can do <span className="gradient-text">in Klimava.</span></>
               )}
             </h2>
           </motion.div>

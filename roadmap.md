@@ -25,3 +25,8 @@ Publication limit: corrected code verified locally against live image files; kli
 - [x] Start all scroll reveals 2400px ahead in both directions and remove unnecessary grid/badge delays; cap word stagger at 150ms, preserving effects and geometry.
 - [x] Prepare responsive images two viewport heights earlier in both scroll directions without per-scroll React updates.
 - [x] Test rapid scrolling down/up across 12 routes with fresh contexts and cached reloads, mobile 402x725 and desktop 1280x900, Chromium and WebKit. No runtime errors; seven regression tests pass. Screenshots confirm unchanged tile design. Remaining low-opacity detections on about-app include intentionally faded carousel sides; no guarantee for arbitrary instant jumps or unbounded network delays. No physical iPhone tested.
+
+# Feature wording
+- [x] Replace the app-page heading without changing feature cards.
+- [x] Remove the unverified earning-activity count; website descriptions are not current app confirmation, so use the requested number-free message.
+- [ ] Verify both changed sections on mobile and desktop.
