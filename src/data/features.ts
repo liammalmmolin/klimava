@@ -30,8 +30,8 @@ export const features: Feature[] = [
     icon: Camera,
     title: { sv: "Fota kvittot", en: "Scan your receipt" },
     desc: {
-      sv: "Ta en bild på matkvittot. Vår OCR-teknik läser av det och matchar produkterna mot en databas med över 400 000 livsmedelsprodukter för att hitta hållbara val.",
-      en: "Take a photo of your grocery receipt. Our OCR technology reads it and matches the products against a database of over 400,000 food products to find sustainable choices.",
+      sv: "Ta en bild på matkvittot och skanna sedan streckkoderna på det du vill registrera. Klimava matchar produkterna mot kvittot och hittar hållbara val – godkända produkter ger poäng enligt appens villkor.",
+      en: "Take a photo of your grocery receipt, then scan the barcodes of the items you want to register. Klimava matches the products against the receipt and finds sustainable choices – approved products earn points according to the app's terms.",
     },
   },
   {

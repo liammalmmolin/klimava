@@ -26,8 +26,8 @@ const faqs = [
   {
     q: { sv: "Hur samlar jag poäng?", en: "How do I earn points?" },
     a: {
-      sv: "Fota kvitton på hållbara köp, registrera återvinning på plats, ladda upp din SL-biljett, handla second hand eller delta i veckans klimatutmaningar — varje val ger poäng automatiskt.",
-      en: "Photograph receipts for sustainable purchases, register recycling on the spot, upload your SL ticket, shop second-hand or join this week's climate challenge — every choice earns points automatically.",
+      sv: "Fota kvittot och skanna produkternas streckkoder, registrera återvinning på plats, ladda upp din SL-biljett, handla second hand eller delta i veckans klimatutmaningar — godkända aktiviteter och produkter ger poäng enligt appens villkor.",
+      en: "Photograph the receipt and scan the products' barcodes, register recycling on the spot, upload your SL ticket, shop second-hand or join this week's climate challenge — approved activities and products earn points according to the app's terms.",
     },
   },
   {

@@ -106,8 +106,8 @@ const AboutApp = () => {
                   "After shopping at the grocery store, you open the app and take a photo of the receipt."
                 )}</p>
                 <p>{t(
-                  "Vår OCR-teknik läser av kvittot och identifierar vilka produkter du köpt. Sedan scannar du streckkoden på det du vill registrera.",
-                  "Our OCR technology reads the receipt and identifies which products you bought. Then you scan the barcode of what you want to register."
+                  "Appen läser av kvittot och identifierar vilka produkter du köpt. Sedan scannar du streckkoden på det du vill registrera.",
+                  "The app reads the receipt and identifies which products you bought. Then you scan the barcode of what you want to register."
                 )}</p>
                 <p>{t(
                   "Klimava matchar de scannade produkterna mot kvittot för att bekräfta köpet, och jämför dem mot vår databas med över 400 000 livsmedelsprodukter för att hitta hållbara val.",
