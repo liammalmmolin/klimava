@@ -1,5 +1,5 @@
-import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 const TITLES: Record<string, string> = {
   "/": "Klimava – Hållbara val som belönar dig",
@@ -16,14 +16,24 @@ const TITLES: Record<string, string> = {
   "/invite": "Bjud in vänner – Klimava",
 };
 
+const DESCRIPTIONS: Record<string, string> = {
+  "/": "Gör hållbara val med Klimava. Skanna kvitton och produkter, samla poäng för godkända aktiviteter och lös in belöningar.",
+  "/om-appen": "Upptäck Klimavas funktioner: skanna kvitton och produkter, återvinn, delta i utmaningar och följ din klimatpåverkan.",
+  "/partners": "Möt Klimavas partners och upptäck företagen bakom belöningarna samt vårt samarbete med SL för kollektivresor.",
+  "/kontakt": "Kontakta Klimava. Välj användarsupport för frågor om appen eller företagskontakt för partnerskap och samarbeten.",
+  "/support": "Få hjälp med Klimava och hitta svar om kvittoskanning, poäng, belöningar och ditt konto. Kontakta användarsupport vid behov.",
+  "/team": "Möt teamet bakom Klimava: Linus, Dante, Christian och Liam. Lär känna grundarna och deras roller i företaget.",
+};
+
 const PageTitle = () => {
   const { pathname } = useLocation();
 
-  useEffect(() => {
-    document.title = TITLES[pathname] ?? "Sidan hittades inte – Klimava";
-  }, [pathname]);
-
-  return null;
+  return (
+    <Helmet>
+      <title>{TITLES[pathname] ?? "Sidan hittades inte – Klimava"}</title>
+      <meta name="description" content={DESCRIPTIONS[pathname] ?? DESCRIPTIONS["/"]} />
+    </Helmet>
+  );
 };
 
 export default PageTitle;

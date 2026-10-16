@@ -140,7 +140,7 @@ export const HeroSection = ({ scale }: HeroSectionProps) => {
             >
               {t("Små handlingar.", "Small actions.")}
               <br />
-              <span className="gradient-text">{t("Stor påverkan.", "Big impact.")}</span>
+               <span className="gradient-text-on-photo">{t("Stor påverkan.", "Big impact.")}</span>
             </motion.h1>
 
             <motion.p
