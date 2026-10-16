@@ -1,5 +1,5 @@
-import { motion, useInView, useReducedMotion } from "framer-motion";
-import { useRef } from "react";
+import { motion, useInView } from "framer-motion";
+import { useRef, type CSSProperties } from "react";
 import { Button } from "@/components/ui/button";
 import { Phone, Check, Lock } from "react-coolicons";
 import { Apple } from "lucide-react";
@@ -24,8 +24,6 @@ export const CTASection = () => {
   const { t } = useLanguage();
   const sectionRef = useRef<HTMLElement>(null);
   const visible = useInView(sectionRef, { margin: "150px" });
-  const reducedMotion = useReducedMotion();
-  const moving = visible && !reducedMotion;
 
   return (
     <section ref={sectionRef} id="download" className="relative overflow-hidden bg-foreground py-28">
@@ -37,24 +35,24 @@ export const CTASection = () => {
               className="download-glow pointer-events-none absolute -inset-12 rounded-full"
               aria-hidden
             />
-            <motion.div
-              animate={{ y: moving ? [0, -14, 0] : 0 }}
-              transition={{ duration: 3.4, repeat: Infinity, ease: "easeInOut" }}
-              className="pointer-events-none absolute inset-0"
+            {/* Particles: CSS loops on the compositor, paused off-screen. */}
+            <div
+              className={`animate-float-y pointer-events-none absolute inset-0 ${visible ? "" : "motion-paused"}`}
+              style={{ "--float-distance": "-14px", "--float-duration": "3.4s" } as CSSProperties}
               aria-hidden
             >
-            {/* Glitter dots */}
             {glitterDots.map((d, i) => (
-              <motion.span
+              <span
                 key={i}
-                className="absolute rounded-full bg-primary-foreground"
-                style={{ top: d.top, left: d.left, width: d.size, height: d.size }}
-                animate={{ opacity: moving ? [0.1, 1, 0.1] : 0.5, scale: moving ? [0.5, 1.3, 0.5] : 1 }}
-                transition={{ duration: d.duration, repeat: Infinity, delay: d.delay, ease: "easeInOut" }}
+                className="animate-glitter absolute rounded-full bg-primary-foreground"
+                style={{
+                  top: d.top, left: d.left, width: d.size, height: d.size,
+                  "--glitter-duration": `${d.duration}s`, "--glitter-delay": `${d.delay}s`,
+                } as CSSProperties}
                 aria-hidden
               />
             ))}
-            </motion.div>
+            </div>
 
             <div
               className="relative h-28 w-28 overflow-hidden rounded-[1.75rem] shadow-elevated md:h-40 md:w-40"
@@ -91,15 +89,15 @@ export const CTASection = () => {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="mt-12 flex flex-wrap items-center justify-center gap-3"
           >
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-background/15 bg-background/10 px-3.5 py-1.5 text-xs font-medium text-background backdrop-blur-sm">
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-background/15 bg-background/10 px-3.5 py-1.5 text-xs font-medium text-background">
               <Phone className="h-3.5 w-3.5 text-secondary" />
               {t("Gratis att använda", "Free to use")}
             </span>
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-background/15 bg-background/10 px-3.5 py-1.5 text-xs font-medium text-background backdrop-blur-sm">
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-background/15 bg-background/10 px-3.5 py-1.5 text-xs font-medium text-background">
               <Check className="h-3.5 w-3.5 text-secondary" />
               {t("Inga dolda kostnader", "No hidden costs")}
             </span>
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-background/15 bg-background/10 px-3.5 py-1.5 text-xs font-medium text-background backdrop-blur-sm">
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-background/15 bg-background/10 px-3.5 py-1.5 text-xs font-medium text-background">
               <Lock className="h-3.5 w-3.5 text-secondary" />
               {t("GDPR-säker", "GDPR compliant")}
             </span>

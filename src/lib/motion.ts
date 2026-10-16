@@ -4,7 +4,7 @@ import type { Variants, Transition } from "framer-motion";
 export const fadeUp = {
   initial: { opacity: 0, y: 30 },
   whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true, margin: "-60px" },
+  viewport: { once: true, margin: "0px" },
   transition: { duration: 0.6 },
 } as const;
 
@@ -12,7 +12,7 @@ export const fadeUp = {
 export const fadeUpSm = {
   initial: { opacity: 0, y: 20 },
   whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true, margin: "-40px" },
+  viewport: { once: true, margin: "0px" },
   transition: { duration: 0.5 },
 } as const;
 

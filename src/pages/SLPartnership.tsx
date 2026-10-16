@@ -46,8 +46,8 @@ const SLPartnership = () => {
           {/* Glow orbs */}
           <div
             aria-hidden
-            className="absolute -top-40 left-1/2 -translate-x-1/2 w-[900px] h-[900px] rounded-full blur-[140px] opacity-40 -z-10"
-            style={{ background: `radial-gradient(circle, ${SL_BLUE}, transparent 60%)` }}
+            className="absolute -top-[310px] left-1/2 -translate-x-1/2 w-[1200px] h-[1200px] opacity-40 -z-10"
+            style={{ background: "radial-gradient(circle closest-side, rgb(0 137 207 / 0.54) 0%, rgb(0 137 207 / 0.5) 15%, rgb(0 137 207 / 0.39) 30%, rgb(0 137 207 / 0.25) 45%, rgb(0 137 207 / 0.13) 60%, rgb(0 137 207 / 0.05) 75%, rgb(0 137 207 / 0.016) 90%, rgb(0 137 207 / 0) 100%)" }}
           />
 
           <div className="container mx-auto px-6 pt-28 md:pt-36 pb-20 md:pb-28">
@@ -247,7 +247,7 @@ const SLPartnership = () => {
                       key={i}
                       initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true, margin: "-50px" }}
+                      viewport={{ once: true, margin: "0px" }}
                       transition={{ duration: 0.5, delay: i * 0.05 }}
                       className={`relative flex md:items-center gap-5 md:gap-0 ${
                         left ? "md:flex-row" : "md:flex-row-reverse"
