@@ -13,8 +13,6 @@ const TITLES: Record<string, string> = {
   "/integritetspolicy": "Integritetspolicy – Klimava",
   "/anvandarvillkor": "Användarvillkor – Klimava",
   "/atervinning": "Återvinning – Klimava",
-  "/klimatpaverkan": "Klimatpåverkan – Klimava",
-  "/kollektivtrafik": "Kollektivtrafik – Klimava",
   "/utmaningar": "Utmaningar – Klimava",
   "/sl-samarbete": "SL-samarbete – Klimava",
   "/invite": "Bjud in vänner – Klimava",
