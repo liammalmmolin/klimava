@@ -21,7 +21,7 @@ export const partners: Partner[] = [
   { name: "ACT", logo: actLogo, desc: { sv: "Hållbara vardagsprodukter", en: "Sustainable everyday products" } },
   { name: "Swedish Nutra", logo: swedishNutraLogo, desc: { sv: "Naturliga kosttillskott", en: "Natural supplements" } },
   { name: "Great Earth", logo: greatEarthLogo, desc: { sv: "Hälsokost och vitaminer", en: "Health food and vitamins" } },
-  { name: "N", logo: nAppLogo, desc: { sv: "Hållbar livsstilsapp", en: "Sustainable lifestyle app" } },
+  { name: "Nextory", logo: nAppLogo, desc: { sv: "Ljudböcker och e-böcker", en: "Audiobooks and e-books" } },
   { name: "Rekoshoppen", logo: rekoshoppenLogo, desc: { sv: "Lokalproducerad mat direkt från bonden", en: "Locally produced food direct from the farmer" } },
   { name: "Store Enda", logo: storeEndaLogo, desc: { sv: "Hållbart mode och accessoarer", en: "Sustainable fashion and accessories" } },
 ];
