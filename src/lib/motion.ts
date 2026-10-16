@@ -1,7 +1,7 @@
 import type { Variants, Transition } from "framer-motion";
 
 /** Finish reveals before content arrives on screen; never replay on return. */
-export const revealViewport = { once: true, margin: "1200px 0px", amount: "some" } as const;
+export const revealViewport = { once: true, margin: "2400px 0px", amount: "some" } as const;
 
 /** Shared scroll-reveal: fade up ahead of view, once. Spread as {...fadeUp}. */
 export const fadeUp = {
