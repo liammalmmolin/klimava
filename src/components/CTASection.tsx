@@ -7,18 +7,19 @@ import { Apple } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import klimavaIcon from "@/assets/klimava-logo.jpeg";
 
-// Fixed scatter of sparkle dots around the icon — computed once, not randomized per render.
+// Organic scatter of sparkle dots around the icon — irregular distances, no perfect circle.
+// Each dot has a small individual drift (dx/dy) on top of the shared float.
 const glitterDots = [
-  { top: "6%", left: "18%", size: 4, duration: 2.2, delay: 0 },
-  { top: "12%", left: "82%", size: 3, duration: 1.8, delay: 0.4 },
-  { top: "28%", left: "4%", size: 3, duration: 2.6, delay: 0.9 },
-  { top: "22%", left: "94%", size: 4, duration: 2, delay: 0.2 },
-  { top: "50%", left: "0%", size: 2, duration: 1.6, delay: 1.2 },
-  { top: "48%", left: "98%", size: 3, duration: 2.4, delay: 0.6 },
-  { top: "74%", left: "8%", size: 3, duration: 2, delay: 1.5 },
-  { top: "78%", left: "90%", size: 2, duration: 1.9, delay: 0.3 },
-  { top: "92%", left: "30%", size: 4, duration: 2.3, delay: 1 },
-  { top: "90%", left: "68%", size: 3, duration: 1.7, delay: 0.7 },
+  { top: "9%", left: "22%", size: 4, duration: 2.2, delay: 0, dx: "3px", dy: "-4px" },
+  { top: "4%", left: "61%", size: 3, duration: 1.8, delay: 0.4, dx: "-3px", dy: "3px" },
+  { top: "16%", left: "88%", size: 3, duration: 2.6, delay: 0.9, dx: "2px", dy: "4px" },
+  { top: "31%", left: "3%", size: 3, duration: 2, delay: 0.2, dx: "-4px", dy: "-2px" },
+  { top: "44%", left: "93%", size: 4, duration: 2.4, delay: 1.2, dx: "3px", dy: "2px" },
+  { top: "57%", left: "1%", size: 2, duration: 1.6, delay: 0.6, dx: "2px", dy: "-3px" },
+  { top: "71%", left: "11%", size: 3, duration: 2, delay: 1.5, dx: "-2px", dy: "4px" },
+  { top: "83%", left: "86%", size: 2, duration: 1.9, delay: 0.3, dx: "4px", dy: "-2px" },
+  { top: "93%", left: "38%", size: 4, duration: 2.3, delay: 1, dx: "-3px", dy: "-3px" },
+  { top: "88%", left: "64%", size: 3, duration: 1.7, delay: 0.7, dx: "2px", dy: "3px" },
 ];
 
 export const CTASection = () => {
