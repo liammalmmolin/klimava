@@ -1,7 +1,7 @@
 import { motion, useMotionValueEvent, useScroll, type MotionValue } from "framer-motion";
 import { useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
-import { Star, Play } from "react-coolicons";
+import { Star, Play } from "@/components/icons";
 import appStoreBadge from "@/assets/app-store-badge.png?format=webp&quality=92";
 import forestPhoto from "@/assets/sweden-forest.jpg?format=webp&quality=88";
 import forestSources from "@/assets/sweden-forest.jpg?w=800;1600;2400&format=webp&quality=88&as=srcset";

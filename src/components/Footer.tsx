@@ -1,5 +1,5 @@
 import klimavaLogo from "@/assets/klimava-logo.jpeg";
-import { Mail } from "react-coolicons";
+import { Mail } from "@/components/icons";
 import { Instagram } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";

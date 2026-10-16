@@ -4,8 +4,8 @@ import { motion } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
 import { Apple } from "lucide-react";
-import { ArrowRightMd, Check, Phone, Leaf, Lock } from "react-coolicons";
-import { CameraIcon as Camera } from "@/components/icons/StepIcons";
+import { ArrowRightMd, Camera, Check, Phone, Leaf, Lock } from "@/components/icons";
+
 import { Upload } from "lucide-react";
 import { fadeUp, revealViewport } from "@/lib/motion";
 import appDashboard from "@/assets/klimava-online-kvitto.jpeg?format=webp&quality=92";
