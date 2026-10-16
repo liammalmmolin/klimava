@@ -45,7 +45,6 @@ const AdVideo = ({ src }: { src: string }) => {
         controls={started}
         playsInline
         preload="none"
-        poster={posterSrc}
         onPlaying={() => setPlaying(true)}
         onLoadedMetadata={(e) => setDuration(e.currentTarget.duration)}
         className="h-full w-full object-cover"
