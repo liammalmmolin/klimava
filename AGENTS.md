@@ -8,6 +8,6 @@
 - Serve the existing typefaces locally through src/fonts.css to remove third-party font request chains without changing typography.
 - Secondary pages load lazily; internal links use React Router and scroll restoration commits after page content, retaining exact history positions without sessionStorage writes on every scroll.
 - Run endless decorative loops as CSS keyframes (compositor thread) paused off-screen via `.motion-paused` and disabled for reduced-motion; never add another transform driver to a scroll-linked or carousel position.
-- Scroll reveals trigger at the viewport edge (no negative margins) so fast scrolling never shows blank content; the pinned hero is composited and hidden once fully covered.
-- A global ImageWarmer fetches and decodes `loading="lazy"` images about one viewport ahead, because Safari's native lazy threshold is too close for fast scrolling.
+- All scroll reveals share revealViewport's positive two-way head start and avoid cumulative grid delays; this prepares content before fast scrolling exposes it, without changing animation geometry. The pinned hero remains composited and hidden once fully covered.
+- A global ImageWarmer fetches and decodes `loading="lazy"` images two viewport heights ahead in both directions, with pixel margins recalculated on resize; IntersectionObserver percentage margins use width and under-prepare portrait phones.
 - Prefer filter-free gradients over `filter: blur` glows and drop `backdrop-filter` where the backdrop is a solid color; both are costly while scrolling in Safari.

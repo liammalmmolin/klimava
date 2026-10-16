@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 
 /**
- * Site-wide: starts fetching and decoding `loading="lazy"` images about one
+ * Site-wide: starts fetching and decoding `loading="lazy"` images about
  * two viewports before they scroll into view. Safari's native lazy threshold is
  * very close to the viewport, so fast scrolling otherwise reveals images that
  * are still downloading/decoding. Only nearby images are warmed — never the
