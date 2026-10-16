@@ -2,7 +2,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { lazy, Suspense } from "react";
 import { MotionConfig } from "framer-motion";
 import { HelmetProvider } from "react-helmet-async";
@@ -45,6 +45,7 @@ const App = () => (
             <Route path="/om-appen" element={<AboutApp />} />
             <Route path="/partners" element={<Partners />} />
             <Route path="/integritetspolicy" element={<Privacy />} />
+            <Route path="/privacy" element={<Navigate to="/integritetspolicy" replace />} />
             <Route path="/anvandarvillkor" element={<Terms />} />
             <Route path="/kontakt" element={<Contact />} />
             <Route path="/team" element={<Team />} />
