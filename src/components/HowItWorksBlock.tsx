@@ -139,8 +139,8 @@ export const HowItWorksBlock = () => {
             className="mx-auto mb-12 min-h-[2.4em] sm:min-h-0 max-w-2xl text-balance text-center font-heading text-3xl font-medium text-background md:max-w-3xl md:text-5xl"
           >
             {t(
-              <>Videon nedan visar hur Klimava kan användas i din vardag.<br className="sm:hidden" /> Tryck på play och ta en titt!</>,
-              <>The film below shows how Klimava can be used in your everyday life.<br className="sm:hidden" /> Press play and take a look!</>
+              <>Videon nedan visar hur Klimava kan användas i din vardag.<br className="sm:hidden" /> <span className="gradient-text-on-dark">Tryck på play och ta en titt!</span></>,
+              <>The film below shows how Klimava can be used in your everyday life.<br className="sm:hidden" /> <span className="gradient-text-on-dark">Press play and take a look!</span></>
             )}
           </motion.h3>
           <motion.div
