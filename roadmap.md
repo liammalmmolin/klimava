@@ -1,5 +1,5 @@
 # Remaining contrast, metadata and mobile review
-- [ ] Replace the hero with the supplied David Becker original, optimize separate crops and verify mobile/desktop.
+- [x] Replace the hero with the supplied David Becker 4672×7008 original, store CDN original and sharp responsive crops, verify loaded filter-free full-opacity images and readable unchanged layout in Chromium/WebKit at 402×725, 1280×1800 and 1920×1080; build OK. Physical iPhone not tested.
 - [x] Use a photo-specific light turquoise/lime heading gradient for the forest hero, without changing other headings.
 - [x] Give the six requested pages unique descriptions, preserving titles and one description tag; use Helmet for titles too to avoid the observed title-reset race.
 - [x] Verify mobile/desktop contrast, direct loads/reloads/navigation, first/return rapid scrolling and carousel gestures in Chromium/WebKit. Seven existing tests pass, images load, no runtime errors, mobile CLS 0. Chromium remains smooth; WebKit has reproducible frame pauses (including on cached returns). Removing header blur experimentally did not eliminate them, so no approved visual effects were removed without a proven cause.
