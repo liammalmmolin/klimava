@@ -154,13 +154,13 @@ export const HeroSection = ({ scale }: HeroSectionProps) => {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="mb-4 text-4xl font-bold leading-[1.05] text-white sm:text-5xl md:text-6xl"
             >
-              {/* Shadow only on the white line — the dark gradient line below
-                  uses a light gradient against this naturally dark landscape. */}
+              {/* Shadow only on the white line — the line below reuses the exact
+                  same gradient as "Få något tillbaka." further down the page. */}
               <span style={{ textShadow: "0 1px 10px hsl(192 60% 8% / 0.55), 0 0 2px hsl(192 60% 8% / 0.6)" }}>
                 {t("Små handlingar.", "Small actions.")}
               </span>
               <br />
-               <span className="gradient-text-on-photo">{t("Stor påverkan.", "Big impact.")}</span>
+               <span className="gradient-text-on-dark">{t("Stor påverkan.", "Big impact.")}</span>
             </motion.h1>
 
             <motion.p
