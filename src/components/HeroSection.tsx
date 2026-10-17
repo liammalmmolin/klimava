@@ -3,13 +3,17 @@ import { useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Star, Play } from "@/components/icons";
 import appStoreBadge from "@/assets/app-store-badge.png?format=webp&quality=92";
-// Northern lights over snowy Lapland forest: the wide frame for
-// tablet/desktop, and a native centre crop (tall spruce + aurora band) for
-// portrait phones. Both are downscales of the 2500x1719 original — nothing
-// is upscaled.
-import auroraPhoto from "@/assets/hero-aurora.jpg?format=webp&quality=88";
-import auroraWideSources from "@/assets/hero-aurora.jpg?w=800;1600;2400&format=webp&quality=88&as=srcset";
-import auroraPortraitSources from "@/assets/hero-aurora-tall.jpg?w=500;900;1200&format=webp&quality=88&as=srcset";
+// Separate crops downscaled from the 4672×7008 Dropbox original.
+import auroraWide800 from "@/assets/aurora-becker-wide-800.webp.asset.json";
+import auroraWide1600 from "@/assets/aurora-becker-wide-1600.webp.asset.json";
+import auroraWide2400 from "@/assets/aurora-becker-wide-2400.webp.asset.json";
+import auroraPortrait500 from "@/assets/aurora-becker-portrait-500.webp.asset.json";
+import auroraPortrait900 from "@/assets/aurora-becker-portrait-900.webp.asset.json";
+import auroraPortrait1400 from "@/assets/aurora-becker-portrait-1400.webp.asset.json";
+import { assetUrl } from "@/lib/asset-url";
+
+const auroraWideSources = `${assetUrl(auroraWide800)} 800w, ${assetUrl(auroraWide1600)} 1600w, ${assetUrl(auroraWide2400)} 2400w`;
+const auroraPortraitSources = `${assetUrl(auroraPortrait500)} 500w, ${assetUrl(auroraPortrait900)} 900w, ${assetUrl(auroraPortrait1400)} 1400w`;
 
 import klimavaLogo from "@/assets/klimava-logo.jpeg";
 import { Link } from "react-router-dom";
@@ -89,11 +93,11 @@ export const HeroSection = ({ scale }: HeroSectionProps) => {
         <picture>
           <source media="(max-width: 767px)" srcSet={auroraPortraitSources} sizes="100vw" />
           <img
-            src={auroraPhoto}
+            src={assetUrl(auroraWide1600)}
             srcSet={auroraWideSources}
             sizes="100vw"
-            width={2500}
-            height={1719}
+            width={4672}
+            height={3115}
             fetchPriority="high"
             alt=""
             className="absolute inset-0 h-full w-full object-cover"
@@ -151,7 +155,7 @@ export const HeroSection = ({ scale }: HeroSectionProps) => {
               className="mb-4 text-4xl font-bold leading-[1.05] text-white sm:text-5xl md:text-6xl"
             >
               {/* Shadow only on the white line — the dark gradient line below
-                  sits on bright snow and needs no help. */}
+                  uses a light gradient against this naturally dark landscape. */}
               <span style={{ textShadow: "0 1px 10px hsl(192 60% 8% / 0.55), 0 0 2px hsl(192 60% 8% / 0.6)" }}>
                 {t("Små handlingar.", "Small actions.")}
               </span>
