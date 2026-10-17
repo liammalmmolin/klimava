@@ -87,28 +87,21 @@ export const HeroSection = ({ scale }: HeroSectionProps) => {
         style={{ scale }}
         className="relative h-[calc(100vh-1.5rem)] min-h-[640px] origin-top overflow-hidden rounded-[1.75rem] will-change-transform md:h-[calc(100vh-2rem)] md:rounded-[2.25rem]">
         <picture>
-          <source media="(max-width: 767px)" srcSet={sunsetPortraitSources} sizes="100vw" />
+          <source media="(max-width: 767px)" srcSet={auroraPortraitSources} sizes="100vw" />
           <img
-            src={sunsetPhoto}
-            srcSet={sunsetWideSources}
+            src={auroraPhoto}
+            srcSet={auroraWideSources}
             sizes="100vw"
-            width={2560}
-            height={1910}
+            width={2500}
+            height={1719}
             fetchPriority="high"
             alt=""
             className="absolute inset-0 h-full w-full object-cover"
           />
         </picture>
 
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "linear-gradient(0deg, hsl(var(--foreground)/0.85) 0%, hsl(var(--foreground)/0.35) 45%, hsl(var(--foreground)/0.15) 100%)",
-          }}
-        />
-        {/* Top fade so the logo/CTA stay legible over bright sky/sun-flare */}
-        <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-black/45 to-transparent" />
+        {/* No darkening overlay — the photo shows at full color and brightness.
+            Legibility comes from a small local text shadow on the copy instead. */}
 
         {/* Logo — anchored to this card's corner, scrolls away with it */}
         <Link to="/" className="absolute left-6 top-6 z-10 flex items-center gap-2.5 sm:left-8 sm:top-8">
