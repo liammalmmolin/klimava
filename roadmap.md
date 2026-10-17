@@ -41,3 +41,6 @@ Publication limit: corrected code verified locally against live image files; kli
 # Play button finish
 - [x] Remove the filled play triangle from the video tile's button, keeping only the white outline circle at unchanged size (58px mobile, 86px desktop), 3.5 stroke and centred placement, with a fully transparent interior; verified circle-only SVG (1 child, 0 paths) in Chromium mobile/desktop and WebKit mobile, centre click still runs play(), build OK. Real playback still unverified: sandbox Chromium lacks H.264 and WebKit crashes decoding this MP4.
 
+# Video intro copy
+- [x] Replace the small label above the video with the supplied sentence, keeping IBM Plex Mono 12px uppercase, 1.2px tracking, secondary green, centring and fadeUp; verified text and computed styles in Chromium mobile/desktop and WebKit mobile (2 lines mobile, 1 line desktop, nothing clipped), build OK.
+

@@ -132,7 +132,10 @@ export const HowItWorksBlock = () => {
             {...fadeUp}
             className="mb-3 mt-20 text-center font-mono text-xs uppercase tracking-widest text-secondary md:mt-28"
           >
-            {t("Se Klimava i verkligheten", "See Klimava in action")}
+            {t(
+              "Videon nedan visar hur Klimava kan användas i din vardag. Tryck på play och ta en titt!",
+              "The film below shows how Klimava can be used in your everyday life. Press play and take a look!"
+            )}
           </motion.p>
           <motion.h3
             {...fadeUp}
