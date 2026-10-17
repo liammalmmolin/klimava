@@ -62,12 +62,6 @@
     /* Light turquoise -> green stays readable on the naturally dark aurora
        landscape without dimming the photograph or outlining the text. */
     --gradient-text-on-photo: linear-gradient(135deg, hsl(188 72% 88%) 0%, hsl(91 66% 86%) 100%);
-    /* Play button: deep Klimava green base with a very gentle shift toward the
-       brand turquoise, kept desaturated and fully opaque — the cover must
-       never show through the button. */
-    --gradient-play: linear-gradient(165deg, hsl(152 34% 32%) 0%, hsl(162 33% 35%) 45%, hsl(172 34% 38%) 80%, hsl(178 34% 41%) 100%);
-    /* Play button depth: small, soft drop shadow. */
-    --shadow-play: 0 6px 16px -6px hsl(192 30% 10% / 0.4), 0 1px 3px hsl(192 30% 10% / 0.18);
     --gradient-hero: linear-gradient(180deg, hsl(140 20% 97%) 0%, hsl(140 24% 93%) 50%, hsl(140 20% 97%) 100%);
     --shadow-soft: 0 4px 20px -4px hsl(192 30% 10% / 0.25);
     --shadow-card: 0 8px 30px -8px hsl(192 30% 10% / 0.35);
@@ -169,14 +163,6 @@
     background-image: var(--gradient-primary);
   }
 
-  .gradient-play {
-    background-image: var(--gradient-play);
-  }
-
-
-  .shadow-play {
-    box-shadow: var(--shadow-play);
-  }
 
   .download-glow {
     background-image: var(--download-glow);
