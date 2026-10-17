@@ -64,13 +64,14 @@ const AdVideo = ({ src }: { src: string }) => {
             <img width={1920} height={1080} loading="lazy" decoding="async" src={posterSrc} srcSet={posterSet} sizes="(min-width: 1152px) 1152px, 100vw" alt="" className="absolute inset-0 h-full w-full object-cover" />
             <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 via-transparent to-transparent" />
 
-            {/* Single translucent button: the gradient sits on its own layer so the
-                play glyph stays fully opaque while the cover shows through. */}
-            <span className="relative flex h-[3.6rem] w-[3.6rem] items-center justify-center rounded-full shadow-play transition-transform duration-150 ease-out group-hover:scale-[1.03] group-active:scale-[0.96] group-active:duration-75 sm:h-[4.5rem] sm:w-[4.5rem] md:h-[5.4rem] md:w-[5.4rem]">
-              <span className="absolute inset-0 rounded-full gradient-play ring-1 ring-inset ring-primary-foreground" />
-              {/* Filled triangle with softly rounded corners; centroid sits slightly right of centre for optical balance. */}
-              <svg viewBox="0 0 24 24" aria-hidden="true" className="relative h-[47%] w-[47%] text-primary-foreground">
-                <path d="M9 6.2 L18.6 12 L9 17.8 Z" fill="currentColor" stroke="currentColor" strokeWidth="2.4" strokeLinejoin="round" />
+            {/* One SVG symbol: white outline circle + filled triangle with softly
+                rounded corners; the interior stays fully transparent so the cover
+                shows through. No gradient, shadow, ring or pulse. */}
+            <span className="relative flex h-[3.6rem] w-[3.6rem] items-center justify-center transition-transform duration-150 ease-out group-hover:scale-[1.03] group-active:scale-[0.96] group-active:duration-75 sm:h-[4.5rem] sm:w-[4.5rem] md:h-[5.4rem] md:w-[5.4rem]">
+              <svg viewBox="0 0 100 100" aria-hidden="true" className="relative h-full w-full text-primary-foreground">
+                <circle cx="50" cy="50" r="45.5" fill="none" stroke="currentColor" strokeWidth="3.5" />
+                {/* Same triangle proportions as before; bbox sits slightly right of centre for optical balance. */}
+                <path d="M44.1 38.7 L62.9 50 L44.1 61.3 Z" fill="currentColor" stroke="currentColor" strokeWidth="3" strokeLinejoin="round" />
               </svg>
             </span>
 
