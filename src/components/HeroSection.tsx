@@ -3,8 +3,13 @@ import { useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Star, Play } from "@/components/icons";
 import appStoreBadge from "@/assets/app-store-badge.png?format=webp&quality=92";
-import forestPhoto from "@/assets/sweden-forest.jpg?format=webp&quality=88";
-import forestSources from "@/assets/sweden-forest.jpg?w=800;1600;2400&format=webp&quality=88&as=srcset";
+// Sunset over water: the wide frame for tablet/desktop, and a native centre
+// crop (pier as leading line) for portrait phones. Both are downscales of the
+// 5859x3662 original — nothing is upscaled.
+import sunsetPhoto from "@/assets/hero-sunset-wide.jpg?format=webp&quality=88";
+import sunsetWideSources from "@/assets/hero-sunset-wide.jpg?w=800;1600;2400&format=webp&quality=88&as=srcset";
+import sunsetPortraitSources from "@/assets/hero-sunset-tall.jpg?w=500;900;1400&format=webp&quality=88&as=srcset";
+
 import klimavaLogo from "@/assets/klimava-logo.jpeg";
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -80,7 +85,20 @@ export const HeroSection = ({ scale }: HeroSectionProps) => {
         ref={cardRef}
         style={{ scale }}
         className="relative h-[calc(100vh-1.5rem)] min-h-[640px] origin-top overflow-hidden rounded-[1.75rem] will-change-transform md:h-[calc(100vh-2rem)] md:rounded-[2.25rem]">
-        <img src={forestPhoto} srcSet={forestSources} sizes="100vw" width={2400} height={1800} fetchPriority="high" alt="" className="absolute inset-0 h-full w-full object-cover" />
+        <picture>
+          <source media="(max-width: 767px)" srcSet={sunsetPortraitSources} sizes="100vw" />
+          <img
+            src={sunsetPhoto}
+            srcSet={sunsetWideSources}
+            sizes="100vw"
+            width={2560}
+            height={1910}
+            fetchPriority="high"
+            alt=""
+            className="absolute inset-0 h-full w-full object-cover"
+          />
+        </picture>
+
         <div
           className="absolute inset-0"
           style={{
