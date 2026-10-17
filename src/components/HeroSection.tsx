@@ -3,12 +3,13 @@ import { useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Star, Play } from "@/components/icons";
 import appStoreBadge from "@/assets/app-store-badge.png?format=webp&quality=92";
-// Sunset over water: the wide frame for tablet/desktop, and a native centre
-// crop (pier as leading line) for portrait phones. Both are downscales of the
-// 5859x3662 original — nothing is upscaled.
-import sunsetPhoto from "@/assets/hero-sunset-wide.jpg?format=webp&quality=88";
-import sunsetWideSources from "@/assets/hero-sunset-wide.jpg?w=800;1600;2400&format=webp&quality=88&as=srcset";
-import sunsetPortraitSources from "@/assets/hero-sunset-tall.jpg?w=500;900;1400&format=webp&quality=88&as=srcset";
+// Northern lights over snowy Lapland forest: the wide frame for
+// tablet/desktop, and a native centre crop (tall spruce + aurora band) for
+// portrait phones. Both are downscales of the 2500x1719 original — nothing
+// is upscaled.
+import auroraPhoto from "@/assets/hero-aurora.jpg?format=webp&quality=88";
+import auroraWideSources from "@/assets/hero-aurora.jpg?w=800;1600;2400&format=webp&quality=88&as=srcset";
+import auroraPortraitSources from "@/assets/hero-aurora-tall.jpg?w=500;900;1200&format=webp&quality=88&as=srcset";
 
 import klimavaLogo from "@/assets/klimava-logo.jpeg";
 import { Link } from "react-router-dom";
@@ -86,28 +87,21 @@ export const HeroSection = ({ scale }: HeroSectionProps) => {
         style={{ scale }}
         className="relative h-[calc(100vh-1.5rem)] min-h-[640px] origin-top overflow-hidden rounded-[1.75rem] will-change-transform md:h-[calc(100vh-2rem)] md:rounded-[2.25rem]">
         <picture>
-          <source media="(max-width: 767px)" srcSet={sunsetPortraitSources} sizes="100vw" />
+          <source media="(max-width: 767px)" srcSet={auroraPortraitSources} sizes="100vw" />
           <img
-            src={sunsetPhoto}
-            srcSet={sunsetWideSources}
+            src={auroraPhoto}
+            srcSet={auroraWideSources}
             sizes="100vw"
-            width={2560}
-            height={1910}
+            width={2500}
+            height={1719}
             fetchPriority="high"
             alt=""
             className="absolute inset-0 h-full w-full object-cover"
           />
         </picture>
 
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "linear-gradient(0deg, hsl(var(--foreground)/0.85) 0%, hsl(var(--foreground)/0.35) 45%, hsl(var(--foreground)/0.15) 100%)",
-          }}
-        />
-        {/* Top fade so the logo/CTA stay legible over bright sky/sun-flare */}
-        <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-black/45 to-transparent" />
+        {/* No darkening overlay — the photo shows at full color and brightness.
+            Legibility comes from a small local text shadow on the copy instead. */}
 
         {/* Logo — anchored to this card's corner, scrolls away with it */}
         <Link to="/" className="absolute left-6 top-6 z-10 flex items-center gap-2.5 sm:left-8 sm:top-8">
@@ -156,7 +150,11 @@ export const HeroSection = ({ scale }: HeroSectionProps) => {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="mb-4 text-4xl font-bold leading-[1.05] text-white sm:text-5xl md:text-6xl"
             >
-              {t("Små handlingar.", "Small actions.")}
+              {/* Shadow only on the white line — the dark gradient line below
+                  sits on bright snow and needs no help. */}
+              <span style={{ textShadow: "0 1px 10px hsl(192 60% 8% / 0.55), 0 0 2px hsl(192 60% 8% / 0.6)" }}>
+                {t("Små handlingar.", "Small actions.")}
+              </span>
               <br />
                <span className="gradient-text-on-photo">{t("Stor påverkan.", "Big impact.")}</span>
             </motion.h1>
@@ -165,7 +163,8 @@ export const HeroSection = ({ scale }: HeroSectionProps) => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="mb-6 max-w-md text-base leading-relaxed text-white/80 md:text-lg"
+              className="mb-6 max-w-md text-base leading-relaxed text-white/90 md:text-lg"
+              style={{ textShadow: "0 1px 8px hsl(192 60% 8% / 0.6), 0 0 2px hsl(192 60% 8% / 0.65)" }}
             >
               {t(
                 "Klimava gör hållbarhet mätbar, motiverande och belönande. Helt gratis.",
@@ -188,7 +187,7 @@ export const HeroSection = ({ scale }: HeroSectionProps) => {
                   {t("Se filmen", "Watch the film")}
                 </a>
               </Button>
-              <span className="flex items-center gap-1.5 font-mono text-xs text-white/70">
+              <span className="flex items-center gap-1.5 font-mono text-xs text-white/80" style={{ textShadow: "0 1px 6px hsl(192 60% 8% / 0.7)" }}>
                 <span className="flex items-center gap-0.5 text-primary">
                   {Array.from({ length: 5 }).map((_, i) => (
                     <Star key={i} className="h-3 w-3 fill-current" />
