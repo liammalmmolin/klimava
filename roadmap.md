@@ -37,3 +37,7 @@ Publication limit: corrected code verified locally against live image files; kli
 - [x] Replace the app-page heading without changing feature cards.
 - [x] Remove the unverified earning-activity count; website descriptions are not current app confirmation, so use the requested number-free message.
 - [x] Verify both changed sections in Chromium at 402px and 1280px; headings and number-free message fit, feature cards retained, seven existing regression tests pass and build OK.
+
+# Play button finish
+- [x] Remove the filled play triangle from the video tile's button, keeping only the white outline circle at unchanged size (58px mobile, 86px desktop), 3.5 stroke and centred placement, with a fully transparent interior; verified circle-only SVG (1 child, 0 paths) in Chromium mobile/desktop and WebKit mobile, centre click still runs play(), build OK. Real playback still unverified: sandbox Chromium lacks H.264 and WebKit crashes decoding this MP4.
+
