@@ -132,16 +132,16 @@ export const HowItWorksBlock = () => {
             {...fadeUp}
             className="mb-3 mt-20 text-center font-mono text-xs uppercase tracking-widest text-secondary md:mt-28"
           >
-            {t(
-              "Videon nedan visar hur Klimava kan användas i din vardag. Tryck på play och ta en titt!",
-              "The film below shows how Klimava can be used in your everyday life. Press play and take a look!"
-            )}
+            {t("Se Klimava i verkligheten", "See Klimava in action")}
           </motion.p>
           <motion.h3
             {...fadeUp}
-            className="mx-auto mb-12 min-h-[2.4em] sm:min-h-0 max-w-2xl text-center font-heading text-3xl font-medium text-background md:text-5xl"
+            className="mx-auto mb-12 min-h-[2.4em] sm:min-h-0 max-w-2xl text-balance text-center font-heading text-3xl font-medium text-background md:max-w-3xl md:text-5xl"
           >
-            {t("30 sekunder är allt som krävs.", "30 seconds is all it takes.")}
+            {t(
+              <>Videon nedan visar hur Klimava kan användas i din vardag.<br className="sm:hidden" /> Tryck på play och ta en titt!</>,
+              <>The film below shows how Klimava can be used in your everyday life.<br className="sm:hidden" /> Press play and take a look!</>
+            )}
           </motion.h3>
           <motion.div
             initial={{ opacity: 0, y: 16 }}
