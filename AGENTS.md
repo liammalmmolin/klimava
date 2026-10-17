@@ -5,6 +5,7 @@
 - App screenshot carousel: Embla alone owns translation; apply progress-driven scale/opacity directly to inner visuals without CSS transitions or per-frame React state, keeping outer slide geometry stable to avoid competing animations.
 - Optimize bundled originals using vite-imagetools high-quality variants; reserve image geometry and keep responsive high-density variants so load savings never rely on reduced sharpness.
 - For a full-bleed background whose target shape differs across screens, ship separate pre-cropped originals per screen shape behind a `<picture>` media source instead of letting one crop cover both, and always downscale from the supplied original rather than enlarging it.
+- Downloaded hero originals and responsive crop variants use asset pointers resolved through assetUrl so the same images work on Lovable and external hosting.
 
 - Uploaded tile photographs use high-quality CDN WebP variants without upscaling, resolved through src/lib/asset-url.ts against the published Lovable media host because external GitHub Pages hosting does not serve /__l5e routes; for an all-subjects landscape image in a portrait tile, extend only empty background to preserve every subject's proportions and visibility.
 - Serve the existing typefaces locally through src/fonts.css to remove third-party font request chains without changing typography.
