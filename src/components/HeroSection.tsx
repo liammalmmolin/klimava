@@ -3,12 +3,13 @@ import { useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Star, Play } from "@/components/icons";
 import appStoreBadge from "@/assets/app-store-badge.png?format=webp&quality=92";
-// Sunset over water: the wide frame for tablet/desktop, and a native centre
-// crop (pier as leading line) for portrait phones. Both are downscales of the
-// 5859x3662 original — nothing is upscaled.
-import sunsetPhoto from "@/assets/hero-sunset-wide.jpg?format=webp&quality=88";
-import sunsetWideSources from "@/assets/hero-sunset-wide.jpg?w=800;1600;2400&format=webp&quality=88&as=srcset";
-import sunsetPortraitSources from "@/assets/hero-sunset-tall.jpg?w=500;900;1400&format=webp&quality=88&as=srcset";
+// Northern lights over snowy Lapland forest: the wide frame for
+// tablet/desktop, and a native centre crop (tall spruce + aurora band) for
+// portrait phones. Both are downscales of the 2500x1719 original — nothing
+// is upscaled.
+import auroraPhoto from "@/assets/hero-aurora.jpg?format=webp&quality=88";
+import auroraWideSources from "@/assets/hero-aurora.jpg?w=800;1600;2400&format=webp&quality=88&as=srcset";
+import auroraPortraitSources from "@/assets/hero-aurora-tall.jpg?w=500;900;1200&format=webp&quality=88&as=srcset";
 
 import klimavaLogo from "@/assets/klimava-logo.jpeg";
 import { Link } from "react-router-dom";
