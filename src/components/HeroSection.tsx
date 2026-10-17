@@ -149,6 +149,7 @@ export const HeroSection = ({ scale }: HeroSectionProps) => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
               className="mb-4 text-4xl font-bold leading-[1.05] text-white sm:text-5xl md:text-6xl"
+              style={{ textShadow: "0 1px 10px hsl(192 60% 8% / 0.55), 0 0 2px hsl(192 60% 8% / 0.6)" }}
             >
               {t("Små handlingar.", "Small actions.")}
               <br />
@@ -159,7 +160,8 @@ export const HeroSection = ({ scale }: HeroSectionProps) => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="mb-6 max-w-md text-base leading-relaxed text-white/80 md:text-lg"
+              className="mb-6 max-w-md text-base leading-relaxed text-white/90 md:text-lg"
+              style={{ textShadow: "0 1px 8px hsl(192 60% 8% / 0.6), 0 0 2px hsl(192 60% 8% / 0.65)" }}
             >
               {t(
                 "Klimava gör hållbarhet mätbar, motiverande och belönande. Helt gratis.",
