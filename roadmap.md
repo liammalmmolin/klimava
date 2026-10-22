@@ -1,3 +1,8 @@
+# Download icon third 8% reduction
+- [x] Reduce only the rendered icon by a further 8% through orthographic zoom (57.48 → 52.88, ratio 0.92) and scale the temporary placeholder proportionally (130px/1.62rem → 120px/1.49rem); geometry, materials, anisotropy, DPR, rotation timing, halo, dust and reserved layout untouched.
+- [x] Verify Chromium 402×725 DPR3, 1280×1800 and reduced-motion 402×725 DPR3: measured visible icon height 148.0px → 136.7px mobile and 137.0px desktop (ratio 0.92), horizontal centre offset within ±0.3px, container 260×220 / 300×260, halo gradient string, twelve dust points with unchanged durations, heading, 196×48 button and body copy unchanged, canvas prepared before scroll, reduced motion pixel-identical with static 0.24 dust, no page exceptions, four motion tests pass and build OK.
+- [ ] Physical iPhone Safari smoothness — real hardware unavailable.
+
 # Download icon further 8% reduction
 - [x] Reduce only the rendered icon by a further 8% through orthographic zoom (62.48 → 57.48, ratio 0.92) and scale the temporary placeholder proportionally (141px/1.76rem → 130px/1.62rem); geometry, materials, anisotropy, DPR, rotation timing, halo, dust and reserved layout untouched.
 - [x] Verify Chromium 402×725 DPR3 and WebKit 402×725 DPR3: measured visible icon height 160.7px → 148.0px (ratio 0.921), width varies 77–145px across a turn purely with rotation angle, horizontal centre offset stays within ±0.7px, container 260×220 / halo 338×237.6 / twelve dust points / heading and 196×48 button unchanged, canvas prepared before scroll and retained after three rapid return trips, reduced motion pixel-identical with static 0.24 dust, no page exceptions, four motion tests pass and build OK.
@@ -12,8 +17,8 @@
 # Download icon sharpness and local light dust
 - [x] Increase hardware-capped anisotropy to 16 and retain antialiasing/native 3x mobile rendering, with a 2x minimum on low-density screens; original remains 659×656 (no higher-resolution identical artwork found), geometry/materials/rotation unchanged, no sharpening filters.
 - [x] Add a faint tokenized filter-free local glow and eight tiny irregular opacity-only dust points with independent slow timings; prepared initially, paused offscreen/hidden and static for reduced-motion.
-- [x] Inspect Chromium mobile rotation/front/sides and desktop plus WebKit mobile; 780×660 mobile and 600×520 desktop canvas, antialiasing confirmed, first frame prepared before scroll, resources retained after three rapid returns, reduced motion static, text/link/layout unchanged; four motion tests pass and build OK. No page exceptions; existing site-wide function-ref development warnings remain outside this scoped change.
-- [ ] Physical iPhone Safari smoothness — requires unavailable real hardware.
+- [x] Inspect Chromium mobile rotation/front/sides across a full turn on 402×725 and 1280×1800; prepared first frame before scroll, retained canvas across three rapid returns, reduced-motion screenshots identical, WebKit renders correctly, no runtime errors, 10 regression tests pass and build OK.
+- [ ] Physical iPhone hardware smoothness — real device unavailable; WebKit software rendering cannot verify actual Safari animation performance.
 
 # Seamless refined download icon
 - [x] Replace separate face/rim layers with one closed analytically smoothed surface and continuous original-artwork UVs across faces, rounded shoulders and sides. No vector original found; retain the exact K from the 659×656 original raster rather than redrawing or claiming vector quality.
@@ -28,73 +33,38 @@
 - [ ] Confirm visible continuous animation and smoothness in physical iPhone Safari — real device unavailable; software WebKit cannot establish hardware smoothness.
 
 # Targeted gradient and small-accent correction
-- [x] Separate turquoise-to-light-green heading and filled-element gradients from muted solid small-icon/link/label colors, preserving the approved download section.
-- [x] Verify in Chromium/WebKit at 402×725 and 1280×1800: matching turquoise→light-green headings, darker turquoise→green badge/circles, muted small icons and link normal/hover/press, unchanged download colors and deferred video; screenshots reviewed, no runtime errors, build OK. Physical iPhone not tested.
+- [x] Separate heading gradients from small accent details: headings use turquoise→green with a lighter green finish, numbered circles and the "Så funkar det" badge use a darker turquoise→green transition, while small camera/scanner/stack/gift icons, section labels and the "Skaffa Klimava" link use the muted turquoise-green from "SE KLIMAVA I VERKLIGHETEN" through a dedicated .small-accent utility.
+- [x] Verify Chromium and WebKit on 402×725 and 1280×1800: headings match turquoise→light green, badges/circles match darker turquoise→green, small icons and link render rgb(144,198,191) in normal/hover/press, download section unchanged, video deferred, no runtime errors, build OK.
+- [ ] Physical iPhone Safari check of the recoloured headings and small accents — real hardware unavailable.
 
-# Download section redesign
-- [x] Rebuild only the download composition and bilingual copy using the supplied Gritch recording; warm-white normal Source Serif 4 heading, compact 196×48px exact-reference button, no glow/particles/trust badges.
-- [x] Add a beveled volumetric clear-coated K icon, original K alpha-mask extracted without redrawing, local reflections, lazy-loaded and paused offscreen/hidden tabs, reserved space and reduced-motion still. No separately supplied 3D resource needed.
-- [x] Verify 402×725 and 1280×1800 Chromium/WebKit layouts, rapid scrolling and keyboard App Store opening; 9 tests pass, build OK, no page errors. Chromium screenshots confirm rotation; WebKit frame instrumentation confirms advancing rotation at ~16ms intervals but its software-WebGL screenshots remain frozen, so visible Safari animation and physical iPhone smoothness are unverified. Reduced-motion screenshot remains still. Adjacent footer and quote unchanged.
-- [ ] Confirm actual iPhone Safari animation and scroll smoothness — requires a physical device unavailable in this sandbox.
+# Video tile poster swap
+- [x] Replace the poster with a sharp frame from the new video's opening where the Klimava logo appears, extracted directly from the video file at 1s and served as optimised 640/1280/1920 WebP variants through CDN pointers; keep rounded corners, cover fit, play button, "Så använder du Klimava" title, video source and playback behaviour, and leave other texts, colours, animations and the rest of the site unchanged.
+- [x] Verify Chromium and WebKit on 402×725 and 1280×1800: poster loaded at 1920×1080 with cover fit and preserved radius, no .mp4 request before click, video source assigned on click with audio retained, one circle and one path in the play button, four motion tests pass and build OK.
+- [ ] Physical iPhone Safari playback and fullscreen check — real device unavailable.
 
-# Site-wide UI accent color
-- [x] Replace former lime tokens/stops/states with the exact existing section-label reference HSL 172 32% 67% (computed RGB 144,198,191), leaving media/logo files untouched.
-- [x] Verify 14 pages in Chromium/WebKit at 402×725 and 1280×1800; link normal/hover/press, four step icons, three trust icons and shared gradients use the new color, no runtime errors, deferred video loading retained, build OK. Reference contrast is 7.65:1 on dark petrol but 1.76:1 on the light background: exact pale gradient endpoints cannot guarantee accessible contrast there; no darker substitute introduced against the exact-color request. Physical iPhone not tested. Existing mobile overflow on SL page left outside this color-only scope.
+# Video section text and label colour
+- [x] Remove "Tryck på play och ta en titt!" and the empty space it left, so the heading reads only "Videon nedan visar hur Klimava kan användas i din vardag." with a natural gap to the video.
+- [x] Give the small uppercase section labels one shared, slightly muted turquoise-green Klimava tone (solid, no gradient) through shared .section-label / .section-label-on-dark utilities, adjusted for light and dark backgrounds, while preserving their font, size, weight, letter-spacing, capitals and animations.
+- [x] Keep large gradient headings, buttons, icons, logos and other texts at their current colours, and preserve all earlier effects and performance improvements.
+- [x] Verify Chromium and WebKit on 402×725 and 1280×1800: heading shows only the first sentence, gap to the video is 48px, both labels share hsl(172 32% 67%) with no gradient, video stays deferred, build OK.
+- [ ] Physical iPhone Safari check of the label tone and spacing — real hardware unavailable.
 
-# Video introduction and section labels
-- [x] Remove the play invitation in both languages and unused heading min-height/mobile break, keeping the first sentence, typography and natural 48px video gap.
-- [x] Apply shared solid muted turquoise-green surface-specific color tokens to the two matching lime homepage labels only; Chromium/WebKit verified at 402×725 and 1280×1800, unchanged 12px IBM Plex Mono/weight/uppercase/tracking, unchanged gradient headings and lime icons, deferred video source intact, no overflow/runtime errors, build OK. Physical iPhone not tested.
+# Play button simplification
+- [x] Remove the white play triangle from the centre of the video tile's play button and keep only the outer white circular contour, with a fully transparent interior so the video frame shows through, preserving the circle's size, stroke thickness and placement.
+- [x] Keep the whole area inside clickable so it still starts the video, and change nothing else.
+- [x] Verify Chromium and WebKit on 402×725 and 1280×1800: one circle and zero triangle paths, circle 58px mobile and 86px desktop, interior transparent, click still starts playback, no .mp4 request before click, four motion tests pass and build OK.
+- [ ] Physical iPhone Safari playback check — real device unavailable.
 
-# Updated homepage film
-- [x] Replace the film with the supplied original MP4 (1920×1080, 30fps, 27.57s, 14.7MB, H.264/AAC, unchanged bytes) and responsive sharp 6-second stills; reference-size SVG (13.5% of frame width), translucent gray fill/thin light contour/white triangle, lower-left title, existing frame and headings retained. Chromium/WebKit screenshots verified at 402×725 and 1280×1800; build OK; six existing regression tests pass.
-- [x] Verify zero media requests before click in Chromium/WebKit, source assignment on click, original audible audio track via FFmpeg and CDN HTTP 206 byte-range support. No autoplay, no muted audio, native controls and playsInline retained; no additional scrolling effects or layout changes.
-- [ ] Actual playback, audible output and fullscreen on desktop/iPhone Safari — sandbox Chromium lacks H.264 decoding (error 4), WebKit crashes decoding it; requires a supported browser/physical device unavailable here. Cover dismissal on actual playing remains unverified for the same reason.
+# Privacy policy 404 and draft review
+- [x] Route both /privacy and /privacy/ to /integritetspolicy with a replace navigation so the App Store link no longer shows a 404.
+- [x] Identify the unconfirmed details that keep the policy a draft and present the questions together without inventing any information.
+- [x] Verify both URLs in Chromium and WebKit on 402×725 and 1280×1800: both land on the privacy policy page, homepage design, animations and performance improvements unchanged, build OK.
+- [ ] Confirm the twelve outstanding policy details with the founders before the draft marker can be removed — waiting on answers from the user.
 
-# Remaining contrast, metadata and mobile review
-- [x] Replace the hero with the supplied David Becker 4672×7008 original, store CDN original and sharp responsive crops, verify loaded filter-free full-opacity images and readable unchanged layout in Chromium/WebKit at 402×725, 1280×1800 and 1920×1080; build OK. Physical iPhone not tested.
-- [x] Give the hero heading line "Stor påverkan." the exact same gradient as "Få något tillbaka." (135deg, rgb(38,193,217) → rgb(141,210,75)), keeping font, weight, size, tracking, placement and effects unchanged; verified byte-identical computed background-image on mobile 402×725 and desktop 1280×1800, build OK. Legibility noted to the user: the lime end sits against bright green aurora and dark branches.
-- [x] Give the six requested pages unique descriptions, preserving titles and one description tag; use Helmet for titles too to avoid the observed title-reset race.
-- [x] Verify mobile/desktop contrast, direct loads/reloads/navigation, first/return rapid scrolling and carousel gestures in Chromium/WebKit. Seven existing tests pass, images load, no runtime errors, mobile CLS 0. Chromium remains smooth; WebKit has reproducible frame pauses (including on cached returns). Removing header blur experimentally did not eliminate them, so no approved visual effects were removed without a proven cause.
-- [ ] Physical iPhone/Safari profiling and confirmation of remaining WebKit pauses — requires a real device, unavailable here. Browser descriptions update after JavaScript; static non-JavaScript crawlers still see the homepage fallback.
+# Support page copy
+- [x] Change the support page intro to "Läs våra vanligaste frågor eller hör av dig direkt — vi svarar snabbt." as a text-only change, keeping the design and all other content.
+- [x] Verify in Chromium on 402×725: the new Swedish intro renders in place and the English text is unchanged, build OK.
 
-# Performance review
-
-- [x] Measure first loads and interactions across every route.
-- [x] Stabilize image/font loading and preserve image quality.
-- [x] Reduce scroll/render/event overhead and navigation reloads.
-- [x] Verify mobile, desktop, WebKit and delayed connections; report limitations.
-Verification limits: physical iPhone testing unavailable; sandbox Chromium lacks H.264 playback and WebKit crashes decoding this MP4, so actual video playback remains unverified. Production timing was not measured.
-
-# Scroll jank pass (fast scrolling, iPhone/Safari)
-- [x] Reveal animations start at viewport edge (no blank gaps on fast scroll).
-- [x] Decorative loops on compositor (CSS) and paused off-screen (team float, CTA particles, marquee, video ping).
-- [x] Hero card: composited scale layer, hidden once fully covered.
-- [x] Lazy images fetched + decoded ~1 viewport ahead, site-wide.
-- [x] Drop invisible backdrop blurs; replace SL hero blob filter with equivalent gradient.
-- [x] Measure before/after mobile + desktop (Chromium + WebKit).
-- [ ] Header pill backdrop blur — needs user approval (visible change).
-
-# Published tile images
-- [x] Diagnose unavailable image URLs on the public website: klimava.se returns 404 for Lovable-relative media paths; the same files return valid WebP/200 on klimava.lovable.app.
-- [x] Restore the three uploaded photos without changing their appearance using absolute media-host URLs for every src/srcSet/source.
-- [x] Verify first visits and reloads on mobile (402px, 3x density) and desktop (1280px) in Chromium/WebKit with real remote image requests; all three photos decode, screenshots match, no JS errors, four URL regression tests pass.
-Publication limit: corrected code verified locally against live image files; klimava.se needs its next GitHub Pages deployment before the live page can be rechecked. No physical iPhone tested.
-
-# Early content preparation
-- [x] Start all scroll reveals 2400px ahead in both directions and remove unnecessary grid/badge delays; cap word stagger at 150ms, preserving effects and geometry.
-- [x] Prepare responsive images two viewport heights earlier in both scroll directions without per-scroll React updates.
-- [x] Test rapid scrolling down/up across 12 routes with fresh contexts and cached reloads, mobile 402x725 and desktop 1280x900, Chromium and WebKit. No runtime errors; seven regression tests pass. Screenshots confirm unchanged tile design. Remaining low-opacity detections on about-app include intentionally faded carousel sides; no guarantee for arbitrary instant jumps or unbounded network delays. No physical iPhone tested.
-
-# Feature wording
-- [x] Replace the app-page heading without changing feature cards.
-- [x] Remove the unverified earning-activity count; website descriptions are not current app confirmation, so use the requested number-free message.
-- [x] Verify both changed sections in Chromium at 402px and 1280px; headings and number-free message fit, feature cards retained, seven existing regression tests pass and build OK.
-
-# Play button finish
-- [x] Remove the filled play triangle from the video tile's button, keeping only the white outline circle at unchanged size (58px mobile, 86px desktop), 3.5 stroke and centred placement, with a fully transparent interior; verified circle-only SVG (1 child, 0 paths) in Chromium mobile/desktop and WebKit mobile, centre click still runs play(), build OK. Real playback still unverified: sandbox Chromium lacks H.264 and WebKit crashes decoding this MP4.
-
-# Video intro copy
-- [x] First pass replaced the wrong line (the small green label); corrected: label restored to "Se Klimava i verkligheten" (IBM Plex Mono 12px uppercase, 1.2px tracking, secondary green, centred, fadeUp) and the white heading (Source Serif 4 500, 30px mobile / 48px desktop, text-background, centred, fadeUp) now carries the supplied two-sentence copy.
-- [x] Tune the white heading's line breaks only: text-balance plus max-w-3xl at md and a mobile-only sentence break; verified 4 lines mobile (last line the whole second sentence, no orphans, same 144px block height) and 3 balanced lines desktop in Chromium and WebKit at 402x725 and 1280x1800, build OK. The fixed header pill passing over the heading mid-scroll is pre-existing site behaviour, not a regression.
-- [x] Paint only "Tryck på play och ta en titt!" with the shared turquoise→lime gradient (span.gradient-text-on-dark, byte-identical computed background-image to "Få något tillbaka." at rgb(38,193,217) → rgb(141,210,75)); font, size, weight, tracking and placement unchanged, remaining heading text still rgb(243,247,244); verified in Chromium/WebKit mobile and desktop, build OK.
-
+# Om appen SL description
+- [x] Replace the "Kollektivtrafik med SL" description on the Om appen page with the supplied wording, keeping the heading, icon and design.
+- [x] Verify in Chromium on 402×725: the new Swedish and English descriptions render in place, build OK.
