@@ -1,12 +1,23 @@
 import { Suspense, useEffect, useMemo, useRef } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { Environment, Lightformer, useTexture } from "@react-three/drei";
-import { Color, Group, SRGBColorSpace } from "three";
+import { Color, Group, MeshStandardMaterial, SRGBColorSpace } from "three";
 import appArtwork from "@/assets/klimava-logo.jpeg";
 import { downloadFloatAt, downloadRotationAt, DOWNLOAD_ICON_STILL_ANGLE } from "@/lib/download-icon-motion";
 import { createDownloadIconGeometry } from "@/lib/download-icon-geometry";
 
 useTexture.preload(appArtwork);
+
+// Reduce chroma on both artwork contributions, never alpha or sampling quality.
+// The original texture stays untouched; the adjustment is compiled once.
+const muteArtwork: MeshStandardMaterial["onBeforeCompile"] = shader => {
+  shader.fragmentShader = `vec3 muteDownloadChroma(vec3 color) {
+    float luminance = dot(color, vec3(0.2126, 0.7152, 0.0722));
+    return mix(vec3(luminance), color, 0.9);
+  }\n${shader.fragmentShader}`
+    .replace("#include <map_fragment>", "#include <map_fragment>\ndiffuseColor.rgb = muteDownloadChroma(diffuseColor.rgb);")
+    .replace("#include <emissivemap_fragment>", "#include <emissivemap_fragment>\ntotalEmissiveRadiance = muteDownloadChroma(totalEmissiveRadiance);");
+};
 
 function Icon({ reducedMotion, onReady }: { reducedMotion: boolean; onReady: () => void }) {
   const group = useRef<Group>(null);
@@ -39,7 +50,7 @@ function Icon({ reducedMotion, onReady }: { reducedMotion: boolean; onReady: () 
           {/* One continuous original-artwork UV field, including both curved
               shoulders and sides. Emission protects the app colors, while
               broad diffuse lighting supplies restrained, seamless depth. */}
-          <meshStandardMaterial map={artwork} emissiveMap={artwork} emissive={new Color(1, 1, 1)} emissiveIntensity={0.55} roughness={0.68} metalness={0} envMapIntensity={0.22} toneMapped={false} dithering />
+          <meshStandardMaterial map={artwork} emissiveMap={artwork} emissive={new Color(1, 1, 1)} emissiveIntensity={0.55} roughness={0.68} metalness={0} envMapIntensity={0.22} toneMapped={false} dithering onBeforeCompile={muteArtwork} />
         </mesh>
       </group>
     </group>

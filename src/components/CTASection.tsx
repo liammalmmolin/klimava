@@ -36,18 +36,18 @@ export const CTASection = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} id="download" className="download-section relative overflow-hidden py-12 md:py-20">
-      <div className="container mx-auto px-6">
+    <section ref={sectionRef} id="download" className="download-section relative py-12 md:py-20">
+      <div className="container relative mx-auto px-6">
         <div className="max-w-3xl mx-auto text-center">
           <div ref={iconRef} data-animation={visible && tabVisible && !reducedMotion ? "running" : "paused"} className="relative mx-auto mb-6 h-[220px] w-[260px] md:mb-8 md:h-[260px] md:w-[300px]" role="img" aria-label={t("Klimavas appikon", "Klimava app icon")}>
-            <div aria-hidden="true" className={`download-icon-atmosphere pointer-events-none absolute -left-[15%] -right-[15%] -top-[10%] bottom-[2%] ${visible && tabVisible && !reducedMotion ? "" : "motion-paused"}`}>
+            <div aria-hidden="true" className={`download-icon-atmosphere pointer-events-none absolute -inset-x-[20%] -inset-y-[12%] ${visible && tabVisible && !reducedMotion ? "" : "motion-paused"}`}>
               <div className="download-icon-halo absolute inset-0" />
               <div className="download-icon-dust absolute inset-0">
                 {Array.from({ length: 12 }, (_, index) => <span key={index} />)}
               </div>
             </div>
             <div className="absolute inset-0">
-            {!ready && <img src={klimavaIcon} width={120} height={120} loading="lazy" decoding="async" alt="" className="absolute left-1/2 top-1/2 h-[120px] w-[120px] -translate-x-1/2 -translate-y-1/2 rounded-[1.49rem]" />}
+            {!ready && <img src={klimavaIcon} width={120} height={120} loading="lazy" decoding="async" alt="" className="download-icon-placeholder absolute left-1/2 top-1/2 h-[120px] w-[120px] -translate-x-1/2 -translate-y-1/2 rounded-[1.49rem]" />}
             {(approaching || prewarmed) && <Suspense fallback={null}><DownloadIconScene active={visible && tabVisible && !reducedMotion} reducedMotion={Boolean(reducedMotion)} onReady={onReady} /></Suspense>}
             </div>
           </div>
