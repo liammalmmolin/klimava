@@ -79,7 +79,10 @@ export const HeroSection = ({ scale }: HeroSectionProps) => {
           <img
             src={assetUrl(auroraWide1600)}
             srcSet={auroraWideSources}
-            sizes="100vw"
+            // Cover can be height-limited on tall desktop windows. The wide
+            // crop is 3:2, so request pixels for its painted width, not only
+            // the visible container width. The mobile source keeps 100vw.
+            sizes="(min-width: 768px) max(calc(100vw - 2rem), calc(150vh - 3rem)), 100vw"
             width={4672}
             height={3115}
             fetchPriority="high"
