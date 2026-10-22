@@ -11,9 +11,9 @@ import { SwedenStrip } from "@/components/SwedenStrip";
 import { Button } from "@/components/ui/button";
 import { assetUrl } from "@/lib/asset-url";
 import teamPhoto from "@/assets/team-photo.jpg?format=webp&quality=92";
-import poster640 from "@/assets/videos/klimava-logo-intro-640.webp.asset.json";
-import poster1280 from "@/assets/videos/klimava-logo-intro-1280.webp.asset.json";
-import poster1920 from "@/assets/videos/klimava-logo-intro-1920.webp.asset.json";
+import poster640 from "@/assets/videos/klimava-how-to-v2-poster-640.webp.asset.json";
+import poster1280 from "@/assets/videos/klimava-how-to-v2-poster-1280.webp.asset.json";
+import poster1920 from "@/assets/videos/klimava-how-to-v2-poster-1920.webp.asset.json";
 
 const posterSrc = assetUrl(poster1280);
 const posterSet = `${assetUrl(poster640)} 640w, ${posterSrc} 1280w, ${assetUrl(poster1920)} 1920w`;
