@@ -8,10 +8,15 @@ import { stats } from "@/data/stats";
 import { AD_VIDEO_SRC } from "@/data/media";
 import { fadeUp, revealViewport } from "@/lib/motion";
 import { SwedenStrip } from "@/components/SwedenStrip";
+import { Button } from "@/components/ui/button";
+import { assetUrl } from "@/lib/asset-url";
 import teamPhoto from "@/assets/team-photo.jpg?format=webp&quality=92";
-import posterSet from "@/assets/ad-poster.jpg?w=960;1440;1920&format=webp&quality=88&as=srcset";
-import posterSrc from "@/assets/ad-poster.jpg?w=1440&format=webp&quality=88";
-import logo from "@/assets/klimava-logo.jpeg";
+import poster640 from "@/assets/videos/klimava-how-to-poster-640.webp.asset.json";
+import poster1280 from "@/assets/videos/klimava-how-to-poster-1280.webp.asset.json";
+import poster1920 from "@/assets/videos/klimava-how-to-poster-1920.webp.asset.json";
+
+const posterSrc = assetUrl(poster1280);
+const posterSet = `${assetUrl(poster640)} 640w, ${posterSrc} 1280w, ${assetUrl(poster1920)} 1920w`;
 
 const steps = [
   { icon: Camera, sv: "Fota kvittot", en: "Photograph the receipt" },
@@ -20,14 +25,13 @@ const steps = [
   { icon: Gift, sv: "Lös in belöningar", en: "Redeem rewards" },
 ];
 
-/** Ad film with a branded cover: brand-toned nature photo, logo and a big gradient play button. */
+/** Original film is fetched only after a press; the cover clears on actual playback. */
 const AdVideo = ({ src }: { src: string }) => {
   const { t } = useLanguage();
   const videoRef = useRef<HTMLVideoElement>(null);
   const [started, setStarted] = useState(false);
   // Cover stays until the first frame actually plays, so there's no blank flash.
   const [playing, setPlaying] = useState(false);
-  const [duration, setDuration] = useState<number>();
 
   const play = () => {
     setStarted(true);
@@ -46,11 +50,11 @@ const AdVideo = ({ src }: { src: string }) => {
         playsInline
         preload="none"
         onPlaying={() => setPlaying(true)}
-        onLoadedMetadata={(e) => setDuration(e.currentTarget.duration)}
-        className="h-full w-full object-cover"
+        className="h-full w-full object-contain"
       />
       <AnimatePresence>
         {!playing && (
+          <Button asChild variant="ghost" className="h-full w-full rounded-none p-0 bg-transparent hover:bg-transparent whitespace-normal [&_svg]:size-full focus-visible:ring-inset">
           <motion.button
             type="button"
             onClick={started ? undefined : play}
@@ -60,34 +64,22 @@ const AdVideo = ({ src }: { src: string }) => {
             transition={{ duration: 0.4 }}
             className="group absolute inset-0 flex cursor-pointer flex-col items-center justify-center text-left"
           >
-            {/* Still from the film's opening (0.5 s, past the black lead-in) */}
+            {/* Sharp, uncropped frame from the supplied film (6 seconds). */}
             <img width={1920} height={1080} loading="lazy" decoding="async" src={posterSrc} srcSet={posterSet} sizes="(min-width: 1152px) 1152px, 100vw" alt="" className="absolute inset-0 h-full w-full object-cover" />
-            <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 via-transparent to-transparent" />
+            <div className="video-cover-shade absolute inset-0" />
 
-            {/* White outline circle only; the whole interior stays fully transparent
-                so the cover shows through. No triangle, gradient, shadow, ring or pulse. */}
-            <span className="relative flex h-[3.6rem] w-[3.6rem] items-center justify-center transition-transform duration-150 ease-out group-hover:scale-[1.03] group-active:scale-[0.96] group-active:duration-75 sm:h-[4.5rem] sm:w-[4.5rem] md:h-[5.4rem] md:w-[5.4rem]">
+            <span className="relative flex w-[13.5%] aspect-square items-center justify-center transition-transform duration-150 ease-out group-hover:scale-[1.03] group-active:scale-[0.96] group-active:duration-75 motion-reduce:transition-none">
               <svg viewBox="0 0 100 100" aria-hidden="true" className="relative h-full w-full text-primary-foreground">
-                <circle cx="50" cy="50" r="45.5" fill="none" stroke="currentColor" strokeWidth="3.5" />
+                <circle cx="50" cy="50" r="49" className="video-play-disc" strokeWidth="1.5" />
+                <path d="M45 38.5 L62 50 L45 61.5 Z" fill="currentColor" stroke="currentColor" strokeWidth="1" strokeLinejoin="round" />
               </svg>
             </span>
 
-            <span className="absolute bottom-5 left-5 right-5 hidden items-end sm:flex justify-between gap-4 md:bottom-8 md:left-8 md:right-8">
-              <span className="flex items-center gap-3 md:gap-4">
-                <img width={56} height={56} loading="lazy" decoding="async" src={logo} alt="" className="h-11 w-11 rounded-xl shadow-elevated md:h-14 md:w-14 md:rounded-2xl" />
-                <span>
-                  <span className="block font-mono text-[10px] uppercase tracking-widest text-secondary md:text-xs">
-                    {t("Reklamfilm", "Ad film")}
-                  </span>
-                  <span className="block font-serif text-2xl font-medium leading-tight text-background md:text-4xl">Klimava</span>
-                </span>
-              </span>
-              <span className="rounded-full border border-background/25 bg-foreground/40 px-3 py-1 font-mono text-xs text-background/80 backdrop-blur-sm">
-                {t("Spela upp", "Play")}
-                {duration ? ` · ${Math.floor(duration / 60)}:${String(Math.round(duration % 60)).padStart(2, "0")}` : ""}
-              </span>
+            <span className="absolute bottom-[12%] left-[7%] right-[7%] text-left font-sans text-base font-medium leading-snug text-primary-foreground sm:text-xl md:text-3xl">
+              {t("Så använder du Klimava", "How to use Klimava")}
             </span>
           </motion.button>
+          </Button>
         )}
       </AnimatePresence>
     </>
