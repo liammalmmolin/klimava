@@ -56,7 +56,7 @@ function Icon({ active, palette, onReady }: { active: boolean; palette: Palette;
     <group rotation={[0.12, 0, -0.1]}>
       <group ref={group} rotation-y={DOWNLOAD_ICON_STILL_ANGLE}>
         <mesh geometry={body}>
-          <meshPhysicalMaterial color={palette.glass} metalness={0.65} roughness={0.16} clearcoat={1} clearcoatRoughness={0.06} envMapIntensity={0.85} />
+          <meshPhysicalMaterial color={palette.glass} metalness={0.12} roughness={0.2} clearcoat={0.85} clearcoatRoughness={0.09} envMapIntensity={0.85} />
         </mesh>
         <mesh geometry={rim}>
           <meshPhysicalMaterial color={palette.edge} metalness={0} roughness={0.07} transmission={0.86} thickness={0.42} ior={1.48} attenuationColor={palette.reflection} attenuationDistance={2.5} clearcoat={1} clearcoatRoughness={0.05} envMapIntensity={1.25} />
@@ -81,7 +81,7 @@ export default function DownloadIconScene({ active, onReady }: { active: boolean
   useEffect(() => {
     const styles = getComputedStyle(document.documentElement);
     const token = (name: string) => {
-      const [hue, saturation, lightness] = styles.getPropertyValue(name).trim().split(/\s+/).map(Number);
+      const [hue, saturation, lightness] = styles.getPropertyValue(name).trim().split(/\s+/).map(value => Number.parseFloat(value));
       return new Color().setHSL(hue / 360, saturation / 100, lightness / 100, SRGBColorSpace).getStyle();
     };
     setPalette({ glass: token("--download-icon-glass"), back: token("--download-icon-back"), edge: token("--download-icon-edge"), symbol: token("--download-icon-symbol"), light: token("--download-heading"), reflection: token("--brand-highlight"), surface: token("--download-surface") });
