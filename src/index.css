@@ -30,6 +30,10 @@
     --secondary: 91 55% 55%;
     --secondary-foreground: 192 40% 14%;
 
+    /* Solid section-label colors; independent of lime accents and gradients. */
+    --section-label: 172 32% 34%;
+    --section-label-on-dark: 172 32% 67%;
+
     /* Muted surfaces - cooler mint tint, used for alternating section bands */
     --muted: 140 22% 92%;
     --muted-foreground: 192 12% 42%;
@@ -98,6 +102,9 @@
     --secondary: 188 50% 32%;
     --secondary-foreground: 0 0% 100%;
 
+    --section-label: 172 32% 67%;
+    --section-label-on-dark: 172 32% 34%;
+
     --muted: 192 20% 16%;
     --muted-foreground: 140 10% 65%;
 
@@ -147,6 +154,14 @@
 }
 
 @layer utilities {
+  .section-label {
+    color: hsl(var(--section-label));
+  }
+
+  .section-label-on-dark {
+    color: hsl(var(--section-label-on-dark));
+  }
+
   .gradient-text {
     @apply bg-clip-text text-transparent;
     background-image: var(--gradient-text);
