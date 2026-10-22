@@ -76,7 +76,7 @@ export default function DownloadIconScene({ active, reducedMotion, onReady }: { 
   useEffect(() => {
     const styles = getComputedStyle(document.documentElement);
     const token = (name: string) => {
-      const [hue, saturation, lightness] = styles.getPropertyValue(name).trim().split(/\s+/).map(Number);
+      const [hue, saturation, lightness] = styles.getPropertyValue(name).trim().split(/\s+/).map(value => Number.parseFloat(value));
       return new Color().setHSL(hue / 360, saturation / 100, lightness / 100, SRGBColorSpace).getStyle();
     };
     setPalette({ glass: token("--download-icon-glass"), edge: token("--download-icon-edge"), symbol: token("--download-heading"), light: token("--download-heading"), reflection: token("--brand-highlight") });
