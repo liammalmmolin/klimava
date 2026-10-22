@@ -5,7 +5,9 @@ describe("download icon motion", () => {
   it("completes one seamless turn in 9.5 seconds", () => {
     expect(DOWNLOAD_ICON_TURN_SECONDS).toBe(9.5);
     expect(downloadRotationAt(9.5, false)).toBeCloseTo(DOWNLOAD_ICON_STILL_ANGLE);
-    expect(downloadRotationAt(9.5 / 4, false)).toBeCloseTo(DOWNLOAD_ICON_STILL_ANGLE + Math.PI / 2);
+    expect(downloadRotationAt(9.5 / 2, false)).toBeCloseTo(DOWNLOAD_ICON_STILL_ANGLE + Math.PI);
+    // Lingers on front/back: slower near the front than through the edge.
+    expect(downloadRotationAt(0.2, false) - downloadRotationAt(0, false)).toBeLessThan(downloadRotationAt(2.575, false) - downloadRotationAt(2.375, false));
   });
   it("catches up after offscreen time without restarting", () => {
     expect(downloadRotationAt(4.75, false)).toBeCloseTo(downloadRotationAt(23.75, false));
