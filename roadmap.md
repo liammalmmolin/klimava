@@ -1,3 +1,7 @@
+# Site-wide UI accent color
+- [x] Replace former lime tokens/stops/states with the exact existing section-label reference HSL 172 32% 67% (computed RGB 144,198,191), leaving media/logo files untouched.
+- [x] Verify 14 pages in Chromium/WebKit at 402×725 and 1280×1800; link normal/hover/press, four step icons, three trust icons and shared gradients use the new color, no runtime errors, deferred video loading retained, build OK. Reference contrast is 7.65:1 on dark petrol but 1.76:1 on the light background: exact pale gradient endpoints cannot guarantee accessible contrast there; no darker substitute introduced against the exact-color request. Physical iPhone not tested. Existing mobile overflow on SL page left outside this color-only scope.
+
 # Video introduction and section labels
 - [x] Remove the play invitation in both languages and unused heading min-height/mobile break, keeping the first sentence, typography and natural 48px video gap.
 - [x] Apply shared solid muted turquoise-green surface-specific color tokens to the two matching lime homepage labels only; Chromium/WebKit verified at 402×725 and 1280×1800, unchanged 12px IBM Plex Mono/weight/uppercase/tracking, unchanged gradient headings and lime icons, deferred video source intact, no overflow/runtime errors, build OK. Physical iPhone not tested.
