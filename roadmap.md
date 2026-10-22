@@ -1,3 +1,8 @@
+# Download icon saturation and seamless atmosphere
+- [ ] Reduce only icon artwork saturation by approximately 10%, preserve black K, opaque surface and all geometry/motion/render quality.
+- [ ] Fade exact preceding white into dark above content with no layout changes; center and broaden halo/dust area with fully transparent outer falloff.
+- [ ] Verify mobile/desktop, WebKit, retained rendering on scroll and reduced motion; run existing icon tests.
+
 # Download icon third 8% reduction
 - [x] Reduce only the rendered icon by a further 8% through orthographic zoom (57.48 → 52.88, ratio 0.92) and scale the temporary placeholder proportionally (130px/1.62rem → 120px/1.49rem); geometry, materials, anisotropy, DPR, rotation timing, halo, dust and reserved layout untouched.
 - [x] Verify Chromium 402×725 DPR3, 1280×1800 and reduced-motion 402×725 DPR3: measured visible icon height 148.0px → 136.7px mobile and 137.0px desktop (ratio 0.92), horizontal centre offset within ±0.3px, container 260×220 / 300×260, halo gradient string, twelve dust points with unchanged durations, heading, 196×48 button and body copy unchanged, canvas prepared before scroll, reduced motion pixel-identical with static 0.24 dust, no page exceptions, four motion tests pass and build OK.
