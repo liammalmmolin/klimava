@@ -81,8 +81,8 @@ function Icon({ reducedMotion, onReady }: { reducedMotion: boolean; onReady: () 
           {/* Satin finish: moderate emission keeps the app colors exact while a
               fixed key light and soft environment model the form; the tight
               edge radius catches a fine highlight without any outline. */}
-          <meshStandardMaterial attach="material-0" map={artwork} emissiveMap={artwork} emissive={new Color(1, 1, 1)} emissiveIntensity={0.32} roughness={0.58} metalness={0} envMapIntensity={0.45} toneMapped={false} dithering onBeforeCompile={muteArtwork} />
-          <meshStandardMaterial attach="material-1" map={body} emissiveMap={body} emissive={new Color(1, 1, 1)} emissiveIntensity={0.32} roughness={0.58} metalness={0} envMapIntensity={0.45} toneMapped={false} dithering onBeforeCompile={muteArtwork} />
+          <meshStandardMaterial attach="material-0" map={artwork} emissiveMap={artwork} emissive={new Color(1, 1, 1)} emissiveIntensity={0.27} roughness={0.5} metalness={0} envMapIntensity={0.6} toneMapped={false} dithering onBeforeCompile={muteArtwork} />
+          <meshStandardMaterial attach="material-1" map={body} emissiveMap={body} emissive={new Color(1, 1, 1)} emissiveIntensity={0.27} roughness={0.5} metalness={0} envMapIntensity={0.6} toneMapped={false} dithering onBeforeCompile={muteArtwork} />
         </mesh>
       </group>
     </group>
@@ -100,12 +100,14 @@ export default function DownloadIconScene({ active, reducedMotion, onReady, onFa
           continue over the edge without dark bands. */}
       <hemisphereLight args={["#ffffff", "#cfd8d2", 0.46]} />
       {/* One fixed soft key light: the rotating form shifts naturally through it. */}
-      <directionalLight position={[-3, 4, 6]} intensity={0.95} />
+      <directionalLight position={[-3, 5, 4]} intensity={1.05} />
       {/* Weak fill lifts the shadow side so the profile stays readable. */}
-      <directionalLight position={[4, -1, 2]} intensity={0.26} />
+      <directionalLight position={[4, -1, 3]} intensity={0.24} />
       <Suspense fallback={null}>
         <Environment resolution={64} frames={1}>
           <Lightformer intensity={0.8} position={[-3, 4, 5]} rotation-y={Math.PI} scale={[5, 6, 1]} />
+          {/* Broad soft overhead panel: one wide satin sheen, never a wet hotspot. */}
+          <Lightformer intensity={0.5} position={[0, 6, 2]} rotation-x={Math.PI / 2} scale={[10, 4, 1]} />
           <Lightformer intensity={0.4} position={[4, 1, -3]} rotation-y={-Math.PI / 2} scale={[4, 6, 1]} />
         </Environment>
         <Icon reducedMotion={reducedMotion} onReady={onReady} />
