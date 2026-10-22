@@ -84,9 +84,10 @@
     --download-icon-edge: 139 50% 70%;
     --download-button-ink: 192 30% 9%;
     --download-halo-color: 172 38% 57%;
+    --download-halo-green: 145 52% 62%;
     --download-dust-neutral: 160 15% 92%;
     --download-dust-tinted: 172 32% 67%;
-    --download-icon-halo: radial-gradient(ellipse at 49% 47%, hsl(var(--download-halo-color) / 0.11) 0%, hsl(var(--download-halo-color) / 0.065) 25%, hsl(var(--download-halo-color) / 0.025) 48%, hsl(var(--download-halo-color) / 0.006) 65%, hsl(var(--download-halo-color) / 0) 78%);
+    --download-icon-halo: radial-gradient(ellipse at 43% 45%, hsl(var(--download-halo-green) / 0.26) 0%, hsl(var(--download-halo-green) / 0.17) 20%, hsl(var(--download-halo-green) / 0.07) 42%, hsl(var(--download-halo-green) / 0.018) 60%, hsl(var(--download-halo-green) / 0) 75%), radial-gradient(ellipse at 59% 49%, hsl(var(--download-halo-color) / 0.23) 0%, hsl(var(--download-halo-color) / 0.14) 23%, hsl(var(--download-halo-color) / 0.055) 44%, hsl(var(--download-halo-color) / 0.012) 63%, hsl(var(--download-halo-color) / 0) 78%);
 
     /* Sidebar tokens */
     --sidebar-background: 140 18% 98%;
@@ -175,28 +176,32 @@
   .download-icon-halo { background-image: var(--download-icon-halo); }
   .download-icon-dust span {
     position: absolute;
-    width: 1.5px;
-    height: 1.5px;
+    width: 2px;
+    height: 2px;
     border-radius: 50%;
     background-color: hsl(var(--download-dust-neutral));
     opacity: 0;
     animation: download-light-dust 8s ease-in-out infinite both;
   }
-  .download-icon-dust span:nth-child(1) { left: 15%; top: 28%; animation-delay: -2.7s; }
-  .download-icon-dust span:nth-child(2) { left: 76%; top: 17%; width: 1px; height: 1px; animation-duration: 11s; animation-delay: -7s; background-color: hsl(var(--download-dust-tinted)); }
-  .download-icon-dust span:nth-child(3) { left: 88%; top: 55%; animation-duration: 9.7s; animation-delay: -4.9s; }
-  .download-icon-dust span:nth-child(4) { left: 22%; top: 73%; width: 1px; height: 1px; animation-duration: 12.5s; animation-delay: -1.2s; background-color: hsl(var(--download-dust-tinted)); }
-  .download-icon-dust span:nth-child(5) { left: 59%; top: 11%; width: 1px; height: 1px; animation-duration: 10.3s; animation-delay: -6.1s; }
-  .download-icon-dust span:nth-child(6) { left: 9%; top: 49%; width: 1px; height: 1px; animation-duration: 13s; animation-delay: -8.4s; background-color: hsl(var(--download-dust-tinted)); }
-  .download-icon-dust span:nth-child(7) { left: 71%; top: 81%; animation-duration: 11.8s; animation-delay: -3.6s; }
-  .download-icon-dust span:nth-child(8) { left: 37%; top: 19%; width: 1px; height: 1px; animation-duration: 14s; animation-delay: -10.8s; background-color: hsl(var(--download-dust-tinted)); }
+  .download-icon-dust span:nth-child(1) { left: 20%; top: 31%; animation-delay: -2.7s; }
+  .download-icon-dust span:nth-child(2) { left: 73%; top: 19%; width: 1.5px; height: 1.5px; animation-duration: 11s; animation-delay: -7s; background-color: hsl(var(--download-dust-tinted)); }
+  .download-icon-dust span:nth-child(3) { left: 85%; top: 57%; animation-duration: 9.7s; animation-delay: -4.9s; }
+  .download-icon-dust span:nth-child(4) { left: 26%; top: 72%; width: 1.5px; height: 1.5px; animation-duration: 12.5s; animation-delay: -4.2s; background-color: hsl(var(--download-dust-tinted)); }
+  .download-icon-dust span:nth-child(5) { left: 57%; top: 13%; width: 1.5px; height: 1.5px; animation-duration: 10.3s; animation-delay: -6.1s; }
+  .download-icon-dust span:nth-child(6) { left: 13%; top: 51%; width: 1.5px; height: 1.5px; animation-duration: 13s; animation-delay: -8.4s; background-color: hsl(var(--download-dust-tinted)); }
+  .download-icon-dust span:nth-child(7) { left: 69%; top: 80%; animation-duration: 11.8s; animation-delay: -3.6s; }
+  .download-icon-dust span:nth-child(8) { left: 35%; top: 23%; width: 1.5px; height: 1.5px; animation-duration: 14s; animation-delay: -10.8s; background-color: hsl(var(--download-dust-tinted)); }
+  .download-icon-dust span:nth-child(9) { left: 78%; top: 39%; width: 1px; height: 1px; animation-duration: 10.8s; animation-delay: -5.8s; }
+  .download-icon-dust span:nth-child(10) { left: 42%; top: 84%; width: 1px; height: 1px; animation-duration: 12.8s; animation-delay: -6.6s; background-color: hsl(var(--download-dust-tinted)); }
+  .download-icon-dust span:nth-child(11) { left: 31%; top: 56%; width: 1px; height: 1px; animation-duration: 9.2s; animation-delay: -4.4s; }
+  .download-icon-dust span:nth-child(12) { left: 62%; top: 66%; width: 1.5px; height: 1.5px; animation-duration: 13.7s; animation-delay: -9.1s; background-color: hsl(var(--download-dust-tinted)); }
   @keyframes download-light-dust {
     0%, 24%, 100% { opacity: 0; }
-    52% { opacity: 0.32; }
+    52% { opacity: 0.68; }
     76% { opacity: 0; }
   }
   @media (prefers-reduced-motion: reduce) {
-    .download-icon-dust span { animation: none; opacity: 0.12; }
+    .download-icon-dust span { animation: none; opacity: 0.24; }
   }
   .download-button,
   .download-button:hover { background-color: hsl(var(--brand-highlight)); color: hsl(var(--download-button-ink)); }
