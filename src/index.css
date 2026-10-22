@@ -77,7 +77,6 @@
     --video-cover-shade: linear-gradient(to top, hsl(0 0% 0% / 0.55), hsl(0 0% 0% / 0) 45%);
     --download-glow: radial-gradient(circle closest-side, hsl(var(--secondary) / 0.16) 0%, hsl(var(--primary) / 0.14) 22%, hsl(var(--primary) / 0.1) 40%, hsl(var(--primary) / 0.065) 55%, hsl(var(--primary) / 0.035) 68%, hsl(var(--primary) / 0.015) 80%, hsl(var(--primary) / 0.004) 90%, hsl(var(--primary) / 0) 97%);
     --download-surface: 192 22% 5%;
-    --download-entry-fade: linear-gradient(to bottom, hsl(var(--background)) 0%, hsl(var(--background)) 8%, hsl(var(--download-surface) / 0.12) 32%, hsl(var(--download-surface) / 0.48) 58%, hsl(var(--download-surface) / 0.85) 82%, hsl(var(--download-surface)) 100%);
     --download-heading: 45 20% 94%;
     --download-copy: 180 5% 70%;
     /* Side/edge colors sampled from the original app artwork, independent of UI accents. */
@@ -88,7 +87,7 @@
     --download-halo-green: 145 52% 62%;
     --download-dust-neutral: 160 15% 92%;
     --download-dust-tinted: 172 32% 67%;
-    --download-icon-halo: radial-gradient(ellipse 50% 50% at 47% 50%, hsl(var(--download-halo-green) / 0.26) 0%, hsl(var(--download-halo-green) / 0.19) 18%, hsl(var(--download-halo-green) / 0.1) 36%, hsl(var(--download-halo-green) / 0.038) 55%, hsl(var(--download-halo-green) / 0.009) 73%, hsl(var(--download-halo-green) / 0) 94%), radial-gradient(ellipse 50% 50% at 53% 50%, hsl(var(--download-halo-color) / 0.23) 0%, hsl(var(--download-halo-color) / 0.16) 18%, hsl(var(--download-halo-color) / 0.08) 36%, hsl(var(--download-halo-color) / 0.03) 55%, hsl(var(--download-halo-color) / 0.007) 73%, hsl(var(--download-halo-color) / 0) 94%);
+    --download-icon-halo: radial-gradient(ellipse 58% 62% at 50% 50%, hsl(var(--download-halo-green) / 0.26) 0%, hsl(var(--download-halo-green) / 0.2) 20%, hsl(var(--download-halo-green) / 0.11) 40%, hsl(var(--download-halo-green) / 0.045) 60%, hsl(var(--download-halo-green) / 0.012) 78%, hsl(var(--download-halo-green) / 0) 96%), radial-gradient(ellipse 55% 58% at 50% 50%, hsl(var(--download-halo-color) / 0.23) 0%, hsl(var(--download-halo-color) / 0.17) 20%, hsl(var(--download-halo-color) / 0.09) 40%, hsl(var(--download-halo-color) / 0.036) 60%, hsl(var(--download-halo-color) / 0.009) 78%, hsl(var(--download-halo-color) / 0) 96%);
 
     /* Sidebar tokens */
     --sidebar-background: 140 18% 98%;
