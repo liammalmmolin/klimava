@@ -1,3 +1,8 @@
+# Download icon further 8% reduction
+- [x] Reduce only the rendered icon by a further 8% through orthographic zoom (62.48 → 57.48, ratio 0.92) and scale the temporary placeholder proportionally (141px/1.76rem → 130px/1.62rem); geometry, materials, anisotropy, DPR, rotation timing, halo, dust and reserved layout untouched.
+- [x] Verify Chromium 402×725 DPR3 and WebKit 402×725 DPR3: measured visible icon height 160.7px → 148.0px (ratio 0.921), width varies 77–145px across a turn purely with rotation angle, horizontal centre offset stays within ±0.7px, container 260×220 / halo 338×237.6 / twelve dust points / heading and 196×48 button unchanged, canvas prepared before scroll and retained after three rapid return trips, reduced motion pixel-identical with static 0.24 dust, no page exceptions, four motion tests pass and build OK.
+- [ ] Physical iPhone Safari smoothness — real hardware unavailable.
+
 # Download icon size and reference atmosphere
 - [x] Reduce only the rendered icon by 12% through orthographic zoom (71 → 62.48), matching the temporary fallback and preserving reserved layout, geometry, materials, sharpness and continuous rotation.
 - [x] Inspect the supplied 13.52-second Gritch recording at 3s and 7s; strengthen the compact green/turquoise illuminated area and twelve irregular tiny opacity-only dust points. Explicit gradient radii reach full transparency before the local layer boundaries; heading area remains untouched, no filters or GPU particles added.
