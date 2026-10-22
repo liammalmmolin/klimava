@@ -1,3 +1,8 @@
+# Download icon size and reference atmosphere
+- [ ] Reduce only the rendered icon by approximately 12%, preserving reserved layout, shape, colors, sharpness and continuous rotation.
+- [ ] Strengthen the local green/turquoise glow and irregular independently fading light dust using only the supplied Gritch recording as visual reference; preserve heading readability and filter-free rendering.
+- [ ] Verify mobile/desktop, rapid return scrolling, retained prewarming and reduced motion; physical iPhone remains unavailable.
+
 # Download icon sharpness and local light dust
 - [x] Increase hardware-capped anisotropy to 16 and retain antialiasing/native 3x mobile rendering, with a 2x minimum on low-density screens; original remains 659×656 (no higher-resolution identical artwork found), geometry/materials/rotation unchanged, no sharpening filters.
 - [x] Add a faint tokenized filter-free local glow and eight tiny irregular opacity-only dust points with independent slow timings; prepared initially, paused offscreen/hidden and static for reduced-motion.
