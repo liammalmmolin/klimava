@@ -125,22 +125,22 @@ export default function DownloadIconScene({ active, reducedMotion, onReady, onFa
       <directionalLight position={[-3, 5, 4]} intensity={0.7} />
       <directionalLight position={[4, -1, 3]} intensity={0.18} />
       {/* Faint camera-side fill keeps the black K legible when facing away from the key. */}
-      <directionalLight position={[0, 0, 6]} intensity={0.22} />
+      <directionalLight position={[0, 0, 6]} intensity={0.28} />
       <Suspense fallback={null}>
         <Environment resolution={128} frames={1}>
           {/* Dim studio surround: dark angles keep detail instead of going black. */}
           <mesh scale={30}>
             <sphereGeometry args={[1, 32, 16]} />
-            <meshBasicMaterial side={BackSide} color="#323d39" />
+            <meshBasicMaterial side={BackSide} color="#3a4642" />
           </mesh>
           {/* One large soft overhead softbox: a broad, controlled sheen. */}
-          <Lightformer form="rect" intensity={2.4} position={[-2, 6, 4]} rotation-x={-Math.PI / 3} scale={[12, 7, 1]} />
+          <Lightformer form="rect" intensity={2.05} position={[-2, 6, 4]} rotation-x={-Math.PI / 3} scale={[12, 7, 1]} />
           <Lightformer intensity={1.1} position={[-6, 1, 2]} rotation-y={Math.PI / 2} scale={[4, 8, 1]} />
           <Lightformer intensity={0.45} position={[6, 0, -3]} rotation-y={-Math.PI / 2} scale={[4, 8, 1]} />
           <Lightformer intensity={0.35} position={[0, 1, -7]} scale={[8, 6, 1]} />
           {/* Broad tall softboxes front-right and behind-left: as the icon turns
               they sweep wide light/dark bands across both faces, not just edges. */}
-          <Lightformer form="rect" intensity={1.4} position={[4, 0.5, 5]} rotation-y={-Math.PI / 5} scale={[3.5, 10, 1]} />
+          <Lightformer form="rect" intensity={1.2} position={[4, 0.5, 5]} rotation-y={-Math.PI / 5} scale={[3.5, 10, 1]} />
           <Lightformer form="rect" intensity={1.0} position={[-4, 0, -5]} rotation-y={Math.PI * 0.8} scale={[3.5, 10, 1]} />
         </Environment>
         <Icon reducedMotion={reducedMotion} onReady={onReady} />
