@@ -1,3 +1,8 @@
+# Desktop rendering quality correction
+- [ ] Verify loaded aurora candidates against cover dimensions and display density; preserve crop, colours and independent sticker animation.
+- [ ] Verify original-video poster and scalable play symbol at desktop/Retina sizes; correct only confirmed resolution defects.
+- [ ] Audit all routes at ordinary/large desktop widths and high density, fix confirmed media defects, and verify rendered results and unchanged mobile appearance.
+
 # Targeted desktop decoration, wordmark and feature grid
 - [x] Remove the entire desktop hero sticker group in both languages, including halo and animation effects; preserve the aurora and other content.
 - [x] Enlarge only the initial K in the hero wordmark by 10% on the same baseline with inherited typeface, weight and colour; other wordmarks and app artwork remain untouched.
