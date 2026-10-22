@@ -74,6 +74,12 @@
     --video-play-contour: 0 0% 100% / 0.45;
     --video-cover-shade: linear-gradient(to top, hsl(0 0% 0% / 0.55), hsl(0 0% 0% / 0) 45%);
     --download-glow: radial-gradient(circle closest-side, hsl(var(--secondary) / 0.16) 0%, hsl(var(--primary) / 0.14) 22%, hsl(var(--primary) / 0.1) 40%, hsl(var(--primary) / 0.065) 55%, hsl(var(--primary) / 0.035) 68%, hsl(var(--primary) / 0.015) 80%, hsl(var(--primary) / 0.004) 90%, hsl(var(--primary) / 0) 97%);
+    --download-surface: 192 22% 5%;
+    --download-heading: 45 20% 94%;
+    --download-copy: 180 5% 70%;
+    --download-icon-glass: 182 25% 36%;
+    --download-icon-edge: 172 23% 55%;
+    --download-button-ink: 192 30% 9%;
 
     /* Sidebar tokens */
     --sidebar-background: 140 18% 98%;
@@ -154,6 +160,12 @@
 }
 
 @layer utilities {
+  .download-section { background-color: hsl(var(--download-surface)); }
+  .download-heading { color: hsl(var(--download-heading)); }
+  .download-description { color: hsl(var(--download-copy)); }
+  .download-button,
+  .download-button:hover { background-color: hsl(var(--brand-highlight)); color: hsl(var(--download-button-ink)); }
+
   .section-label {
     color: hsl(var(--section-label));
   }
