@@ -1,3 +1,9 @@
+# Download icon size and reference atmosphere
+- [x] Reduce only the rendered icon by 12% through orthographic zoom (71 → 62.48), matching the temporary fallback and preserving reserved layout, geometry, materials, sharpness and continuous rotation.
+- [x] Inspect the supplied 13.52-second Gritch recording at 3s and 7s; strengthen the compact green/turquoise illuminated area and twelve irregular tiny opacity-only dust points. Explicit gradient radii reach full transparency before the local layer boundaries; heading area remains untouched, no filters or GPU particles added.
+- [x] Verify Chromium 402×725 DPR3 and 1280×1800, WebKit 402×725 DPR3, three rapid return trips and static reduced motion. Canvas prepared before scrolling and retained, unchanged text/button, no page exceptions, four motion tests pass and build OK. Screenshots reviewed; WebKit software capture cannot establish physical Safari animation smoothness.
+- [ ] Physical iPhone Safari smoothness — real hardware unavailable.
+
 # Download icon sharpness and local light dust
 - [x] Increase hardware-capped anisotropy to 16 and retain antialiasing/native 3x mobile rendering, with a 2x minimum on low-density screens; original remains 659×656 (no higher-resolution identical artwork found), geometry/materials/rotation unchanged, no sharpening filters.
 - [x] Add a faint tokenized filter-free local glow and eight tiny irregular opacity-only dust points with independent slow timings; prepared initially, paused offscreen/hidden and static for reduced-motion.
