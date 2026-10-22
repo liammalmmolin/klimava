@@ -72,7 +72,7 @@ const AboutApp = () => {
               )}
             </h2>
           </motion.div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-border rounded-2xl overflow-hidden mb-28 border border-border">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-border rounded-2xl overflow-hidden mb-28 border border-border">
             {features.map((f, i) => (
               <motion.div
                 key={f.title.sv}

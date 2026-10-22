@@ -1,3 +1,9 @@
+# Targeted desktop decoration, wordmark and feature grid
+- [x] Remove the entire desktop hero sticker group in both languages, including halo and animation effects; preserve the aurora and other content.
+- [x] Enlarge only the initial K in the hero wordmark by 10% on the same baseline with inherited typeface, weight and colour; other wordmarks and app artwork remain untouched.
+- [x] Change the existing nine About app features to three desktop columns; retain order, content, shared dividers and mobile layout in both languages.
+- [ ] Verify smaller/larger desktop widths and unchanged mobile grid.
+
 # Download icon saturation and seamless atmosphere
 - [x] Reduce only icon artwork saturation by approximately 10% through a once-compiled diffuse/emissive chroma adjustment; preserve black K, alpha and all geometry/motion/render quality.
 - [x] Fade exact preceding background (140 20% 96%) into dark within existing empty padding above content with no layout changes; center and broaden halo/dust area with fully transparent outer falloff.
