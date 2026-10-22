@@ -89,9 +89,13 @@ function Icon({ reducedMotion, onReady }: { reducedMotion: boolean; onReady: () 
   );
 }
 
-export default function DownloadIconScene({ active, reducedMotion, onReady }: { active: boolean; reducedMotion: boolean; onReady: () => void }) {
+export default function DownloadIconScene({ active, reducedMotion, onReady, onFailure }: { active: boolean; reducedMotion: boolean; onReady: () => void; onFailure: () => void }) {
   return (
-    <Canvas orthographic camera={{ position: [0, 0, 7], zoom: 52.88 }} dpr={[2, 3]} frameloop={active ? "always" : "demand"} gl={{ alpha: true, antialias: true, powerPreference: "low-power" }}>
+    <Canvas orthographic camera={{ position: [0, 0, 7], zoom: 52.88 }} dpr={[2, 3]} frameloop={active ? "always" : "demand"} gl={{ alpha: true, antialias: true, powerPreference: "low-power" }}
+      onCreated={({ gl }) => {
+        // A lost context falls back to the still artwork once; no restart attempts.
+        gl.domElement.addEventListener("webglcontextlost", () => onFailure(), { once: true });
+      }}>
       {/* Sky/ground ambient lifts edge radii facing away from the key, so colors
           continue over the edge without dark bands. */}
       <hemisphereLight args={["#ffffff", "#cfd8d2", 0.46]} />

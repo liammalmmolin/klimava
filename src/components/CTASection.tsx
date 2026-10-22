@@ -1,11 +1,28 @@
 import { useInView, useReducedMotion } from "framer-motion";
-import { lazy, Suspense, useCallback, useEffect, useRef, useState } from "react";
+import { Component, lazy, Suspense, useCallback, useEffect, useRef, useState, type ReactNode } from "react";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 import klimavaIcon from "@/assets/klimava-logo.jpeg";
 
 const loadDownloadIcon = () => import("./DownloadIconScene");
 const DownloadIconScene = lazy(loadDownloadIcon);
+
+// Keeps any 3D load/start failure local to the icon.
+class IconBoundary extends Component<{ onError: () => void; children: ReactNode }, { failed: boolean }> {
+  state = { failed: false };
+  static getDerivedStateFromError() { return { failed: true }; }
+  componentDidCatch() { this.props.onError(); }
+  render() { return this.state.failed ? null : this.props.children; }
+}
+
+const hasWebGL = () => {
+  try {
+    const canvas = document.createElement("canvas");
+    return Boolean(canvas.getContext("webgl2") || canvas.getContext("webgl"));
+  } catch {
+    return false;
+  }
+};
 
 export const CTASection = () => {
   const { t } = useLanguage();
@@ -17,7 +34,9 @@ export const CTASection = () => {
   const [tabVisible, setTabVisible] = useState(true);
   const [ready, setReady] = useState(false);
   const [prewarmed, setPrewarmed] = useState(false);
+  const [failed, setFailed] = useState(() => !hasWebGL());
   const onReady = useCallback(() => setReady(true), []);
+  const onFailure = useCallback(() => { setFailed(true); setReady(false); }, []);
   useEffect(() => {
     // Warm the lazy chunk, texture and first GPU frame during idle time, not on arrival.
     const warm = () => { void loadDownloadIcon(); setPrewarmed(true); };
@@ -44,8 +63,8 @@ export const CTASection = () => {
               <div className="download-icon-halo absolute inset-0" />
             </div>
             <div className="absolute inset-0">
-            {!ready && <img src={klimavaIcon} width={120} height={120} loading="lazy" decoding="async" alt="" className="download-icon-placeholder absolute left-1/2 top-1/2 h-[120px] w-[120px] -translate-x-1/2 -translate-y-1/2 rounded-[1.49rem]" />}
-            {(approaching || prewarmed) && <Suspense fallback={null}><DownloadIconScene active={visible && tabVisible && !reducedMotion} reducedMotion={Boolean(reducedMotion)} onReady={onReady} /></Suspense>}
+            {(!ready || failed) && <img src={klimavaIcon} width={120} height={120} loading="lazy" decoding="async" alt="" className="download-icon-placeholder absolute left-1/2 top-1/2 h-[120px] w-[120px] -translate-x-1/2 -translate-y-1/2 rounded-[1.49rem]" />}
+            {!failed && (approaching || prewarmed) && <IconBoundary onError={onFailure}><Suspense fallback={null}><DownloadIconScene active={visible && tabVisible && !reducedMotion} reducedMotion={Boolean(reducedMotion)} onReady={onReady} onFailure={onFailure} /></Suspense></IconBoundary>}
             </div>
           </div>
 
