@@ -66,6 +66,9 @@
     --shadow-soft: 0 4px 20px -4px hsl(192 30% 10% / 0.25);
     --shadow-card: 0 8px 30px -8px hsl(192 30% 10% / 0.35);
     --shadow-elevated: 0 20px 50px -12px hsl(192 30% 10% / 0.45);
+    --video-play-fill: 0 0% 22% / 0.6;
+    --video-play-contour: 0 0% 100% / 0.45;
+    --video-cover-shade: linear-gradient(to top, hsl(0 0% 0% / 0.55), hsl(0 0% 0% / 0) 45%);
     --download-glow: radial-gradient(circle closest-side, hsl(var(--secondary) / 0.16) 0%, hsl(var(--primary) / 0.14) 22%, hsl(var(--primary) / 0.1) 40%, hsl(var(--primary) / 0.065) 55%, hsl(var(--primary) / 0.035) 68%, hsl(var(--primary) / 0.015) 80%, hsl(var(--primary) / 0.004) 90%, hsl(var(--primary) / 0) 97%);
 
     /* Sidebar tokens */
@@ -162,6 +165,9 @@
   .gradient-bg {
     background-image: var(--gradient-primary);
   }
+
+  .video-cover-shade { background-image: var(--video-cover-shade); }
+  .video-play-disc { fill: hsl(var(--video-play-fill)); stroke: hsl(var(--video-play-contour)); }
 
 
   .download-glow {
