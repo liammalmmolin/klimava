@@ -1,10 +1,11 @@
 import { Suspense, useEffect, useMemo, useRef, useState } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { Environment, Lightformer, useTexture } from "@react-three/drei";
-import { Color, ExtrudeGeometry, Group, Path, Shape, SRGBColorSpace } from "three";
-import kMask from "@/assets/klimava-k-mask.png.asset.json";
-import { assetUrl } from "@/lib/asset-url";
-import { advanceDownloadRotation, DOWNLOAD_ICON_STILL_ANGLE } from "@/lib/download-icon-motion";
+import { Environment, Lightformer, Preload, useTexture } from "@react-three/drei";
+import { Color, ExtrudeGeometry, Group, Path, Shape, ShapeGeometry, SRGBColorSpace } from "three";
+import originalArtwork from "@/assets/klimava-logo.jpeg";
+import { downloadRotationAt, DOWNLOAD_ICON_STILL_ANGLE } from "@/lib/download-icon-motion";
+
+useTexture.preload(originalArtwork);
 
 function roundedShape(size: number, radius: number) {
   const s = size / 2;
@@ -23,25 +24,33 @@ function roundedShape(size: number, radius: number) {
 
 type Palette = { glass: string; back: string; edge: string; symbol: string; light: string; reflection: string; surface: string };
 
-function Icon({ active, palette, onReady }: { active: boolean; palette: Palette; onReady: () => void }) {
+function Icon({ reducedMotion, startedAt, palette, onReady }: { reducedMotion: boolean; startedAt: number; palette: Palette; onReady: () => void }) {
   const group = useRef<Group>(null);
-  const angle = useRef(DOWNLOAD_ICON_STILL_ANGLE);
   const renderedFrames = useRef(0);
   const invalidate = useThree(state => state.invalidate);
-  const mask = useTexture(assetUrl(kMask));
-  mask.colorSpace = SRGBColorSpace;
-  const { body, rim } = useMemo(() => {
+  const artwork = useTexture(originalArtwork);
+  artwork.colorSpace = SRGBColorSpace;
+  const { body, rim, face } = useMemo(() => {
     const body = new ExtrudeGeometry(roundedShape(2.06, 0.43), { depth: 0.24, bevelEnabled: true, bevelSize: 0.025, bevelThickness: 0.025, bevelSegments: 3, curveSegments: 20, steps: 1 });
     body.translate(0, 0, -0.12);
     const ring = roundedShape(2.28, 0.5);
     ring.holes.push(new Path(roundedShape(2.09, 0.44).getPoints(32).reverse()));
     const rim = new ExtrudeGeometry(ring, { depth: 0.36, bevelEnabled: true, bevelSize: 0.035, bevelThickness: 0.045, bevelSegments: 5, curveSegments: 20, steps: 1 });
     rim.translate(0, 0, -0.18);
-    return { body, rim };
+    const face = new ShapeGeometry(roundedShape(2.05, 0.43), 20);
+    const positions = face.getAttribute("position");
+    const uv = face.getAttribute("uv");
+    // Retain the previous K plane's exact 2.22-unit graphic scale; clip only
+    // the artwork background to the existing inset face, not the symbol.
+    for (let i = 0; i < positions.count; i++) {
+      uv.setXY(i, positions.getX(i) / 2.22 + 0.5, positions.getY(i) / 2.22 + 0.5);
+    }
+    return { body, rim, face };
   }, []);
   useEffect(() => { invalidate(); }, [invalidate]);
-  useEffect(() => () => { body.dispose(); rim.dispose(); }, [body, rim]);
-  useFrame((_, delta) => {
+  useEffect(() => () => { body.dispose(); rim.dispose(); face.dispose(); }, [body, rim, face]);
+  useEffect(() => { invalidate(); }, [reducedMotion, invalidate]);
+  useFrame(() => {
     if (!group.current) return;
     // Keep the fallback until an actual frame exists, also in demand mode.
     if (renderedFrames.current < 3) {
@@ -49,8 +58,7 @@ function Icon({ active, palette, onReady }: { active: boolean; palette: Palette;
       if (renderedFrames.current === 3) onReady();
       else invalidate();
     }
-    angle.current = advanceDownloadRotation(angle.current, delta, active);
-    group.current.rotation.y = angle.current;
+    group.current.rotation.y = downloadRotationAt((performance.now() - startedAt) / 1000, reducedMotion);
   });
   return (
     <group rotation={[0.12, 0, -0.1]}>
@@ -66,9 +74,8 @@ function Icon({ active, palette, onReady }: { active: boolean; palette: Palette;
           <meshPhysicalMaterial color={palette.back} metalness={0.5} roughness={0.22} clearcoat={1} envMapIntensity={0.75} />
         </mesh>
         {[1, -1].map(side => (
-          <mesh key={side} position-z={side * 0.156} rotation-y={side === 1 ? 0 : Math.PI}>
-            <planeGeometry args={[2.22, 2.22]} />
-            <meshStandardMaterial map={mask} transparent alphaTest={0.08} color={palette.symbol} metalness={0.35} roughness={0.19} emissive={palette.symbol} emissiveIntensity={0.18} envMapIntensity={1.1} />
+          <mesh key={side} geometry={face} position-z={side * 0.156} rotation-y={side === 1 ? 0 : Math.PI}>
+            <meshBasicMaterial map={artwork} toneMapped={false} />
           </mesh>
         ))}
       </group>
@@ -76,7 +83,7 @@ function Icon({ active, palette, onReady }: { active: boolean; palette: Palette;
   );
 }
 
-export default function DownloadIconScene({ active, onReady }: { active: boolean; onReady: () => void }) {
+export default function DownloadIconScene({ active, reducedMotion, startedAt, onReady }: { active: boolean; reducedMotion: boolean; startedAt: number; onReady: () => void }) {
   const [palette, setPalette] = useState<Palette>();
   useEffect(() => {
     const styles = getComputedStyle(document.documentElement);
@@ -100,7 +107,8 @@ export default function DownloadIconScene({ active, onReady }: { active: boolean
           <Lightformer intensity={2.5} color={palette.light} position={[0, 4, 1]} rotation-x={Math.PI / 2} scale={[4, 0.3, 1]} />
           <Lightformer intensity={2} color={palette.light} position={[1, -2, -4]} scale={[0.25, 3, 1]} />
         </Environment>
-        <Icon active={active} palette={palette} onReady={onReady} />
+        <Icon reducedMotion={reducedMotion} startedAt={startedAt} palette={palette} onReady={onReady} />
+        <Preload all />
       </Suspense>
     </Canvas>
   );
