@@ -1,6 +1,6 @@
 # Site-wide UI accent color
-- [ ] Replace former lime tokens/stops/states with the exact existing section-label reference color, leaving media/logos untouched.
-- [ ] Verify all pages, mobile/desktop, interactions and light/dark-background readability.
+- [x] Replace former lime tokens/stops/states with the exact existing section-label reference HSL 172 32% 67% (computed RGB 144,198,191), leaving media/logo files untouched.
+- [x] Verify 14 pages in Chromium/WebKit at 402×725 and 1280×1800; link normal/hover/press, four step icons, three trust icons and shared gradients use the new color, no runtime errors, deferred video loading retained, build OK. Reference contrast is 7.65:1 on dark petrol but 1.76:1 on the light background: exact pale gradient endpoints cannot guarantee accessible contrast there; no darker substitute introduced against the exact-color request. Physical iPhone not tested. Existing mobile overflow on SL page left outside this color-only scope.
 
 # Video introduction and section labels
 - [x] Remove the play invitation in both languages and unused heading min-height/mobile break, keeping the first sentence, typography and natural 48px video gap.
