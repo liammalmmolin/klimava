@@ -2,7 +2,7 @@
 
 - Large heading and filled-element gradients use independent gradient-start/end tokens; small formerly solid-lime icons and links use small-accent and labels use surface-specific section-label utilities, so neither group recolors the other. Keep approved download colors and media/logo artwork independent.
 
-- The download icon is a lazy-loaded R3F beveled volume with the original K extracted as an alpha-mask; local Lightformers supply reflections without network HDRs, and its render loop stops offscreen, on hidden tabs and for reduced motion to preserve scrolling performance.
+- The download icon is a lazy-loaded R3F volume with dark inset faces, a physically transmissive beveled rim and original K alpha-mask; narrow local Lightformers give moving reflections without network HDRs or postprocessing. Stop the loop offscreen/hidden/reduced-motion and remove the fallback only after rendered frames so demand-mode stills remain reliable.
 - Keep localized capital-letter refinements in UngForetagande as original-font vector overlays over real text; this preserves inherited typography, glyph advances and accessible spelling without changing surrounding letters.
 - App screenshot carousel: Embla alone owns translation; apply progress-driven scale/opacity directly to inner visuals without CSS transitions or per-frame React state, keeping outer slide geometry stable to avoid competing animations.
 - Optimize bundled originals using vite-imagetools high-quality variants; reserve image geometry and keep responsive high-density variants so load savings never rely on reduced sharpness.
