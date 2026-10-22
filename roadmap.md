@@ -1,7 +1,8 @@
 # Original app icon colors and continuous rotation
-- [ ] Preserve current icon geometry and section layout; use original green/mint artwork and black K without washed-out lighting.
-- [ ] Prewarm resources and rendered frames; retain a wall-clock timeline across offscreen pauses, with a reduced-motion still.
-- [ ] Verify long rotation, rapid return scrolling and reduced motion in Chromium/WebKit; physical iPhone unavailable.
+- [x] Preserve current icon geometry and section layout; original green/mint artwork and black K clipped at the previous graphic scale, unlit sRGB faces avoid washed-out lighting. Rim and body geometry/materials unchanged.
+- [x] Prewarm retained resources/canvas after initial loading or 2400px before approach, compile materials with Preload, render 400px ahead; wall-clock timeline survives offscreen pauses and reduced motion uses a stable still. No per-frame React or DOM updates.
+- [x] Chromium/WebKit mobile verify pre-rendered canvas before scrolling, retained canvas through four rapid return cycles, visible motion across screenshots and over eleven seconds; desktop/mobile reduced-motion images are pixel-identical. Three motion tests pass, build OK, no runtime errors.
+- [ ] Confirm smoothness on a physical iPhone Safari — real device unavailable in sandbox.
 
 # Download section refinement
 - [x] Refine only the icon with dark inset front/back, transmissive 0.45-unit beveled rim and exact bright K; narrow local reflection panels, no added resource. Correct percent-bearing HSL parsing that previously produced invalid/gray material colors. Preserve 11-second rotation, offscreen/hidden-tab/reduced-motion pause and rendered-frame readiness.
