@@ -1,6 +1,6 @@
 # Video introduction and section labels
-- [ ] Remove the play invitation and unused heading space, keeping the first sentence and typography.
-- [ ] Apply a shared muted solid turquoise-green color to matching homepage section labels only; verify mobile/desktop and preserve all other visuals.
+- [x] Remove the play invitation in both languages and unused heading min-height/mobile break, keeping the first sentence, typography and natural 48px video gap.
+- [x] Apply shared solid muted turquoise-green surface-specific color tokens to the two matching lime homepage labels only; Chromium/WebKit verified at 402×725 and 1280×1800, unchanged 12px IBM Plex Mono/weight/uppercase/tracking, unchanged gradient headings and lime icons, deferred video source intact, no overflow/runtime errors, build OK. Physical iPhone not tested.
 
 # Updated homepage film
 - [x] Replace the film with the supplied original MP4 (1920×1080, 30fps, 27.57s, 14.7MB, H.264/AAC, unchanged bytes) and responsive sharp 6-second stills; reference-size SVG (13.5% of frame width), translucent gray fill/thin light contour/white triangle, lower-left title, existing frame and headings retained. Chromium/WebKit screenshots verified at 402×725 and 1280×1800; build OK; six existing regression tests pass.
