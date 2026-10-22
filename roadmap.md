@@ -1,3 +1,7 @@
+# Video introduction and section labels
+- [ ] Remove the play invitation and unused heading space, keeping the first sentence and typography.
+- [ ] Apply a shared muted solid turquoise-green color to matching homepage section labels only; verify mobile/desktop and preserve all other visuals.
+
 # Updated homepage film
 - [x] Replace the film with the supplied original MP4 (1920×1080, 30fps, 27.57s, 14.7MB, H.264/AAC, unchanged bytes) and responsive sharp 6-second stills; reference-size SVG (13.5% of frame width), translucent gray fill/thin light contour/white triangle, lower-left title, existing frame and headings retained. Chromium/WebKit screenshots verified at 402×725 and 1280×1800; build OK; six existing regression tests pass.
 - [x] Verify zero media requests before click in Chromium/WebKit, source assignment on click, original audible audio track via FFmpeg and CDN HTTP 206 byte-range support. No autoplay, no muted audio, native controls and playsInline retained; no additional scrolling effects or layout changes.
