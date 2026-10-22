@@ -36,10 +36,10 @@ export const CTASection = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} id="download" className="download-section relative py-12 md:py-20">
-      <div className="container relative mx-auto px-6">
+    <section ref={sectionRef} id="download" className="download-section relative flex min-h-screen min-h-[100lvh] flex-col justify-center py-16 md:py-24">
+      <div className="container relative mx-auto w-full px-6">
         <div className="max-w-3xl mx-auto text-center">
-          <div ref={iconRef} data-animation={visible && tabVisible && !reducedMotion ? "running" : "paused"} className="relative mx-auto mb-6 h-[220px] w-[260px] md:mb-8 md:h-[260px] md:w-[300px]" role="img" aria-label={t("Klimavas appikon", "Klimava app icon")}>
+          <div ref={iconRef} data-animation={visible && tabVisible && !reducedMotion ? "running" : "paused"} className="relative mx-auto mb-8 h-[220px] w-[260px] md:mb-10 md:h-[260px] md:w-[300px]" role="img" aria-label={t("Klimavas appikon", "Klimava app icon")}>
             <div aria-hidden="true" className="download-icon-atmosphere pointer-events-none absolute -inset-x-[40%] -top-[28%] -bottom-[14%]">
               <div className="download-icon-halo absolute inset-0" />
             </div>
@@ -49,12 +49,12 @@ export const CTASection = () => {
             </div>
           </div>
 
-          <h2 className="download-heading text-[34px] md:text-5xl font-normal tracking-normal leading-[1.12] mb-5">
+          <h2 className="download-heading text-[34px] md:text-5xl font-normal tracking-normal leading-[1.12] mb-6">
             {t("Gör hållbara val.", "Make sustainable choices.")}
             <br />
             {t("Få något tillbaka.", "Get something back.")}
           </h2>
-          <p className="download-description text-base md:text-lg mb-7 max-w-[340px] md:max-w-[510px] mx-auto leading-relaxed">
+          <p className="download-description text-base md:text-lg mb-9 max-w-[340px] md:max-w-[510px] mx-auto leading-relaxed">
             {t(
               "Samla poäng när du skannar kvitton, återvinner och gör hållbara vardagsval. Byt poängen mot erbjudanden i Klimava.",
               "Collect points when you scan receipts, recycle and make sustainable everyday choices. Exchange your points for offers in Klimava."
