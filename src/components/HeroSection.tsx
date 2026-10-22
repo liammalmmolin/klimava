@@ -124,18 +124,21 @@ export const HeroSection = ({ scale }: HeroSectionProps) => {
               whileHover={{ rotate: 0, scale: 1.06 }}
               className="pointer-events-auto relative inline-block font-sans text-3xl font-bold tracking-tight leading-none lg:text-4xl"
             >
-              <span
-                aria-hidden="true"
-                className="absolute inset-0 select-none"
-                style={{
-                  color: s.halo,
-                  WebkitTextStroke: `0.45em ${s.halo}`,
-                  strokeLinejoin: "round",
-                  textShadow: "0 4px 6px hsl(0 0% 0% / 0.35)",
-                }}
-              >
-                {t(s.sv, s.en)}
-              </span>
+              <svg aria-hidden="true" className="absolute inset-0 h-full w-full select-none overflow-visible" style={{ filter: "none" }}>
+                <text
+                  x="0"
+                  y="50%"
+                  dominantBaseline="central"
+                  fill={s.halo}
+                  stroke={s.halo}
+                  strokeWidth="0.45em"
+                  strokeLinejoin="round"
+                  strokeLinecap="round"
+                  style={{ font: "inherit", letterSpacing: "inherit", textShadow: "0 4px 6px hsl(0 0% 0% / 0.35)" }}
+                >
+                  {t(s.sv, s.en)}
+                </text>
+              </svg>
               <span className="relative" style={{ color: s.color }}>{t(s.sv, s.en)}</span>
             </motion.span>
           ))}
