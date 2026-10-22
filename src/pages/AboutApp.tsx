@@ -2,8 +2,6 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { Button } from "@/components/ui/button";
-import { Apple } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { features } from "@/data/features";
 import { fadeUp, revealViewport } from "@/lib/motion";
