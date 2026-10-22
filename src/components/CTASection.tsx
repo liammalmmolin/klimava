@@ -27,7 +27,7 @@ export const CTASection = () => {
     <section ref={sectionRef} id="download" className="download-section relative overflow-hidden py-12 md:py-20">
       <div className="container mx-auto px-6">
         <div className="max-w-3xl mx-auto text-center">
-          <div ref={iconRef} className="relative mx-auto mb-6 h-[220px] w-[260px] md:mb-8 md:h-[260px] md:w-[300px]" role="img" aria-label={t("Klimavas appikon", "Klimava app icon")}>
+          <div ref={iconRef} data-animation={visible && tabVisible && !reducedMotion ? "running" : "paused"} className="relative mx-auto mb-6 h-[220px] w-[260px] md:mb-8 md:h-[260px] md:w-[300px]" role="img" aria-label={t("Klimavas appikon", "Klimava app icon")}>
             {!ready && <img src={klimavaIcon} width={160} height={160} loading="lazy" decoding="async" alt="" className="absolute left-1/2 top-1/2 h-40 w-40 -translate-x-1/2 -translate-y-1/2 rounded-[2rem]" />}
             {prepared && <Suspense fallback={null}><DownloadIconScene active={visible && tabVisible && !reducedMotion} onReady={onReady} /></Suspense>}
           </div>

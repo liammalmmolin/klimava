@@ -78,9 +78,9 @@ export default function DownloadIconScene({ active, onReady }: { active: boolean
       <directionalLight position={[3, 5, 5]} intensity={3} color={palette.light} />
       <Suspense fallback={null}>
         <Environment resolution={128}>
-          <Lightformer intensity={5} color={palette.light} position={[-3, 3, 4]} scale={[3, 5, 1]} />
+          <Lightformer intensity={5} color={palette.light} position={[-3, 3, 4]} rotation={[0, Math.PI, -0.35]} scale={[3, 5, 1]} />
           <Lightformer intensity={2} color={palette.reflection} position={[3, 1, -2]} rotation-y={-Math.PI / 2} scale={[2, 4, 1]} />
-          <Lightformer intensity={1.5} color={palette.light} position={[0, -3, 3]} scale={[5, 0.6, 1]} />
+          <Lightformer intensity={1.5} color={palette.light} position={[0, -3, 3]} rotation-y={Math.PI} scale={[5, 0.6, 1]} />
         </Environment>
         <Icon active={active} palette={palette} onReady={onReady} />
       </Suspense>
