@@ -27,25 +27,7 @@ const stickerData = [
   { sv: "100% gratis!", en: "100% free!", rotate: -2, halo: "hsl(var(--secondary))", color: "hsl(var(--foreground))" },
 ];
 
-// Layers many small same-color text-shadows in a ring around the glyphs so the
-// highlight hugs each letter's silhouette (a "marker stroke") instead of sitting
-// behind the text as a plain rectangle.
-const stickerHalo = (color: string) => {
-  const layers: string[] = [];
-  const angleSteps = 16;
-  const ringSteps = 5;
-  for (let a = 0; a < angleSteps; a++) {
-    const angle = (a / angleSteps) * Math.PI * 2;
-    for (let r = 1; r <= ringSteps; r++) {
-      const x = (Math.cos(angle) * r * 0.045).toFixed(3);
-      const y = (Math.sin(angle) * r * 0.045).toFixed(3);
-      layers.push(`${x}em ${y}em 0 ${color}`);
-    }
-  }
-  return layers.join(", ");
-};
-
-const stickers = stickerData.map((s) => ({ ...s, shadow: `${stickerHalo(s.halo)}, 0 4px 6px hsl(0 0% 0% / 0.35)` }));
+const stickers = stickerData;
 
 interface HeroSectionProps {
   /** Scroll-linked scale (1 → smaller) so the card shrinks as the next section peels over it. */
@@ -127,10 +109,11 @@ export const HeroSection = ({ scale }: HeroSectionProps) => {
         </Button>
 
         {/* Sticker tags — marker-highlight halo that hugs the letterforms, à la Gritch. Desktop only. */}
-        {/* Own isolated layer: the stickers' animation never re-rasterizes the photo. */}
+        {/* Isolated (no forced GPU raster layer) so text re-rasterizes crisply at its final
+            size; the halo is a vector text stroke instead of 80 stair-stepped shadow copies. */}
         <div
           className="pointer-events-none absolute right-[4%] top-[38%] z-[1] hidden flex-col items-end gap-4 md:flex"
-          style={{ isolation: "isolate", transform: "translateZ(0)" }}
+          style={{ isolation: "isolate" }}
         >
           {stickers.map((s, i) => (
             <motion.span
@@ -139,13 +122,24 @@ export const HeroSection = ({ scale }: HeroSectionProps) => {
               animate={{ opacity: 1, scale: 1, rotate: s.rotate }}
               transition={{ duration: 0.5, delay: 0.5 + i * 0.12, type: "spring", stiffness: 220, damping: 16 }}
               whileHover={{ rotate: 0, scale: 1.06 }}
-              className="pointer-events-auto font-sans text-3xl font-bold tracking-tight leading-none lg:text-4xl"
-              style={{
-                color: s.color,
-                textShadow: s.shadow,
-              }}
+              className="pointer-events-auto relative inline-block font-sans text-3xl font-bold tracking-tight leading-none lg:text-4xl"
             >
-              {t(s.sv, s.en)}
+              <svg aria-hidden="true" className="absolute inset-0 h-full w-full select-none overflow-visible" style={{ filter: "none" }}>
+                <text
+                  x="0"
+                  y="50%"
+                  dominantBaseline="central"
+                  fill={s.halo}
+                  stroke={s.halo}
+                  strokeWidth="0.45em"
+                  strokeLinejoin="round"
+                  strokeLinecap="round"
+                  style={{ font: "inherit", letterSpacing: "inherit", textShadow: "0 4px 6px hsl(0 0% 0% / 0.35)" }}
+                >
+                  {t(s.sv, s.en)}
+                </text>
+              </svg>
+              <span className="relative" style={{ color: s.color }}>{t(s.sv, s.en)}</span>
             </motion.span>
           ))}
         </div>
