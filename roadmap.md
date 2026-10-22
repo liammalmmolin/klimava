@@ -1,3 +1,8 @@
+# Download section refinement
+- [ ] Refine only the icon with dark reflective faces, translucent thick rounded edges and exact bright K; preserve smooth rotation and paused/reduced-motion states.
+- [ ] Reduce icon 15–20%, enlarge two-line heading ~10%, tighten spacing and balance mobile copy; make button ~20% narrower and slightly lower with comfortable hit area.
+- [ ] Compare front, oblique and side views on mobile/desktop, run motion regression tests and inspect build/runtime signals.
+
 # Targeted gradient and small-accent correction
 - [x] Separate turquoise-to-light-green heading and filled-element gradients from muted solid small-icon/link/label colors, preserving the approved download section.
 - [x] Verify in Chromium/WebKit at 402×725 and 1280×1800: matching turquoise→light-green headings, darker turquoise→green badge/circles, muted small icons and link normal/hover/press, unchanged download colors and deferred video; screenshots reviewed, no runtime errors, build OK. Physical iPhone not tested.
