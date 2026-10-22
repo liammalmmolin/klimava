@@ -26,8 +26,9 @@
     --primary: 188 75% 28%;
     --primary-foreground: 0 0% 100%;
 
-    /* Exact existing video-label reference, shared by former lime accents. */
+    /* Small solid details use the existing video-label reference only. */
     --brand-highlight: 172 32% 67%;
+    --small-accent: var(--brand-highlight);
     --secondary: var(--brand-highlight);
     --secondary-foreground: 192 40% 14%;
 
@@ -57,15 +58,16 @@
 
     --radius: 1rem;
 
-    /* Custom Klimava tokens - preserve direction and non-lime stops. */
+    /* Gradient colors are independent of the small solid accent. */
     --gradient-start: 188 70% 30%;
-    --gradient-end: var(--brand-highlight);
-    --gradient-primary: linear-gradient(135deg, hsl(188 70% 30%) 0%, hsl(var(--brand-highlight)) 100%);
-    --gradient-text: linear-gradient(135deg, hsl(188 70% 30%) 0%, hsl(var(--brand-highlight)) 100%);
-    --gradient-text-on-dark: linear-gradient(135deg, hsl(188 70% 50%) 0%, hsl(var(--brand-highlight)) 100%);
+    --gradient-end: 91 60% 56%;
+    --gradient-end-on-dark: 91 60% 66%;
+    --gradient-primary: linear-gradient(135deg, hsl(var(--gradient-start)) 0%, hsl(var(--gradient-end)) 100%);
+    --gradient-text: linear-gradient(135deg, hsl(var(--gradient-start)) 0%, hsl(var(--gradient-end)) 100%);
+    --gradient-text-on-dark: linear-gradient(135deg, hsl(188 70% 50%) 0%, hsl(var(--gradient-end-on-dark)) 100%);
     /* Light turquoise -> green stays readable on the naturally dark aurora
        landscape without dimming the photograph or outlining the text. */
-    --gradient-text-on-photo: linear-gradient(135deg, hsl(188 72% 88%) 0%, hsl(var(--brand-highlight)) 100%);
+    --gradient-text-on-photo: linear-gradient(135deg, hsl(188 72% 88%) 0%, hsl(var(--gradient-end-on-dark)) 100%);
     --gradient-hero: linear-gradient(180deg, hsl(140 20% 97%) 0%, hsl(140 24% 93%) 50%, hsl(140 20% 97%) 100%);
     --shadow-soft: 0 4px 20px -4px hsl(192 30% 10% / 0.25);
     --shadow-card: 0 8px 30px -8px hsl(192 30% 10% / 0.35);
@@ -160,6 +162,8 @@
 }
 
 @layer utilities {
+  .small-accent { color: hsl(var(--small-accent)); }
+
   .download-section { background-color: hsl(var(--download-surface)); }
   .download-heading { color: hsl(var(--download-heading)); }
   .download-description { color: hsl(var(--download-copy)); }

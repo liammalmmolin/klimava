@@ -253,7 +253,7 @@ const Support = () => {
                 transition={{ duration: 0.4 }}
                 className="mb-12 text-center"
               >
-                <span className="gradient-text text-sm font-semibold uppercase tracking-wider">
+                <span className="section-label text-sm font-semibold uppercase tracking-wider">
                   {t("Support", "Support")}
                 </span>
                 <h2 className="mt-3 font-heading text-3xl font-bold text-foreground md:text-4xl">

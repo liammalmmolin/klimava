@@ -33,7 +33,7 @@ const AboutApp = () => {
             transition={{ duration: 0.4 }}
             className="text-center max-w-2xl mx-auto mb-16"
           >
-            <span className="font-mono text-xs uppercase tracking-widest text-primary">
+            <span className="font-mono text-xs uppercase tracking-widest section-label">
               {t("Om appen", "About the app")}
             </span>
             <h1 className="text-[2rem] leading-tight sm:text-4xl md:text-6xl font-bold text-foreground mt-3">
@@ -83,7 +83,7 @@ const AboutApp = () => {
                 className="bg-card p-6"
               >
                 <div className="w-10 h-10 rounded-lg bg-accent flex items-center justify-center mb-4">
-                  <f.icon className="w-5 h-5 text-primary" />
+                  <f.icon className="w-5 h-5 small-accent" />
                 </div>
                 <h3 className="font-heading font-medium text-foreground mb-2">{t(f.title.sv, f.title.en)}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">{t(f.desc.sv, f.desc.en)}</p>

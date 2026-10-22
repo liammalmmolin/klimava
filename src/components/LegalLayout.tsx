@@ -25,7 +25,7 @@ export const LegalLayout = ({ eyebrow, title, updated, children }: LegalLayoutPr
             transition={{ duration: 0.4 }}
             className="max-w-2xl mx-auto mb-12"
           >
-            <span className="font-mono text-xs uppercase tracking-widest text-primary">{eyebrow}</span>
+            <span className="font-mono text-xs uppercase tracking-widest section-label">{eyebrow}</span>
             <h1 className="text-3xl md:text-4xl font-bold text-foreground mt-3">{title}</h1>
             <p className="font-mono text-xs text-muted-foreground mt-4">
               {t("Senast uppdaterad", "Last updated")}: {updated}

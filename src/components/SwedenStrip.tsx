@@ -65,7 +65,7 @@ export const SwedenStrip = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={revealViewport}
           transition={{ duration: 0.4 }}
-          className="font-mono text-xs uppercase tracking-widest text-primary/80 mb-8"
+          className="font-mono text-xs uppercase tracking-widest section-label mb-8"
         >
           {t("Klimava i Sverige", "Klimava in Sweden")}
         </motion.p>
