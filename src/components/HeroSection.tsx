@@ -45,7 +45,7 @@ const stickerHalo = (color: string) => {
   return layers.join(", ");
 };
 
-const stickers = stickerData.map((s) => ({ ...s, shadow: stickerHalo(s.halo) }));
+const stickers = stickerData.map((s) => ({ ...s, shadow: `${stickerHalo(s.halo)}, 0 4px 6px hsl(0 0% 0% / 0.35)` }));
 
 interface HeroSectionProps {
   /** Scroll-linked scale (1 → smaller) so the card shrinks as the next section peels over it. */
