@@ -1,3 +1,9 @@
+# Download icon sharpness and local light dust
+- [x] Increase hardware-capped anisotropy to 16 and retain antialiasing/native 3x mobile rendering, with a 2x minimum on low-density screens; original remains 659×656 (no higher-resolution identical artwork found), geometry/materials/rotation unchanged, no sharpening filters.
+- [x] Add a faint tokenized filter-free local glow and eight tiny irregular opacity-only dust points with independent slow timings; prepared initially, paused offscreen/hidden and static for reduced-motion.
+- [x] Inspect Chromium mobile rotation/front/sides and desktop plus WebKit mobile; 780×660 mobile and 600×520 desktop canvas, antialiasing confirmed, first frame prepared before scroll, resources retained after three rapid returns, reduced motion static, text/link/layout unchanged; four motion tests pass and build OK. No page exceptions; existing site-wide function-ref development warnings remain outside this scoped change.
+- [ ] Physical iPhone Safari smoothness — requires unavailable real hardware.
+
 # Seamless refined download icon
 - [x] Replace separate face/rim layers with one closed analytically smoothed surface and continuous original-artwork UVs across faces, rounded shoulders and sides. No vector original found; retain the exact K from the 659×656 original raster rather than redrawing or claiming vector quality.
 - [x] Increase antialiased rendering to native 3x mobile density (780×660 canvas), use anisotropic sampling and dithering, restrained satin shading, continuous gentle floating and initial idle prewarming; section layout/text/button remain unchanged.
