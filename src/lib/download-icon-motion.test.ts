@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { downloadRotationAt, DOWNLOAD_ICON_STILL_ANGLE, DOWNLOAD_ICON_TURN_SECONDS } from "./download-icon-motion";
+import { downloadFloatAt, downloadRotationAt, DOWNLOAD_ICON_STILL_ANGLE, DOWNLOAD_ICON_TURN_SECONDS } from "./download-icon-motion";
 
 describe("download icon motion", () => {
   it("completes one seamless turn in eleven seconds", () => {
@@ -15,5 +15,10 @@ describe("download icon motion", () => {
   it("remains still for reduced motion regardless of elapsed time", () => {
     expect(downloadRotationAt(0, true)).toBe(DOWNLOAD_ICON_STILL_ANGLE);
     expect(downloadRotationAt(137, true)).toBe(DOWNLOAD_ICON_STILL_ANGLE);
+    expect(downloadFloatAt(137, true)).toBe(0);
+  });
+  it("keeps floating continuous across missed frames", () => {
+    expect(downloadFloatAt(1.75, false)).toBeCloseTo(0.045);
+    expect(downloadFloatAt(8.75, false)).toBeCloseTo(downloadFloatAt(1.75, false));
   });
 });
