@@ -98,12 +98,12 @@ export const SwedenStrip = () => {
                   style={{ objectPosition: tile.objectPosition }}
                 />
                 </picture>
-                <div className="absolute inset-0 bg-gradient-to-t from-secondary/90 via-secondary/10 to-transparent" />
-                <div className="absolute left-5 right-5 bottom-5">
-                  <span className="font-mono text-[10px] uppercase tracking-widest text-primary-foreground/70">
+                <div className="absolute inset-0 bg-gradient-to-t from-secondary via-secondary/50 to-transparent" />
+                <div className="absolute left-5 right-5 bottom-5 md:left-6 md:right-6 md:bottom-6">
+                  <span className="font-mono text-[10px] md:text-[11px] uppercase tracking-widest text-primary-foreground/80">
                     {tile.eyebrow}
                   </span>
-                  <h3 className="text-lg font-heading font-medium text-white mt-1 leading-snug">
+                  <h3 className="text-lg md:text-xl font-heading font-medium text-white mt-1 leading-snug">
                     {tile.title}.
                   </h3>
                 </div>
