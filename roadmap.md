@@ -1,6 +1,6 @@
 # Targeted gradient and small-accent correction
 - [x] Separate turquoise-to-light-green heading and filled-element gradients from muted solid small-icon/link/label colors, preserving the approved download section.
-- [ ] Verify mobile/desktop gradients, scoped details, link interaction colors and unchanged download section.
+- [x] Verify in Chromium/WebKit at 402×725 and 1280×1800: matching turquoise→light-green headings, darker turquoise→green badge/circles, muted small icons and link normal/hover/press, unchanged download colors and deferred video; screenshots reviewed, no runtime errors, build OK. Physical iPhone not tested.
 
 # Download section redesign
 - [x] Rebuild only the download composition and bilingual copy using the supplied Gritch recording; warm-white normal Source Serif 4 heading, compact 196×48px exact-reference button, no glow/particles/trust badges.
