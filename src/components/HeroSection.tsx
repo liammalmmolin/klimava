@@ -130,6 +130,7 @@ export const HeroSection = ({ scale }: HeroSectionProps) => {
                 style={{
                   color: s.halo,
                   WebkitTextStroke: `0.45em ${s.halo}`,
+                  strokeLinejoin: "round",
                   textShadow: "0 4px 6px hsl(0 0% 0% / 0.35)",
                 }}
               >
