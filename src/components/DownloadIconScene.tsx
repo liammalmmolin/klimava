@@ -92,11 +92,13 @@ function Icon({ reducedMotion, onReady }: { reducedMotion: boolean; onReady: () 
 export default function DownloadIconScene({ active, reducedMotion, onReady }: { active: boolean; reducedMotion: boolean; onReady: () => void }) {
   return (
     <Canvas orthographic camera={{ position: [0, 0, 7], zoom: 52.88 }} dpr={[2, 3]} frameloop={active ? "always" : "demand"} gl={{ alpha: true, antialias: true, powerPreference: "low-power" }}>
-      <ambientLight intensity={0.42} />
+      {/* Sky/ground ambient lifts edge radii facing away from the key, so colors
+          continue over the edge without dark bands. */}
+      <hemisphereLight args={["#ffffff", "#cfd8d2", 0.46]} />
       {/* One fixed soft key light: the rotating form shifts naturally through it. */}
-      <directionalLight position={[-3, 4, 6]} intensity={1} />
-      {/* Weak cool fill lifts the shadow side so the profile stays readable. */}
-      <directionalLight position={[4, -1, 2]} intensity={0.22} />
+      <directionalLight position={[-3, 4, 6]} intensity={0.95} />
+      {/* Weak fill lifts the shadow side so the profile stays readable. */}
+      <directionalLight position={[4, -1, 2]} intensity={0.26} />
       <Suspense fallback={null}>
         <Environment resolution={64} frames={1}>
           <Lightformer intensity={0.8} position={[-3, 4, 5]} rotation-y={Math.PI} scale={[5, 6, 1]} />
