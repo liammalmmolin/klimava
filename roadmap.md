@@ -1,3 +1,8 @@
+# Seamless refined download icon
+- [ ] Replace separate face/rim layers with one smoothly rounded surface carrying the original gradient across all sides; retain exact original K artwork.
+- [ ] Improve high-density sharpness, satin shading, gentle floating and initial prewarming without changing the section.
+- [ ] Verify front/side/full-turn views, rapid scroll returns and reduced motion; physical iPhone hardware smoothness remains unavailable.
+
 # Original-color continuous download icon
 - [x] Restore original green–mint app artwork and black K without changing the body/rim geometry, thickness, corners, tilt, K proportions or section. Fixed CSS HSL percentage parsing that had turned lit materials white; original sRGB artwork is unaffected by lighting/tone mapping.
 - [x] Idle-prewarm lazy resources and first rendered frame; retain Canvas/textures, resume rendering 600px ahead, use continuous absolute monotonic-time 11-second positive rotation across offscreen/tab pauses, and keep reduced-motion still with no per-frame React updates. Rounded opaque unlit artwork replaces transparent lit mask faces; local reflections render once and side lighting is restrained.
