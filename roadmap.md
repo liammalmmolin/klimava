@@ -1,7 +1,8 @@
 # Download section redesign
-- [ ] Rebuild only the download composition and copy using the supplied Gritch recording; compact button, no glow/particles/trust badges.
-- [ ] Add a real volumetric glass-like rotating K icon, lazy-loaded and paused offscreen, with reserved space and reduced-motion still.
-- [ ] Verify mobile/desktop Chromium and WebKit, rapid scrolling, App Store link and unchanged adjacent content; disclose physical iPhone limit.
+- [x] Rebuild only the download composition and bilingual copy using the supplied Gritch recording; warm-white normal Source Serif 4 heading, compact 196×48px exact-reference button, no glow/particles/trust badges.
+- [x] Add a beveled volumetric clear-coated K icon, original K alpha-mask extracted without redrawing, local reflections, lazy-loaded and paused offscreen/hidden tabs, reserved space and reduced-motion still. No separately supplied 3D resource needed.
+- [x] Verify 402×725 and 1280×1800 Chromium/WebKit layouts, rapid scrolling and keyboard App Store opening; 9 tests pass, build OK, no page errors. Chromium screenshots confirm rotation; WebKit frame instrumentation confirms advancing rotation at ~16ms intervals but its software-WebGL screenshots remain frozen, so visible Safari animation and physical iPhone smoothness are unverified. Reduced-motion screenshot remains still. Adjacent footer and quote unchanged.
+- [ ] Confirm actual iPhone Safari animation and scroll smoothness — requires a physical device unavailable in this sandbox.
 
 # Site-wide UI accent color
 - [x] Replace former lime tokens/stops/states with the exact existing section-label reference HSL 172 32% 67% (computed RGB 144,198,191), leaving media/logo files untouched.

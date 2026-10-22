@@ -39,12 +39,10 @@ function Icon({ active, palette, onReady }: { active: boolean; palette: Palette;
   }, []);
   useEffect(() => { onReady(); }, [onReady]);
   useEffect(() => () => { body.dispose(); rim.dispose(); }, [body, rim]);
-  useFrame((state, delta) => {
+  useFrame((_, delta) => {
     if (!group.current) return;
     angle.current = advanceDownloadRotation(angle.current, delta, active);
     group.current.rotation.y = angle.current;
-    state.gl.domElement.dataset.rotation = String(angle.current);
-    state.gl.domElement.dataset.delta = String(delta);
   });
   return (
     <group rotation={[0.12, 0, -0.1]}>
@@ -70,7 +68,10 @@ export default function DownloadIconScene({ active, onReady }: { active: boolean
   const [palette, setPalette] = useState<Palette>();
   useEffect(() => {
     const styles = getComputedStyle(document.documentElement);
-    const token = (name: string) => new Color(`hsl(${styles.getPropertyValue(name).trim().split(/\s+/).join(", ").replace(/, (\d+(?:\.\d+)?), (\d+(?:\.\d+)?)$/, ", $1%, $2%")})`).getStyle();
+    const token = (name: string) => {
+      const [hue, saturation, lightness] = styles.getPropertyValue(name).trim().split(/\s+/).map(Number);
+      return new Color().setHSL(hue / 360, saturation / 100, lightness / 100, SRGBColorSpace).getStyle();
+    };
     setPalette({ glass: token("--download-icon-glass"), edge: token("--download-icon-edge"), symbol: token("--download-heading"), light: token("--download-heading"), reflection: token("--brand-highlight") });
   }, []);
   if (!palette) return null;
