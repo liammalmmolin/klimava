@@ -21,7 +21,7 @@ export const CTASection = () => {
   useEffect(() => {
     // Warm the lazy chunk, texture and first GPU frame during idle time, not on arrival.
     const warm = () => { void loadDownloadIcon(); setPrewarmed(true); };
-    if ("requestIdleCallback" in window) {
+    if (typeof window.requestIdleCallback === "function") {
       const id = window.requestIdleCallback(warm, { timeout: 1800 });
       return () => window.cancelIdleCallback(id);
     }
