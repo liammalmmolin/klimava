@@ -1,24 +1,30 @@
-// Turn tempo measured from the Gritch reference (edge-on every ~4.75 s).
+// Turn tempo measured from the Gritch reference (one full turn ≈ 9.5 s).
 export const DOWNLOAD_ICON_TURN_SECONDS = 9.5;
 export const DOWNLOAD_ICON_STILL_ANGLE = -0.32;
-const BASE_TILT_X = 0.14;
-const BASE_TILT_Z = -0.1;
+const STILL_TILT = { x: 0.3, z: -0.08 };
 
 const phaseAt = (elapsedSeconds: number) =>
   (Math.max(0, elapsedSeconds) % DOWNLOAD_ICON_TURN_SECONDS) * Math.PI * 2 / DOWNLOAD_ICON_TURN_SECONDS;
 
 // Absolute monotonic time keeps the timeline alive while no frames are drawn.
-// Never clamp elapsed time: missed frames must not slow this decorative turn.
+// The reference lingers on the front and back views and sweeps quickly through
+// the edge-on views: an eased angle (still exactly one turn per period) does that.
 export function downloadRotationAt(elapsedSeconds: number, reducedMotion: boolean) {
   if (reducedMotion) return DOWNLOAD_ICON_STILL_ANGLE;
-  return DOWNLOAD_ICON_STILL_ANGLE + phaseAt(elapsedSeconds);
+  const p = phaseAt(elapsedSeconds);
+  return DOWNLOAD_ICON_STILL_ANGLE + p - 0.38 * Math.sin(2 * p);
 }
 
-// Subtle tilt that changes with the turn angle (front, edge and back read with
-// different leans, as in the reference). Pure functions of the turn phase, so
-// the loop closes seamlessly. The icon stays centered: no vertical travel.
+// Key orientations from the reference: front leans back clearly (seen from
+// above), the back view swings into a strong diagonal roll, and edges pass
+// between them. Pure functions of the phase, so the loop closes seamlessly;
+// the center never moves.
 export function downloadTiltAt(elapsedSeconds: number, reducedMotion: boolean) {
-  if (reducedMotion) return { x: BASE_TILT_X, z: BASE_TILT_Z };
-  const phase = phaseAt(elapsedSeconds);
-  return { x: BASE_TILT_X + 0.07 * Math.sin(phase * 2), z: BASE_TILT_Z + 0.06 * Math.sin(phase) };
+  if (reducedMotion) return STILL_TILT;
+  const p = phaseAt(elapsedSeconds);
+  const back = (1 - Math.cos(p)) / 2; // 0 at front, 1 at back
+  return {
+    x: 0.3 - 0.2 * back + 0.08 * Math.sin(p),
+    z: -0.08 - 0.3 * back,
+  };
 }

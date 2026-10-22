@@ -80,7 +80,7 @@ function Icon({ reducedMotion, onReady }: { reducedMotion: boolean; onReady: () 
     tiltGroup.current!.rotation.z = tilt.z;
   });
   return (
-    <group ref={tiltGroup} rotation={[0.14, 0, -0.1]}>
+    <group ref={tiltGroup} rotation={[0.3, 0, -0.08]}>
       <group ref={group} rotation-y={DOWNLOAD_ICON_STILL_ANGLE}>
         <mesh geometry={geometry} onAfterRender={() => {
           if (notified.current) return;
@@ -114,11 +114,11 @@ export default function DownloadIconScene({ active, reducedMotion, onReady, onFa
           {/* Dim studio surround: dark angles keep detail instead of going black. */}
           <mesh scale={30}>
             <sphereGeometry args={[1, 32, 16]} />
-            <meshBasicMaterial side={BackSide} color="#4a5752" />
+            <meshBasicMaterial side={BackSide} color="#323d39" />
           </mesh>
           {/* One large soft overhead softbox: a broad, controlled sheen. */}
-          <Lightformer form="rect" intensity={1.6} position={[-2, 6, 4]} rotation-x={-Math.PI / 3} scale={[12, 7, 1]} />
-          <Lightformer intensity={0.7} position={[-6, 1, 2]} rotation-y={Math.PI / 2} scale={[4, 8, 1]} />
+          <Lightformer form="rect" intensity={2.4} position={[-2, 6, 4]} rotation-x={-Math.PI / 3} scale={[12, 7, 1]} />
+          <Lightformer intensity={1.1} position={[-6, 1, 2]} rotation-y={Math.PI / 2} scale={[4, 8, 1]} />
           <Lightformer intensity={0.45} position={[6, 0, -3]} rotation-y={-Math.PI / 2} scale={[4, 8, 1]} />
           <Lightformer intensity={0.35} position={[0, 1, -7]} scale={[8, 6, 1]} />
         </Environment>
