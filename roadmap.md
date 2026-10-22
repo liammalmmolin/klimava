@@ -1,3 +1,8 @@
+# Download section refinement
+- [x] Refine only the icon with dark inset front/back, transmissive 0.45-unit beveled rim and exact bright K; narrow local reflection panels, no added resource. Correct percent-bearing HSL parsing that previously produced invalid/gray material colors. Preserve 11-second rotation, offscreen/hidden-tab/reduced-motion pause and rendered-frame readiness.
+- [x] Reduce displayed icon 18.3% (zoom 71→58), heading 34→37px / 48→53px, tighten reserved icon height/gap and balance mobile body; button 196×48→158×44px, approved colors/copy/link retained.
+- [x] Chromium front/back/oblique/near-side screenshots and mobile/desktop sections reviewed; WebKit reduced-motion still reviewed. No runtime errors, both motion tests pass, build OK. Rim depth and brighter K visible; reference-quality broad glass reflections are not matched exactly. Physical iPhone smoothness remains unverified (device unavailable); no separate resource required for this implementation.
+
 # Targeted gradient and small-accent correction
 - [x] Separate turquoise-to-light-green heading and filled-element gradients from muted solid small-icon/link/label colors, preserving the approved download section.
 - [x] Verify in Chromium/WebKit at 402×725 and 1280×1800: matching turquoise→light-green headings, darker turquoise→green badge/circles, muted small icons and link normal/hover/press, unchanged download colors and deferred video; screenshots reviewed, no runtime errors, build OK. Physical iPhone not tested.

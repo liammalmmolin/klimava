@@ -27,17 +27,17 @@ export const CTASection = () => {
     <section ref={sectionRef} id="download" className="download-section relative overflow-hidden py-12 md:py-20">
       <div className="container mx-auto px-6">
         <div className="max-w-3xl mx-auto text-center">
-          <div ref={iconRef} data-animation={visible && tabVisible && !reducedMotion ? "running" : "paused"} className="relative mx-auto mb-6 h-[220px] w-[260px] md:mb-8 md:h-[260px] md:w-[300px]" role="img" aria-label={t("Klimavas appikon", "Klimava app icon")}>
-            {!ready && <img src={klimavaIcon} width={160} height={160} loading="lazy" decoding="async" alt="" className="absolute left-1/2 top-1/2 h-40 w-40 -translate-x-1/2 -translate-y-1/2 rounded-[2rem]" />}
+          <div ref={iconRef} data-animation={visible && tabVisible && !reducedMotion ? "running" : "paused"} className="relative mx-auto mb-4 h-[180px] w-[260px] md:mb-5 md:h-[220px] md:w-[300px]" role="img" aria-label={t("Klimavas appikon", "Klimava app icon")}>
+            {!ready && <img src={klimavaIcon} width={132} height={132} loading="lazy" decoding="async" alt="" className="absolute left-1/2 top-1/2 h-[132px] w-[132px] -translate-x-1/2 -translate-y-1/2 rounded-[1.65rem]" />}
             {prepared && <Suspense fallback={null}><DownloadIconScene active={visible && tabVisible && !reducedMotion} onReady={onReady} /></Suspense>}
           </div>
 
-          <h2 className="download-heading text-[34px] md:text-5xl font-normal tracking-normal leading-[1.12] mb-5">
+          <h2 className="download-heading text-[37px] md:text-[53px] font-normal tracking-normal leading-[1.12] mb-5">
             {t("Gör hållbara val.", "Make sustainable choices.")}
             <br />
             {t("Få något tillbaka.", "Get something back.")}
           </h2>
-          <p className="download-description text-base md:text-lg mb-7 max-w-[340px] md:max-w-[510px] mx-auto leading-relaxed">
+          <p className="download-description text-base md:text-lg mb-7 max-w-[330px] md:max-w-[510px] mx-auto leading-relaxed text-balance">
             {t(
               "Samla poäng när du skannar kvitton, återvinner och gör hållbara vardagsval. Byt poängen mot erbjudanden i Klimava.",
               "Collect points when you scan receipts, recycle and make sustainable everyday choices. Exchange your points for offers in Klimava."
@@ -45,7 +45,7 @@ export const CTASection = () => {
           </p>
 
           <div className="flex items-center justify-center">
-            <Button variant="secondary" size="lg" className="download-button h-12 w-[196px] rounded-full px-4 text-sm font-semibold transition-transform duration-150 active:scale-[0.98] motion-reduce:transform-none" asChild>
+            <Button variant="secondary" size="lg" className="download-button h-11 w-[158px] rounded-full px-3 text-sm font-semibold transition-transform duration-150 active:scale-[0.98] motion-reduce:transform-none" asChild>
               <a href="https://apps.apple.com/se/app/klimava/id6760266069" target="_blank" rel="noopener noreferrer">
                 {t("Ladda ner Klimava", "Download Klimava")}
               </a>

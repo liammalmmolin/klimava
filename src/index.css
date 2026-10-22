@@ -79,8 +79,10 @@
     --download-surface: 192 22% 5%;
     --download-heading: 45 20% 94%;
     --download-copy: 180 5% 70%;
-    --download-icon-glass: 182 25% 36%;
-    --download-icon-edge: 172 23% 55%;
+    --download-icon-glass: 182 24% 9%;
+    --download-icon-back: 192 22% 6%;
+    --download-icon-edge: 172 22% 72%;
+    --download-icon-symbol: 165 16% 92%;
     --download-button-ink: 192 30% 9%;
 
     /* Sidebar tokens */
