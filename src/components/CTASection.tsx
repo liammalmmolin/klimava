@@ -35,6 +35,8 @@ export const CTASection = () => {
   const [ready, setReady] = useState(false);
   const [prewarmed, setPrewarmed] = useState(false);
   const [failed, setFailed] = useState(() => !hasWebGL());
+  // Phase-align the glow with the icon's absolute-time turn (front faces at 0.48 s).
+  const [haloDelay] = useState(() => `${-((((performance.now() / 1000 - 0.48) % 9.5) + 9.5) % 9.5)}s`);
   const onReady = useCallback(() => setReady(true), []);
   const onFailure = useCallback(() => { setFailed(true); setReady(false); }, []);
   useEffect(() => {
@@ -60,7 +62,7 @@ export const CTASection = () => {
         <div className="max-w-3xl mx-auto text-center">
           <div ref={iconRef} data-animation={visible && tabVisible && !reducedMotion ? "running" : "paused"} className="relative mx-auto mb-8 h-[220px] w-[260px] md:mb-10 md:h-[260px] md:w-[300px]" role="img" aria-label={t("Klimavas appikon", "Klimava app icon")}>
             <div aria-hidden="true" className="download-icon-atmosphere pointer-events-none absolute -inset-x-[40%] -top-[28%] -bottom-[14%]">
-              <div className="download-icon-halo absolute inset-0" />
+              <div className="download-icon-halo download-icon-halo-motion absolute inset-0" style={{ animationDelay: haloDelay }} />
             </div>
             <div className="absolute inset-0">
             {(!ready || failed) && <img src={klimavaIcon} width={120} height={120} loading="lazy" decoding="async" alt="" className="download-icon-placeholder absolute left-1/2 top-1/2 h-[120px] w-[120px] -translate-x-1/2 -translate-y-1/2 rounded-[1.49rem]" />}

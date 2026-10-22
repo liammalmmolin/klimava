@@ -3,7 +3,7 @@ import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { Environment, Lightformer, useTexture } from "@react-three/drei";
 import { BackSide, CanvasTexture, Color, Group, LinearFilter, MeshStandardMaterial, SRGBColorSpace } from "three";
 import appArtwork from "@/assets/klimava-logo.jpeg";
-import { downloadFloatAt, downloadRotationAt, DOWNLOAD_ICON_STILL_ANGLE } from "@/lib/download-icon-motion";
+import { downloadRotationAt, downloadTiltAt, DOWNLOAD_ICON_STILL_ANGLE } from "@/lib/download-icon-motion";
 import { createDownloadIconGeometry } from "@/lib/download-icon-geometry";
 
 useTexture.preload(appArtwork);
@@ -56,6 +56,7 @@ function createBodyTexture() {
 
 function Icon({ reducedMotion, onReady }: { reducedMotion: boolean; onReady: () => void }) {
   const group = useRef<Group>(null);
+  const tiltGroup = useRef<Group>(null);
   const notified = useRef(false);
   const gl = useThree(state => state.gl);
   const artwork = useTexture(appArtwork);
@@ -71,13 +72,15 @@ function Icon({ reducedMotion, onReady }: { reducedMotion: boolean; onReady: () 
   }, [artwork, gl]);
   useEffect(() => () => geometry.dispose(), [geometry]);
   useFrame(() => {
-    if (!group.current) return;
+    if (!group.current || !tiltGroup.current) return;
     const time = performance.now() / 1000;
     group.current.rotation.y = downloadRotationAt(time, reducedMotion);
-    group.current.position.y = downloadFloatAt(time, reducedMotion);
+    const tilt = downloadTiltAt(time, reducedMotion);
+    tiltGroup.current!.rotation.x = tilt.x;
+    tiltGroup.current!.rotation.z = tilt.z;
   });
   return (
-    <group rotation={[0.12, 0, -0.1]}>
+    <group ref={tiltGroup} rotation={[0.14, 0, -0.1]}>
       <group ref={group} rotation-y={DOWNLOAD_ICON_STILL_ANGLE}>
         <mesh geometry={geometry} onAfterRender={() => {
           if (notified.current) return;

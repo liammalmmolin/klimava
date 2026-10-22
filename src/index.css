@@ -174,6 +174,15 @@
   .download-heading { color: hsl(var(--download-heading)); }
   .download-description { color: hsl(var(--download-copy)); }
   .download-icon-halo { background-image: var(--download-icon-halo); }
+  /* Glow drifts and breathes with the icon's turn (same 9.5 s timeline, phase-
+     aligned from JS); compositor-only transform/opacity, smaller than the icon. */
+  .download-icon-halo-motion { animation: download-halo-drift 9.5s infinite; will-change: transform, opacity; }
+  @keyframes download-halo-drift {
+    0%, 50%, 100% { transform: translateX(0) scale(1.06, 1.03); opacity: 1; animation-timing-function: ease-in-out; }
+    25% { transform: translateX(4%) scale(0.94, 0.99); opacity: 0.78; animation-timing-function: ease-in-out; }
+    75% { transform: translateX(-4%) scale(0.94, 0.99); opacity: 0.78; animation-timing-function: ease-in-out; }
+  }
+  @media (prefers-reduced-motion: reduce) { .download-icon-halo-motion { animation: none; } }
   /* Faint static grain dithers the gradient against 8-bit banding; rasterized once. */
   .download-icon-halo::after {
     content: '';
