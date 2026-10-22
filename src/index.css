@@ -171,22 +171,6 @@
   .small-accent { color: hsl(var(--small-accent)); }
 
   .download-section { background-color: hsl(var(--download-surface)); }
-  /* Use only the previous section's empty bottom padding and our top padding.
-     This scrolls with the document and ends before the icon, not over it. */
-  .download-section::before {
-    content: '';
-    position: absolute;
-    pointer-events: none;
-    left: 0;
-    right: 0;
-    top: -96px;
-    height: 144px;
-    background-color: hsl(var(--background));
-    background-image: var(--download-entry-fade);
-  }
-  @media (min-width: 768px) {
-    .download-section::before { top: -128px; height: 208px; }
-  }
   .download-icon-placeholder { filter: saturate(0.9); }
   .download-heading { color: hsl(var(--download-heading)); }
   .download-description { color: hsl(var(--download-copy)); }
