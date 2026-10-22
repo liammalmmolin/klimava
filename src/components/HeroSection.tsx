@@ -7,12 +7,14 @@ import appStoreBadge from "@/assets/app-store-badge.png?format=webp&quality=92";
 import auroraWide800 from "@/assets/aurora-becker-wide-800.webp.asset.json";
 import auroraWide1600 from "@/assets/aurora-becker-wide-1600.webp.asset.json";
 import auroraWide2400 from "@/assets/aurora-becker-wide-2400.webp.asset.json";
+import auroraWide3600 from "@/assets/aurora-becker-wide-3600.webp.asset.json";
+import auroraWide4672 from "@/assets/aurora-becker-wide-4672.webp.asset.json";
 import auroraPortrait500 from "@/assets/aurora-becker-portrait-500.webp.asset.json";
 import auroraPortrait900 from "@/assets/aurora-becker-portrait-900.webp.asset.json";
 import auroraPortrait1400 from "@/assets/aurora-becker-portrait-1400.webp.asset.json";
 import { assetUrl } from "@/lib/asset-url";
 
-const auroraWideSources = `${assetUrl(auroraWide800)} 800w, ${assetUrl(auroraWide1600)} 1600w, ${assetUrl(auroraWide2400)} 2400w`;
+const auroraWideSources = `${assetUrl(auroraWide800)} 800w, ${assetUrl(auroraWide1600)} 1600w, ${assetUrl(auroraWide2400)} 2400w, ${assetUrl(auroraWide3600)} 3600w, ${assetUrl(auroraWide4672)} 4672w`;
 const auroraPortraitSources = `${assetUrl(auroraPortrait500)} 500w, ${assetUrl(auroraPortrait900)} 900w, ${assetUrl(auroraPortrait1400)} 1400w`;
 
 import klimavaLogo from "@/assets/klimava-logo.jpeg";
@@ -125,7 +127,11 @@ export const HeroSection = ({ scale }: HeroSectionProps) => {
         </Button>
 
         {/* Sticker tags — marker-highlight halo that hugs the letterforms, à la Gritch. Desktop only. */}
-        <div className="absolute right-[4%] top-[38%] hidden flex-col items-end gap-4 md:flex">
+        {/* Own isolated layer: the stickers' animation never re-rasterizes the photo. */}
+        <div
+          className="pointer-events-none absolute right-[4%] top-[38%] z-[1] hidden flex-col items-end gap-4 md:flex"
+          style={{ isolation: "isolate", transform: "translateZ(0)" }}
+        >
           {stickers.map((s, i) => (
             <motion.span
               key={s.sv}
@@ -133,11 +139,10 @@ export const HeroSection = ({ scale }: HeroSectionProps) => {
               animate={{ opacity: 1, scale: 1, rotate: s.rotate }}
               transition={{ duration: 0.5, delay: 0.5 + i * 0.12, type: "spring", stiffness: 220, damping: 16 }}
               whileHover={{ rotate: 0, scale: 1.06 }}
-              className="font-sans text-3xl font-bold tracking-tight leading-none lg:text-4xl"
+              className="pointer-events-auto font-sans text-3xl font-bold tracking-tight leading-none lg:text-4xl"
               style={{
                 color: s.color,
                 textShadow: s.shadow,
-                filter: "drop-shadow(0 4px 6px hsl(0 0% 0% / 0.35))",
               }}
             >
               {t(s.sv, s.en)}
