@@ -29,15 +29,38 @@ export function createDownloadIconGeometry() {
     uv.push(x / (half * 2) + 0.5, y / (half * 2) + 0.5);
     return index;
   };
+  // Edge profile: a narrow, even 45° chamfer softened by two tiny fillets, so
+  // the face→side transition catches a crisp band of light instead of reading
+  // as a puffy round. Normal tilt per arc position, integrated into positions.
+  const tiltAt = (t: number) => {
+    const q = Math.PI / 4;
+    if (t < 0.22) return q * (t / 0.22);
+    if (t > 0.78) return q + q * ((t - 0.78) / 0.22);
+    return q;
+  };
+  const steps = 16;
+  const profile: { r: number; z: number; tilt: number }[] = [{ r: 0, z: 0, tilt: 0 }];
+  for (let i = 1; i <= steps; i++) {
+    const sub = 24;
+    let { r, z } = profile[i - 1];
+    for (let s = 0; s < sub; s++) {
+      const th = tiltAt((i - 1 + (s + 0.5) / sub) / steps);
+      r += Math.cos(th); z += Math.sin(th);
+    }
+    profile.push({ r, z, tilt: tiltAt(i / steps) });
+  }
+  const end = profile[steps];
+  const norm = profile.map(p => ({ r: p.r / end.r * bevel, z: p.z / end.z * bevel, tilt: p.tilt }));
   const ringCount = 34;
   for (let ring = 0; ring < ringCount; ring++) {
     const front = ring <= 16;
-    const angle = front ? ring / 16 * Math.PI / 2 : (ring - 17) / 16 * Math.PI / 2;
-    const inset = front ? bevel * (1 - Math.sin(angle)) : bevel * (1 - Math.cos(angle));
-    const z = front ? sideHalfDepth + bevel * Math.cos(angle) : -sideHalfDepth - bevel * Math.sin(angle);
-    const radial = front ? Math.sin(angle) : Math.cos(angle);
-    const normalZ = front ? Math.cos(angle) : -Math.sin(angle);
-    for (const p of points) vertex(p.x - p.nx * inset, p.y - p.ny * inset, z, p.nx * radial, p.ny * radial, normalZ);
+    // Back mirrors the front profile (side → back face).
+    const p = front ? norm[ring] : norm[16 - (ring - 17)];
+    const inset = bevel - p.r;
+    const z = front ? sideHalfDepth + bevel - p.z : -(sideHalfDepth + bevel - p.z);
+    const radial = Math.sin(p.tilt);
+    const normalZ = (front ? 1 : -1) * Math.cos(p.tilt);
+    for (const pt of points) vertex(pt.x - pt.nx * inset, pt.y - pt.ny * inset, z, pt.nx * radial, pt.ny * radial, normalZ);
   }
   const count = points.length;
   for (let ring = 0; ring < ringCount - 1; ring++) {
