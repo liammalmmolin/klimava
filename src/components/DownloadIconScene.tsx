@@ -39,10 +39,12 @@ function Icon({ active, palette, onReady }: { active: boolean; palette: Palette;
   }, []);
   useEffect(() => { onReady(); }, [onReady]);
   useEffect(() => () => { body.dispose(); rim.dispose(); }, [body, rim]);
-  useFrame((_, delta) => {
+  useFrame((state, delta) => {
     if (!group.current) return;
     angle.current = advanceDownloadRotation(angle.current, delta, active);
     group.current.rotation.y = angle.current;
+    state.gl.domElement.dataset.rotation = String(angle.current);
+    state.gl.domElement.dataset.delta = String(delta);
   });
   return (
     <group rotation={[0.12, 0, -0.1]}>
