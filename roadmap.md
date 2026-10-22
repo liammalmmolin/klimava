@@ -1,3 +1,8 @@
+# Original-color continuous download icon
+- [ ] Restore original green–mint app artwork and black K without changing the volume geometry or section.
+- [ ] Prewarm resources/rendering and use a continuous elapsed-time rotation with offscreen rendering paused, reduced-motion still and no frame-by-frame component updates.
+- [ ] Verify sustained rotation, rapid return scrolling and preparation in Chromium/WebKit; physical iPhone smoothness requires a real device.
+
 # Targeted gradient and small-accent correction
 - [x] Separate turquoise-to-light-green heading and filled-element gradients from muted solid small-icon/link/label colors, preserving the approved download section.
 - [x] Verify in Chromium/WebKit at 402×725 and 1280×1800: matching turquoise→light-green headings, darker turquoise→green badge/circles, muted small icons and link normal/hover/press, unchanged download colors and deferred video; screenshots reviewed, no runtime errors, build OK. Physical iPhone not tested.
