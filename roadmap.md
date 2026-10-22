@@ -1,3 +1,9 @@
+# Download icon sharpness and local light dust
+- [ ] Refine antialiased texture sampling without changing artwork, geometry, materials or rotation.
+- [ ] Add a faint filter-free local glow and sparse irregular opacity-only light dust, prepared initially and paused offscreen/reduced-motion.
+- [ ] Verify mobile/desktop full rotation, rapid returns, unchanged layout and reduced motion; run motion regression tests.
+- [ ] Physical iPhone Safari smoothness — requires unavailable real hardware.
+
 # Seamless refined download icon
 - [x] Replace separate face/rim layers with one closed analytically smoothed surface and continuous original-artwork UVs across faces, rounded shoulders and sides. No vector original found; retain the exact K from the 659×656 original raster rather than redrawing or claiming vector quality.
 - [x] Increase antialiased rendering to native 3x mobile density (780×660 canvas), use anisotropic sampling and dithering, restrained satin shading, continuous gentle floating and initial idle prewarming; section layout/text/button remain unchanged.
