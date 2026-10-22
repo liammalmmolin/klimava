@@ -47,7 +47,7 @@ export const CTASection = () => {
               </div>
             </div>
             <div className="absolute inset-0">
-            {!ready && <img src={klimavaIcon} width={130} height={130} loading="lazy" decoding="async" alt="" className="absolute left-1/2 top-1/2 h-[130px] w-[130px] -translate-x-1/2 -translate-y-1/2 rounded-[1.62rem]" />}
+            {!ready && <img src={klimavaIcon} width={120} height={120} loading="lazy" decoding="async" alt="" className="absolute left-1/2 top-1/2 h-[120px] w-[120px] -translate-x-1/2 -translate-y-1/2 rounded-[1.49rem]" />}
             {(approaching || prewarmed) && <Suspense fallback={null}><DownloadIconScene active={visible && tabVisible && !reducedMotion} reducedMotion={Boolean(reducedMotion)} onReady={onReady} /></Suspense>}
             </div>
           </div>
