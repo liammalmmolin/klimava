@@ -1,3 +1,9 @@
+# Original-color continuous download icon
+- [x] Restore original green–mint app artwork and black K without changing the body/rim geometry, thickness, corners, tilt, K proportions or section. Fixed CSS HSL percentage parsing that had turned lit materials white; original sRGB artwork is unaffected by lighting/tone mapping.
+- [x] Idle-prewarm lazy resources and first rendered frame; retain Canvas/textures, resume rendering 600px ahead, use continuous absolute monotonic-time 11-second positive rotation across offscreen/tab pauses, and keep reduced-motion still with no per-frame React updates. Rounded opaque unlit artwork replaces transparent lit mask faces; local reflections render once and side lighting is restrained.
+- [x] Verified prepared Canvas/no placeholder before scroll, retained Canvas on three rapid return trips, sustained Chromium rotation screenshots at 402×725 and 1280×1800, stable reduced-motion screenshots, correct button link, no runtime errors, nine regression tests and build OK. WebKit verifies prepared resources and return states; software-WebGL capture remains frozen between continuous frames.
+- [ ] Confirm visible continuous animation and smoothness in physical iPhone Safari — real device unavailable; software WebKit cannot establish hardware smoothness.
+
 # Targeted gradient and small-accent correction
 - [x] Separate turquoise-to-light-green heading and filled-element gradients from muted solid small-icon/link/label colors, preserving the approved download section.
 - [x] Verify in Chromium/WebKit at 402×725 and 1280×1800: matching turquoise→light-green headings, darker turquoise→green badge/circles, muted small icons and link normal/hover/press, unchanged download colors and deferred video; screenshots reviewed, no runtime errors, build OK. Physical iPhone not tested.

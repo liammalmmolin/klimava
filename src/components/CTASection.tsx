@@ -4,18 +4,30 @@ import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 import klimavaIcon from "@/assets/klimava-logo.jpeg";
 
-const DownloadIconScene = lazy(() => import("./DownloadIconScene"));
+const loadDownloadIcon = () => import("./DownloadIconScene");
+const DownloadIconScene = lazy(loadDownloadIcon);
 
 export const CTASection = () => {
   const { t } = useLanguage();
   const sectionRef = useRef<HTMLElement>(null);
   const iconRef = useRef<HTMLDivElement>(null);
-  const prepared = useInView(sectionRef, { margin: "600px", once: true });
-  const visible = useInView(iconRef);
+  const approaching = useInView(sectionRef, { margin: "2400px", once: true });
+  const visible = useInView(iconRef, { margin: "600px" });
   const reducedMotion = useReducedMotion();
   const [tabVisible, setTabVisible] = useState(true);
   const [ready, setReady] = useState(false);
+  const [prewarmed, setPrewarmed] = useState(false);
   const onReady = useCallback(() => setReady(true), []);
+  useEffect(() => {
+    // Warm the lazy chunk, texture and first GPU frame during idle time, not on arrival.
+    const warm = () => { void loadDownloadIcon(); setPrewarmed(true); };
+    if (typeof window.requestIdleCallback === "function") {
+      const id = window.requestIdleCallback(warm, { timeout: 1800 });
+      return () => window.cancelIdleCallback(id);
+    }
+    const id = window.setTimeout(warm, 1000);
+    return () => window.clearTimeout(id);
+  }, []);
   useEffect(() => {
     const update = () => setTabVisible(!document.hidden);
     update();
@@ -29,7 +41,7 @@ export const CTASection = () => {
         <div className="max-w-3xl mx-auto text-center">
           <div ref={iconRef} data-animation={visible && tabVisible && !reducedMotion ? "running" : "paused"} className="relative mx-auto mb-6 h-[220px] w-[260px] md:mb-8 md:h-[260px] md:w-[300px]" role="img" aria-label={t("Klimavas appikon", "Klimava app icon")}>
             {!ready && <img src={klimavaIcon} width={160} height={160} loading="lazy" decoding="async" alt="" className="absolute left-1/2 top-1/2 h-40 w-40 -translate-x-1/2 -translate-y-1/2 rounded-[2rem]" />}
-            {prepared && <Suspense fallback={null}><DownloadIconScene active={visible && tabVisible && !reducedMotion} onReady={onReady} /></Suspense>}
+            {(approaching || prewarmed) && <Suspense fallback={null}><DownloadIconScene active={visible && tabVisible && !reducedMotion} reducedMotion={Boolean(reducedMotion)} onReady={onReady} /></Suspense>}
           </div>
 
           <h2 className="download-heading text-[34px] md:text-5xl font-normal tracking-normal leading-[1.12] mb-5">
