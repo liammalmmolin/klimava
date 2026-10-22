@@ -1,3 +1,7 @@
+# Targeted gradient and small-accent correction
+- [x] Separate turquoise-to-light-green heading and filled-element gradients from muted solid small-icon/link/label colors, preserving the approved download section.
+- [ ] Verify mobile/desktop gradients, scoped details, link interaction colors and unchanged download section.
+
 # Download section redesign
 - [x] Rebuild only the download composition and bilingual copy using the supplied Gritch recording; warm-white normal Source Serif 4 heading, compact 196×48px exact-reference button, no glow/particles/trust badges.
 - [x] Add a beveled volumetric clear-coated K icon, original K alpha-mask extracted without redrawing, local reflections, lazy-loaded and paused offscreen/hidden tabs, reserved space and reduced-motion still. No separately supplied 3D resource needed.

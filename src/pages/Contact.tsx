@@ -24,7 +24,7 @@ const Contact = () => {
             transition={{ duration: 0.4 }}
             className="text-center mb-14"
           >
-            <span className="gradient-text font-semibold text-sm uppercase tracking-wider">
+            <span className="section-label-on-dark font-semibold text-sm uppercase tracking-wider">
               {t("Samarbeta med oss", "Partner with us")}
             </span>
             <h1 className="text-3xl md:text-5xl font-bold text-white mt-3">

@@ -45,7 +45,7 @@ export const HowItWorksSection = () => {
                 className="group flex h-full flex-col rounded-3xl border border-border bg-card p-8 shadow-soft transition-all hover:shadow-elevated"
               >
                 <span className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-accent text-primary">
-                  <item.icon className="h-6 w-6" />
+                  <item.icon className="h-6 w-6 small-accent" />
                 </span>
                 <h3 className="mb-2 font-heading text-xl font-medium text-foreground">
                   {t(item.title.sv, item.title.en)}

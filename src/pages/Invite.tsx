@@ -35,7 +35,7 @@ const Invite = () => {
               <Gift className="w-8 h-8 text-primary-foreground" />
             </div>
 
-            <span className="gradient-text font-semibold text-sm uppercase tracking-wider">
+            <span className="section-label font-semibold text-sm uppercase tracking-wider">
               {t("Du är inbjuden", "You're invited")}
             </span>
             <h1 className="text-3xl md:text-5xl font-bold text-foreground mt-3 mb-4">

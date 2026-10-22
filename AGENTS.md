@@ -1,6 +1,6 @@
 # Project rules
 
-- Former lime UI accents and gradient stops share the brand-highlight semantic token; section labels keep surface-specific utilities, and media/logo files remain outside UI token recoloring so color refinements preserve original artwork.
+- Large heading and filled-element gradients use independent gradient-start/end tokens; small formerly solid-lime icons and links use small-accent and labels use surface-specific section-label utilities, so neither group recolors the other. Keep approved download colors and media/logo artwork independent.
 
 - The download icon is a lazy-loaded R3F beveled volume with the original K extracted as an alpha-mask; local Lightformers supply reflections without network HDRs, and its render loop stops offscreen, on hidden tabs and for reduced motion to preserve scrolling performance.
 - Keep localized capital-letter refinements in UngForetagande as original-font vector overlays over real text; this preserves inherited typography, glyph advances and accessible spelling without changing surrounding letters.

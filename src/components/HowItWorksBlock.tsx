@@ -218,7 +218,7 @@ export const HowItWorksBlock = () => {
                   {i + 1}
                 </span>
                 <div>
-                  <s.icon className="mb-2 h-5 w-5 text-secondary" />
+                  <s.icon className="mb-2 h-5 w-5 small-accent" />
                   <p className="font-serif text-lg font-medium text-background">{t(s.sv, s.en)}</p>
                 </div>
               </div>
@@ -247,7 +247,7 @@ export const HowItWorksBlock = () => {
               href="https://apps.apple.com/se/app/klimava/id6760266069"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-lg font-semibold text-secondary hover:underline"
+              className="text-lg font-semibold small-accent hover:underline"
               style={{ fontVariantLigatures: "none" }}
             >
               {language === "sv" ? (
