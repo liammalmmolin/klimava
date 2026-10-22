@@ -10,7 +10,7 @@
 - For a full-bleed background whose target shape differs across screens, ship separate pre-cropped originals per screen shape behind a `<picture>` media source instead of letting one crop cover both, and always downscale from the supplied original rather than enlarging it.
 - Downloaded hero originals and responsive crop variants use asset pointers resolved through assetUrl so the same images work on Lovable and external hosting.
 - Homepage video originals and extracted responsive posters use CDN pointers through assetUrl; assign the original MP4 source only on play, keeping native controls and audio so media does not compete with initial loading.
-- Hero image sizes must account for the wide crop's height-limited object-cover painted width, not just viewport width; keep the mobile picture source independent. Desktop video posters retain losslessly decoded native film pixels without fabricated upscaling.
+- Hero image sizes must account for the wide crop's height-limited object-cover painted width, not just viewport width; the mobile picture source likewise sizes for its height-limited portrait painted width. Desktop video posters retain losslessly decoded native film pixels without fabricated upscaling.
 
 - Uploaded tile photographs use high-quality CDN WebP variants without upscaling, resolved through src/lib/asset-url.ts against the published Lovable media host because external GitHub Pages hosting does not serve /__l5e routes; for an all-subjects landscape image in a portrait tile, extend only empty background to preserve every subject's proportions and visibility.
 - Serve the existing typefaces locally through src/fonts.css to remove third-party font request chains without changing typography.
