@@ -1,3 +1,8 @@
+# Download section redesign
+- [ ] Rebuild only the download composition and copy using the supplied Gritch recording; compact button, no glow/particles/trust badges.
+- [ ] Add a real volumetric glass-like rotating K icon, lazy-loaded and paused offscreen, with reserved space and reduced-motion still.
+- [ ] Verify mobile/desktop Chromium and WebKit, rapid scrolling, App Store link and unchanged adjacent content; disclose physical iPhone limit.
+
 # Site-wide UI accent color
 - [x] Replace former lime tokens/stops/states with the exact existing section-label reference HSL 172 32% 67% (computed RGB 144,198,191), leaving media/logo files untouched.
 - [x] Verify 14 pages in Chromium/WebKit at 402×725 and 1280×1800; link normal/hover/press, four step icons, three trust icons and shared gradients use the new color, no runtime errors, deferred video loading retained, build OK. Reference contrast is 7.65:1 on dark petrol but 1.76:1 on the light background: exact pale gradient endpoints cannot guarantee accessible contrast there; no darker substitute introduced against the exact-color request. Physical iPhone not tested. Existing mobile overflow on SL page left outside this color-only scope.
