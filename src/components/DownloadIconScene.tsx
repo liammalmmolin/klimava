@@ -48,7 +48,7 @@ function Icon({ reducedMotion, onReady }: { reducedMotion: boolean; onReady: () 
 
 export default function DownloadIconScene({ active, reducedMotion, onReady }: { active: boolean; reducedMotion: boolean; onReady: () => void }) {
   return (
-    <Canvas orthographic camera={{ position: [0, 0, 7], zoom: 62.48 }} dpr={[2, 3]} frameloop={active ? "always" : "demand"} gl={{ alpha: true, antialias: true, powerPreference: "low-power" }}>
+    <Canvas orthographic camera={{ position: [0, 0, 7], zoom: 57.48 }} dpr={[2, 3]} frameloop={active ? "always" : "demand"} gl={{ alpha: true, antialias: true, powerPreference: "low-power" }}>
       <ambientLight intensity={0.55} />
       <directionalLight position={[-3, 5, 6]} intensity={0.65} />
       <Suspense fallback={null}>
