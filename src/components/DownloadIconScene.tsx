@@ -1,6 +1,6 @@
 import { Suspense, useEffect, useMemo, useRef, useState } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { Environment, Lightformer, useTexture } from "@react-three/drei";
+import { Environment, Lightformer, Preload, useTexture } from "@react-three/drei";
 import { Color, ExtrudeGeometry, Group, Path, Shape, ShapeGeometry, SRGBColorSpace } from "three";
 import originalArtwork from "@/assets/klimava-logo.jpeg";
 import { downloadRotationAt, DOWNLOAD_ICON_STILL_ANGLE } from "@/lib/download-icon-motion";
@@ -50,7 +50,7 @@ function Icon({ reducedMotion, startedAt, palette, onReady }: { reducedMotion: b
   useEffect(() => { invalidate(); }, [invalidate]);
   useEffect(() => () => { body.dispose(); rim.dispose(); face.dispose(); }, [body, rim, face]);
   useEffect(() => { invalidate(); }, [reducedMotion, invalidate]);
-  useFrame(({ gl }) => {
+  useFrame(() => {
     if (!group.current) return;
     // Keep the fallback until an actual frame exists, also in demand mode.
     if (renderedFrames.current < 3) {
@@ -59,8 +59,6 @@ function Icon({ reducedMotion, startedAt, palette, onReady }: { reducedMotion: b
       else invalidate();
     }
     group.current.rotation.y = downloadRotationAt((performance.now() - startedAt) / 1000, reducedMotion);
-    // Non-reactive observability; no component updates on animation frames.
-    gl.domElement.dataset.rotation = String(group.current.rotation.y);
   });
   return (
     <group rotation={[0.12, 0, -0.1]}>
@@ -110,6 +108,7 @@ export default function DownloadIconScene({ active, reducedMotion, startedAt, on
           <Lightformer intensity={2} color={palette.light} position={[1, -2, -4]} scale={[0.25, 3, 1]} />
         </Environment>
         <Icon reducedMotion={reducedMotion} startedAt={startedAt} palette={palette} onReady={onReady} />
+        <Preload all />
       </Suspense>
     </Canvas>
   );
