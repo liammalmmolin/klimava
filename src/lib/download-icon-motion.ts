@@ -1,6 +1,11 @@
 export const DOWNLOAD_ICON_TURN_SECONDS = 11;
 export const DOWNLOAD_ICON_STILL_ANGLE = -0.32;
 
+export function downloadFloatAt(elapsedSeconds: number, reducedMotion: boolean) {
+  if (reducedMotion) return 0;
+  return Math.sin(Math.max(0, elapsedSeconds) * Math.PI * 2 / 7) * 0.045;
+}
+
 // Absolute monotonic time keeps the timeline alive while no frames are drawn.
 // Never clamp elapsed time: missed frames must not slow this decorative turn.
 export function downloadRotationAt(elapsedSeconds: number, reducedMotion: boolean) {
