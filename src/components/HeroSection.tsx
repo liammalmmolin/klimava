@@ -192,7 +192,7 @@ export const HeroSection = ({ scale }: HeroSectionProps) => {
                 </a>
               </Button>
               <span className="flex items-center gap-1.5 font-mono text-xs text-white/80" style={{ textShadow: "0 1px 6px hsl(192 60% 8% / 0.7)" }}>
-                <span className="flex items-center gap-0.5 text-primary">
+                <span className="flex items-center gap-0.5 small-accent">
                   {Array.from({ length: 5 }).map((_, i) => (
                     <Star key={i} className="h-3 w-3 fill-current" />
                   ))}

@@ -23,7 +23,7 @@ const Partners = () => {
             transition={{ duration: 0.4 }}
             className="text-center max-w-2xl mx-auto mb-16"
           >
-            <span className="font-mono text-xs uppercase tracking-widest text-primary">
+            <span className="font-mono text-xs uppercase tracking-widest section-label">
               {t("Samarbeten", "Partnerships")}
             </span>
             <h1 className="text-4xl md:text-6xl font-bold text-foreground mt-3">
@@ -54,7 +54,7 @@ const Partners = () => {
               >
                 <img width={80} height={80} decoding="async" src={sl.logo} alt="SL" className="w-20 h-20 rounded-2xl object-cover shrink-0" />
                 <div className="flex-1 text-center sm:text-left">
-                  <span className="font-mono text-[10px] uppercase tracking-widest text-primary">
+                  <span className="font-mono text-[10px] uppercase tracking-widest section-label">
                     {t("Störst samarbetspartner", "Largest partner")}
                   </span>
                   <h2 className="text-2xl font-heading font-medium text-foreground mt-1">SL</h2>
@@ -62,7 +62,7 @@ const Partners = () => {
                 </div>
                 <span className="inline-flex items-center gap-1.5 text-primary font-semibold shrink-0 group-hover:underline">
                   {t("Läs om SL-samarbetet", "Read about the SL partnership")}
-                  <ArrowRightMd className="w-4 h-4" />
+                  <ArrowRightMd className="w-4 h-4 small-accent" />
                 </span>
               </Link>
             </motion.div>
