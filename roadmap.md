@@ -1,7 +1,8 @@
 # Seamless refined download icon
-- [ ] Replace separate face/rim layers with one smoothly rounded surface carrying the original gradient across all sides; retain exact original K artwork.
-- [ ] Improve high-density sharpness, satin shading, gentle floating and initial prewarming without changing the section.
-- [ ] Verify front/side/full-turn views, rapid scroll returns and reduced motion; physical iPhone hardware smoothness remains unavailable.
+- [x] Replace separate face/rim layers with one closed analytically smoothed surface and continuous original-artwork UVs across faces, rounded shoulders and sides. No vector original found; retain the exact K from the 659×656 original raster rather than redrawing or claiming vector quality.
+- [x] Increase antialiased rendering to native 3x mobile density (780×660 canvas), use anisotropic sampling and dithering, restrained satin shading, continuous gentle floating and initial idle prewarming; section layout/text/button remain unchanged.
+- [x] Inspect front and both sides across a full Chromium turn on 402×725 and 1280×1800; prepared first frame before scroll, retained canvas across three rapid returns, reduced-motion screenshots identical, WebKit renders correctly, no runtime errors, 10 regression tests pass and build OK.
+- [ ] Physical iPhone hardware smoothness — real device unavailable; WebKit software rendering cannot verify actual Safari animation performance.
 
 # Original-color continuous download icon
 - [x] Restore original green–mint app artwork and black K without changing the body/rim geometry, thickness, corners, tilt, K proportions or section. Fixed CSS HSL percentage parsing that had turned lit materials white; original sRGB artwork is unaffected by lighting/tone mapping.
