@@ -48,15 +48,15 @@ function Icon({ active, palette, onReady }: { active: boolean; palette: Palette;
     <group rotation={[0.12, 0, -0.1]}>
       <group ref={group} rotation-y={DOWNLOAD_ICON_STILL_ANGLE}>
         <mesh geometry={body}>
-          <meshPhysicalMaterial color={palette.glass} metalness={0.55} roughness={0.14} clearcoat={1} clearcoatRoughness={0.09} envMapIntensity={1.5} />
+          <meshPhysicalMaterial color={palette.glass} metalness={0.35} roughness={0.12} clearcoat={1} clearcoatRoughness={0.07} envMapIntensity={2.5} />
         </mesh>
         <mesh geometry={rim}>
-          <meshPhysicalMaterial color={palette.edge} metalness={0.85} roughness={0.13} clearcoat={1} envMapIntensity={1.6} />
+          <meshPhysicalMaterial color={palette.edge} metalness={0.55} roughness={0.1} clearcoat={1} envMapIntensity={2.5} />
         </mesh>
         {[1, -1].map(side => (
           <mesh key={side} position-z={side * 0.184} rotation-y={side === 1 ? 0 : Math.PI}>
             <planeGeometry args={[2.22, 2.22]} />
-            <meshStandardMaterial map={mask} transparent alphaTest={0.08} color={palette.symbol} metalness={0.5} roughness={0.22} />
+            <meshStandardMaterial map={mask} transparent alphaTest={0.08} color={palette.symbol} metalness={0.15} roughness={0.22} />
           </mesh>
         ))}
       </group>
@@ -74,11 +74,11 @@ export default function DownloadIconScene({ active, onReady }: { active: boolean
   if (!palette) return null;
   return (
     <Canvas orthographic camera={{ position: [0, 0, 7], zoom: 71 }} dpr={[1, 1.5]} frameloop={active ? "always" : "demand"} gl={{ alpha: true, antialias: true, powerPreference: "low-power" }}>
-      <ambientLight intensity={0.65} />
-      <directionalLight position={[3, 5, 5]} intensity={2} color={palette.light} />
+      <ambientLight intensity={1.2} />
+      <directionalLight position={[3, 5, 5]} intensity={3} color={palette.light} />
       <Suspense fallback={null}>
         <Environment resolution={128}>
-          <Lightformer intensity={3} color={palette.light} position={[-3, 3, 4]} scale={[2, 5, 1]} />
+          <Lightformer intensity={5} color={palette.light} position={[-3, 3, 4]} scale={[3, 5, 1]} />
           <Lightformer intensity={2} color={palette.reflection} position={[3, 1, -2]} rotation-y={-Math.PI / 2} scale={[2, 4, 1]} />
           <Lightformer intensity={1.5} color={palette.light} position={[0, -3, 3]} scale={[5, 0.6, 1]} />
         </Environment>
