@@ -1,5 +1,7 @@
 # Project rules
 
+- Matching homepage uppercase monospace section labels use shared section-label color utilities with surface-specific semantic tokens; keep these independent of secondary accents so label refinements cannot recolor icons, buttons or heading gradients.
+
 - In the download section, keep the app icon stationary and particles in a sibling layer; render the glow as a static, filter-free radial gradient that becomes transparent before its bounds to avoid Safari blur-compositing rectangles.
 - Keep localized capital-letter refinements in UngForetagande as original-font vector overlays over real text; this preserves inherited typography, glyph advances and accessible spelling without changing surrounding letters.
 - App screenshot carousel: Embla alone owns translation; apply progress-driven scale/opacity directly to inner visuals without CSS transitions or per-frame React state, keeping outer slide geometry stable to avoid competing animations.

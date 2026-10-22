@@ -122,17 +122,17 @@ export const HowItWorksBlock = () => {
           {/* Inline video */}
           <motion.p
             {...fadeUp}
-            className="mb-3 mt-20 text-center font-mono text-xs uppercase tracking-widest text-secondary md:mt-28"
+            className="mb-3 mt-20 text-center font-mono text-xs uppercase tracking-widest section-label section-label-on-dark md:mt-28"
           >
             {t("Se Klimava i verkligheten", "See Klimava in action")}
           </motion.p>
           <motion.h3
             {...fadeUp}
-            className="mx-auto mb-12 min-h-[2.4em] sm:min-h-0 max-w-2xl text-balance text-center font-heading text-3xl font-medium text-background md:max-w-3xl md:text-5xl"
+            className="mx-auto mb-12 max-w-2xl text-balance text-center font-heading text-3xl font-medium text-background md:max-w-3xl md:text-5xl"
           >
             {t(
-              <>Videon nedan visar hur Klimava kan användas i din vardag.<br className="sm:hidden" /> <span className="gradient-text-on-dark">Tryck på play och ta en titt!</span></>,
-              <>The film below shows how Klimava can be used in your everyday life.<br className="sm:hidden" /> <span className="gradient-text-on-dark">Press play and take a look!</span></>
+              "Videon nedan visar hur Klimava kan användas i din vardag.",
+              "The film below shows how Klimava can be used in your everyday life."
             )}
           </motion.h3>
           <motion.div
@@ -169,7 +169,7 @@ export const HowItWorksBlock = () => {
           {/* About us teaser */}
           <div className="mt-20 grid items-center gap-10 border-t border-background/10 pt-14 md:mt-28 md:grid-cols-2 md:gap-16">
             <motion.div {...fadeUp}>
-              <span className="mb-3 inline-block font-mono text-xs uppercase tracking-widest text-secondary">
+              <span className="mb-3 inline-block font-mono text-xs uppercase tracking-widest section-label section-label-on-dark">
                 {t("Om oss", "About us")}
               </span>
               <h3 className="mb-4 font-heading text-3xl font-medium leading-tight text-background md:text-4xl">
