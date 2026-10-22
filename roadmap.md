@@ -1,3 +1,7 @@
+# Updated homepage film
+- [ ] Replace the film with the supplied original MP4 and a sharp still; match the reference play symbol and lower-left title, preserving the existing frame and headings.
+- [ ] Verify click-to-play, preserved audio, fullscreen controls and deferred loading on desktop/mobile; report unavailable physical iPhone checks.
+
 # Remaining contrast, metadata and mobile review
 - [x] Replace the hero with the supplied David Becker 4672×7008 original, store CDN original and sharp responsive crops, verify loaded filter-free full-opacity images and readable unchanged layout in Chromium/WebKit at 402×725, 1280×1800 and 1920×1080; build OK. Physical iPhone not tested.
 - [x] Give the hero heading line "Stor påverkan." the exact same gradient as "Få något tillbaka." (135deg, rgb(38,193,217) → rgb(141,210,75)), keeping font, weight, size, tracking, placement and effects unchanged; verified byte-identical computed background-image on mobile 402×725 and desktop 1280×1800, build OK. Legibility noted to the user: the lime end sits against bright green aurora and dark branches.
