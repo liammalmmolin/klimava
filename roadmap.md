@@ -1,3 +1,10 @@
+# Desktop rendering quality correction
+- [x] Correct height-limited desktop cover selection: 1280×1800 DPR1 now loads 3600 rather than 1600; wide Retina uses the 4672 native crop. No crop, colour, filter, mobile-source or sticker changes.
+- [x] Desktop poster now uses a lossless 1920×1080 decoded frame (16 KB), with mobile variants unchanged. Reviewed SVG play control and sticker entry/settled close-ups, reload and back navigation; retained existing design.
+- [x] Audit every route in Chromium at 1280 DPR2 and 1920 DPR3, plus homepage at 2560 DPR2 and mobile 402 DPR3. Reviewed screenshot overview and details; no page exceptions, build OK and ten existing tests pass.
+- [ ] Native-density replacements for source-limited team photo (1560×1170), scanner (510×1050), SL ticket (459×998), support hero (2400×3600 portrait), contact background (956×944) and selected tile photos — higher-resolution identical originals unavailable; do not fabricate detail, alter layout or upscale.
+- [ ] Actual film playback verification — Chromium capture reports media error 4 for the unchanged original H.264/AAC film; no film request occurs before click, original file downloads and decodes with ffmpeg, but browser playback remains unverified.
+
 # Targeted desktop decoration, wordmark and feature grid
 - [x] Remove the entire desktop hero sticker group in both languages, including halo and animation effects; preserve the aurora and other content.
 - [x] Enlarge only the initial K in the hero wordmark by 10% on the same baseline with inherited typeface, weight and colour; other wordmarks and app artwork remain untouched.

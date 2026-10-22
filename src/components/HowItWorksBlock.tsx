@@ -14,6 +14,7 @@ import teamPhoto from "@/assets/team-photo.jpg?format=webp&quality=92";
 import poster640 from "@/assets/videos/klimava-how-to-v2-poster-640.webp.asset.json";
 import poster1280 from "@/assets/videos/klimava-how-to-v2-poster-1280.webp.asset.json";
 import poster1920 from "@/assets/videos/klimava-how-to-v2-poster-1920.webp.asset.json";
+import posterOriginal from "@/assets/videos/klimava-how-to-v2-poster-original-lossless.webp.asset.json";
 
 const posterSrc = assetUrl(poster1280);
 const posterSet = `${assetUrl(poster640)} 640w, ${posterSrc} 1280w, ${assetUrl(poster1920)} 1920w`;
@@ -65,7 +66,12 @@ const AdVideo = ({ src }: { src: string }) => {
             className="group absolute inset-0 flex cursor-pointer flex-col items-center justify-center text-left"
           >
             {/* Sharp, border-free logo frame from the original film (1 second). */}
-            <img width={1920} height={1080} loading="lazy" decoding="async" src={posterSrc} srcSet={posterSet} sizes="(min-width: 1152px) 1152px, 100vw" alt="" className="absolute inset-0 h-full w-full object-cover" />
+            <picture>
+              {/* The film itself is 1920×1080: keep its exact decoded pixels
+                  on desktop instead of recompressing or artificially enlarging. */}
+              <source media="(min-width: 768px)" srcSet={assetUrl(posterOriginal)} />
+              <img width={1920} height={1080} loading="lazy" decoding="async" src={posterSrc} srcSet={posterSet} sizes="(min-width: 1152px) 1152px, 100vw" alt="" className="absolute inset-0 h-full w-full object-cover" />
+            </picture>
             <div className="video-cover-shade absolute inset-0" />
 
             <span className="relative flex w-[13.5%] aspect-square items-center justify-center transition-transform duration-150 ease-out group-hover:scale-[1.03] group-active:scale-[0.96] group-active:duration-75 motion-reduce:transition-none">
