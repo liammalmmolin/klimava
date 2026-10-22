@@ -5,8 +5,10 @@ import { BufferGeometry, Float32BufferAttribute, Shape, ShapeGeometry } from "th
 export function createDownloadIconGeometry() {
   const half = 1.2;
   const corner = 0.56;
-  const bevel = 0.13;
-  const sideHalfDepth = 0.055;
+  // Same overall thickness as before, but a tight radius and a straight,
+  // precise side band read as machined rather than inflated.
+  const bevel = 0.05;
+  const sideHalfDepth = 0.135;
   const segments = 32;
   const points: { x: number; y: number; nx: number; ny: number }[] = [];
   for (let quadrant = 0; quadrant < 4; quadrant++) {
@@ -19,7 +21,7 @@ export function createDownloadIconGeometry() {
       points.push({ x: cx + corner * nx, y: cy + corner * ny, nx, ny });
     }
   }
-  const positions: number[] = [], normals: number[] = [], uv: number[] = [], indices: number[] = [];
+  const positions: number[] = [], normals: number[] = [], uv: number[] = [], indices: number[] = [], frontIndices: number[] = [];
   const vertex = (x: number, y: number, z: number, nx: number, ny: number, nz: number) => {
     const index = positions.length / 3;
     positions.push(x, y, z); normals.push(nx, ny, nz);
@@ -42,7 +44,7 @@ export function createDownloadIconGeometry() {
     for (let i = 0; i < count; i++) {
       const a = ring * count + i, b = ring * count + (i + 1) % count;
       const c = a + count, d = b + count;
-      indices.push(a, c, b, b, c, d);
+      (ring < 16 ? frontIndices : indices).push(a, c, b, b, c, d);
     }
   }
   const shape = new Shape();
@@ -59,7 +61,7 @@ export function createDownloadIconGeometry() {
     for (let i = 0; i < capPosition.count; i++) vertex(capPosition.getX(i), capPosition.getY(i), side * (sideHalfDepth + bevel), 0, 0, side);
     if (capIndex) for (let i = 0; i < capIndex.count; i += 3) {
       const a = offset + capIndex.getX(i), b = offset + capIndex.getX(i + 1), c = offset + capIndex.getX(i + 2);
-      indices.push(a, side === 1 ? b : c, side === 1 ? c : b);
+      (side === 1 ? frontIndices : indices).push(a, side === 1 ? b : c, side === 1 ? c : b);
     }
   }
   caps.dispose();
@@ -67,7 +69,11 @@ export function createDownloadIconGeometry() {
   geometry.setAttribute("position", new Float32BufferAttribute(positions, 3));
   geometry.setAttribute("normal", new Float32BufferAttribute(normals, 3));
   geometry.setAttribute("uv", new Float32BufferAttribute(uv, 2));
-  geometry.setIndex(indices);
+  // Group 0: front face + front edge radius (original artwork).
+  // Group 1: side band and back (artwork-free body gradient, never a mirrored K).
+  geometry.setIndex([...frontIndices, ...indices]);
+  geometry.addGroup(0, frontIndices.length, 0);
+  geometry.addGroup(frontIndices.length, indices.length, 1);
   geometry.computeBoundingSphere();
   return geometry;
 }
