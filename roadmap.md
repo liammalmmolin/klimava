@@ -2,7 +2,7 @@
 - [x] Remove the entire desktop hero sticker group in both languages, including halo and animation effects; preserve the aurora and other content.
 - [x] Enlarge only the initial K in the hero wordmark by 10% on the same baseline with inherited typeface, weight and colour; other wordmarks and app artwork remain untouched.
 - [x] Change the existing nine About app features to three desktop columns; retain order, content, shared dividers and mobile layout in both languages.
-- [ ] Verify smaller/larger desktop widths and unchanged mobile grid.
+- [x] Verify Chromium at 1024px and 1440px: nine equal-width tiles in 3–3–3 in Swedish and English, continuous dividers, no overflow; 402px retains nine single-column tiles. Hero wordmark K is 19.8px versus 18px remaining letters, decorations absent, screenshots reviewed, no page errors and build OK.
 
 # Download icon saturation and seamless atmosphere
 - [x] Reduce only icon artwork saturation by approximately 10% through a once-compiled diffuse/emissive chroma adjustment; preserve black K, alpha and all geometry/motion/render quality.
