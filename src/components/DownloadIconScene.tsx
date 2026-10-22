@@ -56,10 +56,10 @@ function Icon({ active, palette, onReady }: { active: boolean; palette: Palette;
     <group rotation={[0.12, 0, -0.1]}>
       <group ref={group} rotation-y={DOWNLOAD_ICON_STILL_ANGLE}>
         <mesh geometry={body}>
-          <meshPhysicalMaterial color={palette.glass} metalness={0.12} roughness={0.2} clearcoat={0.85} clearcoatRoughness={0.09} envMapIntensity={0.85} />
+          <meshPhysicalMaterial color={palette.glass} metalness={0.3} roughness={0.12} clearcoat={1} clearcoatRoughness={0.06} envMapIntensity={1.4} />
         </mesh>
         <mesh geometry={rim}>
-          <meshPhysicalMaterial color={palette.edge} metalness={0} roughness={0.07} transmission={0.86} thickness={0.42} ior={1.48} attenuationColor={palette.reflection} attenuationDistance={2.5} clearcoat={1} clearcoatRoughness={0.05} envMapIntensity={1.25} />
+          <meshPhysicalMaterial color={palette.edge} metalness={0} roughness={0.07} transmission={0.8} thickness={0.42} ior={1.48} attenuationColor={palette.reflection} attenuationDistance={2.5} clearcoat={1} clearcoatRoughness={0.05} envMapIntensity={2} />
         </mesh>
         <mesh position-z={-0.15} rotation-y={Math.PI}>
           <shapeGeometry args={[roundedShape(2.05, 0.43), 20]} />
@@ -94,7 +94,8 @@ export default function DownloadIconScene({ active, onReady }: { active: boolean
       <directionalLight position={[3, 5, 5]} intensity={1.3} color={palette.light} />
       <Suspense fallback={null}>
         <Environment resolution={128}>
-          <Lightformer intensity={3.5} color={palette.light} position={[-3, 2, 4]} rotation={[0, Math.PI, -0.3]} scale={[0.35, 5, 1]} />
+          <Lightformer intensity={6} color={palette.light} position={[-3, 2, 4]} rotation={[0, Math.PI, -0.3]} scale={[0.55, 5, 1]} />
+          <Lightformer intensity={3} color={palette.reflection} position={[0, 2.5, 4]} rotation-y={Math.PI} scale={[5, 1, 1]} />
           <Lightformer intensity={2} color={palette.reflection} position={[3, 1, -2]} rotation-y={-Math.PI / 2} scale={[0.5, 4, 1]} />
           <Lightformer intensity={2.5} color={palette.light} position={[0, 4, 1]} rotation-x={Math.PI / 2} scale={[4, 0.3, 1]} />
           <Lightformer intensity={2} color={palette.light} position={[1, -2, -4]} scale={[0.25, 3, 1]} />
