@@ -4,18 +4,29 @@ import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 import klimavaIcon from "@/assets/klimava-logo.jpeg";
 
-const DownloadIconScene = lazy(() => import("./DownloadIconScene"));
+const loadDownloadIcon = () => import("./DownloadIconScene");
+const DownloadIconScene = lazy(loadDownloadIcon);
 
 export const CTASection = () => {
   const { t } = useLanguage();
   const sectionRef = useRef<HTMLElement>(null);
   const iconRef = useRef<HTMLDivElement>(null);
-  const prepared = useInView(sectionRef, { margin: "600px", once: true });
-  const visible = useInView(iconRef);
+  const approaching = useInView(sectionRef, { margin: "2400px", once: true });
+  const visible = useInView(iconRef, { margin: "400px" });
+  const [prewarmed, setPrewarmed] = useState(false);
+  const [startedAt] = useState(() => performance.now());
+  const prepared = approaching || prewarmed;
   const reducedMotion = useReducedMotion();
   const [tabVisible, setTabVisible] = useState(true);
   const [ready, setReady] = useState(false);
   const onReady = useCallback(() => setReady(true), []);
+  useEffect(() => {
+    // Start after initial content has had time to load, not at the section edge.
+    const timer = window.setTimeout(() => {
+      void loadDownloadIcon().then(() => setPrewarmed(true));
+    }, 1200);
+    return () => window.clearTimeout(timer);
+  }, []);
   useEffect(() => {
     const update = () => setTabVisible(!document.hidden);
     update();
@@ -29,7 +40,7 @@ export const CTASection = () => {
         <div className="max-w-3xl mx-auto text-center">
           <div ref={iconRef} data-animation={visible && tabVisible && !reducedMotion ? "running" : "paused"} className="relative mx-auto mb-4 h-[180px] w-[260px] md:mb-5 md:h-[220px] md:w-[300px]" role="img" aria-label={t("Klimavas appikon", "Klimava app icon")}>
             {!ready && <img src={klimavaIcon} width={132} height={132} loading="lazy" decoding="async" alt="" className="absolute left-1/2 top-1/2 h-[132px] w-[132px] -translate-x-1/2 -translate-y-1/2 rounded-[1.65rem]" />}
-            {prepared && <Suspense fallback={null}><DownloadIconScene active={visible && tabVisible && !reducedMotion} onReady={onReady} /></Suspense>}
+            {prepared && <Suspense fallback={null}><DownloadIconScene active={visible && tabVisible && !reducedMotion} reducedMotion={Boolean(reducedMotion)} startedAt={startedAt} onReady={onReady} /></Suspense>}
           </div>
 
           <h2 className="download-heading text-[37px] md:text-[53px] font-normal tracking-normal leading-[1.12] mb-5">

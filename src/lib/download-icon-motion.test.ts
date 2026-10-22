@@ -1,14 +1,18 @@
 import { describe, expect, it } from "vitest";
-import { advanceDownloadRotation, DOWNLOAD_ICON_TURN_SECONDS } from "./download-icon-motion";
+import { downloadRotationAt, DOWNLOAD_ICON_STILL_ANGLE, DOWNLOAD_ICON_TURN_SECONDS } from "./download-icon-motion";
 
 describe("download icon motion", () => {
   it("completes one seamless turn in eleven seconds", () => {
     expect(DOWNLOAD_ICON_TURN_SECONDS).toBe(11);
-    let angle = 0;
-    for (let i = 0; i < 220; i++) angle = advanceDownloadRotation(angle, 0.05, true);
-    expect(Math.min(angle, Math.abs(Math.PI * 2 - angle))).toBeLessThan(0.000001);
+    expect(downloadRotationAt(11)).toBe(downloadRotationAt(0));
+    expect(downloadRotationAt(10.999)).toBeCloseTo(DOWNLOAD_ICON_STILL_ANGLE + Math.PI * 2, 2);
   });
-  it("holds its angle offscreen and for reduced motion", () => {
-    expect(advanceDownloadRotation(0.32, 0.05, false)).toBe(0.32);
+  it("catches up to elapsed time after an offscreen pause without restarting", () => {
+    expect(downloadRotationAt(27.5)).toBeCloseTo(DOWNLOAD_ICON_STILL_ANGLE + Math.PI);
+    expect(downloadRotationAt(28)).toBeGreaterThan(downloadRotationAt(27.5));
+  });
+  it("keeps a stable still when reduced motion is requested", () => {
+    expect(downloadRotationAt(0, true)).toBe(DOWNLOAD_ICON_STILL_ANGLE);
+    expect(downloadRotationAt(137, true)).toBe(DOWNLOAD_ICON_STILL_ANGLE);
   });
 });
