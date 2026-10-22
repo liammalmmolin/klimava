@@ -1,6 +1,6 @@
 # Project rules
 
-- Matching homepage uppercase monospace section labels use shared section-label color utilities with surface-specific semantic tokens; keep these independent of secondary accents so label refinements cannot recolor icons, buttons or heading gradients.
+- Former lime UI accents and gradient stops share the brand-highlight semantic token; section labels keep surface-specific utilities, and media/logo files remain outside UI token recoloring so color refinements preserve original artwork.
 
 - In the download section, keep the app icon stationary and particles in a sibling layer; render the glow as a static, filter-free radial gradient that becomes transparent before its bounds to avoid Safari blur-compositing rectangles.
 - Keep localized capital-letter refinements in UngForetagande as original-font vector overlays over real text; this preserves inherited typography, glyph advances and accessible spelling without changing surrounding letters.

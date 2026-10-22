@@ -1,3 +1,7 @@
+# Site-wide UI accent color
+- [ ] Replace former lime tokens/stops/states with the exact existing section-label reference color, leaving media/logos untouched.
+- [ ] Verify all pages, mobile/desktop, interactions and light/dark-background readability.
+
 # Video introduction and section labels
 - [x] Remove the play invitation in both languages and unused heading min-height/mobile break, keeping the first sentence, typography and natural 48px video gap.
 - [x] Apply shared solid muted turquoise-green surface-specific color tokens to the two matching lime homepage labels only; Chromium/WebKit verified at 402×725 and 1280×1800, unchanged 12px IBM Plex Mono/weight/uppercase/tracking, unchanged gradient headings and lime icons, deferred video source intact, no overflow/runtime errors, build OK. Physical iPhone not tested.
