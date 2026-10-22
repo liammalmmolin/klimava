@@ -12,10 +12,11 @@ import auroraWide4672 from "@/assets/aurora-becker-wide-4672.webp.asset.json";
 import auroraPortrait500 from "@/assets/aurora-becker-portrait-500.webp.asset.json";
 import auroraPortrait900 from "@/assets/aurora-becker-portrait-900.webp.asset.json";
 import auroraPortrait1400 from "@/assets/aurora-becker-portrait-1400.webp.asset.json";
+import auroraPortrait2000 from "@/assets/aurora-becker-portrait-2000.webp.asset.json";
 import { assetUrl } from "@/lib/asset-url";
 
 const auroraWideSources = `${assetUrl(auroraWide800)} 800w, ${assetUrl(auroraWide1600)} 1600w, ${assetUrl(auroraWide2400)} 2400w, ${assetUrl(auroraWide3600)} 3600w, ${assetUrl(auroraWide4672)} 4672w`;
-const auroraPortraitSources = `${assetUrl(auroraPortrait500)} 500w, ${assetUrl(auroraPortrait900)} 900w, ${assetUrl(auroraPortrait1400)} 1400w`;
+const auroraPortraitSources = `${assetUrl(auroraPortrait500)} 500w, ${assetUrl(auroraPortrait900)} 900w, ${assetUrl(auroraPortrait1400)} 1400w, ${assetUrl(auroraPortrait2000)} 2000w`;
 
 import klimavaLogo from "@/assets/klimava-logo.jpeg";
 import { Link } from "react-router-dom";
@@ -75,7 +76,9 @@ export const HeroSection = ({ scale }: HeroSectionProps) => {
         style={{ scale }}
         className="relative h-[calc(100vh-1.5rem)] min-h-[640px] origin-top overflow-hidden rounded-[1.75rem] will-change-transform md:h-[calc(100vh-2rem)] md:rounded-[2.25rem]">
         <picture>
-          <source media="(max-width: 767px)" srcSet={auroraPortraitSources} sizes="100vw" />
+          {/* Tall phones paint the portrait crop height-limited (wider than the
+              viewport), so request pixels for that painted width. */}
+          <source media="(max-width: 767px)" srcSet={auroraPortraitSources} sizes="max(100vw, calc((100vh - 1.5rem) * 0.556), 356px)" />
           <img
             src={assetUrl(auroraWide1600)}
             srcSet={auroraWideSources}
