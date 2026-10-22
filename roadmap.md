@@ -1,6 +1,7 @@
 # Updated homepage film
-- [ ] Replace the film with the supplied original MP4 and a sharp still; match the reference play symbol and lower-left title, preserving the existing frame and headings.
-- [ ] Verify click-to-play, preserved audio, fullscreen controls and deferred loading on desktop/mobile; report unavailable physical iPhone checks.
+- [x] Replace the film with the supplied original MP4 (1920×1080, 30fps, 27.57s, 14.7MB, H.264/AAC, unchanged bytes) and responsive sharp 6-second stills; reference-size SVG (13.5% of frame width), translucent gray fill/thin light contour/white triangle, lower-left title, existing frame and headings retained. Chromium/WebKit screenshots verified at 402×725 and 1280×1800; build OK; six existing regression tests pass.
+- [x] Verify zero media requests before click in Chromium/WebKit, source assignment on click, original audible audio track via FFmpeg and CDN HTTP 206 byte-range support. No autoplay, no muted audio, native controls and playsInline retained; no additional scrolling effects or layout changes.
+- [ ] Actual playback, audible output and fullscreen on desktop/iPhone Safari — sandbox Chromium lacks H.264 decoding (error 4), WebKit crashes decoding it; requires a supported browser/physical device unavailable here. Cover dismissal on actual playing remains unverified for the same reason.
 
 # Remaining contrast, metadata and mobile review
 - [x] Replace the hero with the supplied David Becker 4672×7008 original, store CDN original and sharp responsive crops, verify loaded filter-free full-opacity images and readable unchanged layout in Chromium/WebKit at 402×725, 1280×1800 and 1920×1080; build OK. Physical iPhone not tested.
