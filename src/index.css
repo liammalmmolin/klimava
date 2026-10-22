@@ -85,9 +85,8 @@
     --download-button-ink: 192 30% 9%;
     --download-halo-color: 172 38% 57%;
     --download-halo-green: 145 52% 62%;
-    --download-dust-neutral: 160 15% 92%;
-    --download-dust-tinted: 172 32% 67%;
-    --download-icon-halo: radial-gradient(ellipse 58% 62% at 50% 50%, hsl(var(--download-halo-green) / 0.26) 0%, hsl(var(--download-halo-green) / 0.2) 20%, hsl(var(--download-halo-green) / 0.11) 40%, hsl(var(--download-halo-green) / 0.045) 60%, hsl(var(--download-halo-green) / 0.012) 78%, hsl(var(--download-halo-green) / 0) 96%), radial-gradient(ellipse 55% 58% at 50% 50%, hsl(var(--download-halo-color) / 0.23) 0%, hsl(var(--download-halo-color) / 0.17) 20%, hsl(var(--download-halo-color) / 0.09) 40%, hsl(var(--download-halo-color) / 0.036) 60%, hsl(var(--download-halo-color) / 0.009) 78%, hsl(var(--download-halo-color) / 0) 96%);
+    /* Static, asymmetric two-layer light: brighter turquoise near the icon over a broad low green base; long eased falloff, no ring or edge. */
+    --download-icon-halo: radial-gradient(ellipse 30% 34% at 47% 47%, hsl(var(--download-halo-color) / 0.195) 0%, hsl(var(--download-halo-color) / 0.1677) 12%, hsl(var(--download-halo-color) / 0.1287) 24%, hsl(var(--download-halo-color) / 0.0897) 36%, hsl(var(--download-halo-color) / 0.0565) 48%, hsl(var(--download-halo-color) / 0.0312) 60%, hsl(var(--download-halo-color) / 0.0137) 72%, hsl(var(--download-halo-color) / 0.0039) 84%, hsl(var(--download-halo-color) / 0.0) 96%), radial-gradient(ellipse 46% 48% at 54% 52%, hsl(var(--download-halo-green) / 0.13) 0%, hsl(var(--download-halo-green) / 0.1118) 12%, hsl(var(--download-halo-green) / 0.0858) 24%, hsl(var(--download-halo-green) / 0.0598) 36%, hsl(var(--download-halo-green) / 0.0377) 48%, hsl(var(--download-halo-green) / 0.0208) 60%, hsl(var(--download-halo-green) / 0.0091) 72%, hsl(var(--download-halo-green) / 0.0026) 84%, hsl(var(--download-halo-green) / 0.0) 96%);
 
     /* Sidebar tokens */
     --sidebar-background: 140 18% 98%;
@@ -175,34 +174,15 @@
   .download-heading { color: hsl(var(--download-heading)); }
   .download-description { color: hsl(var(--download-copy)); }
   .download-icon-halo { background-image: var(--download-icon-halo); }
-  .download-icon-dust span {
+  /* Faint static grain dithers the gradient against 8-bit banding; rasterized once. */
+  .download-icon-halo::after {
+    content: '';
     position: absolute;
-    width: 2px;
-    height: 2px;
-    border-radius: 50%;
-    background-color: hsl(var(--download-dust-neutral));
-    opacity: 0;
-    animation: download-light-dust 8s ease-in-out infinite both;
-  }
-  .download-icon-dust span:nth-child(1) { left: 20%; top: 31%; animation-delay: -2.7s; }
-  .download-icon-dust span:nth-child(2) { left: 73%; top: 19%; width: 1.5px; height: 1.5px; animation-duration: 11s; animation-delay: -7s; background-color: hsl(var(--download-dust-tinted)); }
-  .download-icon-dust span:nth-child(3) { left: 85%; top: 57%; animation-duration: 9.7s; animation-delay: -4.9s; }
-  .download-icon-dust span:nth-child(4) { left: 26%; top: 72%; width: 1.5px; height: 1.5px; animation-duration: 12.5s; animation-delay: -4.2s; background-color: hsl(var(--download-dust-tinted)); }
-  .download-icon-dust span:nth-child(5) { left: 57%; top: 13%; width: 1.5px; height: 1.5px; animation-duration: 10.3s; animation-delay: -6.1s; }
-  .download-icon-dust span:nth-child(6) { left: 13%; top: 51%; width: 1.5px; height: 1.5px; animation-duration: 13s; animation-delay: -8.4s; background-color: hsl(var(--download-dust-tinted)); }
-  .download-icon-dust span:nth-child(7) { left: 69%; top: 80%; animation-duration: 11.8s; animation-delay: -3.6s; }
-  .download-icon-dust span:nth-child(8) { left: 35%; top: 23%; width: 1.5px; height: 1.5px; animation-duration: 14s; animation-delay: -10.8s; background-color: hsl(var(--download-dust-tinted)); }
-  .download-icon-dust span:nth-child(9) { left: 78%; top: 39%; width: 1px; height: 1px; animation-duration: 10.8s; animation-delay: -5.8s; }
-  .download-icon-dust span:nth-child(10) { left: 42%; top: 84%; width: 1px; height: 1px; animation-duration: 12.8s; animation-delay: -6.6s; background-color: hsl(var(--download-dust-tinted)); }
-  .download-icon-dust span:nth-child(11) { left: 31%; top: 56%; width: 1px; height: 1px; animation-duration: 9.2s; animation-delay: -4.4s; }
-  .download-icon-dust span:nth-child(12) { left: 62%; top: 66%; width: 1.5px; height: 1.5px; animation-duration: 13.7s; animation-delay: -9.1s; background-color: hsl(var(--download-dust-tinted)); }
-  @keyframes download-light-dust {
-    0%, 24%, 100% { opacity: 0; }
-    52% { opacity: 0.68; }
-    76% { opacity: 0; }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .download-icon-dust span { animation: none; opacity: 0.24; }
+    inset: 0;
+    opacity: 0.035;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    -webkit-mask-image: radial-gradient(ellipse 46% 48% at 50% 50%, #000 0%, transparent 100%);
+    mask-image: radial-gradient(ellipse 46% 48% at 50% 50%, #000 0%, transparent 100%);
   }
   .download-button,
   .download-button:hover { background-color: hsl(var(--brand-highlight)); color: hsl(var(--download-button-ink)); }

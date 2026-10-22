@@ -81,8 +81,8 @@ function Icon({ reducedMotion, onReady }: { reducedMotion: boolean; onReady: () 
           {/* Satin finish: moderate emission keeps the app colors exact while a
               fixed key light and soft environment model the form; the tight
               edge radius catches a fine highlight without any outline. */}
-          <meshStandardMaterial attach="material-0" map={artwork} emissiveMap={artwork} emissive={new Color(1, 1, 1)} emissiveIntensity={0.42} roughness={0.5} metalness={0} envMapIntensity={0.35} toneMapped={false} dithering onBeforeCompile={muteArtwork} />
-          <meshStandardMaterial attach="material-1" map={body} emissiveMap={body} emissive={new Color(1, 1, 1)} emissiveIntensity={0.42} roughness={0.5} metalness={0} envMapIntensity={0.35} toneMapped={false} dithering onBeforeCompile={muteArtwork} />
+          <meshStandardMaterial attach="material-0" map={artwork} emissiveMap={artwork} emissive={new Color(1, 1, 1)} emissiveIntensity={0.32} roughness={0.58} metalness={0} envMapIntensity={0.45} toneMapped={false} dithering onBeforeCompile={muteArtwork} />
+          <meshStandardMaterial attach="material-1" map={body} emissiveMap={body} emissive={new Color(1, 1, 1)} emissiveIntensity={0.32} roughness={0.58} metalness={0} envMapIntensity={0.45} toneMapped={false} dithering onBeforeCompile={muteArtwork} />
         </mesh>
       </group>
     </group>
@@ -92,9 +92,11 @@ function Icon({ reducedMotion, onReady }: { reducedMotion: boolean; onReady: () 
 export default function DownloadIconScene({ active, reducedMotion, onReady }: { active: boolean; reducedMotion: boolean; onReady: () => void }) {
   return (
     <Canvas orthographic camera={{ position: [0, 0, 7], zoom: 52.88 }} dpr={[2, 3]} frameloop={active ? "always" : "demand"} gl={{ alpha: true, antialias: true, powerPreference: "low-power" }}>
-      <ambientLight intensity={0.5} />
+      <ambientLight intensity={0.42} />
       {/* One fixed soft key light: the rotating form shifts naturally through it. */}
-      <directionalLight position={[-3, 4, 6]} intensity={0.85} />
+      <directionalLight position={[-3, 4, 6]} intensity={1} />
+      {/* Weak cool fill lifts the shadow side so the profile stays readable. */}
+      <directionalLight position={[4, -1, 2]} intensity={0.22} />
       <Suspense fallback={null}>
         <Environment resolution={64} frames={1}>
           <Lightformer intensity={0.8} position={[-3, 4, 5]} rotation-y={Math.PI} scale={[5, 6, 1]} />
