@@ -19,32 +19,6 @@ import klimavaLogo from "@/assets/klimava-logo.jpeg";
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
 
-const stickerData = [
-  { sv: "Skanna & tjäna!", en: "Scan & earn!", rotate: -4, halo: "#ffffff", color: "hsl(var(--foreground))" },
-  { sv: "Byt mot rabatter!", en: "Swap for discounts!", rotate: 3, halo: "hsl(var(--foreground))", color: "#ffffff" },
-  { sv: "100% gratis!", en: "100% free!", rotate: -2, halo: "hsl(var(--secondary))", color: "hsl(var(--foreground))" },
-];
-
-// Layers many small same-color text-shadows in a ring around the glyphs so the
-// highlight hugs each letter's silhouette (a "marker stroke") instead of sitting
-// behind the text as a plain rectangle.
-const stickerHalo = (color: string) => {
-  const layers: string[] = [];
-  const angleSteps = 16;
-  const ringSteps = 5;
-  for (let a = 0; a < angleSteps; a++) {
-    const angle = (a / angleSteps) * Math.PI * 2;
-    for (let r = 1; r <= ringSteps; r++) {
-      const x = (Math.cos(angle) * r * 0.045).toFixed(3);
-      const y = (Math.sin(angle) * r * 0.045).toFixed(3);
-      layers.push(`${x}em ${y}em 0 ${color}`);
-    }
-  }
-  return layers.join(", ");
-};
-
-const stickers = stickerData.map((s) => ({ ...s, shadow: stickerHalo(s.halo) }));
-
 interface HeroSectionProps {
   /** Scroll-linked scale (1 → smaller) so the card shrinks as the next section peels over it. */
   scale?: MotionValue<number>;
@@ -110,7 +84,7 @@ export const HeroSection = ({ scale }: HeroSectionProps) => {
         {/* Logo — anchored to this card's corner, scrolls away with it */}
         <Link to="/" className="absolute left-6 top-6 z-10 flex items-center gap-2.5 sm:left-8 sm:top-8">
           <img width={36} height={36} src={klimavaLogo} alt="Klimava" className="h-9 w-9 rounded-xl ring-1 ring-white/25" />
-          <span className="text-lg font-bold text-white">Klimava</span>
+          <span className="text-lg font-bold text-white"><span className="text-[1.1em]">K</span>limava</span>
         </Link>
 
         {/* App CTA — anchored to this card's corner, scrolls away with it */}
@@ -123,27 +97,6 @@ export const HeroSection = ({ scale }: HeroSectionProps) => {
             {t("Skaffa appen", "Get the app")}
           </a>
         </Button>
-
-        {/* Sticker tags — marker-highlight halo that hugs the letterforms, à la Gritch */}
-        <div className="absolute right-[4%] top-[38%] hidden flex-col items-end gap-4 md:flex">
-          {stickers.map((s, i) => (
-            <motion.span
-              key={s.sv}
-              initial={{ opacity: 0, scale: 0.6, rotate: s.rotate * 2 }}
-              animate={{ opacity: 1, scale: 1, rotate: s.rotate }}
-              transition={{ duration: 0.5, delay: 0.5 + i * 0.12, type: "spring", stiffness: 220, damping: 16 }}
-              whileHover={{ rotate: 0, scale: 1.06 }}
-              className="font-serif text-3xl italic font-bold leading-none lg:text-4xl"
-              style={{
-                color: s.color,
-                textShadow: s.shadow,
-                filter: "drop-shadow(0 4px 6px hsl(0 0% 0% / 0.35))",
-              }}
-            >
-              {t(s.sv, s.en)}
-            </motion.span>
-          ))}
-        </div>
 
         {/* Content — bottom-left, everything fits within the card */}
         <div className="absolute inset-x-0 bottom-0 p-6 sm:p-10 md:p-14">
