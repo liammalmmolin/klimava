@@ -75,8 +75,10 @@ const AdVideo = ({ src }: { src: string }) => {
             <div className="video-cover-shade absolute inset-0" />
 
             <span className="relative flex w-[13.5%] aspect-square items-center justify-center transition-transform duration-150 ease-out group-hover:scale-[1.03] group-active:scale-[0.96] group-active:duration-75 motion-reduce:transition-none">
-              <svg viewBox="0 0 100 100" aria-hidden="true" className="relative h-full w-full text-primary-foreground">
-                <circle cx="50" cy="50" r="49" className="video-play-disc" strokeWidth="1.5" />
+              {/* Stroke sits well inside the viewBox and overflow stays visible, so
+                  sub-pixel sizing or the press scale can never clip the bottom edge. */}
+              <svg viewBox="0 0 100 100" aria-hidden="true" overflow="visible" shapeRendering="geometricPrecision" className="relative h-full w-full overflow-visible text-primary-foreground">
+                <circle cx="50" cy="50" r="48.5" className="video-play-disc" strokeWidth="1.5" vectorEffect="non-scaling-stroke" />
                 <path d="M45 38.5 L62 50 L45 61.5 Z" fill="currentColor" stroke="currentColor" strokeWidth="1" strokeLinejoin="round" />
               </svg>
             </span>
