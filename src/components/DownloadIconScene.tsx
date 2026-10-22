@@ -104,9 +104,9 @@ function Icon({ reducedMotion, onReady }: { reducedMotion: boolean; onReady: () 
         {/* Back symbol: the original K, upright when seen from behind (the plane
             faces −Z, so its UVs read correctly, never mirrored), in a dark
             satin finish. Only the K's own pixels are kept from the artwork. */}
-        <mesh position-z={-0.1856} rotation-y={Math.PI} renderOrder={1}>
+        <mesh position-z={-0.1851} rotation-y={Math.PI} renderOrder={1}>
           <planeGeometry args={[2.4, 2.4]} />
-          <meshStandardMaterial map={artwork} color="#0b0f0e" roughness={0.55} metalness={0.3} envMapIntensity={0.6} transparent depthWrite={false} polygonOffset polygonOffsetFactor={-2} onBeforeCompile={backMark} />
+          <meshStandardMaterial map={artwork} color="#0b0f0e" roughness={0.55} metalness={0.3} envMapIntensity={0.6} transparent depthWrite={false} polygonOffset polygonOffsetFactor={-1} onBeforeCompile={backMark} />
         </mesh>
       </group>
     </group>
