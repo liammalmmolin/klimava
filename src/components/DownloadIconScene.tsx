@@ -1,22 +1,28 @@
 import { Suspense, useEffect, useMemo, useRef } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { Environment, Lightformer, useTexture } from "@react-three/drei";
-import { CanvasTexture, Color, Group, LinearFilter, MeshStandardMaterial, SRGBColorSpace } from "three";
+import { BackSide, CanvasTexture, Color, Group, LinearFilter, MeshStandardMaterial, SRGBColorSpace } from "three";
 import appArtwork from "@/assets/klimava-logo.jpeg";
 import { downloadFloatAt, downloadRotationAt, DOWNLOAD_ICON_STILL_ANGLE } from "@/lib/download-icon-motion";
 import { createDownloadIconGeometry } from "@/lib/download-icon-geometry";
 
 useTexture.preload(appArtwork);
 
-// Reduce chroma on both artwork contributions, never alpha or sampling quality.
-// The original texture stays untouched; the adjustment is compiled once.
-const muteArtwork: MeshStandardMaterial["onBeforeCompile"] = shader => {
-  shader.fragmentShader = `vec3 muteDownloadChroma(vec3 color) {
-    float luminance = dot(color, vec3(0.2126, 0.7152, 0.0722));
-    return mix(vec3(luminance), color, 0.9);
+// Anodized-aluminium grade, compiled once; the source texture stays untouched.
+// Body colors shift (in linear space) toward a deeper, cooler Klimava green →
+// muted mint/teal. The black K is masked out: it stays matte and non-metallic
+// so it contrasts with the metal, with its exact sampled edges.
+const anodize: MeshStandardMaterial["onBeforeCompile"] = shader => {
+  shader.fragmentShader = `float klimavaMetalMask = 1.0;
+  vec3 anodizeDownload(vec3 c) {
+    return c * vec3(0.5, 0.82, 1.02);
   }\n${shader.fragmentShader}`
-    .replace("#include <map_fragment>", "#include <map_fragment>\ndiffuseColor.rgb = muteDownloadChroma(diffuseColor.rgb);")
-    .replace("#include <emissivemap_fragment>", "#include <emissivemap_fragment>\ntotalEmissiveRadiance = muteDownloadChroma(totalEmissiveRadiance);");
+    .replace("#include <map_fragment>", `#include <map_fragment>
+      klimavaMetalMask = smoothstep(0.03, 0.12, dot(diffuseColor.rgb, vec3(0.2126, 0.7152, 0.0722)));
+      diffuseColor.rgb = anodizeDownload(diffuseColor.rgb);`)
+    .replace("#include <roughnessmap_fragment>", "#include <roughnessmap_fragment>\nroughnessFactor = mix(0.82, roughnessFactor, klimavaMetalMask);")
+    .replace("#include <metalnessmap_fragment>", "#include <metalnessmap_fragment>\nmetalnessFactor *= klimavaMetalMask;")
+    .replace("#include <emissivemap_fragment>", "#include <emissivemap_fragment>\ntotalEmissiveRadiance = anodizeDownload(totalEmissiveRadiance);");
 };
 
 // The app icon's own background gradient, measured from the original artwork
@@ -78,11 +84,11 @@ function Icon({ reducedMotion, onReady }: { reducedMotion: boolean; onReady: () 
           notified.current = true;
           onReady();
         }}>
-          {/* Satin finish: moderate emission keeps the app colors exact while a
-              fixed key light and soft environment model the form; the tight
-              edge radius catches a fine highlight without any outline. */}
-          <meshStandardMaterial attach="material-0" map={artwork} emissiveMap={artwork} emissive={new Color(1, 1, 1)} emissiveIntensity={0.27} roughness={0.5} metalness={0} envMapIntensity={0.6} toneMapped={false} dithering onBeforeCompile={muteArtwork} />
-          <meshStandardMaterial attach="material-1" map={body} emissiveMap={body} emissive={new Color(1, 1, 1)} emissiveIntensity={0.27} roughness={0.5} metalness={0} envMapIntensity={0.6} toneMapped={false} dithering onBeforeCompile={muteArtwork} />
+          {/* Satin anodized aluminium: color comes from tinted reflections of a
+              soft studio environment; a whisper of emission keeps dark angles
+              readable without any glowing outline. */}
+          <meshStandardMaterial attach="material-0" map={artwork} emissiveMap={artwork} emissive={new Color(1, 1, 1)} emissiveIntensity={0.07} roughness={0.38} metalness={0.9} envMapIntensity={1.15} dithering onBeforeCompile={anodize} />
+          <meshStandardMaterial attach="material-1" map={body} emissiveMap={body} emissive={new Color(1, 1, 1)} emissiveIntensity={0.07} roughness={0.38} metalness={0.9} envMapIntensity={1.15} dithering onBeforeCompile={anodize} />
         </mesh>
       </group>
     </group>
@@ -96,19 +102,22 @@ export default function DownloadIconScene({ active, reducedMotion, onReady, onFa
         // A lost context falls back to the still artwork once; no restart attempts.
         gl.domElement.addEventListener("webglcontextlost", () => onFailure(), { once: true });
       }}>
-      {/* Sky/ground ambient lifts edge radii facing away from the key, so colors
-          continue over the edge without dark bands. */}
-      <hemisphereLight args={["#ffffff", "#cfd8d2", 0.46]} />
-      {/* One fixed soft key light: the rotating form shifts naturally through it. */}
-      <directionalLight position={[-3, 5, 4]} intensity={1.05} />
-      {/* Weak fill lifts the shadow side so the profile stays readable. */}
-      <directionalLight position={[4, -1, 3]} intensity={0.24} />
+      <hemisphereLight args={["#ffffff", "#9fb3aa", 0.25]} />
+      {/* Fixed soft key from above-left; weak fill on the shadow side. */}
+      <directionalLight position={[-3, 5, 4]} intensity={0.7} />
+      <directionalLight position={[4, -1, 3]} intensity={0.18} />
       <Suspense fallback={null}>
-        <Environment resolution={64} frames={1}>
-          <Lightformer intensity={0.8} position={[-3, 4, 5]} rotation-y={Math.PI} scale={[5, 6, 1]} />
-          {/* Broad soft overhead panel: one wide satin sheen, never a wet hotspot. */}
-          <Lightformer intensity={0.5} position={[0, 6, 2]} rotation-x={Math.PI / 2} scale={[10, 4, 1]} />
-          <Lightformer intensity={0.4} position={[4, 1, -3]} rotation-y={-Math.PI / 2} scale={[4, 6, 1]} />
+        <Environment resolution={128} frames={1}>
+          {/* Dim studio surround: dark angles keep detail instead of going black. */}
+          <mesh scale={30}>
+            <sphereGeometry args={[1, 32, 16]} />
+            <meshBasicMaterial side={BackSide} color="#4a5752" />
+          </mesh>
+          {/* One large soft overhead softbox: a broad, controlled sheen. */}
+          <Lightformer form="rect" intensity={1.6} position={[-2, 6, 4]} rotation-x={-Math.PI / 3} scale={[12, 7, 1]} />
+          <Lightformer intensity={0.7} position={[-6, 1, 2]} rotation-y={Math.PI / 2} scale={[4, 8, 1]} />
+          <Lightformer intensity={0.45} position={[6, 0, -3]} rotation-y={-Math.PI / 2} scale={[4, 8, 1]} />
+          <Lightformer intensity={0.35} position={[0, 1, -7]} scale={[8, 6, 1]} />
         </Environment>
         <Icon reducedMotion={reducedMotion} onReady={onReady} />
       </Suspense>
