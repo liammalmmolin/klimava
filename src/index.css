@@ -85,8 +85,10 @@
     --download-button-ink: 192 30% 9%;
     --download-halo-color: 172 38% 57%;
     --download-halo-green: 145 52% 62%;
-    /* Static, asymmetric two-layer light: brighter turquoise near the icon over a broad low green base; long eased falloff, no ring or edge. */
-    --download-icon-halo: radial-gradient(ellipse 30% 34% at 47% 47%, hsl(var(--download-halo-color) / 0.195) 0%, hsl(var(--download-halo-color) / 0.1677) 12%, hsl(var(--download-halo-color) / 0.1287) 24%, hsl(var(--download-halo-color) / 0.0897) 36%, hsl(var(--download-halo-color) / 0.0565) 48%, hsl(var(--download-halo-color) / 0.0312) 60%, hsl(var(--download-halo-color) / 0.0137) 72%, hsl(var(--download-halo-color) / 0.0039) 84%, hsl(var(--download-halo-color) / 0.0) 96%), radial-gradient(ellipse 46% 48% at 54% 52%, hsl(var(--download-halo-green) / 0.13) 0%, hsl(var(--download-halo-green) / 0.1118) 12%, hsl(var(--download-halo-green) / 0.0858) 24%, hsl(var(--download-halo-green) / 0.0598) 36%, hsl(var(--download-halo-green) / 0.0377) 48%, hsl(var(--download-halo-green) / 0.0208) 60%, hsl(var(--download-halo-green) / 0.0091) 72%, hsl(var(--download-halo-green) / 0.0026) 84%, hsl(var(--download-halo-green) / 0.0) 96%);
+    /* Static, asymmetric two-layer light: a bright mint core above-left of the icon
+       over a broad, faint petrol wash that reaches past the icon on every side,
+       including below; long eased falloff, no ring or edge. */
+    --download-icon-halo: radial-gradient(ellipse 32% 30% at 44% 40%, hsl(var(--download-halo-color) / 0.42) 0%, hsl(var(--download-halo-color) / 0.36) 12%, hsl(var(--download-halo-color) / 0.28) 24%, hsl(var(--download-halo-color) / 0.19) 36%, hsl(var(--download-halo-color) / 0.12) 48%, hsl(var(--download-halo-color) / 0.066) 60%, hsl(var(--download-halo-color) / 0.03) 72%, hsl(var(--download-halo-color) / 0.008) 84%, hsl(var(--download-halo-color) / 0.0) 96%), radial-gradient(ellipse 52% 56% at 52% 54%, hsl(var(--download-halo-green) / 0.22) 0%, hsl(var(--download-halo-green) / 0.19) 12%, hsl(var(--download-halo-green) / 0.145) 24%, hsl(var(--download-halo-green) / 0.1) 36%, hsl(var(--download-halo-green) / 0.064) 48%, hsl(var(--download-halo-green) / 0.035) 60%, hsl(var(--download-halo-green) / 0.015) 72%, hsl(var(--download-halo-green) / 0.004) 84%, hsl(var(--download-halo-green) / 0.0) 96%);
 
     /* Sidebar tokens */
     --sidebar-background: 140 18% 98%;
@@ -173,15 +175,8 @@
   .download-icon-placeholder { filter: saturate(0.9); }
   .download-heading { color: hsl(var(--download-heading)); }
   .download-description { color: hsl(var(--download-copy)); }
+  /* The halo is deliberately still: a fixed studio-light backdrop the icon turns in front of. */
   .download-icon-halo { background-image: var(--download-icon-halo); }
-  /* Glow drifts and breathes with the icon's turn (same 9.5 s timeline, phase-
-     aligned from JS); compositor-only transform/opacity, smaller than the icon. */
-  .download-icon-halo-motion { animation: download-halo-drift 9.5s infinite; will-change: transform, opacity; }
-  @keyframes download-halo-drift {
-    0%, 100% { transform: translate(0, 0) scale(1.02); opacity: 1; animation-timing-function: ease-in-out; }
-    50% { transform: translate(-2%, 1%) scale(1); opacity: 0.94; animation-timing-function: ease-in-out; }
-  }
-  @media (prefers-reduced-motion: reduce) { .download-icon-halo-motion { animation: none; } }
   /* Faint static grain dithers the gradient against 8-bit banding; rasterized once. */
   .download-icon-halo::after {
     content: '';
