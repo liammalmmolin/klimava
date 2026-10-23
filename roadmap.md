@@ -1,7 +1,8 @@
 # Contour-cut desktop decals
 - [x] Replace rectangular plates with single unioned Raleway-outline SVG silhouettes; retain real text, colors, typography and animation.
 - [x] Offset only the first decal upward by 12 CSS pixels without changing sibling layout.
-- [ ] Verify contour alignment, spacing and animated/settled states in Chromium/WebKit at multiple desktop widths; preserve mobile and badge.
+- [x] Verify Swedish/English contours and retained sibling positions in Chromium/WebKit at 1024/1280/1920 widths DPR2; first decal exactly 12px higher, no desktop overflow or page errors. Reviewed actual mid-entry captures in both engines and settled close-ups. Mobile 402×725 DPR3 keeps decals hidden; badge and aurora source markup unchanged. Eight regression tests pass; build OK.
+- [ ] Native Safari on Mac — no physical Mac available; WebKit checks do not replace native Safari hardware verification.
 
 # Desktop App Store badge and clean decal plates
 - [x] Replace only the homepage desktop top-right gradient CTA with localized official Apple SVG badges and the unchanged app link.
