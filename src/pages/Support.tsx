@@ -1,5 +1,5 @@
 import { revealViewport } from "@/lib/motion";
-import { useState } from "react";
+import { useState, useId } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Header } from "@/components/Header";
@@ -115,6 +115,7 @@ const renderTitle = (title: string) => {
 const FeedbackCard = ({ category }: { category: (typeof feedbackCategories)[number] }) => {
   const { t } = useLanguage();
   const [value, setValue] = useState("");
+  const inputId = useId();
 
   const handleSend = () => {
     if (!value.trim()) return;
@@ -131,17 +132,24 @@ const FeedbackCard = ({ category }: { category: (typeof feedbackCategories)[numb
       whileInView={{ opacity: 1, y: 0 }}
       viewport={revealViewport}
       transition={{ duration: 0.4 }}
-      className="rounded-3xl border border-border bg-card p-6 shadow-soft md:p-8"
+      className="flex flex-col rounded-3xl border border-border bg-card p-6 shadow-soft md:p-8"
     >
       <h3 className="mb-2 font-heading text-lg font-medium text-foreground">{renderTitle(t(category.title.sv, category.title.en))}</h3>
-      <p className="mb-5 text-sm leading-relaxed text-muted-foreground">{t(category.desc.sv, category.desc.en)}</p>
-      <div className="flex items-center gap-2">
-        <input
+      <p className="mb-5 flex-1 text-sm leading-relaxed text-muted-foreground">{t(category.desc.sv, category.desc.en)}</p>
+      <label htmlFor={inputId} className="sr-only">
+        {t(
+          { Beröm: "Ditt beröm", Förbättringsförslag: "Ditt förbättringsförslag", "Rapportera en bugg": "Din buggrapport" }[category.title.sv],
+          { Beröm: "Your praise", Förbättringsförslag: "Your suggestion", "Rapportera en bugg": "Your bug report" }[category.title.sv]
+        )}
+      </label>
+      <div className="flex items-start gap-2">
+        <textarea
+          id={inputId}
+          rows={3}
           value={value}
           onChange={(e) => setValue(e.target.value)}
-          onKeyDown={(e) => e.key === "Enter" && handleSend()}
           placeholder={t("Skriv ditt meddelande", "Write your message")}
-          className="min-w-0 flex-1 rounded-full border border-border bg-background px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/40"
+          className="min-w-0 flex-1 resize-y rounded-2xl border border-border bg-background px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/40"
         />
         <button
           onClick={handleSend}
@@ -303,7 +311,7 @@ const Support = () => {
                 </p>
               </motion.div>
 
-              <div className="grid gap-6 md:grid-cols-3">
+              <div className="grid items-stretch gap-6 md:grid-cols-3">
                 {feedbackCategories.map((category) => (
                   <FeedbackCard key={category.title.sv} category={category} />
                 ))}
