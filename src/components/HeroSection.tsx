@@ -22,6 +22,7 @@ const auroraPortraitSources = `${assetUrl(auroraPortrait500)} 500w, ${assetUrl(a
 import klimavaLogo from "@/assets/klimava-logo.jpeg";
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
+import stickerContours from "@/lib/hero-sticker-contours.json";
 
 const stickerData = [
   { sv: "Skanna & tjäna!", en: "Scan & earn!", rotate: -4, plate: "hero-sticker-light" },
@@ -107,23 +108,30 @@ export const HeroSection = ({ scale }: HeroSectionProps) => {
         {/* App CTA — anchored to this card's corner, scrolls away with it */}
         <AppStoreBadge className="absolute right-6 top-6 z-10 hidden lg:inline-flex sm:right-8 sm:top-8" />
 
-        {/* One CSS plate and real text per decal, animated together. Desktop only. */}
+        {/* One unioned vector backing and real text per decal, animated together. */}
         <div
           className="pointer-events-none absolute right-[4%] top-[38%] z-[1] hidden flex-col items-end gap-4 md:flex"
           style={{ isolation: "isolate" }}
         >
-          {stickers.map((s, i) => (
+          {stickers.map((s, i) => {
+            const text = t(s.sv, s.en);
+            const contour = stickerContours[text as keyof typeof stickerContours];
+            return (
             <motion.span
               key={s.sv}
               initial={{ opacity: 0, scale: 0.6, rotate: s.rotate * 2 }}
               animate={{ opacity: 1, scale: 1, rotate: s.rotate }}
               transition={{ duration: 0.5, delay: 0.5 + i * 0.12, type: "spring", stiffness: 220, damping: 16 }}
               whileHover={{ rotate: 0, scale: 1.06 }}
-              className={`pointer-events-auto relative inline-block whitespace-nowrap rounded-lg px-[0.35em] py-[0.22em] font-sans text-3xl font-bold tracking-tight leading-none lg:text-4xl ${s.plate}`}
+              className={`pointer-events-auto relative inline-block whitespace-nowrap px-[0.35em] py-[0.22em] font-sans text-3xl font-bold tracking-tight leading-none lg:text-4xl ${s.plate} ${i === 0 ? "-top-3" : ""}`}
             >
-              {t(s.sv, s.en)}
+              <svg aria-hidden="true" viewBox={`0 0 ${contour.width} ${contour.height}`} preserveAspectRatio="none" className="hero-sticker-contour absolute inset-0 h-full w-full overflow-visible">
+                <path d={contour.path} />
+              </svg>
+              <span className="relative">{text}</span>
             </motion.span>
-          ))}
+            );
+          })}
         </div>
 
         {/* Content — bottom-left, everything fits within the card */}

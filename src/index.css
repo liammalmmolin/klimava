@@ -167,9 +167,10 @@
 }
 
 @layer utilities {
-  .hero-sticker-light { background-color: hsl(var(--card)); color: hsl(var(--foreground)); }
-  .hero-sticker-dark { background-color: hsl(var(--foreground)); color: hsl(var(--card)); }
-  .hero-sticker-mint { background-color: hsl(var(--secondary)); color: hsl(var(--foreground)); }
+  .hero-sticker-light { --sticker-backing: var(--card); color: hsl(var(--foreground)); }
+  .hero-sticker-dark { --sticker-backing: var(--foreground); color: hsl(var(--card)); }
+  .hero-sticker-mint { --sticker-backing: var(--secondary); color: hsl(var(--foreground)); }
+  .hero-sticker-contour { fill: hsl(var(--sticker-backing)); }
 
   .small-accent { color: hsl(var(--small-accent)); }
 
