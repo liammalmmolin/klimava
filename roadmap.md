@@ -1,3 +1,9 @@
+# iPhone horizontal overflow
+- [x] Identify the actual page-width overflow: the download atmosphere's negative horizontal insets and animated bounds exceed phone width.
+- [x] Contain only the download section's horizontal overflow below the desktop breakpoint using clip, preserving vertical overflow and all existing geometry/effects.
+- [x] Verify in WebKit/Chromium at 375/390/402/430 and 1280px: page width equals viewport throughout sampled entrance/scroll animations and a full icon turn; horizontal scroll stays zero; vertical scroll, menu, Team link/history work. Before/after page geometry matches exactly at 390/1280; reduced-motion download screenshots are pixel-identical. Eight existing motion/asset tests pass; build OK. Chromium click assigns video source, but decoder reports error 4.
+- [ ] Physical iPhone Safari gestures and actual film playback — no physical iPhone available; WebKit process crashes on video decoding and Chromium lacks playback support in this environment. Video code/assets unchanged.
+
 # Contour-cut desktop decals
 - [x] Replace rectangular plates with single unioned Raleway-outline SVG silhouettes; retain real text, colors, typography and animation.
 - [x] Offset only the first decal upward by 12 CSS pixels without changing sibling layout.

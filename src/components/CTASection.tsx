@@ -57,7 +57,9 @@ export const CTASection = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} id="download" className="download-section relative flex min-h-screen min-h-[100lvh] flex-col justify-center py-16 md:py-24">
+    // The transparent atmosphere bounds exceed phone widths. Clip only this
+    // section horizontally; clip creates no scroll container and leaves Y visible.
+    <section ref={sectionRef} id="download" className="download-section relative flex min-h-screen min-h-[100lvh] flex-col justify-center overflow-x-clip overflow-y-visible py-16 md:overflow-visible md:py-24">
       <div className="container relative mx-auto w-full px-6">
         <div className="max-w-3xl mx-auto text-center">
           <div ref={iconRef} data-animation={visible && tabVisible && !reducedMotion ? "running" : "paused"} className="relative mx-auto mb-8 h-[220px] w-[260px] md:mb-10 md:h-[260px] md:w-[300px]" role="img" aria-label={t("Klimavas appikon", "Klimava app icon")}>

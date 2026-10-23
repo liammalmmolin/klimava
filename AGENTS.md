@@ -1,5 +1,7 @@
 # Project rules
 
+- Clip mobile download X overflow locally, leaving Y visible; avoid scroll containers to preserve sticky behavior.
+
 - AppStoreBadge preserves official Apple SVG proportions; desktop decals use unioned SVG silhouettes derived from local Raleway bold outlines with real text in the same motion element, avoiding overlapping strokes and raster edges.
 
 - Large heading and filled-element gradients use independent gradient-start/end tokens; small formerly solid-lime icons and links use small-accent and labels use surface-specific section-label utilities, so neither group recolors the other. Keep approved download colors and media/logo artwork independent.
