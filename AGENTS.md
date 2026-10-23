@@ -1,6 +1,6 @@
 # Project rules
 
-- Localized App Store badges use official Apple SVG artwork in AppStoreBadge, preserving its intrinsic aspect ratio; desktop hero decals use one token-colored CSS plate and real text in the same motion element to avoid glyph halos and duplicated raster edges.
+- AppStoreBadge preserves official Apple SVG proportions; desktop decals use unioned SVG silhouettes derived from local Raleway bold outlines with real text in the same motion element, avoiding overlapping strokes and raster edges.
 
 - Large heading and filled-element gradients use independent gradient-start/end tokens; small formerly solid-lime icons and links use small-accent and labels use surface-specific section-label utilities, so neither group recolors the other. Keep approved download colors and media/logo artwork independent.
 
