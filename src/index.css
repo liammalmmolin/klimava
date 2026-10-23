@@ -167,6 +167,10 @@
 }
 
 @layer utilities {
+  .hero-sticker-light { background-color: hsl(var(--card)); color: hsl(var(--foreground)); }
+  .hero-sticker-dark { background-color: hsl(var(--foreground)); color: hsl(var(--card)); }
+  .hero-sticker-mint { background-color: hsl(var(--secondary)); color: hsl(var(--foreground)); }
+
   .small-accent { color: hsl(var(--small-accent)); }
 
   .download-section { background-color: hsl(var(--download-surface)); }
