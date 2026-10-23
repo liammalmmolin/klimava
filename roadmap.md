@@ -1,3 +1,8 @@
+# Desktop App Store badge and clean decal plates
+- [ ] Replace only the homepage desktop top-right gradient CTA with a localized official black Apple badge.
+- [ ] Replace glyph halos with one clean plate per animated decal, preserving motion, colors and aurora.
+- [ ] Verify entry and settled states in Chromium and WebKit at multiple desktop widths; confirm mobile layout remains unchanged.
+
 # Desktop rendering quality correction
 - [x] Correct height-limited desktop cover selection: 1280×1800 DPR1 now loads 3600 rather than 1600; wide Retina uses the 4672 native crop. No crop, colour, filter, mobile-source or sticker changes.
 - [x] Desktop poster now uses a lossless 1920×1080 decoded frame (16 KB), with mobile variants unchanged. Reviewed SVG play control and sticker entry/settled close-ups, reload and back navigation; retained existing design.
