@@ -1,3 +1,9 @@
+# Desktop App Store badge and clean decal plates
+- [x] Replace only the homepage desktop top-right gradient CTA with localized official Apple SVG badges and the unchanged app link.
+- [x] Replace glyph halos with one clean CSS plate per animated decal; retain original spring, delays, order, tilts, colors and aurora picture markup unchanged.
+- [x] Verify Swedish/English badges and settled decal close-ups in Chromium and WebKit at 1024/1280/1920 widths at DPR2; mobile 402×725 DPR3 retains hidden decorations and unchanged hero layout. No page exceptions; build OK and ten existing regression tests pass.
+- [ ] Native Safari/Chrome hardware and exact mid-entry visual inspection — native browsers unavailable; automated timing captures landed before or after the visible entry and cannot establish every intermediate frame. Mobile page-level overflow measured 436px at 402px; new desktop-only layers are hidden and this unrelated layout was left untouched.
+
 # Desktop rendering quality correction
 - [x] Correct height-limited desktop cover selection: 1280×1800 DPR1 now loads 3600 rather than 1600; wide Retina uses the 4672 native crop. No crop, colour, filter, mobile-source or sticker changes.
 - [x] Desktop poster now uses a lossless 1920×1080 decoded frame (16 KB), with mobile variants unchanged. Reviewed SVG play control and sticker entry/settled close-ups, reload and back navigation; retained existing design.

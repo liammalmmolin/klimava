@@ -1,6 +1,7 @@
 import { motion, useMotionValueEvent, useScroll, type MotionValue } from "framer-motion";
 import { useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
+import { AppStoreBadge } from "@/components/AppStoreBadge";
 import { Star, Play } from "@/components/icons";
 import appStoreBadge from "@/assets/app-store-badge.png?format=webp&quality=92";
 // Separate crops downscaled from the 4672×7008 Dropbox original.
@@ -23,9 +24,9 @@ import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const stickerData = [
-  { sv: "Skanna & tjäna!", en: "Scan & earn!", rotate: -4, halo: "#ffffff", color: "hsl(var(--foreground))" },
-  { sv: "Byt mot rabatter!", en: "Swap for discounts!", rotate: 3, halo: "hsl(var(--foreground))", color: "#ffffff" },
-  { sv: "100% gratis!", en: "100% free!", rotate: -2, halo: "hsl(var(--secondary))", color: "hsl(var(--foreground))" },
+  { sv: "Skanna & tjäna!", en: "Scan & earn!", rotate: -4, plate: "hero-sticker-light" },
+  { sv: "Byt mot rabatter!", en: "Swap for discounts!", rotate: 3, plate: "hero-sticker-dark" },
+  { sv: "100% gratis!", en: "100% free!", rotate: -2, plate: "hero-sticker-mint" },
 ];
 
 const stickers = stickerData;
@@ -104,19 +105,9 @@ export const HeroSection = ({ scale }: HeroSectionProps) => {
         </Link>
 
         {/* App CTA — anchored to this card's corner, scrolls away with it */}
-        <Button
-          size="default"
-          className="absolute right-6 top-6 z-10 hidden rounded-full lg:inline-flex gradient-bg text-primary-foreground hover:opacity-90 font-medium text-sm px-6 sm:right-8 sm:top-8"
-          asChild
-        >
-          <a href="https://apps.apple.com/se/app/klimava/id6760266069" target="_blank" rel="noopener noreferrer">
-            {t("Skaffa appen", "Get the app")}
-          </a>
-        </Button>
+        <AppStoreBadge className="absolute right-6 top-6 z-10 hidden lg:inline-flex sm:right-8 sm:top-8" />
 
-        {/* Sticker tags — marker-highlight halo that hugs the letterforms, à la Gritch. Desktop only. */}
-        {/* Isolated (no forced GPU raster layer) so text re-rasterizes crisply at its final
-            size; the halo is a vector text stroke instead of 80 stair-stepped shadow copies. */}
+        {/* One CSS plate and real text per decal, animated together. Desktop only. */}
         <div
           className="pointer-events-none absolute right-[4%] top-[38%] z-[1] hidden flex-col items-end gap-4 md:flex"
           style={{ isolation: "isolate" }}
@@ -128,24 +119,9 @@ export const HeroSection = ({ scale }: HeroSectionProps) => {
               animate={{ opacity: 1, scale: 1, rotate: s.rotate }}
               transition={{ duration: 0.5, delay: 0.5 + i * 0.12, type: "spring", stiffness: 220, damping: 16 }}
               whileHover={{ rotate: 0, scale: 1.06 }}
-              className="pointer-events-auto relative inline-block font-sans text-3xl font-bold tracking-tight leading-none lg:text-4xl"
+              className={`pointer-events-auto relative inline-block whitespace-nowrap rounded-lg px-[0.35em] py-[0.22em] font-sans text-3xl font-bold tracking-tight leading-none lg:text-4xl ${s.plate}`}
             >
-              <svg aria-hidden="true" className="absolute inset-0 h-full w-full select-none overflow-visible" style={{ filter: "none" }}>
-                <text
-                  x="0"
-                  y="50%"
-                  dominantBaseline="central"
-                  fill={s.halo}
-                  stroke={s.halo}
-                  strokeWidth="0.45em"
-                  strokeLinejoin="round"
-                  strokeLinecap="round"
-                  style={{ font: "inherit", letterSpacing: "inherit", textShadow: "0 4px 6px hsl(0 0% 0% / 0.35)" }}
-                >
-                  {t(s.sv, s.en)}
-                </text>
-              </svg>
-              <span className="relative" style={{ color: s.color }}>{t(s.sv, s.en)}</span>
+              {t(s.sv, s.en)}
             </motion.span>
           ))}
         </div>
