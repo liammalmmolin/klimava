@@ -2,8 +2,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { Button } from "@/components/ui/button";
-import { Apple } from "lucide-react";
+import appStoreBadge from "@/assets/app-store-badge.png?format=webp&quality=92";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { features } from "@/data/features";
 import { fadeUp, revealViewport } from "@/lib/motion";
@@ -49,12 +48,9 @@ const AboutApp = () => {
               )}
             </p>
             <div className="flex justify-center mt-8">
-              <Button variant="hero" size="xl" asChild>
-                <a href="https://apps.apple.com/se/app/klimava/id6760266069" target="_blank" rel="noopener noreferrer">
-                  <Apple className="w-5 h-5" />
-                  {t("Hämta i App Store", "Download on the App Store")}
-                </a>
-              </Button>
+              <a href="https://apps.apple.com/se/app/klimava/id6760266069" target="_blank" rel="noopener noreferrer" className="rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
+                <img width={168} height={56} src={appStoreBadge} alt={t("Hämta i App Store", "Download on the App Store") as string} className="h-12 w-[150px] object-cover sm:h-14 sm:w-[168px]" />
+              </a>
             </div>
           </motion.div>
 
