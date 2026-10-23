@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useMemo, ReactNode } from "react";
+import { createContext, useContext, useState, useMemo, useEffect, ReactNode } from "react";
 
 type Language = "sv" | "en";
 
@@ -15,6 +15,11 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
 
 export const LanguageProvider = ({ children }: { children: ReactNode }) => {
   const [language, setLanguage] = useState<Language>("sv");
+
+  useEffect(() => {
+    document.documentElement.lang = language;
+  }, [language]);
+
 
   const value = useMemo(() => ({
     language,
