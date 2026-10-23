@@ -98,8 +98,8 @@ function Icon({ reducedMotion, onReady }: { reducedMotion: boolean; onReady: () 
           {/* Satin anodized aluminium: color comes from tinted reflections of a
               soft studio environment; a whisper of emission keeps dark angles
               readable without any glowing outline. */}
-          <meshStandardMaterial attach="material-0" map={artwork} emissiveMap={artwork} emissive={new Color(1, 1, 1)} emissiveIntensity={0.07} roughness={0.42} metalness={0.9} envMapIntensity={1.1} dithering onBeforeCompile={anodize} />
-          <meshStandardMaterial attach="material-1" map={body} emissiveMap={body} emissive={new Color(1, 1, 1)} emissiveIntensity={0.07} roughness={0.42} metalness={0.9} envMapIntensity={1.1} dithering onBeforeCompile={anodize} />
+          <meshStandardMaterial attach="material-0" map={artwork} emissiveMap={artwork} emissive={new Color(1, 1, 1)} emissiveIntensity={0.07} roughness={0.32} metalness={0.9} envMapIntensity={1.25} dithering onBeforeCompile={anodize} />
+          <meshStandardMaterial attach="material-1" map={body} emissiveMap={body} emissive={new Color(1, 1, 1)} emissiveIntensity={0.07} roughness={0.32} metalness={0.9} envMapIntensity={1.25} dithering onBeforeCompile={anodize} />
         </mesh>
         {/* Back symbol: the original K, upright when seen from behind (the plane
             faces −Z, so its UVs read correctly, never mirrored), in a dark
@@ -120,9 +120,8 @@ export default function DownloadIconScene({ active, reducedMotion, onReady, onFa
         // A lost context falls back to the still artwork once; no restart attempts.
         gl.domElement.addEventListener("webglcontextlost", () => onFailure(), { once: true });
       }}>
-      {/* Soft ambient floor: faces turned away keep form and colour readable. */}
-      <hemisphereLight args={["#ffffff", "#9fb3aa", 0.35]} />
-      {/* Fixed soft key from above-left, slightly in front; weak fill on the shadow side. */}
+      <hemisphereLight args={["#ffffff", "#9fb3aa", 0.3]} />
+      {/* Fixed soft key from above-left; weak fill on the shadow side. */}
       <directionalLight position={[-3, 5, 4]} intensity={0.7} />
       <directionalLight position={[4, -1, 3]} intensity={0.18} />
       {/* Faint camera-side fill keeps the black K legible when facing away from the key. */}
@@ -134,19 +133,15 @@ export default function DownloadIconScene({ active, reducedMotion, onReady, onFa
             <sphereGeometry args={[1, 32, 16]} />
             <meshBasicMaterial side={BackSide} color="#3a4642" />
           </mesh>
-          {/* One large soft key above-left, slightly in front — like a big window:
-              a broad highlight that sweeps across each face as the icon turns. */}
-          <Lightformer form="rect" intensity={2.2} position={[-3, 6, 3]} rotation-x={-Math.PI / 3} scale={[12, 7, 1]} />
-          {/* Wide, dim frontal wash so the front face carries a soft sheen instead
-              of reading flat, without burning out the artwork. */}
-          <Lightformer form="rect" intensity={0.7} position={[0, 1.5, 7]} scale={[10, 8, 1]} />
+          {/* One large soft overhead softbox: a broad, controlled sheen. */}
+          <Lightformer form="rect" intensity={2.05} position={[-2, 6, 4]} rotation-x={-Math.PI / 3} scale={[12, 7, 1]} />
           <Lightformer intensity={1.1} position={[-6, 1, 2]} rotation-y={Math.PI / 2} scale={[4, 8, 1]} />
           <Lightformer intensity={0.45} position={[6, 0, -3]} rotation-y={-Math.PI / 2} scale={[4, 8, 1]} />
           <Lightformer intensity={0.35} position={[0, 1, -7]} scale={[8, 6, 1]} />
           {/* Broad tall softboxes front-right and behind-left: as the icon turns
               they sweep wide light/dark bands across both faces, not just edges. */}
-          <Lightformer form="rect" intensity={1.0} position={[4, 0.5, 5]} rotation-y={-Math.PI / 5} scale={[3.5, 10, 1]} />
-          <Lightformer form="rect" intensity={0.85} position={[-4, 0, -5]} rotation-y={Math.PI * 0.8} scale={[3.5, 10, 1]} />
+          <Lightformer form="rect" intensity={1.2} position={[4, 0.5, 5]} rotation-y={-Math.PI / 5} scale={[3.5, 10, 1]} />
+          <Lightformer form="rect" intensity={1.0} position={[-4, 0, -5]} rotation-y={Math.PI * 0.8} scale={[3.5, 10, 1]} />
         </Environment>
         <Icon reducedMotion={reducedMotion} onReady={onReady} />
       </Suspense>
